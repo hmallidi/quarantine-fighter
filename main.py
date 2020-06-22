@@ -9,3 +9,5 @@ def index():
 @app.route('/restaurants', methods=['GET', 'POST'])
 def restaurants():
     return render_template('restaurants.html')
+if __name__ == "__main__":
+	app.run()
