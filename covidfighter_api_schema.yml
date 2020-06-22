@@ -23,10 +23,10 @@ paths:
       summary: restaurants by id
       operationId: getRestaurantByID
       parameters:
-        - name: id
+        - in: path
+          name: id
           schema:
             type: integer
-          in: path
           description: ID of the Restaurant
           required: true
       responses:
@@ -56,22 +56,22 @@ paths:
       description: Get restaurants that fit a specific query
       operationId: getRestaurantsByQuery
       parameters:
-        - name: city
+        - in: query
+          name: city
           schema:
             type: string
-          in: query
           description: City in which Restaurant is located
           required: false
-        - name: open_status
+        - in: query  
+          name: open_status
           schema:
             type: integer
-          in: query
           description: Open Status of Restaurant
           required: false
-        - name: type
+        - in: query
+          name: type
           schema:
             type: string
-          in: query
           description: Type of Restaurant
           required: false
       responses:
@@ -101,10 +101,10 @@ paths:
       summary: hospitals by id
       operationId: getHospitalByID
       parameters:
-        - name: id
+        - in: path
+          name: id
           schema:
             type: integer
-          in: path
           description: ID of the Hospital
           required: true
       responses:
@@ -134,16 +134,16 @@ paths:
       description: Get hospitals that fit a specific query
       operationId: getHospitalsByQuery
       parameters:
-        - name: city
+        - in: query
+          name: city
           schema:
             type: string
-          in: query
           description: City in which Hospital is located
           required: false
-        - name: open_status
+        - in: query
+          name: open_status
           schema:
             type: integer
-          in: query
           description: Open Status of Hospital
           required: false
       responses:
@@ -173,10 +173,10 @@ paths:
       summary: grocery stores by id
       operationId: getGroceryStoreByID
       parameters:
-        - name: id
+        - in: path
+          name: id
           schema:
             type: integer
-          in: path
           description: ID of the GroceryStore
           required: true
       responses:
@@ -206,16 +206,16 @@ paths:
       description: Get grocery stores that fit a specific query
       operationId: getGroceryStoresByQuery
       parameters:
-        - name: city
+        - in: query
+          name: city
           schema:
             type: string
-          in: query
           description: City in which GroceryStore is located
           required: false
-        - name: open_status
+        - in: query
+          name: open_status
           schema:
             type: integer
-          in: query
           description: Open Status of GroceryStore
           required: false
       responses:
