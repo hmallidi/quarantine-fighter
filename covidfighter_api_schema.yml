@@ -15,6 +15,7 @@ tags:
   - name: GroceryStore
     description:  A grocery store
 paths:
+
   /Restaurants/{id}/:
     get:
       tags:
@@ -23,12 +24,11 @@ paths:
       operationId: getRestaurantByID
       parameters:
         - name: id
+          schema:
+            type: integer
           in: path
           description: ID of the Restaurant
           required: true
-          schema:
-            type: integer
-            format: int64
       responses:
         '200':
           description: 'Sample response: Details about a Restaurant by ID'
@@ -43,13 +43,12 @@ paths:
                 $ref: '#/components/schemas/Restaurant'
         default:
           description: Unexpected error
-          schema:
-                type: object
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /Restaurants/Search/:
+
+  /Restaurants/:
     get:
       tags:
         - Restaurant
@@ -58,30 +57,29 @@ paths:
       operationId: getRestaurantsByQuery
       parameters:
         - name: city
+          schema:
+            type: string
           in: query
           description: City in which Restaurant is located
           required: false
-          schema:
-            type: string
         - name: open_status
+          schema:
+            type: integer
           in: query
           description: Open Status of Restaurant
           required: false
-          schema:
-            type: integer
-            format: int32
         - name: type
+          schema:
+            type: string
           in: query
           description: Type of Restaurant
           required: false
-          schema:
-            type: string
       responses:
         '200':
           description: 'Sample response: Details about a Restaurant by Query'
           headers:
-            restaurant-obj:
-              description: Restaurant Object with Specific Query Given
+            restaurant-array:
+              description: Restaurant Array with Specific Query Given
               schema:
                 type: array
           content:
@@ -90,12 +88,12 @@ paths:
                 $ref: '#/components/schemas/RestaurantArray'
         default:
           description: Unexpected error
-          schema:
-                type: object
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+
+
   /Hospitals/{id}/:
     get:
       tags:
@@ -104,12 +102,11 @@ paths:
       operationId: getHospitalByID
       parameters:
         - name: id
+          schema:
+            type: integer
           in: path
           description: ID of the Hospital
           required: true
-          schema:
-            type: integer
-            format: int64
       responses:
         '200':
           description: 'Sample response: Details about a Hospital by ID'
@@ -124,13 +121,12 @@ paths:
                 $ref: '#/components/schemas/Hospital'
         default:
           description: Unexpected error
-          schema:
-                type: object
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /Hospitals/Search/:
+
+  /Hospitals/:
     get:
       tags:
         - Hospital
@@ -139,24 +135,23 @@ paths:
       operationId: getHospitalsByQuery
       parameters:
         - name: city
+          schema:
+            type: string
           in: query
           description: City in which Hospital is located
           required: false
-          schema:
-            type: string
         - name: open_status
+          schema:
+            type: integer
           in: query
           description: Open Status of Hospital
           required: false
-          schema:
-            type: integer
-            format: int32
       responses:
         '200':
           description: 'Sample response: Details about a Hospital by Query'
           headers:
-            hospital-obj:
-              description: Hospital Object with Specific Query Given
+            hospital-array:
+              description: Hospital Array with Specific Query Given
               schema:
                 type: array
           content:
@@ -165,12 +160,12 @@ paths:
                 $ref: '#/components/schemas/HospitalArray'
         default:
           description: Unexpected error
-          schema:
-                type: object
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+
+
   /GroceryStores/{id}/:
     get:
       tags:
@@ -179,12 +174,11 @@ paths:
       operationId: getGroceryStoreByID
       parameters:
         - name: id
+          schema:
+            type: integer
           in: path
           description: ID of the GroceryStore
           required: true
-          schema:
-            type: integer
-            format: int64
       responses:
         '200':
           description: 'Sample response: Details about a GroceryStore by ID'
@@ -199,13 +193,12 @@ paths:
                 $ref: '#/components/schemas/GroceryStore'
         default:
           description: Unexpected error
-          schema:
-                type: object
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /GroceryStores/Search/:
+
+  /GroceryStores/:
     get:
       tags:
         - GroceryStore
@@ -214,24 +207,23 @@ paths:
       operationId: getGroceryStoresByQuery
       parameters:
         - name: city
+          schema:
+            type: string
           in: query
           description: City in which GroceryStore is located
           required: false
-          schema:
-            type: string
         - name: open_status
+          schema:
+            type: integer
           in: query
           description: Open Status of GroceryStore
           required: false
-          schema:
-            type: integer
-            format: int32
       responses:
         '200':
           description: 'Sample response: Details about a GroceryStore by Query'
           headers:
-            grocerystore-obj:
-              description: GroceryStore Object with Specific Query Given
+            grocerystore-array:
+              description: GroceryStore Array with Specific Query Given
               schema:
                 type: array
           content:
@@ -240,12 +232,13 @@ paths:
                 $ref: '#/components/schemas/GroceryStoreArray'
         default:
           description: Unexpected error
-          schema:
-                type: object
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+
+
+
 components:
   schemas:
     Restaurant:
