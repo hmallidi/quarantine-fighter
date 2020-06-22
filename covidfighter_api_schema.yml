@@ -1,0 +1,330 @@
+openapi: 3.0.0
+info:
+  description: |
+    Covid-Fighter API
+  version: "1.0.0"
+  title: Covid Fighter
+servers:
+  - description: Covid Fighter Website
+    url: http://covid19fighter.me
+tags:
+  - name: Restaurant
+    description: A restaurant 
+  - name: Hospital
+    description: A hospital
+  - name: GroceryStore
+    description:  A grocery store
+paths:
+  /Restaurants/{id}/:
+    get:
+      tags:
+        - Restaurant
+      summary: restaurants by id
+      operationId: getRestaurantByID
+      parameters:
+        - name: id
+          in: path
+          description: ID of the Restaurant
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'Sample response: Details about a Restaurant by ID'
+          headers:
+            restaurant-obj:
+              description: Restaurant Object with Specific ID Given
+              schema:
+                type: object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Restaurant'
+        default:
+          description: Unexpected error
+          schema:
+                type: object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /Restaurants/Search/:
+    get:
+      tags:
+        - Restaurant
+      summary: restaurants by query
+      description: Get restaurants that fit a specific query
+      operationId: getRestaurantsByQuery
+      parameters:
+        - name: city
+          in: query
+          description: City in which Restaurant is located
+          required: false
+          schema:
+            type: string
+        - name: open_status
+          in: query
+          description: Open Status of Restaurant
+          required: false
+          schema:
+            type: integer
+            format: int32
+        - name: type
+          in: query
+          description: Type of Restaurant
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Sample response: Details about a Restaurant by Query'
+          headers:
+            restaurant-obj:
+              description: Restaurant Object with Specific Query Given
+              schema:
+                type: array
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestaurantArray'
+        default:
+          description: Unexpected error
+          schema:
+                type: object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /Hospitals/{id}/:
+    get:
+      tags:
+        - Hospital
+      summary: hospitals by id
+      operationId: getHospitalByID
+      parameters:
+        - name: id
+          in: path
+          description: ID of the Hospital
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'Sample response: Details about a Hospital by ID'
+          headers:
+            hospital-obj:
+              description: Hospital Object with Specific ID Given
+              schema:
+                type: object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Hospital'
+        default:
+          description: Unexpected error
+          schema:
+                type: object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /Hospitals/Search/:
+    get:
+      tags:
+        - Hospital
+      summary: hospitals by query
+      description: Get hospitals that fit a specific query
+      operationId: getHospitalsByQuery
+      parameters:
+        - name: city
+          in: query
+          description: City in which Hospital is located
+          required: false
+          schema:
+            type: string
+        - name: open_status
+          in: query
+          description: Open Status of Hospital
+          required: false
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: 'Sample response: Details about a Hospital by Query'
+          headers:
+            hospital-obj:
+              description: Hospital Object with Specific Query Given
+              schema:
+                type: array
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HospitalArray'
+        default:
+          description: Unexpected error
+          schema:
+                type: object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /GroceryStores/{id}/:
+    get:
+      tags:
+        - GroceryStore
+      summary: grocery stores by id
+      operationId: getGroceryStoreByID
+      parameters:
+        - name: id
+          in: path
+          description: ID of the GroceryStore
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'Sample response: Details about a GroceryStore by ID'
+          headers:
+            grocerystore-obj:
+              description: GroceryStore Object with Specific ID Given
+              schema:
+                type: object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroceryStore'
+        default:
+          description: Unexpected error
+          schema:
+                type: object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /GroceryStores/Search/:
+    get:
+      tags:
+        - GroceryStore
+      summary: grocery stores by query
+      description: Get grocery stores that fit a specific query
+      operationId: getGroceryStoresByQuery
+      parameters:
+        - name: city
+          in: query
+          description: City in which GroceryStore is located
+          required: false
+          schema:
+            type: string
+        - name: open_status
+          in: query
+          description: Open Status of GroceryStore
+          required: false
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: 'Sample response: Details about a GroceryStore by Query'
+          headers:
+            grocerystore-obj:
+              description: GroceryStore Object with Specific Query Given
+              schema:
+                type: array
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroceryStoreArray'
+        default:
+          description: Unexpected error
+          schema:
+                type: object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    Restaurant:
+      type: object
+      required:
+        - id
+        - name
+        - city
+        - open_status
+        - type
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        city:
+          type: string
+        open_status:
+          type: integer
+          format: int32
+        type: 
+          type: string
+    RestaurantArray:
+      type: array
+      items:
+        $ref: '#/components/schemas/Restaurant'
+    Hospital:
+      type: object
+      required:
+        - id
+        - name
+        - city
+        - open_status
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        city:
+          type: string
+        open_status:
+          type: integer
+          format: int32
+    HospitalArray:
+      type: array
+      items:
+        $ref: '#/components/schemas/Hospital'
+    GroceryStore:
+      type: object
+      required:
+        - id
+        - name
+        - city
+        - open_status
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        city:
+          type: string
+        open_status:
+          type: integer
+          format: int32
+    GroceryStoreArray:
+      type: array
+      items:
+        $ref: '#/components/schemas/GroceryStore'
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
