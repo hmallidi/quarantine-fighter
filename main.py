@@ -6,8 +6,13 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
+@app.route('/grocery', methods=['GET', 'POST'])
+def grocery():
+    return render_template('grocery.html')
+
 @app.route('/restaurants', methods=['GET', 'POST'])
 def restaurants():
     return render_template('restaurants.html')
 if __name__ == "__main__":
+	app.debug = True
 	app.run()
