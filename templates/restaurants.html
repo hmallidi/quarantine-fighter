@@ -6,6 +6,12 @@
         <title>Restaurants</title>
     </head>
     <body>
+        <h1>Restaurants</h1>
+        <h2>Search A Restaurant</h2>
+        <form action="{{ url_for('restaurant') }}" method="post">
+            <input type="text" placeholder="Search for a restaurant" name="user_input">
+            <button>Search!</button>
+        </form>
         <!-- Information and images and stuff for 3 restaurants -->
         <div class="restaurant">
             <!-- Homeslice Pizza -->
