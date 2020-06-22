@@ -4,51 +4,89 @@
 <html>
     <head>
         <title>Restaurants</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css2?family=Piedra&display=swap" rel="stylesheet">
     </head>
     <body>
-        <h1>Restaurants</h1>
-        <h2>Search A Restaurant</h2>
-        <form action="{{ url_for('restaurant') }}" method="post">
-            <input type="text" placeholder="Search for a restaurant" name="user_input">
-            <button>Search!</button>
-        </form>
-        <!-- Information and images and stuff for 3 restaurants -->
-        <div class="restaurant">
-            <!-- Homeslice Pizza -->
-            <h2>>Home Slice Pizza</h2>
-            <h3>1415 S Congress Avenue, Austin 78704</h3>
-            <img src="https://b.zmtcdn.com/data/res_imagery/16912869_RESTAURANT_0f148925df0611d850745f5bbeff6546.jpg">
-            <ul>
-                <h3>Hours</h3>
-                <li>11AM-11PM (Mon-Thurs)</li>
-                <li>11AM-12AM (Fri-Sat)</li>
-                <li>11AM-10PM (Sun)</li>
-            </ul>
-            
-        </div>
-        <div class="restaurant">
-            <!-- Franklin's Barbecue -->
-            <h2>Franklin's Barbecue</h2>
-            <h3>900 East 11th Street, Austin 78702</h3>
-            <img src="https://b.zmtcdn.com/data/res_imagery/16915865_RESTAURANT_dcf726ac4b64ffc5331b907e78c7e38b_c.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A">
-            <ul>
-                <h3>Hours</h3>
-                <li>Closed (Mon)</li>
-                <li>11AM-2PM (Tues-Sun)</li>
-            </ul>
-        </div>
-        <div class="restaurant">
-            <!-- Hula Hut -->
-            <h2>Hula Hut</h2>
-            <h3>3825 Lake Austin Boulevard, Austin 78703</h3>
-            <img src="https://b.zmtcdn.com/data/res_imagery/16912890_RESTAURANT_964a32bbc8a663b4f2793924f743f71b_c.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A">
-            <ul>
-                <h3>Hours</h3>
-                <li>11AM-10PM (Mon-Thurs)</li>
-                <li>11AM-11PM (Fri)</li>
-                <li>10:30AM-11PM (Sat)</li>
-                <li>10:30AM-10PM (Sun)</li>
-            </ul>
-        </div>
+        <nav class = "navbar navbar-default">
+            <div class="container">
+        
+            <div class = "navbar-header">
+              <!-- resize and get the hamburger -->
+              <!-- data target matches id  -->
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                  <span class="sr-only">Toggle navigation</span>
+                  <!-- hamburger bars = icon-bar -->
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                  <a href="#" class="navbar-brand">Covid Fighter</a>
+            </div>
+        
+          <!-- id matches target -->
+          <div class = "collapse navbar-collapse" id = "bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+              <li><a href="{{url_for('grocery')}}">Grocery</a></li>
+              <li><a href="{{url_for('restaurants')}}">Restaurant</a></li>
+              <li><a href="#">Healthcare</a></li>
+              </ul>
+        
+              <ul class="nav navbar-nav navbar-right">
+              <li><a href="#">About</a></li>
+              </ul>
+            </div>
+        
+            </div> <!-- end of container -->
+        </nav>
+        <center><h1>Restaurants Open During COVID-19</h1></center>
+        <center>
+            <!-- <h2>Search A Restaurant</h2>
+            <form action="{{ url_for('restaurants') }}" method="post">
+                <input type="text" placeholder="Search for a restaurant" name="user_input">
+                <button>Search!</button>
+            </form> -->
+            <!-- Information and images and stuff for 3 restaurants -->
+            <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#Homeslice">Home Slice Pizza</button>
+            <div class="restaurant" id="Homeslice">
+                <!-- Homeslice Pizza -->
+                <h2>Home Slice Pizza</h2>
+                <h3>1415 S Congress Avenue, Austin 78704</h3>
+                <img src="https://b.zmtcdn.com/data/res_imagery/16912869_RESTAURANT_0f148925df0611d850745f5bbeff6546.jpg">
+                <ul style="list-style-type:none;">
+                    <h3>Hours</h3>
+                    <li>11AM-11PM (Mon-Thurs)</li>
+                    <li>11AM-12AM (Fri-Sat)</li>
+                    <li>11AM-10PM (Sun)</li>
+                </ul>
+                
+            </div>
+            <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#Franklins">Franklin's Barbecue</button>
+            <div class="restaurant" id="Franklins">
+                <!-- Franklin's Barbecue -->
+                <h2>Franklin's Barbecue</h2>
+                <h3>900 East 11th Street, Austin 78702</h3>
+                <img src="https://b.zmtcdn.com/data/res_imagery/16915865_RESTAURANT_dcf726ac4b64ffc5331b907e78c7e38b_c.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A">
+                <ul style="list-style-type:none;">
+                    <h3>Hours</h3>
+                    <li>Closed (Mon)</li>
+                    <li>11AM-2PM (Tues-Sun)</li>
+                </ul>
+            </div>
+            <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#Hula">Hula Hut</button>
+            <div class="restaurant" id="Hula">
+                <!-- Hula Hut -->
+                <h2>Hula Hut</h2>
+                <h3>3825 Lake Austin Boulevard, Austin 78703</h3>
+                <img src="https://b.zmtcdn.com/data/res_imagery/16912890_RESTAURANT_964a32bbc8a663b4f2793924f743f71b_c.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A">
+                <ul style="list-style-type:none;">
+                    <h3>Hours</h3>
+                    <li>11AM-10PM (Mon-Thurs)</li>
+                    <li>11AM-11PM (Fri)</li>
+                    <li>10:30AM-11PM (Sat)</li>
+                    <li>10:30AM-10PM (Sun)</li>
+                </ul>
+            </div>
+        </center>
     </body>
 </html>
