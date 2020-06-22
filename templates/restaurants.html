@@ -6,6 +6,11 @@
         <title>Restaurants</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css2?family=Piedra&display=swap" rel="stylesheet">
+         <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+ 
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     </head>
     <body>
         <nav class = "navbar navbar-default">
@@ -21,14 +26,14 @@
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
                 </button>
-                  <a href="#" class="navbar-brand">Covid Fighter</a>
+                  <a href="index.html" class="navbar-brand">Covid Fighter</a>
             </div>
         
           <!-- id matches target -->
           <div class = "collapse navbar-collapse" id = "bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
-              <li><a href="{{url_for('grocery')}}">Grocery</a></li>
-              <li><a href="{{url_for('restaurants')}}">Restaurant</a></li>
+              <li><a href="grocery.html">Grocery</a></li>
+              <li><a href="#">Restaurant</a></li>
               <li><a href="#">Healthcare</a></li>
               </ul>
         
@@ -48,6 +53,7 @@
             </form> -->
             <!-- Information and images and stuff for 3 restaurants -->
             <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#Homeslice">Home Slice Pizza</button>
+            <div class = "collapse" id="Homeslice">
             <div class="restaurant" id="Homeslice">
                 <!-- Homeslice Pizza -->
                 <h2>Home Slice Pizza</h2>
@@ -59,9 +65,11 @@
                     <li>11AM-12AM (Fri-Sat)</li>
                     <li>11AM-10PM (Sun)</li>
                 </ul>
-                
             </div>
+            </div>
+            <br></br>
             <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#Franklins">Franklin's Barbecue</button>
+            <div class = "collapse" id="Franklins">
             <div class="restaurant" id="Franklins">
                 <!-- Franklin's Barbecue -->
                 <h2>Franklin's Barbecue</h2>
@@ -73,7 +81,10 @@
                     <li>11AM-2PM (Tues-Sun)</li>
                 </ul>
             </div>
+            </div>
+            <br></br>
             <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#Hula">Hula Hut</button>
+            <div class = "collapse" id="Hula">
             <div class="restaurant" id="Hula">
                 <!-- Hula Hut -->
                 <h2>Hula Hut</h2>
@@ -86,6 +97,7 @@
                     <li>10:30AM-11PM (Sat)</li>
                     <li>10:30AM-10PM (Sun)</li>
                 </ul>
+            </div>
             </div>
         </center>
     </body>
