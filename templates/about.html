@@ -7,13 +7,44 @@
 
 </head>
 <body>
+	<nav class = "navbar navbar-default">
+		<div class="container">
+	
+		<div class = "navbar-header">
+		  <!-- resize and get the hamburger -->
+		  <!-- data target matches id  -->
+		  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+			  <span class="sr-only">Toggle navigation</span>
+			  <!-- hamburger bars = icon-bar -->
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			</button>
+			  <a href="{{ url_for('index') }}" class="navbar-brand">Covid Fighter</a>
+		</div>
+	
+	  <!-- id matches target -->
+	  <div class = "collapse navbar-collapse" id = "bs-example-navbar-collapse-1">
+		  <ul class="nav navbar-nav">
+		  <li><a href="{{ url_for('grocery') }}">Grocery</a></li>
+		  <li><a href="{{ url_for('restaurants') }}">Restaurant</a></li>
+		  <li><a href="#">Healthcare</a></li>
+		  </ul>
+	
+		  <ul class="nav navbar-nav navbar-right">
+		  <li><a href="about.html">About</a></li>
+		  </ul>
+		</div>
+	
+		</div> <!-- end of container -->
+	</nav>
 
 	<h1>The Covid Fighters</h1>
-
+	<center>
 	<div class="row">
 	  <div class="column">
 	    <div class="card">
-	      <img src="../static/img/kewen.png" alt="Kewen" style="width:100%">
+	      <img src="../static/img/kewen.png" alt="Kewen" style="width:25%">
 	      <div class="container">
 	        <h2>Kewen Wang</h2>
 	        <p class="title">Front-End</p>
@@ -52,12 +83,12 @@
 
 	  <div class="column">
 	    <div class="card">
-	      <img src="img3.jpg" alt="Nayan" style="width:100%">
+	      <img src="../static/img/Nayan.jpg" alt="Nayan" style="width:25%">
 	      <div class="container">
 	        <h2>Nayan Shashidhar</h2>
 	        <p class="title">Back-End</p>
-	        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-	        <p>example@example.com</p>
+	        <p>Rising junior in UTCS.</p>
+	        <p>nayan.shashidhar@utexas.edu</p>
 	        <p><button class="button">Contact</button></p>
 	      </div>
 	    </div>
@@ -76,7 +107,14 @@
 	    </div>
 	  </div>
 
+	  <!-- Need the following:
+		Link to the Postman API
+		Link to eht GitLab Issue Tracker
+		Link to the GitLab Repo
+		Link to the GitLab Wiki -->
+
 	</div>
+	</center>
 
 </body>
 </html>
