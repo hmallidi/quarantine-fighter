@@ -13,6 +13,11 @@ def grocery():
 @app.route('/restaurants', methods=['GET', 'POST'])
 def restaurants():
     return render_template('restaurants.html')
+
+@app.route('/about', methods=['GET', 'POST'])
+def about():
+    return render_template('about.html')
+
 if __name__ == "__main__":
 	app.debug = True
 	app.run()
