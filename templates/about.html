@@ -1,38 +1,83 @@
 <!DOCTYPE html>
 <html>
-<head>
+<!-- <head>
 	<title>About</title>
 	<link rel="stylesheet" type="text/css" href="../static/css/about.css">
 	<link href="https://fonts.googleapis.com/css2?family=Piedra&display=swap" rel="stylesheet">
 
+</head> -->
+
+<head>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+   <title>Grocery Stores</title>
 </head>
+
 <body>
-
+	<nav class = "navbar navbar-default">
+        <div class="container">
+    
+        <div class = "navbar-header">
+          <!-- resize and get the hamburger -->
+          <!-- data target matches id  -->
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <!-- hamburger bars = icon-bar -->
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+              <a href="/" class="navbar-brand">Covid Fighter</a>
+        </div>
+    
+      <!-- id matches target -->
+      <div class = "collapse navbar-collapse" id = "bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+          <li><a href="grocery">Grocery</a></li>
+          <li><a href="restaurants">Restaurant</a></li>
+          <li><a href="healthcare">Healthcare</a></li>
+          </ul>
+    
+          <ul class="nav navbar-nav navbar-right">
+          <li><a href="about">About</a></li>
+          </ul>
+        </div>
+    
+        </div> <!-- end of container -->
+	</nav> <!-- end of class navbar navbar-default -->
+	
 	<h1>The Covid Fighters</h1>
-
+	<center>
 	<div class="row">
 	  <div class="column">
 	    <div class="card">
-	      <img src="../static/img/kewen.png" alt="Kewen" style="width:100%">
+	      <img src="../static/img/kewen.png" ALIGN = "left" alt="Kewen" style="width:10%"  style="height:10%">
 	      <div class="container">
-	        <h2>Kewen Wang</h2>
-	        <p class="title">Front-End</p>
-	        <p>Rising senior at UTCS</p>
-	        <p>wankew22@utexas.edu</p>
-	        <p><button class="button">Contact</button></p>
+	        <h2 style="text-indent: 40px">Kewen Wang</h2>
+	        <p class="title" style="text-indent: 40px" >Front-End</p>
+	        <p style="text-indent: 40px">Rising senior at UTCS</p>
+	        <p style="text-indent: 40px">wankew22@utexas.edu</p>
+	        <p style="text-indent: 40px"><button class="button">Contact</button></p>
 	      </div>
 	    </div>
 	  </div>
 
 	  <div class="column">
 	    <div class="card">
-	      <img src="img2.jpg" alt="Pranav" style="width:100%">
+		  <img src="../static/img/Pranav.jpg" ALIGN = "left" alt="Pranav Varanasi" style="width:10%"  style="height:10%">
 	      <div class="container">
-	        <h2>Pranav Varanasi</h2>
-	        <p class="title">Back-End</p>
-	        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-	        <p>example@example.com</p>
-	        <p><button class="button">Contact</button></p>
+	        <h2 style="text-indent: 40px">Pranav Varanasi</h2>
+	        <p class="title" style="text-indent: 40px" >Back-End</p>
+	        <p style="text-indent: 40px">Rising junior at UTCS</p>
+	        <p style="text-indent: 40px">varanasipranav@gmail.com</p>
+	        <p style="text-indent: 40px"><button class="button">Contact</button></p>
 	      </div>
 	    </div>
 	  </div>
@@ -52,13 +97,13 @@
 
 	  <div class="column">
 	    <div class="card">
-	      <img src="img3.jpg" alt="Nayan" style="width:100%">
+		  <img src="../static/img/Nayan.jpg" ALIGN = "left" alt="Nayan Shashidhar" style="width:10%"  style="height:10%">
 	      <div class="container">
-	        <h2>Nayan Shashidhar</h2>
-	        <p class="title">Back-End</p>
-	        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-	        <p>example@example.com</p>
-	        <p><button class="button">Contact</button></p>
+			<h2 style="text-indent: 40px">Nayan Shashidhar</h2>
+			<p class="title" style="text-indent: 40px" >Back-End</p>
+	        <p style="text-indent: 40px">Rising junior in UTCS</p>
+	        <p style="text-indent: 40px">nayan.shashidhar@utexas.edu</p>
+	        <p style="text-indent: 40px"><button class="button">Contact</button></p>
 	      </div>
 	    </div>
 	  </div>
@@ -76,7 +121,14 @@
 	    </div>
 	  </div>
 
+	  <!-- Need the following:
+		Link to the Postman API
+		Link to eht GitLab Issue Tracker
+		Link to the GitLab Repo
+		Link to the GitLab Wiki -->
+
 	</div>
+	</center>
 
 </body>
 </html>
