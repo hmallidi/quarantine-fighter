@@ -12,99 +12,142 @@
     <title>Grocery Stores</title>
 </head>
 <body>
+    <nav class = "navbar navbar-default">
+        <div class="container">
+    
+        <div class = "navbar-header">
+          <!-- resize and get the hamburger -->
+          <!-- data target matches id  -->
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <!-- hamburger bars = icon-bar -->
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+              <a href="index.html" class="navbar-brand">Covid Fighter</a>
+        </div>
+    
+      <!-- id matches target -->
+      <div class = "collapse navbar-collapse" id = "bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+          <li><a href="#">Grocery</a></li>
+          <li><a href="restaurants.html">Restaurant</a></li>
+          <li><a href="#">Healthcare</a></li>
+          </ul>
+    
+          <ul class="nav navbar-nav navbar-right">
+          <li><a href="about.html">About</a></li>
+          </ul>
+        </div>
+    
+        </div> <!-- end of container -->
+    </nav> <!-- end of class navbar navbar-default -->
     <center><h1>Grocery Stores Open During COVID-19</h1></center>
     <center>
     <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#HEB">HEB</button>
-    <div class = "grocery store" id = "HEB">
-        <h2>HEB</h2>
-        <h3>1000 E 41st St, Austin, TX 78751</h3>
-        <p><strong>Phone Number: </strong>(512)459-6513</p>
-        <img src="https://regcorpweb.blob.core.windows.net/marketingassets/FeaturedImages/77ebd721-4b8a-4dcf-86dc-77f58121e94c-full.jpg">
-        <ul>
-            <h3>Hours</h3>
-            <li>7AM - 11PM</li>
-        </ul>
-        <h3>No Senior Hours</h3>
+    <div class = "collapse" id="HEB">
+        <div class = "grocery store" id = "HEB">
+            <h2>HEB</h2>
+            <h3>1000 E 41st St, Austin, TX 78751</h3>
+            <p><strong>Phone Number: </strong>(512)459-6513</p>
+            <img src="https://regcorpweb.blob.core.windows.net/marketingassets/FeaturedImages/77ebd721-4b8a-4dcf-86dc-77f58121e94c-full.jpg">
+            <ul>
+                <h3>Hours</h3>
+                <li>7AM - 11PM</li>
+             </ul>
+            <h3>No Senior Hours</h3>
+        </div>
     </div>
     <br></br>
     <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#WFM">Whole Foods Market</button>
-    <div class = "grocery store" id = "WFM">
-        <h2>Whole Foods Market</h2>
-        <h3>525 N Lamar Blvd, Austin, TX 78703</h3>
-        <p><strong>Phone Number: </strong>(512)542-2200</p>
-        <img src="https://cdn.vox-cdn.com/thumbor/J4j71jjqk1NgKHvmbKEM18IfBE4=/0x0:1000x748/1520x1013/filters:focal(420x294:580x454)/cdn.vox-cdn.com/uploads/chorus_image/image/62850991/wholefoodsaustin.0.0.jpg">
-        <ul>
-            <h3>Hours</h3>
-            <li>7AM - 9PM (Sun - Tues & Thurs & Sat)</li>
-            <li>7AM - 8PM (Wed & Fri)</li>
-        </ul>
-        <ul>
-            <h3>Senior Hours</h3>
-            <li>Closed (Sun - Tues & Thurs & Sat)</li>
-            <li>7AM - 8AM (Wed & Fri)</li>
-        </ul>
+    <div class = "collapse" id="WFM">
+        <div class = "grocery store" id = "WFM">
+            <h2>Whole Foods Market</h2>
+            <h3>525 N Lamar Blvd, Austin, TX 78703</h3>
+            <p><strong>Phone Number: </strong>(512)542-2200</p>
+            <img src="https://cdn.vox-cdn.com/thumbor/J4j71jjqk1NgKHvmbKEM18IfBE4=/0x0:1000x748/1520x1013/filters:focal(420x294:580x454)/cdn.vox-cdn.com/uploads/chorus_image/image/62850991/wholefoodsaustin.0.0.jpg">
+            <ul>
+                <h3>Hours</h3>
+                <li>7AM - 9PM (Sun - Tues & Thurs & Sat)</li>
+                <li>7AM - 8PM (Wed & Fri)</li>
+            </ul>
+            <ul>
+                <h3>Senior Hours</h3>
+                <li>Closed (Sun - Tues & Thurs & Sat)</li>
+                <li>7AM - 8AM (Wed & Fri)</li>
+            </ul>
+        </div>
     </div>
     <br></br>
     <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#MT">MT Supermarket</button>
-    <div class = "grocery store" id = "MT">
-        <h2>MT Supermarket</h2>
-        <h3>10901 N Lamar Blvd G, Austin, TX 78753</h3>
-        <p><strong>Phone Number: </strong>(512)454-4804</p>
-        <img src="https://communityimpact.com/wp-content/uploads/2017/04/NWA-2017-04-9-hero.jpg">
-        <ul>
-            <h3>Hours</h3>
-            <li>9AM - 8PM</li>
-        </ul>
-        <h3>No Senior Hours</h3>
+    <div class = "collapse" id="MT">
+        <div class = "grocery store" id = "MT">
+            <h2>MT Supermarket</h2>
+            <h3>10901 N Lamar Blvd G, Austin, TX 78753</h3>
+            <p><strong>Phone Number: </strong>(512)454-4804</p>
+            <img src="https://communityimpact.com/wp-content/uploads/2017/04/NWA-2017-04-9-hero.jpg">
+            <ul>
+                <h3>Hours</h3>
+                <li>9AM - 8PM</li>
+            </ul>
+            <h3>No Senior Hours</h3>
+        </div>
     </div>
     <br></br>
     <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#HMart">H Mart</button>
-    <div class = "grocery store" id = "HMart">
-        <h2>H Mart</h2>
-        <h3>11301 Lakeline Blvd, Austin, TX 78717</h3>
-        <p><strong>Phone Number: </strong>(737)717-6900</p>
-        <img src="https://cdn.vox-cdn.com/thumbor/IH45XORljambw7jkcZNsDc2VM8o=/1400x1400/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/13297749/h_mart_austin.jpg">
-        <ul>
-            <h3>Hours</h3>
-            <li>8AM - 10PM</li>
-        </ul>
-        <h3>No Senior Hours</h3>
+    <div class = "collapse" id="HMart">
+        <div class = "grocery store" id = "HMart">
+            <h2>H Mart</h2>
+            <h3>11301 Lakeline Blvd, Austin, TX 78717</h3>
+            <p><strong>Phone Number: </strong>(737)717-6900</p>
+            <img src="https://cdn.vox-cdn.com/thumbor/IH45XORljambw7jkcZNsDc2VM8o=/1400x1400/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/13297749/h_mart_austin.jpg">
+            <ul>
+                <h3>Hours</h3>
+                <li>8AM - 10PM</li>
+            </ul>
+            <h3>No Senior Hours</h3>
+        </div>
     </div>
     <br></br>
     <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#99Ranch">99 Ranch</button>
-    <div class = "grocery store" id = "99Ranch">
-        <h2>99 Ranch</h2>
-        <h3>6929 Airport Blvd #110, Austin, TX 78752</h3>
-        <p><strong>Phone Number: </strong>(512)381-8899</p>
-        <img src="https://4.bp.blogspot.com/-XBPEhgClmJs/WqZre_6dYCI/AAAAAAAAP24/QyTTDVPRbesocz_cLn7G0BVmVpCyXFIBwCLcBGAs/s640/DSCF3800.jpg">
-        <ul>
-            <h3>Hours</h3>
-            <li>9AM - 8PM (Sun)</li>
-            <li>10AM - 8PM (Mon - Thurs)</li>
-            <li>10AM - 9PM (Fri)</li>
-            <li>9AM - 9PM (Sat)</li>
-        </ul>
-        <ul>
-            <h3>Senior Hours</h3>
-            <li>9AM - 10AM (Mon - Fri)</li>
-        </ul>
+    <div class = "collapse" id="99Ranch">
+        <div class = "grocery store" id = "99Ranch">
+            <h2>99 Ranch</h2>
+            <h3>6929 Airport Blvd #110, Austin, TX 78752</h3>
+            <p><strong>Phone Number: </strong>(512)381-8899</p>
+            <img src="https://4.bp.blogspot.com/-XBPEhgClmJs/WqZre_6dYCI/AAAAAAAAP24/QyTTDVPRbesocz_cLn7G0BVmVpCyXFIBwCLcBGAs/s640/DSCF3800.jpg">
+            <ul>
+                <h3>Hours</h3>
+                <li>9AM - 8PM (Sun)</li>
+                <li>10AM - 8PM (Mon - Thurs)</li>
+                <li>10AM - 9PM (Fri)</li>
+                <li>9AM - 9PM (Sat)</li>
+            </ul>
+            <ul>
+                <h3>Senior Hours</h3>
+                <li>9AM - 10AM (Mon - Fri)</li>
+            </ul>
+        </div>
     </div>
     <br></br>
     <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#Randalls">Randalls</button>
-    <div class = "grocery store" id = "Randalls">
-        <h2>Randalls</h2>
-        <h3>1500 W 35th St, Austin, TX 78703</h3>
-        <p><strong>Phone Number: </strong>(512)453-8406</p>
-        <img src="https://dynl.mktgcdn.com/p/y23YI2uyBoBcxMudDHGHyM8o2H4yUkWflcphttC_Se0/288x162.jpg">
-        <ul>
-            <h3>Hours</h3>
-            <li>6AM - 11PM</li>
-        </ul>
-        <ul>
-            <h3>Senior Hours</h3>
-            <li>Closed (Sun - Mon & Wed & Fri - Sat)</li>
-            <li>6AM - 9AM (Tues & Thurs)</li>
-        </ul>
+    <div class = "collapse" id="Randalls">
+        <div class = "grocery store" id = "Randalls">
+            <h2>Randalls</h2>
+            <h3>1500 W 35th St, Austin, TX 78703</h3>
+            <p><strong>Phone Number: </strong>(512)453-8406</p>
+            <img src="https://dynl.mktgcdn.com/p/y23YI2uyBoBcxMudDHGHyM8o2H4yUkWflcphttC_Se0/288x162.jpg">
+            <ul>
+                <h3>Hours</h3>
+                <li>6AM - 11PM</li>
+            </ul>
+            <ul>
+                <h3>Senior Hours</h3>
+                <li>Closed (Sun - Mon & Wed & Fri - Sat)</li>
+                <li>6AM - 9AM (Tues & Thurs)</li>
+            </ul>
+        </div>
     </div>
     </center>
 </body>
