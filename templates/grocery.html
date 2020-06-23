@@ -9,6 +9,14 @@
      <!-- Latest compiled JavaScript -->
      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
+     <style>
+         #map {
+             width: 50%;
+             height: 400px;
+             background-color: grey; 
+         }
+     </style>
+
     <title>Grocery Stores</title>
 </head>
 <body>
@@ -56,6 +64,7 @@
                 <h3>Hours</h3>
                 <p>7AM - 11PM</p>
             <h3>No Senior Hours</h3>
+            <a href="https://newsroom.heb.com/hancock-center-h%E2%80%91e%E2%80%91b/" target="_blank"><h3>Store Webpage</h3></a>
         </div>
     </div>
     <br></br>
@@ -72,6 +81,7 @@
                 <h3>Senior Hours</h3>
                 <p>Closed (Sun - Tues & Thurs & Sat)</p>
                 <p>7AM - 8AM (Wed & Fri)</p>
+                <a href="https://www.wholefoodsmarket.com/stores/lamar" target="_blank"><h3>Store Webpage</h3></a>
         </div>
     </div>
     <br></br>
@@ -85,6 +95,7 @@
                 <h3>Hours</h3>
                 <p>9AM - 8PM</p>
             <h3>No Senior Hours</h3>
+            <a href="https://www.wholefoodsmarket.com/stores/lamar" target="_blank"><h3>Store Webpage</h3></a>
         </div>
     </div>
     <br></br>
@@ -98,6 +109,7 @@
                 <h3>Hours</h3>
                 <p>8AM - 10PM</p>
             <h3>No Senior Hours</h3>
+            <a href="http://mtsupermarket.com" target="_blank"><h3>Store Webpage</h3></a>
         </div>
     </div>
     <br></br>
@@ -115,6 +127,7 @@
                 <p>9AM - 9PM (Sat)</p>
                 <h3>Senior Hours</h3>
                 <p>9AM - 10AM (Mon - Fri)</p>
+                <a href="https://www.99ranch.com/stores/austin" target="_blank"><h3>Store Webpage</h3></a>
         </div>
     </div>
     <br></br>
@@ -130,7 +143,32 @@
                 <h3>Senior Hours</h3>
                 <p>Closed (Sun - Mon & Wed & Fri - Sat)</p>
                 <p>6AM - 9AM (Tues & Thurs)</p>
+                <a href="https://local.randalls.com/tx/austin/1500-w-35th-st.html" target="_blank"><h3>Store Webpage</h3></a>
         </div>
     </div>
+    <h3>Map</h3>
+    <div id="map"></div>
+    <script>
+        function initMap() {
+            var austin = {lat: 30.313021, lng: -97.730750};
+            var map = new google.maps.Map(document.getElementById('map'), {zoom: 11, center: austin});
+            var heb = {lat: 30.300545, lng: -97.719710};
+            var marker_one = new google.maps.Marker({position: heb, map: map}); 
+            var wfm = {lat: 30.270317, lng: -97.753556};
+            var marker_two = new google.maps.Marker({position: wfm, map: map});
+            var mt = {lat: 30.377592, lng: -97.686341};
+            var marker_three = new google.maps.Marker({position: mt, map: map});
+            var hmart = {lat: 30.478603, lng: -97.799759};
+            var marker_four = new google.maps.Marker({position: hmart, map: map});
+            var ninenineranch = {lat: 30.335742, lng: -97.717340};
+            var marker_five = new google.maps.Marker({position: ninenineranch, map: map});
+            var randalls = {lat: 30.305411, lng: -97.748765};
+            var marker_six = new google.maps.Marker({position: randalls, map: map});
+
+        }
+    </script>
+    <!-- Google Maps API-->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYVNrhNbNDCs08puZcbPtPfXXj1sH61x8&callback=initMap"
+    type="text/javascript"></script>
     </center>
 </body>
