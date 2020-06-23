@@ -150,9 +150,21 @@
     <div id="map"></div>
     <script>
         function initMap() {
-            var austin = {lat: 30.2672, lng: -97.7431};
-            var map = new google.maps.Map(document.getElementById('map'), {zoom: 15, center: austin});
-            var marker = new google.maps.Marker({position: austin, map: map}); 
+            var austin = {lat: 30.313021, lng: -97.730750};
+            var map = new google.maps.Map(document.getElementById('map'), {zoom: 11, center: austin});
+            var heb = {lat: 30.300545, lng: -97.719710};
+            var marker_one = new google.maps.Marker({position: heb, map: map}); 
+            var wfm = {lat: 30.270317, lng: -97.753556};
+            var marker_two = new google.maps.Marker({position: wfm, map: map});
+            var mt = {lat: 30.377592, lng: -97.686341};
+            var marker_three = new google.maps.Marker({position: mt, map: map});
+            var hmart = {lat: 30.478603, lng: -97.799759};
+            var marker_four = new google.maps.Marker({position: hmart, map: map});
+            var ninenineranch = {lat: 30.335742, lng: -97.717340};
+            var marker_five = new google.maps.Marker({position: ninenineranch, map: map});
+            var randalls = {lat: 30.305411, lng: -97.748765};
+            var marker_six = new google.maps.Marker({position: randalls, map: map});
+
         }
     </script>
     <!-- Google Maps API-->
