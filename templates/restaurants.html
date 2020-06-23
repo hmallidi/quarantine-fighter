@@ -11,6 +11,11 @@
  
         <!-- Latest compiled JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <style>
+            li {
+                font-size: medium;
+            }
+        </style>
     </head>
     <body>
         <nav class = "navbar navbar-default">
@@ -33,7 +38,7 @@
           <div class = "collapse navbar-collapse" id = "bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
               <li><a href="grocery">Grocery</a></li>
-              <li><a href="restuarants">Restaurant</a></li>
+              <li><a href="restaurants">Restaurant</a></li>
               <li><a href="healthcare">Healthcare</a></li>
               </ul>
         
@@ -46,11 +51,11 @@
         </nav>
         <center><h1>Restaurants Open During COVID-19</h1></center>
         <center>
-            <h2>Search A Restaurant</h2>
-            <form action="{{ url_for('restaurants') }}" method="post">
+            <!-- <h2>Search A Restaurant</h2> -->
+            <!-- <form action="{{ url_for('restaurants') }}" method="post"> -->
                 <!-- <input type="text" placeholder="Search for a restaurant" name="user_input">
                 <button>Search!</button> -->
-            </form>
+            <!-- </form> -->
             <!-- Information and images and stuff for 3 restaurants -->
             <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#Homeslice">Home Slice Pizza</button>
             <div class = "collapse" id="Homeslice">
@@ -58,13 +63,14 @@
                 <!-- Homeslice Pizza -->
                 <h2>Home Slice Pizza</h2>
                 <h3>1415 S Congress Avenue, Austin 78704</h3>
-                <img src="https://b.zmtcdn.com/data/res_imagery/16912869_RESTAURANT_0f148925df0611d850745f5bbeff6546.jpg" style="width: 50%;">
+                <img src="https://b.zmtcdn.com/data/res_imagery/16912869_RESTAURANT_0f148925df0611d850745f5bbeff6546.jpg" style="width: 25%;">
                 <ul style="list-style-type:none;">
                     <h3>Hours</h3>
                     <li>11AM-11PM (Mon-Thurs)</li>
                     <li>11AM-12AM (Fri-Sat)</li>
                     <li>11AM-10PM (Sun)</li>
                 </ul>
+                <a href="https://homeslicepizza.com/"><h3>Restaurant Webpage</h3></a>
             </div>
             </div>
             <br></br>
@@ -80,6 +86,7 @@
                     <li>Closed (Mon)</li>
                     <li>11AM-2PM (Tues-Sun)</li>
                 </ul>
+                <a href="https://franklinbbq.com/"><h3>Restaurant Webpage</h3></a>
             </div>
             </div>
             <br></br>
@@ -97,6 +104,43 @@
                     <li>10:30AM-11PM (Sat)</li>
                     <li>10:30AM-10PM (Sun)</li>
                 </ul>
+                <a href="https://www.hulahut.com/"><h3>Restaurant Webpage</h3></a>
+            </div>
+            </div>
+
+            <br></br>
+            <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#Gourdough">Gourdough's</button>
+            <div class = "collapse" id="Gourdough">
+            <div class="restaurant" id="Gourdough">
+                <!-- Gourdough's -->
+                <h2>Gourdough's</h2>
+                <h3>1503 S 1st Street, Austin 78704</h3>
+                <img src="https://b.zmtcdn.com/data/res_imagery/16915822_RESTAURANT_053ad1580042eb89ab5e7ccbe6842081_c.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A">
+                <ul style="list-style-type:none;">
+                    <h3>Hours</h3>
+                    <li>10AM-12AM (Mon-Thurs)</li>
+                    <li>10AM-3AM (Fri)</li>
+                    <li>8AM-3AM (Sat)</li>
+                    <li>8AM-12AM (Sun)</li>
+                </ul>
+                <a href="https://gourdoughs.com/"><h3>Restaurant Webpage</h3></a>
+            </div>
+            </div>
+            
+            <br></br>
+            <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#Mandola">Mandola's Kitchen</button>
+            <div class = "collapse" id="Mandola">
+            <div class="restaurant" id="Mandola">
+                <!-- Mandola's Kitchen -->
+                <h2>Mandola's Kitchen</h2>
+                <h3>4700 West Guadalupe Street #12 78751</h3>
+                <img src="https://b.zmtcdn.com/data/res_imagery/16913237_CHAIN_765725196137fed1fb3ab3643f89eb37_c.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A">
+                <ul style="list-style-type:none;">
+                    <h3>Hours</h3>
+                    <li>11AM-10PM (Mon-Sat)</li>
+                    <li>11AM-9PM (Sun)</li>
+                </ul>
+                <a href="https://mandolas.com/"><h3>Restaurant Webpage</h3></a>
             </div>
             </div>
         </center>
