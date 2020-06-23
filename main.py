@@ -14,6 +14,10 @@ def grocery():
 def restaurants():
     return render_template('restaurants.html')
 
+@app.route('/healthcare', methods=['GET', 'POST'])
+def healthcare():
+    return render_template('healthcare.html')
+
 @app.route('/about', methods=['GET', 'POST'])
 def about():
     return render_template('about.html')
