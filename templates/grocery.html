@@ -153,18 +153,31 @@
             var austin = {lat: 30.313021, lng: -97.730750};
             var map = new google.maps.Map(document.getElementById('map'), {zoom: 11, center: austin});
             var heb = {lat: 30.300545, lng: -97.719710};
-            var marker_one = new google.maps.Marker({position: heb, map: map}); 
+            var marker_one = new google.maps.Marker({position: heb, title: 'HEB', map: map, animation: google.maps.Animation.DROP}); 
+            //marker_one.addListener('click', toggleBounce);
             var wfm = {lat: 30.270317, lng: -97.753556};
-            var marker_two = new google.maps.Marker({position: wfm, map: map});
+            var marker_two = new google.maps.Marker({position: wfm, title: 'Whole Foods Market', map: map, animation: google.maps.Animation.DROP});
+            //marker_two.addListener('click', toggleBounce);
             var mt = {lat: 30.377592, lng: -97.686341};
-            var marker_three = new google.maps.Marker({position: mt, map: map});
+            var marker_three = new google.maps.Marker({position: mt, title: 'MT Supermarket', map: map, animation: google.maps.Animation.DROP});
+            //marker_three.addListener('click', toggleBounce);
             var hmart = {lat: 30.478603, lng: -97.799759};
-            var marker_four = new google.maps.Marker({position: hmart, map: map});
+            var marker_four = new google.maps.Marker({position: hmart, title: 'HMart', map: map, animation: google.maps.Animation.DROP});
+            //marker_four.addListener('click', toggleBounce);
             var ninenineranch = {lat: 30.335742, lng: -97.717340};
-            var marker_five = new google.maps.Marker({position: ninenineranch, map: map});
+            var marker_five = new google.maps.Marker({position: ninenineranch, title: '99 Ranch', map: map, animation: google.maps.Animation.DROP});
+            //marker_five.addListener('click', toggleBounce);
             var randalls = {lat: 30.305411, lng: -97.748765};
-            var marker_six = new google.maps.Marker({position: randalls, map: map});
-
+            var marker_six = new google.maps.Marker({position: randalls, title: 'Randalls', map: map, animation: google.maps.Animation.DROP});
+            //marker_six.addListener('click', toggleBounce);
+        }
+        function toggleBounce() {
+            if(marker.getAnimation() !== null) {
+                marker.setAnimation(null);
+            } 
+            else {
+                marker.setAnimation(google.maps.Animation.BOUNCE);
+            }
         }
     </script>
     <!-- Google Maps API-->
