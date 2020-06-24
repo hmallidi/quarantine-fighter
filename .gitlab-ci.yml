@@ -1,0 +1,10 @@
+before_script:
+    - date
+    - uname -a
+
+# backend:
+#     script:
+#         - pip3 install -r requirements.txt
+#         - pip3 install sqlalchemy
+#         - pip3 install flask
+
