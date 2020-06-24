@@ -11,6 +11,14 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
         <title>Healthcare</title>
+
+        <style>
+            #map {
+                width: 50%;
+                height: 400px;
+                background-color: grey; 
+            }
+        </style>
     </head>
     <body>
 
@@ -229,6 +237,86 @@
             </div>
             </div>
             <br></br>
-            
+            <h3>Map</h3>
+            <div id="map"></div>
+            <script>
+                function initMap() {
+                    var austin = {lat: 30.313021, lng: -97.730750};
+                    var map = new google.maps.Map(document.getElementById('map'), {zoom: 11, center: austin});
+                    var roundrockbaylor = {lat: 30.556611, lng: -97.683091};
+                    var infoWindowOne = new google.maps.InfoWindow({content: '<h6>Round Rock Baylor</h6>'})
+                    var marker_one = new google.maps.Marker({position: roundrockbaylor, title: 'Round Rock Baylor', map: map, animation: google.maps.Animation.DROP}); 
+                    marker_one.addListener('click', function(){
+                        infoWindowOne.open(map, marker_one);
+                    });
+                    marker_one.addListener('click', function() {
+                        if(marker_one.getAnimation() !== null) {
+                            marker_one.setAnimation(null);
+                        } 
+                        else {
+                            marker_one.setAnimation(google.maps.Animation.BOUNCE);
+                        }
+                    });
+                    var austinbaylor = {lat: 30.234960, lng: -97.834664};
+                    var infoWindowTwo = new google.maps.InfoWindow({content: '<h6>Austin Baylor</h6>'});
+                    var marker_two = new google.maps.Marker({position: austinbaylor, title: 'Austin Baylor', map: map, animation: google.maps.Animation.DROP});
+                    marker_two.addListener('click', function(){
+                        infoWindowTwo.open(map, marker_two);
+                    });
+                    marker_two.addListener('click', function() {
+                        if(marker_two.getAnimation() !== null) {
+                            marker_two.setAnimation(null);
+                        } 
+                        else {
+                            marker_two.setAnimation(google.maps.Animation.BOUNCE);
+                        }
+                    });
+                    var uthealth = {lat: 30.274748, lng: -97.736660};
+                    var infoWindowThree = new google.maps.InfoWindow({content: '<h6>UT Healh Austin</h6>'});
+                    var marker_three = new google.maps.Marker({position: uthealth, title: 'UT Health Austin', map: map, animation: google.maps.Animation.DROP});
+                    marker_three.addListener('click', function(){
+                        infoWindowThree.open(map, marker_three);
+                    });
+                    marker_three.addListener('click', function() {
+                        if(marker_three.getAnimation() !== null) {
+                            marker_three.setAnimation(null);
+                        } 
+                        else {
+                            marker_three.setAnimation(google.maps.Animation.BOUNCE);
+                        }
+                    });
+                    var toney = {lat: 30.228801, lng: -97.807816};
+                    var infoWindowFour = new google.maps.InfoWindow({content: '<h6>Toney Berger Activity Center</h6>'});
+                    var marker_four = new google.maps.Marker({position: toney, title: 'Toney Berger Activity Center', map: map, animation: google.maps.Animation.DROP});
+                    marker_four.addListener('click', function(){
+                        infoWindowFour.open(map, marker_four);
+                    });
+                    marker_four.addListener('click', function() {
+                        if(marker_four.getAnimation() !== null) {
+                            marker_four.setAnimation(null);
+                        } 
+                        else {
+                            marker_four.setAnimation(google.maps.Animation.BOUNCE);
+                        }
+                    });
+                    var advent = {lat: 31.112264, lng: -97.802921};
+                    var infoWindowFive = new google.maps.InfoWindow({content: '<h6>Advent Health Central Texas</h6>'});
+                    var marker_five = new google.maps.Marker({position: advent, title: 'Advent Health Central Texas', map: map, animation: google.maps.Animation.DROP});
+                    marker_five.addListener('click', function(){
+                        infoWindowFive.open(map, marker_five);
+                    });
+                    marker_five.addListener('click', function() {
+                        if(marker_five.getAnimation() !== null) {
+                            marker_five.setAnimation(null);
+                        } 
+                        else {
+                            marker_five.setAnimation(google.maps.Animation.BOUNCE);
+                        }
+                    });
+                }
+            </script>
+            <!-- Google Maps API-->
+            <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYVNrhNbNDCs08puZcbPtPfXXj1sH61x8&callback=initMap"
+            type="text/javascript"></script>
         </center>
     </body>
