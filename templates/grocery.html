@@ -252,31 +252,89 @@
             var austin = {lat: 30.313021, lng: -97.730750};
             var map = new google.maps.Map(document.getElementById('map'), {zoom: 11, center: austin});
             var heb = {lat: 30.300545, lng: -97.719710};
+            var infoWindowOne = new google.maps.InfoWindow({content: '<h6>HEB</h6>'})
             var marker_one = new google.maps.Marker({position: heb, title: 'HEB', map: map, animation: google.maps.Animation.DROP}); 
-            //marker_one.addListener('click', toggleBounce);
+            marker_one.addListener('click', function(){
+                infoWindowOne.open(map, marker_one);
+            });
+            marker_one.addListener('click', function() {
+                if(marker_one.getAnimation() !== null) {
+                    marker_one.setAnimation(null);
+                } 
+                else {
+                    marker_one.setAnimation(google.maps.Animation.BOUNCE);
+                }
+            });
             var wfm = {lat: 30.270317, lng: -97.753556};
+            var infoWindowTwo = new google.maps.InfoWindow({content: '<h6>Whole Foods Market</h6>'});
             var marker_two = new google.maps.Marker({position: wfm, title: 'Whole Foods Market', map: map, animation: google.maps.Animation.DROP});
-            //marker_two.addListener('click', toggleBounce);
+            marker_two.addListener('click', function(){
+                infoWindowTwo.open(map, marker_two);
+            });
+            marker_two.addListener('click', function() {
+                if(marker_two.getAnimation() !== null) {
+                    marker_two.setAnimation(null);
+                } 
+                else {
+                    marker_two.setAnimation(google.maps.Animation.BOUNCE);
+                }
+            });
             var mt = {lat: 30.377592, lng: -97.686341};
+            var infoWindowThree = new google.maps.InfoWindow({content: '<h6>MT Supermarket</h6>'});
             var marker_three = new google.maps.Marker({position: mt, title: 'MT Supermarket', map: map, animation: google.maps.Animation.DROP});
-            //marker_three.addListener('click', toggleBounce);
+            marker_three.addListener('click', function(){
+                infoWindowThree.open(map, marker_three);
+            });
+            marker_three.addListener('click', function() {
+                if(marker_three.getAnimation() !== null) {
+                    marker_three.setAnimation(null);
+                } 
+                else {
+                    marker_three.setAnimation(google.maps.Animation.BOUNCE);
+                }
+            });
             var hmart = {lat: 30.478603, lng: -97.799759};
+            var infoWindowFour = new google.maps.InfoWindow({content: '<h6>HMart</h6>'});
             var marker_four = new google.maps.Marker({position: hmart, title: 'HMart', map: map, animation: google.maps.Animation.DROP});
-            //marker_four.addListener('click', toggleBounce);
+            marker_four.addListener('click', function(){
+                infoWindowFour.open(map, marker_four);
+            });
+            marker_four.addListener('click', function() {
+                if(marker_four.getAnimation() !== null) {
+                    marker_four.setAnimation(null);
+                } 
+                else {
+                    marker_four.setAnimation(google.maps.Animation.BOUNCE);
+                }
+            });
             var ninenineranch = {lat: 30.335742, lng: -97.717340};
+            var infoWindowFive = new google.maps.InfoWindow({content: '<h6>99 Ranch</h6>'});
             var marker_five = new google.maps.Marker({position: ninenineranch, title: '99 Ranch', map: map, animation: google.maps.Animation.DROP});
-            //marker_five.addListener('click', toggleBounce);
+            marker_five.addListener('click', function(){
+                infoWindowFive.open(map, marker_five);
+            });
+            marker_five.addListener('click', function() {
+                if(marker_five.getAnimation() !== null) {
+                    marker_five.setAnimation(null);
+                } 
+                else {
+                    marker_five.setAnimation(google.maps.Animation.BOUNCE);
+                }
+            });
             var randalls = {lat: 30.305411, lng: -97.748765};
+            var infoWindowSix = new google.maps.InfoWindow({content: '<h6>Randalls</h6>'});
             var marker_six = new google.maps.Marker({position: randalls, title: 'Randalls', map: map, animation: google.maps.Animation.DROP});
-            //marker_six.addListener('click', toggleBounce);
-        }
-        function toggleBounce() {
-            if(marker.getAnimation() !== null) {
-                marker.setAnimation(null);
-            } 
-            else {
-                marker.setAnimation(google.maps.Animation.BOUNCE);
-            }
+            marker_six.addListener('click', function(){
+                infoWindowSix.open(map, marker_six);
+            });
+            marker_six.addListener('click', function() {
+                if(marker_six.getAnimation() !== null) {
+                    marker_six.setAnimation(null);
+                } 
+                else {
+                    marker_six.setAnimation(google.maps.Animation.BOUNCE);
+                }
+            });
         }
     </script>
     <!-- Google Maps API-->
