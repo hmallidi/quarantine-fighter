@@ -210,7 +210,7 @@
                     var austin = {lat: 30.313021, lng: -97.730750};
                     var map = new google.maps.Map(document.getElementById('map'), {zoom: 11, center: austin});
                     var homeslice = {lat: 30.249077, lng: -97.749307};
-                    var infoWindowOne = new google.maps.InfoWindow({content: '<h6>Home Slice Pizza</h6>'})
+                    var infoWindowOne = new google.maps.InfoWindow({content: '<h6>Home Slice Pizza</h6>'});
                     var marker_one = new google.maps.Marker({position: homeslice, title: 'Home Slice Pizza', map: map, animation: google.maps.Animation.DROP}); 
                     marker_one.addListener('click', function(){
                         infoWindowOne.open(map, marker_one);
@@ -223,8 +223,8 @@
                             marker_one.setAnimation(google.maps.Animation.BOUNCE);
                         }
                     });
-                    var franklin = {lat: 30.268692, lng: -97.731680};
-                    var infoWindowTwo = new google.maps.InfoWindow({content: '<h6>Franklin\'s Barbecue</h6>'})
+                    var franklin = {lat: 30.268243, lng: -97.730781};
+                    var infoWindowTwo = new google.maps.InfoWindow({content: '<h6>Franklin\'s Barbecue</h6>'});
                     var marker_two = new google.maps.Marker({position: franklin, title: 'Franklin\'s Barbecue', map: map, animation: google.maps.Animation.DROP}); 
                     marker_two.addListener('click', function(){
                         infoWindowTwo.open(map, marker_two);
@@ -237,11 +237,11 @@
                             marker_two.setAnimation(google.maps.Animation.BOUNCE);
                         }
                     });
-                    var hula = {lat: 30.268692, lng: -97.731680};
-                    var infoWindowThree = new google.maps.InfoWindow({content: '<h6>Hula Hut</h6>'})
+                    var hula = {lat: 30.292153, lng: -97.787852};
+                    var infoWindowThree = new google.maps.InfoWindow({content: '<h6>Hula Hut</h6>'});
                     var marker_three = new google.maps.Marker({position: hula, title: 'Hula Hut', map: map, animation: google.maps.Animation.DROP}); 
                     marker_three.addListener('click', function(){
-                        infoWindowThree.open(map, marker_hut);
+                        infoWindowThree.open(map, marker_three);
                     });
                     marker_three.addListener('click', function() {
                         if(marker_three.getAnimation() !== null) {
@@ -252,7 +252,7 @@
                         }
                     });
                     var gourdough = {lat: 30.247063, lng: -97.753936};
-                    var infoWindowFour = new google.maps.InfoWindow({content: '<h6>Gourdough\'s</h6>'})
+                    var infoWindowFour = new google.maps.InfoWindow({content: '<h6>Gourdough\'s</h6>'});
                     var marker_four = new google.maps.Marker({position: gourdough, title: 'Gourdough\'s', map: map, animation: google.maps.Animation.DROP}); 
                     marker_four.addListener('click', function(){
                         infoWindowFour.open(map, marker_four);
@@ -266,7 +266,7 @@
                         }
                     });
                     var mandola = {lat: 30.313883, lng: -97.735797};
-                    var infoWindowFive = new google.maps.InfoWindow({content: '<h6>Mandola\'s Kitchen</h6>'})
+                    var infoWindowFive = new google.maps.InfoWindow({content: '<h6>Mandola\'s Kitchen</h6>'});
                     var marker_five = new google.maps.Marker({position: mandola, title: 'Mandola\'s Kitchen', map: map, animation: google.maps.Animation.DROP}); 
                     marker_five.addListener('click', function(){
                         infoWindowFive.open(map, marker_five);
