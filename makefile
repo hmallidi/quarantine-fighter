@@ -43,9 +43,6 @@ models.html: index.html
 IDB1.log:
 	git log > IDB1.log
 versions:
-	which       $(AUTOPEP8)
-	$(AUTOPEP8) --version
-	@echo
 	which       $(COVERAGE)
 	$(COVERAGE) --version
 	@echo
@@ -54,9 +51,6 @@ versions:
 	@echo
 	which       make
 	make        --version
-	@echo
-	which       $(PIP)
-	$(PIP)      --version
 	@echo
 	which       $(PYLINT)
 	$(PYLINT)   --version
