@@ -43,17 +43,11 @@ models.html: index.html
 IDB1.log:
 	git log > IDB1.log
 versions:
-	which       $(COVERAGE)
-	$(COVERAGE) --version
-	@echo
 	which       git
 	git         --version
 	@echo
 	which       make
 	make        --version
-	@echo
-	which       $(PYLINT)
-	$(PYLINT)   --version
 	@echo
 	which        $(PYTHON)
 	$(PYTHON)    --version
