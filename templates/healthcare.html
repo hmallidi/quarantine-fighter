@@ -1,9 +1,7 @@
 <!-- Covid Postman API: https://documenter.getpostman.com/view/8854915/SzS7PR3t?version=latest#8ed98535-68a1-4a73-babf-f6d6845a60e7 -->
 
 <!DOCTYPE html>
-<html>
     <head>
-        <title>Healthcare</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css2?family=Piedra&display=swap" rel="stylesheet">
          <!-- jQuery library -->
@@ -11,6 +9,8 @@
  
         <!-- Latest compiled JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+        <title>Healthcare</title>
     </head>
     <body>
 
@@ -47,95 +47,87 @@
             </div> <!-- end of container -->
         </nav>
 
-        <center><h1> COVID-19 Testing Locations Currently Open: </center>
-        
+        <center><h1> COVID-19 Testing Locations Currently Open: </h1> </center>
         <center>
-        <table id = "healthTable">
-        <table class="searchable sortable">
-        <script src="sorttable.js"></script>
-        <table border=1 height = 25% width=25%>
+            <table id = "healthTable" class="table table-striped table-bordered table-sm">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Address</th>
+                        <th>Phone Number</th>
+                        <th>Website</th>
+                        <th>Hours</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td> Round Rock Baylor Clinic </td>
+                        <td>  425 University Blvd, Round Rock, TX 78665 </td>
+                        <td><a href="tel: (512)-509-0200 ">(512)-509-0200 </a></td>
+                        <td>  <a href="https://www.bswhealth.com/locations/round-rock-425-university-clinic/?y_source=1_MTM0MTE2MzgtNzE1LWxvY2F0aW9uLndlYnNpdGU=" target="_blank"><font size = "-1"> Round Rock Baylor Webpage</font></a> </td>
+                        <td>
+                                <li> 8AM-5PM (Mon-Thurs)</li>
+                                <li> 8AM-5PM (Fri-Sat)</li>
+                                <li> 8AM-5PM (Sun)</li>
+                        </td>
+                    </tr>
+            
+                    <tr>
+                        <td> Austin Baylor Clinic</td>
+                        <td> 5245 West US Highway 290 Service Rd, Austin, TX 78735</td>
+                        <td><a href="tel: 512-654-2100">(512)-654-2100</a></td>
+                        <td><a href="https://www.bswhealth.com/locations/austin-medical-center/" target="_blank"><font size = "-1"> Austin Baylor Webpage</font></a> </td>
+                        <td>
+                                <li> 24 Hours (Mon-Thurs)</li>
+                                <li> 24 Hours (Fri-Sat)</li>
+                                <li> 24 Hours (Sun)</li>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td> UT Health Austin</td>
+                        <td> Health Transformation Building, 1601 Trinity St Building A, Austin, TX 78712</td>
+                        <td><a href="tel: 833-882-2737">(833)-882-2737</a></td>
+                        <td> <a href="https://uthealthaustin.org/" target="_blank"><font size = "-1"> UT Health Webpage</font></a> </td>
+                        <td>
+                                <li> 8AM-5PM (Mon-Fri)</li>
+                                <li> Closed (Sat-Sun)</li>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                    <td> Toney Berger Activity Center</td>
+                    <td> 3200 Jones Rd, Austin, TX, 78745</td>
+                    <td><a href="tel: 512-414-1050">(512)-414-1050</a></td>
+                    <td>  <a href="https://www.austinisd.org/construction-management/bond/bond-and-construction-projects/burger-athletic-complex" target="_blank"><font size = "-1"> Toney Berger Webpage</font></a> </td>
+                    <td>
+                            <li> 8AM-8PM (Mon-Fri)</li>
+                            <li> Closed (Sat-Sun)</li>
+                    </td>
+                    </tr>
+            
+                    <tr>
+                    <td>Advent Health Central Texas</td>
+                    <td> 2201 South Clear Creek Road, Killeen, TX, 76549 </td>
+                    <td><a href="tel: 254-526-7523">(254)-526-7523</a></td>
+                    <td> <a href="https://www.adventhealth.com/hospital/adventhealth-central-texas" target="_blank"><font size = "-1"> Advent Health Webpage </font></a> </td>
+                    <td>
+                            <li> 9AM-9PM (Mon-Thurs)</li>
+                            <li> 9AM-9PM (Fri-Sat)</li>
+                            <li> 9AM-9PM (Sun)</li>
+                    </td>
+                    </tr>
+                </tbody>
+            </table>
 
-            <thead>
-            <tr>
-                <th><pre>Name</pre></th>
-                <th><pre>Address</pre></th>
-                <th><pre>Phone Number</pre></th>
-                <th><pre>Website</pre></th>
-                <th><pre>Hours</pre></th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-            <td> <pre><b>Round Rock Baylor Clinic </b></pre></td>
-            <th> <pre> 425 University Blvd, Round Rock, TX 78665 </pre></th>
-            <th> <pre> 512-509-0200 </pre></th>
-            <th>  <pre><a href="https://www.bswhealth.com/locations/round-rock-425-university-clinic/?y_source=1_MTM0MTE2MzgtNzE1LWxvY2F0aW9uLndlYnNpdGU=" target="_blank"><font size = "-1"> Clinic Webpage</font></a>   </pre></th>
-            <th>
-                <pre> 
-                    <li> 8AM-5PM (Mon-Thurs)</li>
-                    <li> 8AM-5PM (Fri-Sat)</li>
-                    <li> 8AM-5PM (Sun)</li>
-                </pre>
-            </th>
-            </tr>
-        
-            <tr>
-            <td> <pre><b>Austin Baylor Clinic</b></pre></td>
-            <th> <pre>5245 West US Highway 290 Service Rd, Austin, TX 78735</pre></th>
-            <th> <pre>512-654-2100</pre></th>
-            <th> <pre><a href="https://www.bswhealth.com/locations/austin-medical-center/" target="_blank"><font size = "-1"> Clinic Webpage</font></a></pre>  </th>
-            <th>
-                <pre> 
-                    <li> 24 Hours (Mon-Thurs)</li>
-                    <li> 24 Hours (Fri-Sat)</li>
-                    <li> 24 Hours (Sun)</li>
-                </pre>
-            </th>
-            </tr>
-        
-            <tr>
-            <td> <pre><b>UT Health Austin</b></pre></td>
-            <th> <pre>Health Transformation Building, 1601 Trinity St Building A, Austin, TX 78712</pre></th>
-            <th> <pre>833-882-2737</pre></th>
-            <th> <pre><a href="https://uthealthaustin.org/" target="_blank"><font size = "-1"> Clinic Webpage</font></a> </pre></th>
-            <th>
-                <pre> 
-                    <li> 8AM-5PM (Mon-Fri)</li>
-                    <li> Closed (Sat-Sun)</li>
-                </pre>
-            </th>
-            </tr>
-        
-            <tr>
-            <td> <pre><b>Toney Berger Activity Center</pre></b></td>
-            <th> <pre>3200 Jones Rd, Austin, TX, 78745</pre></th>
-            <th> <pre>512-414-1050</pre></th>
-            <th> <pre> <a href="https://www.austinisd.org/construction-management/bond/bond-and-construction-projects/burger-athletic-complex" target="_blank"><font size = "-1"> Clinic Webpage</font></a> </pre></th>
-            <th>
-                <pre> 
-                    <li> 8AM-8PM (Mon-Fri)</li>
-                    <li> Closed (Sat-Sun)</li>
-                </pre>
-            </th>
-            </tr>
-        
-            <tr>
-            <td> <pre><b>Advent Health Central Texas</b></pre></td>
-            <th> <pre>2201 South Clear Creek Road, Killeen, TX, 76549</pre></th>
-            <th> <pre>254-526-7523</pre></th>
-            <th>  <pre> <a href="https://www.adventhealth.com/hospital/adventhealth-central-texas" target="_blank"><font size = "-1"> Clinic Webpage </font></a> </pre></th>
-            <th>
-                <pre> 
-                    <li> 9AM-9PM (Mon-Thurs)</li>
-                    <li> 9AM-9PM (Fri-Sat)</li>
-                    <li> 9AM-9PM (Sun)</li>
-                </pre>
-            </th>
-            </tr>
+            <script>
+                $(document).ready(function() {
+                    $('#healthTable').DataTable();
+                    $('.dataTables_length').addClass('bs-select');
+                });
+            </script>
         </center>
 
-         
-        
         <center>
             <!-- Information and images and stuff for 3 restaurants -->
             <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#RoundRockBaylor"> Round Rock Baylor Clinic</button>
@@ -145,9 +137,10 @@
                 <!-- Round Rock Baylor Clinic -->
                 <h2> Round Rock Baylor Clinic</h2>
                 <h3> 425 University Blvd, Round Rock, TX 78665</h3>
-                <h3> Phone Number: 512-509-0200</h3>
+                <a href="tel: 512-509-0200" target="_blank"><font size = "+2"> (512)-509-0200</font></a>
+                <br>
                 <!--FIX CENTER ALIGNMENT:-->
-                <a href="https://www.bswhealth.com/locations/round-rock-425-university-clinic/?y_source=1_MTM0MTE2MzgtNzE1LWxvY2F0aW9uLndlYnNpdGU=" target="_blank"><font size = "+1"> Clinic Webpage</font></a>
+                <a href="https://www.bswhealth.com/locations/round-rock-425-university-clinic/?y_source=1_MTM0MTE2MzgtNzE1LWxvY2F0aW9uLndlYnNpdGU=" target="_blank"><font size = "+2"> Round Rock Baylor Webpage</font></a>
                 <ul>
                     <h3> Hours</h3>
                     <li> 8AM-5PM (Mon-Thurs)</li>
@@ -166,8 +159,9 @@
                 <!-- Austin  Baylor Clinic -->
                 <h2> Austin Baylor Clinic</h2>
                 <h3> 5245 West US Highway 290 Service Rd, Austin, TX 78735</h3>
-                <h3> Phone Number: 512-654-2100</h3>
-                <a href="https://www.bswhealth.com/locations/austin-medical-center/" target="_blank"><font size = "+1"> Clinic Webpage</font></a>
+                <a href="tel: 512-654-2100" target="_blank"><font size = "+2">512-654-2100</font></a>
+                <br>
+                <a href="https://www.bswhealth.com/locations/austin-medical-center/" target="_blank"><font size = "+2"> Austin Baylor Webpage</font></a>
                 <ul>
                     <h3> Hours</h3>
                     <li> 24 Hours (Mon-Thurs)</li>
@@ -185,8 +179,9 @@
                 <!-- UT Health -->
                 <h2> UT Health Austin</h2>
                 <h3> Health Transformation Building, 1601 Trinity St Building A, Austin, TX 78712</h3>
-                <h3> Phone Number: 833-882-2737</h3>
-                <a href="https://uthealthaustin.org/" target="_blank"><font size = "+1"> Clinic Webpage</font></a>
+                <a href="tel: 833-882-2737" target="_blank"><font size = "+2"> (833)-882-2737 </font></a>
+                <br>
+                <a href="https://uthealthaustin.org/" target="_blank"><font size = "+2"> UT Health Webpage</font></a>
                 <ul>
                     <h3> Hours</h3>
                     <li> 8AM-5PM (Mon-Fri)</li>
@@ -203,9 +198,11 @@
                 <!-- Toney Berger Activity Center -->
                 <h2> Toney Berger Activity Center</h2>
                 <h3> 3200 Jones Rd, Austin, TX, 78745</h3>
-                <h3> Phone Number: 512-414-1050</h3>
-                <a href="https://www.austinisd.org/construction-management/bond/bond-and-construction-projects/burger-athletic-complex" target="_blank"><font size = "+1"> Clinic Webpage</font></a>
+                <a href="tel: 512-414-1050" target="_blank"><font size = "+2"> (512)-414-1050 </font> </a>
+                <br>
+                <a href="https://www.austinisd.org/construction-management/bond/bond-and-construction-projects/burger-athletic-complex" target="_blank"><font size = "+2"> Tony Berger Webpage</font></a>
                 <ul>
+                    <h3> Hours</h3>
                     <li> 8AM-8PM (Mon-Fri)</li>
                     <li> Closed (Sat-Sun)</li>
                 </ul>
@@ -220,8 +217,9 @@
                 <!-- Advent Health-->
                 <h2> Advent Health Central Texas</h2>
                 <h3> 2201 South Clear Creek Road, Killeen, TX, 76549</h3>
-                <h3> Phone Number: 254-526-7523</h3>
-                <a href="https://www.adventhealth.com/hospital/adventhealth-central-texas" target="_blank"><font size = "+1"> Clinic Webpage </font></a>
+                <a href="tel: 254-526-7523" target="_blank"><font size = "+2">(254)-526-7523 </font></a>
+                <br>
+                <a href="https://www.adventhealth.com/hospital/adventhealth-central-texas" target="_blank"><font size = "+2"> Advent Health Webpage </font></a>
                 <ul>
                     <h3> Hours</h3>
                     <li> 9AM-9PM (Mon-Thurs)</li>
@@ -231,12 +229,6 @@
             </div>
             </div>
             <br></br>
-
-
             
-            
-
-
         </center>
     </body>
-</html>
