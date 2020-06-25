@@ -21,13 +21,13 @@ paths:
       tags:
         - Restaurant
       summary: restaurants by id
+      description: Get restaurant with specific unique id.
       operationId: getRestaurantByID
       parameters:
         - in: path
           name: id
           schema:
             type: integer
-          description: ID of the Restaurant
           required: true
       responses:
         '200':
@@ -99,13 +99,13 @@ paths:
       tags:
         - Hospital
       summary: hospitals by id
+      description: Get hospital with specific unique id.
       operationId: getHospitalByID
       parameters:
         - in: path
           name: id
           schema:
             type: integer
-          description: ID of the Hospital
           required: true
       responses:
         '200':
@@ -171,13 +171,13 @@ paths:
       tags:
         - GroceryStore
       summary: grocery stores by id
+      description: Get grocery store with specific unique id.
       operationId: getGroceryStoreByID
       parameters:
         - in: path
           name: id
           schema:
             type: integer
-          description: ID of the GroceryStore
           required: true
       responses:
         '200':
