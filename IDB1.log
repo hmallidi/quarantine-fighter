@@ -1,0 +1,580 @@
+commit 962ec94c65193d6226b68929fc4e5afb0a7cd1f2
+Author: Angela Cao <runningnerdtroll@gmail.com>
+Date:   Wed Jun 24 17:31:33 2020 -0500
+
+    added telephone function to the telephone numbers in restaurants.html finishing up telephone feature for the website.
+
+commit 194564adcd7315248a52c6c89fa66252eebb64c4
+Author: hmallidi <mallidi.harinadha@gmail.com>
+Date:   Wed Jun 24 15:06:12 2020 -0500
+
+    moved covidfighter_api_schema.yml into postman.YAML
+
+commit 4549e03b9f56f956c6befa0436b9b93d4ff32e2b
+Author: Angela Cao <runningnerdtroll@gmail.com>
+Date:   Wed Jun 24 14:06:49 2020 -0500
+
+    fixed the bug(s) in restaurants.html
+
+commit 66f19df7d99019dd7bcfda37755293d0ed0e4d14
+Author: Angela Cao <runningnerdtroll@gmail.com>
+Date:   Wed Jun 24 13:33:38 2020 -0500
+
+    feature of table for information of each place in the respective page
+
+commit 6e7cb3f3e2b4168db549c7230b6f0fe5d21676f3
+Author: Angela Cao <runningnerdtroll@gmail.com>
+Date:   Wed Jun 24 13:25:59 2020 -0500
+
+    feature of google map of each page to showcase relative locations of places from the tables in relation to Austin, TX
+
+commit dfa2a24f6aaeeec7eeec1d7e6c11e79d058d20f4
+Author: Angela Cao <runningnerdtroll@gmail.com>
+Date:   Wed Jun 24 13:24:25 2020 -0500
+
+    feature of collapsable buttons to showcase informaiton from the tables.
+
+commit b3ecb24d43d12caff949d2c9cae2b435e1a8bdb8
+Author: Angela Cao <runningnerdtroll@gmail.com>
+Date:   Wed Jun 24 12:57:55 2020 -0500
+
+    added a google map for healthcare.html and successful implementation
+
+commit 2ed6b2e4fd57a4b55b215e638233625c2202521f
+Author: Angela Cao <runningnerdtroll@gmail.com>
+Date:   Wed Jun 24 12:44:10 2020 -0500
+
+    added google maps for restaurants except there are several bugs in the google map of restaurant.html
+
+commit eb1651c648009584bb3915bf9b14bd15b0e6e7fe
+Author: Kewen Wang <wankew22@utexas.edu>
+Date:   Wed Jun 24 12:35:37 2020 -0500
+
+    fix makefile
+
+commit fc9bf857cf04b74ee0b3a6cf0893f06fd153d115
+Author: Kewen Wang <wankew22@utexas.edu>
+Date:   Wed Jun 24 12:33:14 2020 -0500
+
+    update make versions
+
+commit c4be42d06c89dbac945c6ca89028d0de46b9b8d2
+Author: Kewen Wang <wankew22@utexas.edu>
+Date:   Wed Jun 24 12:29:39 2020 -0500
+
+    delete pip command in gitlab-ci.yml
+
+commit d7f6caf3b642c20cdec7fb8d41115351ad49b63b
+Author: Kewen Wang <wankew22@utexas.edu>
+Date:   Wed Jun 24 12:27:16 2020 -0500
+
+    fix gitlab-yml
+
+commit a384db7f76065cf3d61abcfe3cf460761e8b4cf3
+Author: Kewen Wang <wankew22@utexas.edu>
+Date:   Wed Jun 24 12:23:43 2020 -0500
+
+    fix invisible error in .gitlab-ci.yml
+
+commit 25e20a8deda84d333845d4c7f247e9947e76374b
+Author: Kewen Wang <wankew22@utexas.edu>
+Date:   Wed Jun 24 12:19:41 2020 -0500
+
+    fix error in gitlab-ci.yml
+
+commit 82bdf2a6f3f4ad6a521442362b36e41a9fd5ccdd
+Author: Kewen Wang <wankew22@utexas.edu>
+Date:   Wed Jun 24 12:17:21 2020 -0500
+
+    update gitlab-ci and makefile
+
+commit 69818604e87789a245e8a669e5336e5213a0d6e6
+Merge: 2a52c25 c49d3a5
+Author: Kewen Wang <wankew22@utexas.edu>
+Date:   Wed Jun 24 12:01:53 2020 -0500
+
+    Merge branch 'master' of https://gitlab.com/nayan1222/covid-fighter
+
+commit 2a52c25c9e24f445a93655dc6e4104a6aeac6f02
+Author: Kewen Wang <wankew22@utexas.edu>
+Date:   Wed Jun 24 12:01:22 2020 -0500
+
+    add .gitlab-ci.yml makefile and postman.YAML
+
+commit c49d3a527375f49d2bd4be00ed2f0eed6fa62f36
+Author: Angela Cao <runningnerdtroll@gmail.com>
+Date:   Wed Jun 24 11:50:45 2020 -0500
+
+    fixed the google map issue
+
+commit 6f68c6af13670e26442c2a4519664427df57c325
+Merge: 5b4616d 87c4fd5
+Author: Kewen Wang <wankew22@utexas.edu>
+Date:   Wed Jun 24 02:22:43 2020 -0500
+
+    Merge branch 'master' of https://gitlab.com/nayan1222/covid-fighter
+
+commit 5b4616d3fdb8977a606b926dbcf83f420cfd6de3
+Author: Kewen Wang <wankew22@utexas.edu>
+Date:   Wed Jun 24 02:22:12 2020 -0500
+
+    finish about page
+
+commit 87c4fd509f1d2162d0e54174dd86fa3c6a1625d0
+Author: Pranav Varanasi <varanasipranav@gmail.com>
+Date:   Tue Jun 23 21:50:26 2020 -0700
+
+    Added new health table, links for phone number
+
+commit a8e8cc52b82e7a970aeedad6b22829d46aef21b2
+Author: Nayan Shashidhar <nayan.shashidhar123@gmail.com>
+Date:   Tue Jun 23 23:15:00 2020 -0500
+
+    created table for restaurants page
+
+commit 4f2e8ff1910b3953e401cc9e595f155639818c8c
+Merge: 82cad5a 2b75e9c
+Author: Pranav Varanasi <varanasipranav@gmail.com>
+Date:   Tue Jun 23 17:17:31 2020 -0700
+
+    Merge branch 'master' of https://gitlab.com/nayan1222/covid-fighter
+
+commit 82cad5a3b9a8af206d41237a6e6ecdcce2af9577
+Author: Pranav Varanasi <varanasipranav@gmail.com>
+Date:   Tue Jun 23 17:17:20 2020 -0700
+
+    Added table, not sorting yet
+
+commit 2b75e9caedd0043c3c8da84c86637d82b7ad0708
+Author: Angela Cao <runningnerdtroll@gmail.com>
+Date:   Tue Jun 23 18:46:07 2020 -0500
+
+    updated grocery.html with table
+
+commit 6e4f991158eb06db3834936eff99e71347180bc9
+Merge: 56df000 ef9f6a5
+Author: Pranav Varanasi <varanasipranav@gmail.com>
+Date:   Tue Jun 23 16:34:08 2020 -0700
+
+    Merge branch 'master' of https://gitlab.com/nayan1222/covid-fighter
+
+commit 56df000aa1e1543dc2eb14404a6d5ec697b1c796
+Author: Pranav Varanasi <varanasipranav@gmail.com>
+Date:   Tue Jun 23 16:33:53 2020 -0700
+
+    Added table format
+
+commit ef9f6a57ebadfabe348106d822106d5e75971095
+Author: Kewen Wang <wankew22@utexas.edu>
+Date:   Tue Jun 23 18:09:24 2020 -0500
+
+    fix typo
+
+commit d01103bf29186ecd3594f757804ef2453ac7c94e
+Author: Kewen Wang <wankew22@utexas.edu>
+Date:   Tue Jun 23 17:59:10 2020 -0500
+
+    change profile pic format
+
+commit 941a0aee43edaeaf6be4eee7c6a5a5e25b6386ae
+Author: Nayan Shashidhar <nayan.shashidhar123@gmail.com>
+Date:   Tue Jun 23 17:41:59 2020 -0500
+
+    added 2 more restaurants and links to restaurant webpages
+
+commit 5ae84cf66aac8056462d6dedf1368dcca3bd0a8f
+Author: hmallidi <mallidi.harinadha@gmail.com>
+Date:   Tue Jun 23 17:40:10 2020 -0500
+
+    added Hari Mallidi About Information Again
+
+commit 7b459cd3b291d9062b545ec4cd706809075ccdfc
+Merge: e6f0645 0cf3a9d
+Author: Angela Cao <runningnerdtroll@gmail.com>
+Date:   Tue Jun 23 17:26:22 2020 -0500
+
+    added fancy animation to google map on grocery.html
+
+commit e6f0645c630dc0d567302a6f1684c3a5260a239b
+Author: Angela Cao <runningnerdtroll@gmail.com>
+Date:   Tue Jun 23 17:25:15 2020 -0500
+
+    added fancy stuff to the map on grocery.html
+
+commit 0cf3a9d8077fbf2ed2e6ae35262060a641d94e18
+Merge: 545321d b68a807
+Author: Kewen Wang <wankew22@utexas.edu>
+Date:   Tue Jun 23 17:06:19 2020 -0500
+
+    Merge branch 'master' of https://gitlab.com/nayan1222/covid-fighter
+
+commit 545321ded9868151741304a74adbe9bd8ef1e0c6
+Author: Kewen Wang <wankew22@utexas.edu>
+Date:   Tue Jun 23 17:06:03 2020 -0500
+
+    final about version
+
+commit b68a80726d1254d1239c7b36e4782c5c821853cf
+Author: Angela Cao <runningnerdtroll@gmail.com>
+Date:   Tue Jun 23 17:04:36 2020 -0500
+
+    added google maps into grocery.html
+
+commit ba0cb650795acc4335c96f7e4851bfdb8df1f3d9
+Author: Angela Cao <runningnerdtroll@gmail.com>
+Date:   Tue Jun 23 16:40:37 2020 -0500
+
+    added google maps into grocery.html
+
+commit 6bb1c50f1c22dfa0e3ab18786eb184cdbba36e32
+Merge: 8799032 25a86e0
+Author: Kewen Wang <wankew22@utexas.edu>
+Date:   Tue Jun 23 15:42:44 2020 -0500
+
+    format about page
+
+commit 87990320c6da1db290e84fe29339bc7fb247df2a
+Author: Kewen Wang <wankew22@utexas.edu>
+Date:   Tue Jun 23 15:41:37 2020 -0500
+
+    format about page
+
+commit 25a86e03b690ebc60dde57b36a869c52dda87359
+Author: hmallidi <mallidi.harinadha@gmail.com>
+Date:   Tue Jun 23 15:40:25 2020 -0500
+
+    added Hari Mallidi about information
+
+commit 91b9ff52c06217cce76f8a1a9219e267764deaef
+Author: Pranav Varanasi <varanasipranav@gmail.com>
+Date:   Tue Jun 23 13:21:48 2020 -0700
+
+    Deleted testingloc.html, old code
+
+commit bee0954a311a7ab46e1b459c35de6011b72dbc17
+Author: Angela Cao <runningnerdtroll@gmail.com>
+Date:   Tue Jun 23 14:35:39 2020 -0500
+
+    updated about.html with picture
+
+commit fae34557fd9b0e97c32d90e626fd2a7bf46bb07f
+Author: Angela Cao <runningnerdtroll@gmail.com>
+Date:   Tue Jun 23 14:29:37 2020 -0500
+
+    adjusted design for grocery.html
+
+commit 27dd29d8d747c58f231c654fd1c7df500a9bbae6
+Author: Angela Cao <runningnerdtroll@gmail.com>
+Date:   Tue Jun 23 14:20:56 2020 -0500
+
+    fixed some technical and design issues with several of the pages
+
+commit 9f42ddab8a9bc477e90d521fd9db73f8eeba235a
+Merge: 482e3ba ca92c2a
+Author: Angela Cao <runningnerdtroll@gmail.com>
+Date:   Tue Jun 23 13:46:52 2020 -0500
+
+    made the telephone numbers functional in grocery.html
+
+commit 482e3bafee04eb23b60b55952ee95cb4ea7159ba
+Author: Angela Cao <runningnerdtroll@gmail.com>
+Date:   Tue Jun 23 13:45:42 2020 -0500
+
+    made the telephone numbers functional in grocery.html
+
+commit ca92c2ab55636d07d4d9bb64662ea3502ab5b8ce
+Author: Pranav Varanasi <varanasipranav@gmail.com>
+Date:   Tue Jun 23 00:13:00 2020 -0700
+
+    Fixed about formatting
+
+commit c86bed5dc119c1dbecc95600b42a587e44fd95af
+Merge: 965a91f 37e6b51
+Author: Pranav Varanasi <varanasipranav@gmail.com>
+Date:   Mon Jun 22 23:58:28 2020 -0700
+
+    Fixed merge conflicts
+
+commit 965a91fc6379198a6872e592d693eb82ce69a9c1
+Author: Pranav Varanasi <varanasipranav@gmail.com>
+Date:   Mon Jun 22 23:55:17 2020 -0700
+
+    Finished healthcare page, fixed broken links, added indent formatting in about page
+
+commit 37e6b51b15dc10ad7001d94f51af59e4dd04cae0
+Merge: 2d7dd5f 91fbf0d
+Author: Nayan Shashidhar <nayan.shashidhar123@gmail.com>
+Date:   Mon Jun 22 23:40:50 2020 -0500
+
+    Merge branch 'master' of https://gitlab.com/nayan1222/covid-fighter
+
+commit 2d7dd5f9fbff238ee223b731cd01bddf3e8d9075
+Author: Nayan Shashidhar <nayan.shashidhar123@gmail.com>
+Date:   Mon Jun 22 23:40:10 2020 -0500
+
+    Fixed linking between pages (except healthcare page) and added my info in about page
+
+commit 91fbf0d770da1a8c6840db2be1453f4638e51e35
+Author: Kewen Wang <wankew22@utexas.edu>
+Date:   Mon Jun 22 22:26:57 2020 -0500
+
+    change about.css
+
+commit c476720a7ba0d2062e6d37f2a252f82fe9ddc12e
+Author: Kewen Wang <wankew22@utexas.edu>
+Date:   Tue Jun 23 03:18:03 2020 +0000
+
+    Update README.md
+
+commit cf73b416d31ea64d3a590b1f492d2eabe0d947cc
+Author: Angela Cao <runningnerdtroll@gmail.com>
+Date:   Mon Jun 22 21:48:10 2020 -0500
+
+    updated about page
+
+commit 49a4bdbbef5d1c5672787917144702ca14894dd4
+Author: Kewen Wang <wankew22@utexas.edu>
+Date:   Mon Jun 22 21:06:42 2020 -0500
+
+    fix all links in splash pages
+
+commit a72406d4fef4f48797432d355cca1d5e4c41ebfc
+Author: Kewen Wang <wankew22@utexas.edu>
+Date:   Mon Jun 22 20:47:07 2020 -0500
+
+    fix the broken link, revert to correct version
+
+commit f5d3204b074b506d31099c945b796ada0ace3b49
+Merge: 893d0d9 4945d47
+Author: Kewen Wang <wankew22@utexas.edu>
+Date:   Mon Jun 22 20:30:47 2020 -0500
+
+    first ver about me
+
+commit 893d0d9b9c279fa61d5c7ef302d9127870c47f76
+Author: Kewen Wang <wankew22@utexas.edu>
+Date:   Mon Jun 22 20:29:19 2020 -0500
+
+    first version about me
+
+commit 4945d475f1a6972941958483df1736530afabeeb
+Author: Angela Cao <runningnerdtroll@gmail.com>
+Date:   Mon Jun 22 18:36:57 2020 -0500
+
+    linked About Me page to the rest of the HTML pages.
+
+commit 7cae6c6389c1aa2d88272a710980450154d9fb98
+Author: Angela Cao <runningnerdtroll@gmail.com>
+Date:   Mon Jun 22 18:32:30 2020 -0500
+
+    fixed technical issues with restaurants.html; OC forgot to include javascript link in the header
+
+commit d36bbb97a7af561524e96f70513e18d2e126ebbf
+Author: Angela Cao <runningnerdtroll@gmail.com>
+Date:   Mon Jun 22 18:21:20 2020 -0500
+
+    added link for the menu for the index and grocery pages and updated grocery.html with menu
+
+commit 42b45229aec5f68b8cba48b2d0228b42dc850fb1
+Merge: f043919 9245d2b
+Author: Angela Cao <runningnerdtroll@gmail.com>
+Date:   Mon Jun 22 18:14:05 2020 -0500
+
+    finally fixed collapse issue in grocery.html
+
+commit f04391992760f4c8a28ef19bb9654dcecb8e5c5d
+Author: Angela Cao <runningnerdtroll@gmail.com>
+Date:   Mon Jun 22 18:12:14 2020 -0500
+
+    finally fixed the collapse issue for grocery.html yay I guess
+
+commit 9245d2bd406e87f0ce05afcd32e8827f095f5443
+Merge: 85f32db 8986b67
+Author: Nayan Shashidhar <nayan.shashidhar123@gmail.com>
+Date:   Mon Jun 22 17:42:31 2020 -0500
+
+    added some formatting to restaurants.html
+
+commit 85f32db29321b5ebb9dda16d3a10f4bcb7def2ad
+Author: Nayan Shashidhar <nayan.shashidhar123@gmail.com>
+Date:   Mon Jun 22 17:41:19 2020 -0500
+
+    added some formatting to restaurants.html
+
+commit 8986b67cb924eb11c543a1d6842fbb79ac40ac47
+Author: Kewen Wang <wankew22@utexas.edu>
+Date:   Mon Jun 22 17:16:52 2020 -0500
+
+    add about page
+
+commit 1abfb3878d3e092558b0081d0e9d050ae9792b64
+Author: hmallidi <mallidi.harinadha@gmail.com>
+Date:   Mon Jun 22 21:51:57 2020 +0000
+
+    Update restaurants.html for proper page linkage
+
+commit 03c33dd365168f8bdd59242b382dd8aff9781294
+Author: Kewen Wang <wankew22@utexas.edu>
+Date:   Mon Jun 22 14:15:45 2020 -0500
+
+    link url to splash page
+
+commit 1653457a5fde9b5eeaee1fe0c55d7da1bc64692e
+Author: Kewen Wang <wankew22@utexas.edu>
+Date:   Mon Jun 22 13:47:21 2020 -0500
+
+    restructure flask by creating static folder
+
+commit 03395047c0459101e7a72bd844c1cce7947967af
+Author: Kewen Wang <wankew22@utexas.edu>
+Date:   Mon Jun 22 13:42:18 2020 -0500
+
+    modify main.py to run the web
+
+commit 7c99daa9936e12c58b5d2bc21e3b86731b24ed46
+Author: hmallidi <mallidi.harinadha@gmail.com>
+Date:   Mon Jun 22 17:27:23 2020 +0000
+
+    Delete .DS_Store
+
+commit 2630d98e485b7a5e33d3825f04cefa21400edf24
+Author: hmallidi <mallidi.harinadha@gmail.com>
+Date:   Mon Jun 22 17:27:10 2020 +0000
+
+    Delete .DS_Store
+
+commit 13440b42050af13ac937372aec7fe2a49c2e724f
+Author: hmallidi <mallidi.harinadha@gmail.com>
+Date:   Mon Jun 22 12:25:08 2020 -0500
+
+    added requirements.txt
+
+commit 55db61b6efb6f1dfa9e5801d284f2d5241735677
+Merge: b271821 ba67154
+Author: hmallidi <mallidi.harinadha@gmail.com>
+Date:   Mon Jun 22 12:15:25 2020 -0500
+
+    Merge branch 'master' of gitlab.com:nayan1222/covid-fighter
+
+commit b271821398de804b94e86bcaff967419a5376843
+Author: hmallidi <mallidi.harinadha@gmail.com>
+Date:   Mon Jun 22 12:13:56 2020 -0500
+
+    added app.yaml configuration file
+
+commit b75cb0c3ee7179e82d1730dc5581dbde2e46c158
+Author: hmallidi <mallidi.harinadha@gmail.com>
+Date:   Mon Jun 22 12:12:32 2020 -0500
+
+    added gitignore
+
+commit ba67154c9c27193f773d71a1a696323b72ca520a
+Author: Kewen Wang <wankew22@utexas.edu>
+Date:   Mon Jun 22 11:57:12 2020 -0500
+
+    move splash page to templates folder
+
+commit dcd889c222083c248cd77ce74b4baed1edf199ba
+Author: Kewen Wang <wankew22@utexas.edu>
+Date:   Mon Jun 22 11:18:50 2020 -0500
+
+    splash page update
+
+commit 8f3caf7e929426d03cbb54a721559b8ec7c90dff
+Merge: d112615 21b0af2
+Author: Nayan Shashidhar <nayan.shashidhar123@gmail.com>
+Date:   Mon Jun 22 10:01:59 2020 -0500
+
+    Merge branch 'master' of https://gitlab.com/nayan1222/covid-fighter
+
+commit d1126156edf46cabfacb924c6093778c421b7a2e
+Author: Nayan Shashidhar <nayan.shashidhar123@gmail.com>
+Date:   Mon Jun 22 10:01:38 2020 -0500
+
+    Added a form (to be used in phase 2), still need to use bootstrap
+
+commit 21b0af2e8129f877aa38b91d37bb64e5f9f95684
+Author: hmallidi <mallidi.harinadha@gmail.com>
+Date:   Mon Jun 22 04:38:25 2020 -0500
+
+    basic api schema
+
+commit ad3c1f5dc1623450c4b0fc9d8288479bca651a90
+Author: hmallidi <mallidi.harinadha@gmail.com>
+Date:   Mon Jun 22 04:01:03 2020 -0500
+
+    attempting to fix validation issues on postman with documentation
+
+commit 719197fc9f84ab6e40a55b709311704c45e485d6
+Author: hmallidi <mallidi.harinadha@gmail.com>
+Date:   Mon Jun 22 03:00:48 2020 -0500
+
+    added an api schema
+
+commit 45c6666c686876af1f652621df9610b7e22e005f
+Author: Angela Cao <runningnerdtroll@gmail.com>
+Date:   Sun Jun 21 21:03:19 2020 -0500
+
+    added phone numbers to the grocery stores as contact info
+
+commit 8cb2f1d63e2f8c9167b61dae58a57bd3fe6af674
+Author: Angela Cao <runningnerdtroll@gmail.com>
+Date:   Sun Jun 21 20:53:08 2020 -0500
+
+    stylized the grocery page to be pretty except there's a functional problem lol.
+
+commit 644b2f6c2ac5826ff678f0bf870680b50c479182
+Author: Nayan Shashidhar <nayan.shashidhar123@gmail.com>
+Date:   Sun Jun 21 16:27:57 2020 -0500
+
+    have info for restaurants
+
+commit 11a417c5e1630a1f1c4c547025055db1446568d1
+Merge: 23b1c75 b7301ef
+Author: Nayan Shashidhar <nayan.shashidhar123@gmail.com>
+Date:   Sun Jun 21 16:27:11 2020 -0500
+
+    Merge branch 'master' of https://gitlab.com/nayan1222/covid-fighter
+
+commit 23b1c7519c43beabd1a1838a93585c3af878d900
+Author: Nayan Shashidhar <nayan.shashidhar123@gmail.com>
+Date:   Sun Jun 21 16:26:45 2020 -0500
+
+    have info for restaurants
+
+commit b7301ef6891a2b1a143a09c0d850f7967a523b7d
+Merge: 3459455 20221f8
+Author: Angela Cao <runningnerdtroll@gmail.com>
+Date:   Sat Jun 20 18:58:20 2020 -0500
+
+    Data for grocery stores.
+
+commit 34594554c5ba6c69a93df1305510050da31b37cd
+Author: Angela Cao <runningnerdtroll@gmail.com>
+Date:   Sat Jun 20 18:56:40 2020 -0500
+
+    Collected data for grocery stores
+
+commit 20221f8fb01d8adbd19556dca2769a54484c782f
+Author: Nayan Shashidhar <nayan.shashidhar123@gmail.com>
+Date:   Fri Jun 19 20:46:54 2020 -0500
+
+    added template folder for html files
+
+commit 2a1199a984ad25c8af011f4c5c43e839c8d7e770
+Author: nayan1222 <nayan.shashidhar123@gmail.com>
+Date:   Fri Jun 19 23:12:16 2020 +0000
+
+    Python file for running flask
+
+commit c89cf4d58c73f8f207be52932c7093af6dcaa28f
+Author: Angela Cao <runningnerdtroll@gmail.com>
+Date:   Fri Jun 19 18:01:17 2020 -0500
+
+    default html page where we can start on the project
+
+commit 976f93a7413029fdd737b2e46fb9d2be0c6e9905
+Author: nayan1222 <nayan.shashidhar123@gmail.com>
+Date:   Fri Jun 19 22:56:03 2020 +0000
+
+    Initial commit
