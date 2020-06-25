@@ -1,3 +1,27 @@
+commit b2342d3bafa5fe920c51a429a0f7b0e51f293854
+Author: Nayan Shashidhar <nayan.shashidhar123@gmail.com>
+Date:   Thu Jun 25 12:54:44 2020 -0500
+
+    added link to gitlab wiki in about page
+
+commit fa140bb66e484592e54d9e6d57ee3f3ab26032d5
+Author: Kewen Wang <wankew22@utexas.edu>
+Date:   Thu Jun 25 12:24:32 2020 -0500
+
+    regenerate html
+
+commit 47d7344ea42670b7716543a4b4c09ff2ee9c78d0
+Author: Kewen Wang <wankew22@utexas.edu>
+Date:   Thu Jun 25 11:55:13 2020 -0500
+
+    fix about page info
+
+commit 1fd28d3e5d17a73cc98e962573cc4fc9b0a3f297
+Author: Kewen Wang <wankew22@utexas.edu>
+Date:   Thu Jun 25 11:53:10 2020 -0500
+
+    update total info and git log
+
 commit 960af4e7dd171a6c06b7b616fe219f76ae443852
 Author: Kewen Wang <wankew22@utexas.edu>
 Date:   Thu Jun 25 11:48:08 2020 -0500
