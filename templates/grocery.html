@@ -66,7 +66,7 @@
     </nav> <!-- end of class navbar navbar-default -->
 
     <center><h1>Grocery Stores Open During COVID-19</h1></center>
-    <center>
+    <!--<center>-->
         <!--Table featuring information of each place in the respective page-->
         <table id = "groceryTable" class="table table-striped table-bordered table-sm">
             <thead>
@@ -76,6 +76,7 @@
                     <th>Phone Number</th>
                     <th>Store Webpage</th>
                     <th>Regular Times</th>
+                    <th>Senior Times</th>
                 </tr>
             </thead>
             <tbody>
@@ -84,7 +85,16 @@
                     <td>1000 E 41st St, Austin, TX 78751</td>
                     <td><a href="tel: 512-459-6513">(512)459-6513</a></td>
                     <td><a href="https://newsroom.heb.com/hancock-center-h%E2%80%91e%E2%80%91b/" target="_blank">newsroom.heb.com</a></td>
-                    <td>7AM - 11PM</td>
+                    <td>
+                        <ul>
+                            <li>7AM - 11PM</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li>N/A</li>
+                        </ul>
+                    </td>
                 </tr>
                 <tr>
                     <td>Whole Foods Market</td>
@@ -92,8 +102,16 @@
                     <td><a href="tel: 512-542-2200">(512)542-2200</a></td>
                     <td><a href="https://www.wholefoodsmarket.com/stores/lamar" target="_blank">wholefoodsmarket.com</a></td>
                     <td>
-                        <p>7AM - 9PM (Sun - Tues & Thurs & Sat)</p>
-                        <p>7AM - 8PM (Wed & Fri)</p>
+                        <ul>
+                            <li>7AM - 9PM (Sun - Tues & Thurs & Sat)</li>
+                            <li>7AM - 8PM (Wed & Fri)</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li>Closed (Sun - Tues & Thurs & Sat)</li>
+                            <li>7AM - 8AM (Wed & Fri)</li>
+                        </ul>
                     </td>
                 </tr>
                 <tr>
@@ -101,14 +119,32 @@
                     <td>10901 N Lamar Blvd G, Austin, TX 78753</td>
                     <td><a href="tel: 512-454-4804">(512)454-4804</a></td>
                     <td><a href="http://mtsupermarket.com" target="_blank">mtsupermarket.com</a></td>
-                    <td>9AM - 8PM</td>
+                    <td>
+                        <ul>
+                            <li>9AM - 8PM</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li>N/A</li>
+                        </ul>
+                    </td>
                 </tr>
                 <tr>
                     <td>HMart</td>
                     <td>11301 Lakeline Blvd, Austin, TX 78717</td>
                     <td><a href="tel: 737-717-6900">(737)717-6900</a></td>
                     <td><a href="https://www.hmart.com/storelocator/index/index/id/61/" target="_blank">hmart.com</a></td>
-                    <td>8AM - 10PM</td>
+                    <td>
+                        <ul>
+                            <li>8AM - 10PM</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li>N/A</li>
+                        </ul>
+                    </td>
                 </tr>
                 <tr>
                     <td>99 Ranch</td>
@@ -116,10 +152,17 @@
                     <td><a href="tel: 512-381-8899">(512)381-8899</a></td>
                     <td><a href="https://www.99ranch.com/stores/austin" target="_blank">99ranch.com</a></td>
                     <td>
-                        <p>9AM - 8PM (Sun)</p>
-                        <p>10AM - 8PM (Mon - Thurs)</p>
-                        <p>10AM - 9PM (Fri)</p>
-                        <p>9AM - 9PM (Sat)</p>
+                        <ul>
+                            <li>9AM - 8PM (Sun)</li>
+                            <li>10AM - 8PM (Mon - Thurs)</li>
+                            <li>10AM - 9PM (Fri)</li>
+                            <li>9AM - 9PM (Sat)</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li>9AM - 10AM (Mon - Fri)</li>
+                        </ul>
                     </td>
                 </tr>
                 <tr>
@@ -129,7 +172,17 @@
                     <td>
                         <a href="https://local.randalls.com/tx/austin/1500-w-35th-st.html" target="_blank">local.randalls.com</a>
                     </td>
-                    <td>6AM - 11PM</td>
+                    <td>
+                        <ul>
+                            <li>6AM - 11PM</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <p>Closed (Sun - Mon & Wed & Fri - Sat)</p>
+                            <p>6AM - 9AM (Tues & Thurs)</p>
+                        </ul>
+                    </td>
                 </tr>
             </tbody>
         </table>
@@ -141,7 +194,7 @@
             });
         </script>
     -->
-    </center>
+    <!--</center>-->
     <center>
         <!--Collapsable buttons to showcase information from table-->
     <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#HEB">HEB</button>
