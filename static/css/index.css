@@ -1,12 +1,13 @@
 body{
 	background-position: center left;
-	background-image: url("https://images.newscientist.com/wp-content/uploads/2020/02/11165812/c0481846-wuhan_novel_coronavirus_illustration-spl.jpg")
+	/*background-image: url("https://images.newscientist.com/wp-content/uploads/2020/02/11165812/c0481846-wuhan_novel_coronavirus_illustration-spl.jpg")*/
 
 }
 
 h1 {
 	color: rgb(178, 34, 34);
-	position: absolute;
+	position: left;
+	text-align: left;
 	top: 65%;
 	left: 50%;
 	transform: translate(-50%, -50%);

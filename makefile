@@ -36,10 +36,10 @@ status:
 	git remote -v
 	git status
 # run locally
-local run: main.py
-	python main.py
-models.html: main.py
-	$(PYDOC) -w main
+local run: models.py
+	python models.py
+models.html: models.py
+	$(PYDOC) -w models
 IDB1.log:
 	git log > IDB1.log
 versions:
