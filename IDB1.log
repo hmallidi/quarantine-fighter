@@ -1,3 +1,184 @@
+commit 960af4e7dd171a6c06b7b616fe219f76ae443852
+Author: Kewen Wang <wankew22@utexas.edu>
+Date:   Thu Jun 25 11:48:08 2020 -0500
+
+    update personal about page
+
+commit 0dcd614c4b559c64ffc4a4a874d48be33e9f1c02
+Author: Kewen Wang <wankew22@utexas.edu>
+Date:   Thu Jun 25 11:45:07 2020 -0500
+
+    fix home page title
+
+commit 715e7ff732344585084bec775d6e8d70bf665bb0
+Author: Nayan Shashidhar <nayan.shashidhar123@gmail.com>
+Date:   Thu Jun 25 11:20:03 2020 -0500
+
+    deleted my changes in index
+
+commit 54d2ec90232d2d82b0bbab8e05eaedaaf664e386
+Author: Nayan Shashidhar <nayan.shashidhar123@gmail.com>
+Date:   Thu Jun 25 10:51:24 2020 -0500
+
+    issue with covid figher headline on homepage, it's in top center for some reason
+
+commit 07a82f382cfce6cf26bb78cdaa03a72f8299b63d
+Author: Kewen Wang <wankew22@utexas.edu>
+Date:   Wed Jun 24 23:08:48 2020 -0500
+
+    change bg pic and modify makefile to run models.py
+
+commit 8d71711cab8ffc96dcf1459f5c1298930d6b17d2
+Author: Angela Cao <runningnerdtroll@gmail.com>
+Date:   Wed Jun 24 21:08:40 2020 -0500
+
+    updated personal info for Angela
+
+commit 8e7583f15ba98d5b536d8e6b7a2150e3a0e99801
+Merge: 52afa54 b90f1fb
+Author: Angela Cao <runningnerdtroll@gmail.com>
+Date:   Wed Jun 24 21:05:59 2020 -0500
+
+    fixed table heading
+
+commit 52afa541d67df2910c9c55acef7fcbdfca7d27b3
+Author: Angela Cao <runningnerdtroll@gmail.com>
+Date:   Wed Jun 24 21:05:28 2020 -0500
+
+    fixed table heading
+
+commit b90f1fb1cc329a3484f581d614d27334811febfc
+Author: hmallidi <mallidi.harinadha@gmail.com>
+Date:   Wed Jun 24 21:02:53 2020 -0500
+
+    edited about page to correlate with previous commit
+
+commit 69139109e9687759adeff76d877aeaf673aac0f7
+Author: hmallidi <mallidi.harinadha@gmail.com>
+Date:   Wed Jun 24 21:02:04 2020 -0500
+
+    added descriptive elements to id get requests on postman.YAML
+
+commit 7131c66dbda3bd9aa21dfea4fd232d3cb1bcb131
+Merge: 1440367 6ce6603
+Author: Angela Cao <runningnerdtroll@gmail.com>
+Date:   Wed Jun 24 21:01:02 2020 -0500
+
+    fixed table in grocery.html
+
+commit 14403677a94410a728fbd4060369abce52fe2ff5
+Author: Angela Cao <runningnerdtroll@gmail.com>
+Date:   Wed Jun 24 20:57:39 2020 -0500
+
+    grocery.html change-added bullets to times
+
+commit 6ce6603e876e478500c1e138bf6f3f8ab53327e5
+Author: Kewen Wang <wankew22@utexas.edu>
+Date:   Wed Jun 24 20:52:24 2020 -0500
+
+    add commit info
+
+commit bdaff91c1b6cb2b78dc25f162d790792818b78ce
+Author: Kewen Wang <wankew22@utexas.edu>
+Date:   Wed Jun 24 20:47:53 2020 -0500
+
+    change grocery page attributes to match with the other two
+
+commit 4b47c7af161faa35b9170dfedd432d74ff1d5234
+Author: Kewen Wang <wankew22@utexas.edu>
+Date:   Wed Jun 24 20:43:56 2020 -0500
+
+    add comments to models.html
+
+commit faf87c776e3cbb823b844a83b5e497641a2622a2
+Author: Nayan Shashidhar <nayan.shashidhar123@gmail.com>
+Date:   Wed Jun 24 20:41:33 2020 -0500
+
+    forgot to save file
+
+commit 9a97f90be668d7cb616575357fd2c6b86e2a8f3d
+Merge: f3a068d d92e375
+Author: Nayan Shashidhar <nayan.shashidhar123@gmail.com>
+Date:   Wed Jun 24 20:40:37 2020 -0500
+
+    Merge branch 'master' of https://gitlab.com/nayan1222/covid-fighter
+
+commit f3a068d6c4f963efca7303ae7a44496b622a8100
+Author: Nayan Shashidhar <nayan.shashidhar123@gmail.com>
+Date:   Wed Jun 24 20:40:32 2020 -0500
+
+    reformatted restaurant page table
+
+commit d92e3756b407ef13ff67e5c9b8246d781b8a479e
+Author: Angela Cao <runningnerdtroll@gmail.com>
+Date:   Wed Jun 24 20:35:12 2020 -0500
+
+    fixed the table for grocery.html and fixed an unseen-before typo
+
+commit e4745edd1879ab12356c15f8452c72d8f2a16ccd
+Author: Kewen Wang <wankew22@utexas.edu>
+Date:   Wed Jun 24 20:29:16 2020 -0500
+
+    generate html file to document interface
+
+commit 6781f85305c715b3ed9a6f86229e4b145ad95cbe
+Merge: f8dc2c7 bdf81cc
+Author: Pranav Varanasi <varanasipranav@gmail.com>
+Date:   Wed Jun 24 18:21:47 2020 -0700
+
+    Merge branch 'master' of https://gitlab.com/nayan1222/covid-fighter
+
+commit f8dc2c719e2bfd40a00a94763c76da47c70a7644
+Author: Pranav Varanasi <varanasipranav@gmail.com>
+Date:   Wed Jun 24 18:21:35 2020 -0700
+
+    Added commit info, issues
+
+commit bdf81cc45616456da13e3d008da45bfaa40b6d5f
+Merge: dea1301 3de12fc
+Author: Nayan Shashidhar <nayan.shashidhar123@gmail.com>
+Date:   Wed Jun 24 20:17:55 2020 -0500
+
+    Merge branch 'master' of https://gitlab.com/nayan1222/covid-fighter
+
+commit dea130181d16e8f4fdef0a3082629194bff1900e
+Author: Nayan Shashidhar <nayan.shashidhar123@gmail.com>
+Date:   Wed Jun 24 20:17:48 2020 -0500
+
+    added my commits and issues to about page
+
+commit 3de12fc8463f292e34ddf01963c9532654a20b96
+Merge: ed49067 1def604
+Author: Angela Cao <runningnerdtroll@gmail.com>
+Date:   Wed Jun 24 20:15:31 2020 -0500
+
+    added more personal info in about page
+
+commit ed4906782b331ea6415e04a07a7c83c674297c2d
+Merge: 9928bde 6ada3a1
+Author: Angela Cao <runningnerdtroll@gmail.com>
+Date:   Wed Jun 24 20:14:41 2020 -0500
+
+    added more personal info in about page
+
+commit 1def604d14d54aaf9a3608ef42ba4af574aa6842
+Author: hmallidi <mallidi.harinadha@gmail.com>
+Date:   Wed Jun 24 20:13:06 2020 -0500
+
+    updated Hari about page with Commits, Issues, and Unit Tests
+
+commit 9928bde5a43355462c83d5fdee054f5eca9fdac7
+Author: Angela Cao <runningnerdtroll@gmail.com>
+Date:   Wed Jun 24 20:11:48 2020 -0500
+
+    added more personal information
+
+commit 6ada3a1b6a564079606fce938aee0269a59d7db9
+Author: Kewen Wang <wankew22@utexas.edu>
+Date:   Wed Jun 24 20:11:16 2020 -0500
+
+    add git log
+
 commit 962ec94c65193d6226b68929fc4e5afb0a7cd1f2
 Author: Angela Cao <runningnerdtroll@gmail.com>
 Date:   Wed Jun 24 17:31:33 2020 -0500
