@@ -38,8 +38,8 @@ status:
 # run locally
 local run: main.py
 	python main.py
-models.html: index.html
-	$(PYDOC) -w index
+models.html: main.py
+	$(PYDOC) -w main
 IDB1.log:
 	git log > IDB1.log
 versions:
