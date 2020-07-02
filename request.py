@@ -40,7 +40,7 @@ def reformatLocation(location):
     return location
 
 
-def getJSON(place_type, city, name="", min_price=0, max_price=4):
+def getJSON(place_type, city="", name="", min_price=0, max_price=4):
     gmaps = googlemaps.Client(key='AIzaSyDzN3W-S4TxBm3wqslV1_JqfwhLjEsSKI8')
 
     city = city.strip()
@@ -95,7 +95,7 @@ def getJSON(place_type, city, name="", min_price=0, max_price=4):
 
 
 # RESTAURANTS
-places_results = getJSON("supermarket", "Kansas City")
+# places_results = getJSON("supermarket")
 
 # HOSPITALS
 # places_results = getJSON("hospital", "Amarillo")
