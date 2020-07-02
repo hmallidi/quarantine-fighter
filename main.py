@@ -42,6 +42,10 @@ def about():
     """
     return render_template('about.html')
 
+@app.route('/api')
+def api():
+    return "Welcome to the Covid Fighter API"
+
 
 if __name__ == "__main__":
     app.debug = True
