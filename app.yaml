@@ -12,7 +12,7 @@ env_variables:
     # Replace user, password, database, and instance connection name with the values obtained
     # when configuring your Cloud SQL instance.
     DB_STRING: >-
-      postgresql+psycopg2://varanasipranav:locations123@/postgres?host=/cloudsql/covidfighter-280919:us-central1:locationsdb
+      postgresql+psycopg2://postgres:locations123@/postgres?host=/cloudsql/covidfighter-280919:us-central1:locationsdb
 #[END env]
 
 #[START cloudsql_settings]
