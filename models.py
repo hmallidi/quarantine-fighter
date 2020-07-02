@@ -33,9 +33,13 @@ def healthcare():
 @app.route('/about', methods=['GET', 'POST'])
 def about():
     """
-        about page, contains introductions of each team memeber, data source used, and all the required
+        about page, contains introductions of each team memeber, data source used, and all the required information
     """
     return render_template('about.html')
+
+@app.route('/api')
+def api():
+    return "Welcome to the API"
 
 if __name__ == "__main__":
     app.debug = True
