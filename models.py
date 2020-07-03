@@ -20,7 +20,7 @@ class Drugstore(db.Model):
     latitude = db.Column(db.Float, nullable=False)
     longitude = db.Column(db.Float, nullable=False)
 
-    open_state = db.Column(db.String, nullable=False)
+    open_status = db.Column(db.String, nullable=False)
     business_status = db.Column(db.String, nullable=False)
 
     rating = db.Column(db.Float, nullable=False)
@@ -45,7 +45,7 @@ class Hospital(db.Model):
     latitude = db.Column(db.Float, nullable=False)
     longitude = db.Column(db.Float, nullable=False)
 
-    open_state = db.Column(db.String, nullable=False)
+    open_status = db.Column(db.String, nullable=False)
     business_status = db.Column(db.String, nullable=False)
     
     rating = db.Column(db.Float, nullable=False)
