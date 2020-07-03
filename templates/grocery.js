@@ -1,40 +1,11 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-     <!-- Latest compiled and minified CSS -->
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+import React from 'react';
+import logo from './logo.svg';
+import './App.css';
 
-     <!-- jQuery library -->
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
- 
-     <!-- Latest compiled JavaScript -->
-     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-     <style>
-        #map {
-            width: 50%;
-            height: 400px;
-            background-color: grey; 
-        }
-
-        table.dataTable thead .sorting:after,
-        table.dataTable thead .sorting:before,
-        table.dataTable thead .sorting_asc:after,
-        table.dataTable thead .sorting_asc:before,
-        table.dataTable thead .sorting_asc_disabled:after,
-        table.dataTable thead .sorting_asc_disabled:before,
-        table.dataTable thead .sorting_desc:after,
-        table.dataTable thead .sorting_desc:before,
-        table.dataTable thead .sorting_desc_disabled:after,
-        table.dataTable thead .sorting_desc_disabled:before {
-        bottom: .5em;
-        }   
-     </style>
-
-    <title>Grocery Stores</title>
-</head>
-<body>
-     <nav class = "navbar navbar-default">
+function App() {
+  return (
+    <div className="App">
+       <nav class = "navbar navbar-default">
         <div class="container">
 
         <div class = "navbar-header">
@@ -398,14 +369,8 @@
         ); 
     </script>
     </center>
-    <!--
-    <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
--->
-</body>
-<!-- React Script -->
-<script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
-<script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
-<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
-</html>
+    </div>
+  );
+}
+
+export default App;
