@@ -70,6 +70,16 @@ def reformatLocation(location):
         location["weekday_text"] = weekday_text
         del location["opening_hours"]
 
+    if "location" in location and 'lat' in location['location'] \
+       and 'lng' in location['location']:
+        latitude = location['location']['lat']
+        longitude = location['location']['lng']
+
+        location['latitude'] = latitude
+        location['longitude'] = longitude
+
+        del location['location']
+
     try:
         parsed_address = usaddress.tag(location["formatted_address"])[0]
 
@@ -80,7 +90,7 @@ def reformatLocation(location):
     return location
 
 
-def getJSON(place_type, city, state, name="", min_price=0, max_price=4):
+def getJSON(place_type, city, state, name=""):
     gmaps = googlemaps.Client(key='AIzaSyDzN3W-S4TxBm3wqslV1_JqfwhLjEsSKI8')
 
     city = city.strip()
@@ -93,16 +103,9 @@ def getJSON(place_type, city, state, name="", min_price=0, max_price=4):
     while True:
         places_results_next_page = None
 
-        if place_type == "restaurant":
-            places_results_next_page = gmaps.places(query=query,
-                                                    min_price=min_price,
-                                                    max_price=max_price,
-                                                    type=place_type,
-                                                    page_token=page_token)
-        else:
-            places_results_next_page = gmaps.places(query=query,
-                                                    type=place_type,
-                                                    page_token=page_token)
+        places_results_next_page = gmaps.places(query=query,
+                                                type=place_type,
+                                                page_token=page_token)
 
         for location in places_results_next_page["results"]:
 
@@ -124,6 +127,7 @@ def getJSON(place_type, city, state, name="", min_price=0, max_price=4):
             if location is not None:
                 location['city'] = city
                 location['state'] = state
+                location['place_type'] = place_type
                 places_results.append(location)
 
         time.sleep(2)
@@ -136,40 +140,50 @@ def getJSON(place_type, city, state, name="", min_price=0, max_price=4):
     return places_results
 
 
-city = 'Anaheim'
-city_result = get_city_opendata(city)
-state = city_result['state']
-places_results = getJSON("hospital", city, state)
-places_results.extend(getJSON("drugstore", city, state))
+# city = 'Anaheim'
+# city_result = get_city_opendata(city)
+# state = city_result['state']
+# places_results = getJSON("hospital", city, state)
+# places_results.extend(getJSON("drugstore", city, state))
 
-# LOCATIONS DICT
+# LOCATIONS DICT (HOSPITALS, DRUGSTORES)
 #   Keys/Info
-#       place_id
+#       place_id - primary key (string) Ex: ('ChIJfZvX20Ep3YAROaNeDxI_FBs')
 #
-#       name
+#       name - string
+#       place_type - string
 #
-#       formatted_address
-#       city
-#       zip_code
-#       location
+#       formatted_address - string
+#       city - string
+#       state_abbr - string
+#       zip_code - string
+#       latitude - float
+#       longitude - float
 #
 #       business_status
-#       opening_hours
-#       price_level
-#       rating
+#       opening_hours - string array ["Monday: Open 24 hours",
+#                                     "Tuesday: Open 24 hours",
+#                                     "Wednesday: Open 24 hours",
+#                                     "Thursday: Open 24 hours",
+#                                     "Friday: Open 24 hours",
+#                                     "Saturday: Open 24 hours",
+#                                     "Sunday: Open 24 hours"]   
+#       rating - float
 #
-#       url
-#       website
+#       url - string
+#       website - string
 
-# CITY DICT
+# CITY DICT (CITIES)
 #   Keys/Info
-#       city
-#       state
+#       city - string
+#       state_abbr - string
 #
-#       longitude
-#       latitude
+#       longitude - string
+#       latitude - string
 #
-#       population
+#       population - int
 
 
-print(city_result)
+# for location in places_results:
+#     print(location)
+#     break

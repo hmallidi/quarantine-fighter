@@ -7,6 +7,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DB_STRING")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 db = SQLAlchemy(app)
 
+
 class Restaurants(db.Model):
     __tablename__ = 'restaurant'
     id = db.Column(db.Integer, primary_key=True)
@@ -23,6 +24,7 @@ class Restaurants(db.Model):
     img_url = db.Column(db.String, nullable=False)
     business_status = db.Column(db.String, nullable=False)
 
+
 class Grocery(db.Model):
     __tablename__ = 'grocery'
     id = db.Column(db.Integer, primary_key=True)
@@ -38,6 +40,7 @@ class Grocery(db.Model):
     website = db.Column(db.String, nullable=False)
     img_url = db.Column(db.String, nullable=False)
     business_status = db.Column(db.String, nullable=False)
+
 
 class Healthcare(db.Model):
     __tablename__ = 'healthcare'
