@@ -2,6 +2,49 @@ import googlemaps
 import json
 import time
 import usaddress
+import requests
+
+cities_list = ['New York', 'Los Angeles', 'Chicago', 'Houston', 'Philadelphia',
+               'Phoenix', 'San Diego', 'San Antonio', 'Dallas', 'San Jose',
+               'Detroit', 'Jacksonville', 'Indianapolis', 'Columbus',
+               'San Francisco', 'Austin', 'Memphis', 'Fort Worth', 'Baltimore',
+               'Charlotte', 'El Paso', 'Milwaukee', 'Boston', 'Seattle',
+               'Denver', 'Washington', 'Portland', 'Las Vegas',
+               'Oklahoma City', 'Nashville', 'Tucson', 'Albuquerque',
+               'Long Beach', 'Sacramento', 'Fresno', 'New Orleans', 'Mesa',
+               'Cleveland', 'Virginia Beach', 'Kansas City', 'Atlanta',
+               'San Juan', 'Omaha', 'Oakland', 'Honolulu', 'Miami', 'Tulsa',
+               'Colorado Springs', 'Minneapolis', 'Arlington', 'Wichita',
+               'Santa Ana', 'Raleigh', 'Anaheim', 'Tampa', 'Saint Louis',
+               'Pittsburgh', 'Toledo', 'Cincinnati', 'Aurora', 'Riverside',
+               'Bakersfield', 'Stockton', 'Corpus Christi', 'Newark',
+               'Buffalo', 'Anchorage', 'Saint Paul', 'Lexington-Fayette',
+               'Plano', 'Saint Petersburg', 'Norfolk', 'Louisville',
+               'Lincoln', 'Glendale', 'Henderson', 'Jersey City', 'Chandler',
+               'Greensboro', 'Birmingham', 'Fort Wayne', 'Scottsdale',
+               'Hialeah', 'Madison', 'Baton Rouge', 'Chesapeake', 'Garland',
+               'Modesto', 'Paradise', 'Chula Vista', 'Lubbock', 'Rochester',
+               'Laredo', 'Akron', 'Orlando', 'Durham', 'Glendale', 'Fremont',
+               'San Bernardino', 'Reno']
+
+
+def get_city_opendata(city):
+    tmp = 'https://public.opendatasoft.com/api/records/1.0/search/?dataset=worldcitiespop&q=%s&sort=population&facet=country&refine.country=%s'
+    city = city.replace(" ", "+")
+    cmd = tmp % (city, 'us')
+    res = requests.get(cmd)
+    dct = json.loads(res.content)
+    out = dct['records'][0]['fields']
+
+    out['city'] = out['accentcity']
+    out['state'] = out['region']
+
+    del out['country']
+    del out['accentcity']
+    del out['region']
+    del out['geopoint']
+
+    return out
 
 
 def getQuery(city, name):
@@ -40,7 +83,7 @@ def reformatLocation(location):
     return location
 
 
-def getJSON(place_type, city="", name="", min_price=0, max_price=4):
+def getJSON(place_type, city, name="", min_price=0, max_price=4):
     gmaps = googlemaps.Client(key='AIzaSyDzN3W-S4TxBm3wqslV1_JqfwhLjEsSKI8')
 
     city = city.strip()
@@ -95,7 +138,7 @@ def getJSON(place_type, city="", name="", min_price=0, max_price=4):
 
 
 # RESTAURANTS
-# places_results = getJSON("supermarket")
+places_results = getJSON("restaurant", "New York")
 
 # HOSPITALS
 # places_results = getJSON("hospital", "Amarillo")
@@ -116,7 +159,6 @@ def getJSON(place_type, city="", name="", min_price=0, max_price=4):
 #       location
 #
 #       business_status
-#       icon
 #       opening_hours
 #       price_level
 #       rating
@@ -125,5 +167,5 @@ def getJSON(place_type, city="", name="", min_price=0, max_price=4):
 #       website
 
 # for location in places_results:
-#     print(location['city'])
-#     print(location['name'])
+#     print(location)
+#     break
