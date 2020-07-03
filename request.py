@@ -172,6 +172,7 @@ def getJSON(place_type, city, state, name=""):
 #
 #       url - string
 #       website - string
+#       formatted_phone_number - string
 
 # CITY DICT (CITIES)
 #   Keys/Info
