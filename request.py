@@ -47,14 +47,14 @@ def get_city_opendata(city):
     return out
 
 
-def getQuery(city, name):
+def getQuery(city, state, name):
     name = name.replace(" ", "+")
     city = city.replace(" ", "+")
 
     if name == "":
-        query = city
+        query = city + "+" + state
     else:
-        query = name + "+in+" + city
+        query = name + "+in+" + city + "+" + state
 
     return query
 
@@ -73,17 +73,14 @@ def reformatLocation(location):
     try:
         parsed_address = usaddress.tag(location["formatted_address"])[0]
 
-        if 'PlaceName' in parsed_address:
-            location['city'] = parsed_address['PlaceName']
-        if 'ZipCode' in parsed_address:
-            location['zip_code'] = parsed_address['ZipCode']
-    except usaddress.RepeatedLabelError:
+        location['zip_code'] = parsed_address['ZipCode']
+    except (usaddress.RepeatedLabelError, KeyError):
         return None
 
     return location
 
 
-def getJSON(place_type, city, name="", min_price=0, max_price=4):
+def getJSON(place_type, city, state, name="", min_price=0, max_price=4):
     gmaps = googlemaps.Client(key='AIzaSyDzN3W-S4TxBm3wqslV1_JqfwhLjEsSKI8')
 
     city = city.strip()
@@ -91,7 +88,7 @@ def getJSON(place_type, city, name="", min_price=0, max_price=4):
 
     page_token = ""
     places_results = list()
-    query = getQuery(city, name)
+    query = getQuery(city, state, name)
 
     while True:
         places_results_next_page = None
@@ -115,8 +112,8 @@ def getJSON(place_type, city, name="", min_price=0, max_price=4):
             #                                 fields=('business_status',
             #                                         'formatted_address',
             #                                         'formatted_phone_number',
-            #                                         'geometry', 'icon',
-            #                                         'name', 'opening_hours',
+            #                                         'geometry', 'name',
+            #                                         'opening_hours',
             #                                         'place_id', 'price_level',
             #                                         'rating', 'url',
             #                                         'website',))
@@ -125,6 +122,8 @@ def getJSON(place_type, city, name="", min_price=0, max_price=4):
             location = reformatLocation(location)
 
             if location is not None:
+                location['city'] = city
+                location['state'] = state
                 places_results.append(location)
 
         time.sleep(2)
@@ -137,15 +136,11 @@ def getJSON(place_type, city, name="", min_price=0, max_price=4):
     return places_results
 
 
-# RESTAURANTS
-places_results = getJSON("restaurant", "New York")
-
-# HOSPITALS
-# places_results = getJSON("hospital", "Amarillo")
-
-# SUPERMARKETS AND DRUGSTORES
-# places_results = getJSON("supermarket", "Amarillo")
-# places_results.extend(getJSON("drugstore", "Amarillo"))
+city = 'Anaheim'
+city_result = get_city_opendata(city)
+state = city_result['state']
+places_results = getJSON("hospital", city, state)
+places_results.extend(getJSON("drugstore", city, state))
 
 # LOCATIONS DICT
 #   Keys/Info
@@ -155,7 +150,7 @@ places_results = getJSON("restaurant", "New York")
 #
 #       formatted_address
 #       city
-#       zip-code
+#       zip_code
 #       location
 #
 #       business_status
@@ -166,6 +161,15 @@ places_results = getJSON("restaurant", "New York")
 #       url
 #       website
 
-# for location in places_results:
-#     print(location)
-#     break
+# CITY DICT
+#   Keys/Info
+#       city
+#       state
+#
+#       longitude
+#       latitude
+#
+#       population
+
+
+print(city_result)
