@@ -1,4 +1,5 @@
 <!DOCTYPE HTML>
+<html>
 <head>
      <!-- Latest compiled and minified CSS -->
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -33,38 +34,36 @@
     <title>Grocery Stores</title>
 </head>
 <body>
-    <nav class = "navbar navbar-default">
+     <nav class = "navbar navbar-default">
         <div class="container">
-    
+
         <div class = "navbar-header">
-          <!-- resize and get the hamburger -->
-          <!-- data target matches id  -->
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-              <span class="sr-only">Toggle navigation</span>
-              <!-- hamburger bars = icon-bar -->
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
+            <!-- resize and get the hamburger -->
+            <!-- data target matches id  -->
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <!-- hamburger bars = icon-bar -->
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
             </button>
-              <a href="/" class="navbar-brand">Covid Fighter</a>
+                <a href="/" class="navbar-brand">Covid Fighter</a>
         </div>
-    
-      <!-- id matches target -->
-      <div class = "collapse navbar-collapse" id = "bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
-          <li><a href="grocery">Grocery</a></li>
-          <li><a href="restaurants">Restaurant</a></li>
-          <li><a href="healthcare">Healthcare</a></li>
-          </ul>
-    
-          <ul class="nav navbar-nav navbar-right">
-          <li><a href="about">About</a></li>
-          </ul>
+
+        <!-- id matches target -->
+        <div class = "collapse navbar-collapse" id = "bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+            <li><a href="grocery.html">Grocery</a></li>
+            <li><a href="restaurants.html">Restaurant</a></li>
+            <li><a href="healthcare.html">Healthcare</a></li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+            <li><a href="about">About</a></li>
+            </ul>
         </div>
-    
         </div> <!-- end of container -->
     </nav> <!-- end of class navbar navbar-default -->
-
     <center><h1>Grocery Stores Open During COVID-19</h1></center>
     <!--<center>-->
         <!--Table featuring information of each place in the respective page-->
@@ -386,5 +385,27 @@
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYVNrhNbNDCs08puZcbPtPfXXj1sH61x8&callback=initMap"
     type="text/javascript"></script>
     <br></br>
+    <div id="root"></div>
+    <script>
+        class Hello extends React.Component {
+            render() {
+                return <h1>Hello, world!</h1>
+            }
+        }
+        ReactDOM.render(
+            <Hello />, 
+            document.getElementById('root')
+        ); 
+    </script>
     </center>
+    <!--
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+-->
 </body>
+<!-- React Script -->
+<script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</html>
