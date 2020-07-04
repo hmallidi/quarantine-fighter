@@ -11,7 +11,6 @@ db = SQLAlchemy(app)
 class Drugstore(db.Model):
     __tablename__ = 'drugstore'
     google_api_id = db.Column(db.String, primary_key=True, nullable=False)
-    place_type = db.Column(db.String, nullable=False)
 
     name = db.Column(db.String, nullable=False)
 
@@ -36,7 +35,6 @@ class Drugstore(db.Model):
 class Hospital(db.Model):
     __tablename__ = 'hospital'
     google_api_id = db.Column(db.String, primary_key=True, nullable=False)
-    place_type = db.Column(db.String, nullable=False)
 
     name = db.Column(db.String, nullable=False)
 

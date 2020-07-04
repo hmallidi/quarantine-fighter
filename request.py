@@ -64,7 +64,7 @@ def reformatLocation(location):
         location['latitude'] = location["geometry"]["location"]['lat']
         location['longitude'] = location["geometry"]["location"]['lng']
         del location["geometry"]
-    
+
     if "location" in location and 'lat' in location['location'] \
        and 'lng' in location['location']:
         latitude = location['location']['lat']
@@ -78,8 +78,11 @@ def reformatLocation(location):
         location['latitude'] = latitude
         location['longitude'] = longitude
 
+    location['address'] = location['formatted_address']
+    del location['formatted_address']
+
     try:
-        parsed_address = usaddress.tag(location["formatted_address"])[0]
+        parsed_address = usaddress.tag(location["address"])[0]
 
         location['zipcode'] = parsed_address['ZipCode']
     except (usaddress.RepeatedLabelError, KeyError):
@@ -137,22 +140,21 @@ def getJSON(place_type, city, state, name=""):
     return places_results
 
 
-# city = 'Anaheim'
-# city_result = get_city_opendata(city)
-# state = city_result['state']
-# places_results = getJSON("hospital", city, state)
-# places_results.extend(getJSON("drugstore", city, state))
+city = 'Anaheim'
+city_result = get_city_opendata(city)
+state = city_result['state']
+places_results = getJSON("hospital", city, state)
+places_results.extend(getJSON("drugstore", city, state))
 
 # LOCATIONS DICT (HOSPITALS, DRUGSTORES)
 #   Keys/Info
 #       place_id - primary key (string) Ex: ('ChIJfZvX20Ep3YAROaNeDxI_FBs')
 #
 #       name - string
-#       place_type - string
 #
-#       formatted_address - string
+#       address - string
 #       city - string
-#       state_abbr - string
+#       state - string
 #       zipcode - string
 #       latitude - float
 #       longitude - float
@@ -182,9 +184,9 @@ def getJSON(place_type, city, state, name=""):
 #       population - int
 
 
-# for location in places_results:
-#     print(location)
-#     break
+for location in places_results:
+    print(location)
+    break
 
 # usaddress==0.5.10
 # requests==2.23.0
