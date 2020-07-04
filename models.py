@@ -47,7 +47,7 @@ class Hospital(db.Model):
 
     open_status = db.Column(db.String, nullable=False)
     business_status = db.Column(db.String, nullable=False)
-    
+
     rating = db.Column(db.Float, nullable=False)
 
     website = db.Column(db.String, nullable=False)

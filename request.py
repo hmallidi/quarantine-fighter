@@ -61,24 +61,22 @@ def getQuery(city, state, name):
 
 def reformatLocation(location):
     if "geometry" in location and "location" in location["geometry"]:
-        coordinates = location["geometry"]["location"]
-        location["location"] = coordinates
+        location['latitude'] = location["geometry"]["location"]['lat']
+        location['longitude'] = location["geometry"]["location"]['lng']
         del location["geometry"]
+    
+    if "location" in location and 'lat' in location['location'] \
+       and 'lng' in location['location']:
+        latitude = location['location']['lat']
+        longitude = location['location']['lng']
 
     if "opening_hours" in location and "weekday_text" in location["opening_hours"]:
         weekday_text = location["opening_hours"]["weekday_text"]
         location["weekday_text"] = weekday_text
         del location["opening_hours"]
 
-    if "location" in location and 'lat' in location['location'] \
-       and 'lng' in location['location']:
-        latitude = location['location']['lat']
-        longitude = location['location']['lng']
-
         location['latitude'] = latitude
         location['longitude'] = longitude
-
-        del location['location']
 
     try:
         parsed_address = usaddress.tag(location["formatted_address"])[0]
@@ -117,9 +115,8 @@ def getJSON(place_type, city, state, name=""):
             #                                         'formatted_phone_number',
             #                                         'geometry', 'name',
             #                                         'opening_hours',
-            #                                         'place_id', 'price_level',
-            #                                         'rating', 'url',
-            #                                         'website',))
+            #                                         'place_id', 'rating',
+            #                                         'url', 'website',))
             # location = new_place_results["result"]
 
             location = reformatLocation(location)
