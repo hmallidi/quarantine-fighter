@@ -3,14 +3,9 @@ from flask_sqlalchemy import SQLAlchemy
 import os
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DB_STRING") # 'postgres://postgres:@localhost:5432/locationsdb'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DB_STRING", 'postgres://postgres:cvsu2020@localhost:5432/locationsdb') # 'postgres://postgres:@localhost:5432/locationsdb'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 db = SQLAlchemy(app)
-
-
-drugstore_hospital_link = db.Table('link',
-                                   db.Column('drugstore_id', db.String, db.ForeignKey('drugstore.id')),
-                                   db.Column('hospital_id', db.String, db.ForeignKey('hospital.id')))
 
 
 
@@ -76,6 +71,11 @@ class City(db.Model):
 
     hospitals = db.relationship('Hospital', backref='city')
     drugstores = db.relationship('Drugstore', backref='city')
+
+
+drugstore_hospital_link = db.Table('drugstore_hospital_link',
+                                   db.Column('drugstore_id', db.String, db.ForeignKey('drugstore.id')),
+                                   db.Column('hospital_id', db.String, db.ForeignKey('hospital.id')))
 
 
 if __name__ == "__main__":
