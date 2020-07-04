@@ -60,23 +60,49 @@ def getQuery(city, state, name):
 
 
 def reformatLocation(location):
-    if "geometry" in location and "location" in location["geometry"]:
-        location['latitude'] = location["geometry"]["location"]['lat']
-        location['longitude'] = location["geometry"]["location"]['lng']
+    if "geometry" in location:
+        if "location" in location["geometry"]:
+            location['latitude'] = location["geometry"]["location"]['lat']
+            location['longitude'] = location["geometry"]["location"]['lng']
+        else:
+            location['latitude'] = ''
+            location['longitude'] = ''
         del location["geometry"]
+    else:
+        location['latitude'] = ''
+        location['longitude'] = ''
+    
+    if "opening_hours" in location:
+        if "weekday_text" in location["opening_hours"]:
+            weekday_text_array = location["opening_hours"]["weekday_text"]
 
-    if "location" in location and 'lat' in location['location'] \
-       and 'lng' in location['location']:
-        latitude = location['location']['lat']
-        longitude = location['location']['lng']
+            del location["opening_hours"]
+            weekday_text = ''
 
-    if "opening_hours" in location and "weekday_text" in location["opening_hours"]:
-        weekday_text = location["opening_hours"]["weekday_text"]
-        location["weekday_text"] = weekday_text
-        del location["opening_hours"]
+            for text in weekday_text_array:
+                weekday_text += text + "\n"
 
-        location['latitude'] = latitude
-        location['longitude'] = longitude
+            weekday_text = weekday_text[:-1]
+            location['opening_hours'] = weekday_text
+        else:
+            location['opening_hours'] = ''
+    else:
+        location['opening_hours'] = ''
+
+    if "formatted_phone_number" in location:
+        location['phone_number'] = location['formatted_phone_number']
+        del location['formatted_phone_number']
+    else:
+        location['phone_number'] = ''
+
+    if 'rating' not in location:
+        location['rating'] = -1
+
+    if 'url' not in location:
+        location['url'] = ''
+
+    if 'website' not in location:
+        location['website'] = ''
 
     location['address'] = location['formatted_address']
     del location['formatted_address']
@@ -87,6 +113,23 @@ def reformatLocation(location):
         location['zipcode'] = parsed_address['ZipCode']
     except (usaddress.RepeatedLabelError, KeyError):
         return None
+
+    return location
+
+
+def getPlaceDetails(place_id):
+    gmaps = googlemaps.Client(key='AIzaSyDzN3W-S4TxBm3wqslV1_JqfwhLjEsSKI8')
+
+    new_place_results = gmaps.place(place_id=place_id,
+                                    fields=('business_status',
+                                            'formatted_address',
+                                            'formatted_phone_number',
+                                            'geometry', 'name',
+                                            'opening_hours',
+                                            'place_id', 'rating',
+                                            'url', 'website',))
+    location = new_place_results['result']
+    location = reformatLocation(location)
 
     return location
 
@@ -108,21 +151,14 @@ def getJSON(place_type, city, state, name=""):
                                                 type=place_type,
                                                 page_token=page_token)
 
+        if places_results_next_page is None:
+            break
+
         for location in places_results_next_page["results"]:
 
             # check if place_id is already in database here
 
-            # new_place_results = gmaps.place(place_id=location["place_id"],
-            #                                 fields=('business_status',
-            #                                         'formatted_address',
-            #                                         'formatted_phone_number',
-            #                                         'geometry', 'name',
-            #                                         'opening_hours',
-            #                                         'place_id', 'rating',
-            #                                         'url', 'website',))
-            # location = new_place_results["result"]
-
-            location = reformatLocation(location)
+            location = getPlaceDetails(location['place_id'])
 
             if location is not None:
                 location['city'] = city
@@ -140,11 +176,15 @@ def getJSON(place_type, city, state, name=""):
     return places_results
 
 
-city = 'Anaheim'
-city_result = get_city_opendata(city)
-state = city_result['state']
-places_results = getJSON("hospital", city, state)
-places_results.extend(getJSON("drugstore", city, state))
+# city = 'Anaheim'
+# city_result = get_city_opendata(city)
+# state = city_result['state']
+# places_results = getJSON("hospital", city, state)
+# places_results.extend(getJSON("drugstore", city, state))
+
+location = getPlaceDetails('ChIJ_47yiLe0RIYRSxhM6Yfn8fQ')
+
+# location = reformatLocation(location)
 
 # LOCATIONS DICT (HOSPITALS, DRUGSTORES)
 #   Keys/Info
@@ -153,40 +193,33 @@ places_results.extend(getJSON("drugstore", city, state))
 #       name - string
 #
 #       address - string
-#       city - string
-#       state - string
 #       zipcode - string
 #       latitude - float
 #       longitude - float
 #
-#       business_status
-#       opening_hours - string array ["Monday: Open 24 hours",
-#                                     "Tuesday: Open 24 hours",
-#                                     "Wednesday: Open 24 hours",
-#                                     "Thursday: Open 24 hours",
-#                                     "Friday: Open 24 hours",
-#                                     "Saturday: Open 24 hours",
-#                                     "Sunday: Open 24 hours"]   
+#       business_status - string
+#       opening_hours - string  
 #       rating - float
 #
 #       url - string
 #       website - string
-#       formatted_phone_number - string
+#       phone_number - string
 
 # CITY DICT (CITIES)
 #   Keys/Info
 #       city - string
-#       state_abbr - string
+#       state - string
 #
 #       longitude - string
 #       latitude - string
 #
 #       population - int
 
-
-for location in places_results:
-    print(location)
-    break
+print(location)
+print(location['opening_hours'])
+# for location in places_results:
+#     print(location)
+#     break
 
 # usaddress==0.5.10
 # requests==2.23.0

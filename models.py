@@ -29,7 +29,7 @@ class Drugstore(db.Model):
     phone_number = db.Column(db.String, nullable=False)
     # img_url = db.Column(db.String, nullable=False)
 
-    city = db.Column(db.String, db.ForeignKey('city.name'))
+    city = db.Column(db.String, db.ForeignKey('city.id'))
 
 
 class Hospital(db.Model):
@@ -53,13 +53,13 @@ class Hospital(db.Model):
     phone_number = db.Column(db.String, nullable=False)
     # img_url = db.Column(db.String, nullable=False)
 
-    city = db.Column(db.String, db.ForeignKey('city.name'))
+    city = db.Column(db.String, db.ForeignKey('city.id'))
 
 
 class City(db.Model):
     __tablename__ = 'city'
-    # id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String, nullable=False, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String, nullable=False)
     population = db.Column(db.Integer, nullable=False)
     state = db.Column(db.String(2), nullable=False)
     zipcode = db.Column(db.String, nullable=False)
