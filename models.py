@@ -66,7 +66,6 @@ class City(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)
     state = db.Column(db.String(2), nullable=False)
-    zipcode = db.Column(db.String, nullable=False)
     latitude = db.Column(db.Float, nullable=False)
     longitude = db.Column(db.Float, nullable=False)
     population = db.Column(db.Integer, nullable=False)
