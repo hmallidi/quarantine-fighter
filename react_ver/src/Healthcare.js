@@ -22,6 +22,13 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import FilterListIcon from '@material-ui/icons/FilterList';
  
 class Healthcare extends Component {
+
+  const useStyles = makeStyles({
+    table: {
+      minWidth: 650, 
+    },
+  });
+  
   function createData(name, address, phone_number, website, hours) {
     return {name, address, phone_number, website, hours};
   }
