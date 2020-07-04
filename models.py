@@ -34,7 +34,7 @@ class Drugstore(db.Model):
     # img_url = db.Column(db.String, nullable=False)
 
     city = db.Column(db.String, db.ForeignKey('city.id'))
-    hospitals_nearby = db.relationship('Hospital', secondary='link', backref='drugstores_nearby')
+    hospitals_nearby = db.relationship('Hospital', secondary='drugstore_hospital_link', backref='drugstores_nearby')
 
 
 class Hospital(db.Model):
