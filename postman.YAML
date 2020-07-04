@@ -15,77 +15,32 @@ tags:
   - name: GroceryStore
     description:  A grocery store
 paths:
-
-  /Restaurants/{id}/:
+  /Hospital/nearby/{drugstore_id}:
     get:
       tags:
-        - Restaurant
-      summary: restaurants by id
-      description: Get restaurant with specific unique id.
-      operationId: getRestaurantByID
+        - Hospital
+      summary: hospitals nearby drugstore
+      description: Get hospitals within the same zipcode as a given drugstore
+      operationId: getHospitalsNearbyDrugstore
       parameters:
         - in: path
-          name: id
+          name: drugstore_id
           schema:
-            type: integer
+            type: string
+          description: ID of drugstore to check nearby hospitals with.
           required: true
       responses:
         '200':
-          description: 'Sample response: Details about a Restaurant by ID'
+          description: 'Sample response: Details about hospitals near to drugstore'
           headers:
-            restaurant-obj:
-              description: Restaurant Object with Specific ID Given
-              schema:
-                type: object
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Restaurant'
-        default:
-          description: Unexpected error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-
-  /Restaurants/:
-    get:
-      tags:
-        - Restaurant
-      summary: restaurants by query
-      description: Get restaurants that fit a specific query
-      operationId: getRestaurantsByQuery
-      parameters:
-        - in: query
-          name: city
-          schema:
-            type: string
-          description: City in which Restaurant is located
-          required: false
-        - in: query  
-          name: open_status
-          schema:
-            type: integer
-          description: Open Status of Restaurant
-          required: false
-        - in: query
-          name: type
-          schema:
-            type: string
-          description: Type of Restaurant
-          required: false
-      responses:
-        '200':
-          description: 'Sample response: Details about a Restaurant by Query'
-          headers:
-            restaurant-array:
-              description: Restaurant Array with Specific Query Given
+            hospital-objs:
+              description: Hospital Objects nearby specific Drugstore
               schema:
                 type: array
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/RestaurantArray'
+                $ref: '#/components/schemas/HospitalArray'
         default:
           description: Unexpected error
           content:
@@ -93,40 +48,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 
-
-  /Hospitals/{id}/:
-    get:
-      tags:
-        - Hospital
-      summary: hospitals by id
-      description: Get hospital with specific unique id.
-      operationId: getHospitalByID
-      parameters:
-        - in: path
-          name: id
-          schema:
-            type: integer
-          required: true
-      responses:
-        '200':
-          description: 'Sample response: Details about a Hospital by ID'
-          headers:
-            hospital-obj:
-              description: Hospital Object with Specific ID Given
-              schema:
-                type: object
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Hospital'
-        default:
-          description: Unexpected error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-
-  /Hospitals/:
+  /Hospital/:
     get:
       tags:
         - Hospital
@@ -135,17 +57,20 @@ paths:
       operationId: getHospitalsByQuery
       parameters:
         - in: query
+          name: name
+          schema:
+            type: string
+          description: Name of Hospital
+        - in: query
           name: city
           schema:
             type: string
           description: City in which Hospital is located
-          required: false
         - in: query
-          name: open_status
+          name: rating
           schema:
-            type: integer
-          description: Open Status of Hospital
-          required: false
+            type: string
+          description: Rating of Hospital
       responses:
         '200':
           description: 'Sample response: Details about a Hospital by Query'
@@ -166,31 +91,32 @@ paths:
                 $ref: '#/components/schemas/Error'
 
 
-  /GroceryStores/{id}/:
+  /Drugstore/nearby/{hospital_id}:
     get:
       tags:
-        - GroceryStore
-      summary: grocery stores by id
-      description: Get grocery store with specific unique id.
-      operationId: getGroceryStoreByID
+        - Drugstore
+      summary: drugstores nearby hospital
+      description: Get drugstores within the same zipcode as a given hospital
+      operationId: getDrugstoresNearbyHospital
       parameters:
         - in: path
-          name: id
+          name: hospital_id
           schema:
-            type: integer
+            type: string
+          description: ID of hospital to check nearby drugstores with.
           required: true
       responses:
         '200':
-          description: 'Sample response: Details about a GroceryStore by ID'
+          description: 'Sample response: Details about drugstores near to hospital'
           headers:
-            grocerystore-obj:
-              description: GroceryStore Object with Specific ID Given
+            drugstore-objs:
+              description: Drugstores Object nearby specific Hospital
               schema:
-                type: object
+                type: array
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GroceryStore'
+                $ref: '#/components/schemas/DrugstoreArray'
         default:
           description: Unexpected error
           content:
@@ -198,38 +124,109 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 
-  /GroceryStores/:
+  /Drugstore/:
     get:
       tags:
-        - GroceryStore
-      summary: grocery stores by query
-      description: Get grocery stores that fit a specific query
-      operationId: getGroceryStoresByQuery
+        - Drugstore
+      summary: drugstores by query
+      description: Get drugstores that fit a specific query
+      operationId: getDrugstoresByQuery
       parameters:
+        - in: query
+          name: name
+          schema:
+            type: string
+          description: Name of Drugstore
         - in: query
           name: city
           schema:
             type: string
-          description: City in which GroceryStore is located
-          required: false
+          description: City in which Drugstore is located
         - in: query
-          name: open_status
+          name: rating
           schema:
-            type: integer
-          description: Open Status of GroceryStore
-          required: false
+            type: number
+            format: double
+          description: Rating of Drugstore
       responses:
         '200':
-          description: 'Sample response: Details about a GroceryStore by Query'
+          description: 'Sample response: Details about a Drugstore by Query'
           headers:
-            grocerystore-array:
-              description: GroceryStore Array with Specific Query Given
+            drugstore-array:
+              description: Drugstore Array with Specific Query Given
               schema:
                 type: array
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GroceryStoreArray'
+                $ref: '#/components/schemas/DrugstoreArray'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  
+  /City/{city_id}/:
+    get:
+      tags:
+        - City
+      summary: city by id
+      description: Get city that corresponds with the specific id
+      operationId: getCityByID
+      parameters:
+        - in: path
+          name: city_id
+          schema:
+            type: integer
+          description: ID of the City
+          required: true
+      responses:
+        '200':
+          description: 'Sample response: Details about a City by ID'
+          headers:
+            restaurant-obj:
+              description: City Object with Specific ID Given
+              schema:
+                type: object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/City'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+
+  /City/:
+    get:
+      tags:
+        - City
+      summary: cities by query
+      description: Get cities that fit a specific query
+      operationId: getCitiesByQuery
+      parameters:
+        - in: query
+          name: name
+          schema:
+            type: string
+          description: Name of City
+          required: false
+      responses:
+        '200':
+          description: 'Sample response: Details about a City by Query'
+          headers:
+            restaurant-array:
+              description: City Array with Specific Query Given
+              schema:
+                type: array
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CityArray'
         default:
           description: Unexpected error
           content:
@@ -241,75 +238,144 @@ paths:
 
 components:
   schemas:
-    Restaurant:
+    Drugstore:
       type: object
+      description: A hospital
       required:
         - id
         - name
+        - address
+        - zipcode
         - city
-        - open_status
-        - type
+        - hospitals_nearby
       properties:
         id:
-          type: integer
-          format: int64
+          type: string
         name:
           type: string
+        address:
+          type: string
+        zipcode:
+          type: string
+        latitude:
+          type: number
+          format: double
+        longitude:
+          type: number
+          format: double
+        opening_hours:
+          type: string
+        business_status:
+          type: string
+        rating:
+          type: number
+          format: double
+        website:
+          type: string
+        google_maps_url:
+          type: string
+        phone_number:
+          type: string
         city:
-          type: string
-        open_status:
           type: integer
-          format: int32
-        type: 
-          type: string
-    RestaurantArray:
+        hospitals_nearby:
+          type: array
+          items:
+            type: integer
+    DrugstoreArray:
       type: array
       items:
-        $ref: '#/components/schemas/Restaurant'
+        $ref: '#/components/schemas/Drugstore'
     Hospital:
       type: object
+      description: A hospital
       required:
         - id
         - name
+        - address
+        - zipcode
         - city
-        - open_status
+        - drugstores_nearby
       properties:
         id:
-          type: integer
-          format: int64
+          type: string
         name:
           type: string
-        city:
+        address:
           type: string
-        open_status:
+        zipcode:
+          type: string
+        latitude:
+          type: number
+          format: double
+        longitude:
+          type: number
+          format: double
+        opening_hours:
+          type: string
+        business_status:
+          type: string
+        rating:
+          type: number
+          format: double
+        website:
+          type: string
+        google_maps_url:
+          type: string
+        phone_number:
+          type: string
+        city:
           type: integer
-          format: int32
+        drugstores_nearby:
+          type: array
+          items:
+            type: integer
     HospitalArray:
       type: array
       items:
         $ref: '#/components/schemas/Hospital'
-    GroceryStore:
+    City:
       type: object
+      description: A city
       required:
         - id
         - name
-        - city
-        - open_status
+        - state
+        - zipcode
+        - latitude
+        - longitude
+        - population
+        - hospitals
+        - drugstores
       properties:
         id:
           type: integer
-          format: int64
         name:
           type: string
-        city:
+        state:
           type: string
-        open_status:
+        zipcode:
+          type: string
+        latitude:
+          type: number
+          format: double
+        longitude:
+          type: number
+          format: double
+        population:
           type: integer
-          format: int32
-    GroceryStoreArray:
+        hospitals:
+          type: array
+          items:
+            type: string
+        drugstores:
+          type: array
+          items:
+            type: string
+    CityArray:
       type: array
       items:
-        $ref: '#/components/schemas/GroceryStore'
+        $ref: '#/components/schemas/City'
     Error:
       type: object
       required:

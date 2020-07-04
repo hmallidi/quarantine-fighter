@@ -7,10 +7,14 @@ app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DB_STRING", 'postgres://
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 db = SQLAlchemy(app)
 
+drugstore_hospital_link = db.Table('link',
+                                   db.Column('drugstore_id', db.String, db.ForeignKey('drugstore.id')),
+                                   db.Column('hospital_id', db.String, db.ForeignKey('hospital.id')))
+
 
 class Drugstore(db.Model):
     __tablename__ = 'drugstore'
-    google_api_id = db.Column(db.String, primary_key=True, nullable=False)
+    id = db.Column(db.String, primary_key=True, nullable=False)
 
     name = db.Column(db.String, nullable=False)
 
@@ -30,11 +34,12 @@ class Drugstore(db.Model):
     # img_url = db.Column(db.String, nullable=False)
 
     city = db.Column(db.String, db.ForeignKey('city.id'))
+    hospitals_nearby = db.relationship('Hospital', secondary='drugstore_hospital_link', backref='drugstores_nearby')
 
 
 class Hospital(db.Model):
     __tablename__ = 'hospital'
-    google_api_id = db.Column(db.String, primary_key=True, nullable=False)
+    id = db.Column(db.String, primary_key=True, nullable=False)
 
     name = db.Column(db.String, nullable=False)
 
@@ -60,14 +65,13 @@ class City(db.Model):
     __tablename__ = 'city'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)
-    population = db.Column(db.Integer, nullable=False)
     state = db.Column(db.String(2), nullable=False)
-    zipcode = db.Column(db.String, nullable=False)
     latitude = db.Column(db.Float, nullable=False)
     longitude = db.Column(db.Float, nullable=False)
+    population = db.Column(db.Integer, nullable=False)
 
     hospitals = db.relationship('Hospital', backref='city')
-    drug_stores = db.relationship('Drugstore', backref='city')
+    drugstores = db.relationship('Drugstore', backref='city')
 
 
 if __name__ == "__main__":
