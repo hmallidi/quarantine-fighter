@@ -33,7 +33,7 @@ class Drugstore(db.Model):
     phone_number = db.Column(db.String, nullable=False)
     # img_url = db.Column(db.String, nullable=False)
 
-    city = db.Column(db.String, db.ForeignKey('city.id'))
+    city_id = db.Column(db.Integer, db.ForeignKey('city.id'))
     hospitals_nearby = db.relationship('Hospital', secondary='drugstore_hospital_link', backref='drugstores_nearby')
 
 
@@ -58,7 +58,7 @@ class Hospital(db.Model):
     phone_number = db.Column(db.String, nullable=False)
     # img_url = db.Column(db.String, nullable=False)
 
-    city = db.Column(db.String, db.ForeignKey('city.id'))
+    city_id = db.Column(db.Integer, db.ForeignKey('city.id'))
 
 
 class City(db.Model):
