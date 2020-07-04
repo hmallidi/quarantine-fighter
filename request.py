@@ -129,7 +129,6 @@ def getPlaceDetails(place_id):
                                             'place_id', 'rating',
                                             'url', 'website',))
     location = new_place_results['result']
-    location = reformatLocation(location)
 
     return location
 
@@ -158,12 +157,10 @@ def getJSON(place_type, city, state, name=""):
 
             # check if place_id is already in database here
 
-            location = getPlaceDetails(location['place_id'])
+            # location = getPlaceDetails(location['place_id'])
+            location = reformatLocation(location)
 
             if location is not None:
-                location['city'] = city
-                location['state'] = state
-                location['place_type'] = place_type
                 places_results.append(location)
 
         time.sleep(2)
@@ -182,7 +179,7 @@ def getJSON(place_type, city, state, name=""):
 # places_results = getJSON("hospital", city, state)
 # places_results.extend(getJSON("drugstore", city, state))
 
-location = getPlaceDetails('ChIJ_47yiLe0RIYRSxhM6Yfn8fQ')
+places_results = getJSON("restaurant", "Austin", "TX")
 
 # location = reformatLocation(location)
 
@@ -215,11 +212,9 @@ location = getPlaceDetails('ChIJ_47yiLe0RIYRSxhM6Yfn8fQ')
 #
 #       population - int
 
-print(location)
-print(location['opening_hours'])
-# for location in places_results:
-#     print(location)
-#     break
+for location in places_results:
+    print(location)
+    break
 
 # usaddress==0.5.10
 # requests==2.23.0
