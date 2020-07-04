@@ -81,7 +81,7 @@ def reformatLocation(location):
     try:
         parsed_address = usaddress.tag(location["formatted_address"])[0]
 
-        location['zip_code'] = parsed_address['ZipCode']
+        location['zipcode'] = parsed_address['ZipCode']
     except (usaddress.RepeatedLabelError, KeyError):
         return None
 
@@ -153,7 +153,7 @@ def getJSON(place_type, city, state, name=""):
 #       formatted_address - string
 #       city - string
 #       state_abbr - string
-#       zip_code - string
+#       zipcode - string
 #       latitude - float
 #       longitude - float
 #
@@ -185,3 +185,6 @@ def getJSON(place_type, city, state, name=""):
 # for location in places_results:
 #     print(location)
 #     break
+
+# usaddress==0.5.10
+# requests==2.23.0

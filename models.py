@@ -16,11 +16,11 @@ class Drugstore(db.Model):
     name = db.Column(db.String, nullable=False)
 
     address = db.Column(db.String, nullable=False)
-    zip_code = db.Column(db.String, nullable=False)
+    zipcode = db.Column(db.String, nullable=False)
     latitude = db.Column(db.Float, nullable=False)
     longitude = db.Column(db.Float, nullable=False)
 
-    open_status = db.Column(db.String, nullable=False)
+    opening_hours = db.Column(db.String, nullable=False)
     business_status = db.Column(db.String, nullable=False)
 
     rating = db.Column(db.Float, nullable=False)
@@ -41,11 +41,11 @@ class Hospital(db.Model):
     name = db.Column(db.String, nullable=False)
 
     address = db.Column(db.String, nullable=False)
-    zip_code = db.Column(db.String, nullable=False)
+    zipcode = db.Column(db.String, nullable=False)
     latitude = db.Column(db.Float, nullable=False)
     longitude = db.Column(db.Float, nullable=False)
 
-    open_status = db.Column(db.String, nullable=False)
+    opening_hours = db.Column(db.String, nullable=False)
     business_status = db.Column(db.String, nullable=False)
 
     rating = db.Column(db.Float, nullable=False)
@@ -64,7 +64,7 @@ class City(db.Model):
     name = db.Column(db.String, nullable=False, primary_key=True)
     population = db.Column(db.Integer, nullable=False)
     state = db.Column(db.String(2), nullable=False)
-    zip_code = db.Column(db.String, nullable=False)
+    zipcode = db.Column(db.String, nullable=False)
     latitude = db.Column(db.Float, nullable=False)
     longitude = db.Column(db.Float, nullable=False)
 
