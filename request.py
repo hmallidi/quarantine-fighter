@@ -154,9 +154,6 @@ def getJSON(place_type, city, state, name=""):
             break
 
         for location in places_results_next_page["results"]:
-
-            # check if place_id is already in database here
-
             # location = getPlaceDetails(location['place_id'])
             location = reformatLocation(location)
 
@@ -173,15 +170,13 @@ def getJSON(place_type, city, state, name=""):
     return places_results
 
 
-# city = 'Anaheim'
-# city_result = get_city_opendata(city)
-# state = city_result['state']
-# places_results = getJSON("hospital", city, state)
-# places_results.extend(getJSON("drugstore", city, state))
+city = 'Anaheim'
+city_result = get_city_opendata(city) # city information (dict)
 
-places_results = getJSON("restaurant", "Austin", "TX")
+state = city_result['state']
+hospital_results = getJSON("hospital", city, state) # hospitals information (list of dicts)
+drugstore_results = getJSON("drugstore", city, state) # drugstores information (list of dicts)
 
-# location = reformatLocation(location)
 
 # LOCATIONS DICT (HOSPITALS, DRUGSTORES)
 #   Keys/Info
@@ -212,9 +207,9 @@ places_results = getJSON("restaurant", "Austin", "TX")
 #
 #       population - int
 
-for location in places_results:
-    print(location)
-    break
+# for location in places_results:
+#     print(location)
+#     break
 
 # usaddress==0.5.10
 # requests==2.23.0
