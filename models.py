@@ -2,7 +2,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 import os
 
-os.environ['DATABASE_URL'] = "postgresql+psycopg2://postgres:locations123@/postgres?host=/cloudsql/covidfighter-280919:us-central1:locationsdb"
+ #   os.environ['DATABASE_URL'] = "postgresql+psycopg2://postgres:locations123@/postgres?host=/cloudsql/covidfighter-280919:us-central1:locationsdb"
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DB_STRING", 'postgres://postgres:@localhost:5432/locationsdb') # 'postgres://postgres:@localhost:5432/locationsdb'
