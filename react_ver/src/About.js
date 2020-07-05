@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import "./About.css";
-import { Card, ListGroup, ListGroupItem, CardDeck, Container, Row, Col, Image, Button } from "react-bootstrap";
+import { Card, ListGroup, ListGroupItem, Container, Row, Col, Image, Button } from "react-bootstrap";
 import reactIcon from "./reactIcon.png";
 import postmanIcon from "./postmanIcon.png";
 import postgresIcon from "./postgresIcon.png";
@@ -10,48 +10,41 @@ import flaskIcon from "./flaskIcon.png";
 import gitlab from "./gitlab.png";
 import issue from "./issue.png";
 import test from "./test.png"
-// import FlipCard from "../FlipCard/FlipCard";
 
 
-function importAll(r) {
-    let images = {};
-    r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
-    return images;
-}
-const images = importAll(require.context('./media', false, /\.(png|jpe?g|svg)$/));
+// function importAll(r) {
+//     let images = {};
+//     r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
+//     return images;
+// }
+// const images = importAll(require.context('./media', false, /\.(png|jpe?g|svg)$/));
 
 
 const Kewen = {
+  name:"Kewen",
   role: "Front-End",
   email:"wankew22@utexas.edu"
 };
 const Angela = {
+  name: "Angela",
   role: "Front-End",
-  email:"wankew22@utexas.edu"
+  email:"angela_cao@utexas.com"
 };
 const Nayan = {
+  name: "Nayan",
   role: "Back-End",
-  email:"wankew22@utexas.edu"
+  email:"nayan.shashidhar@utexas.edu"
 };
-const Pranav = {
+const vpranav5 = {
+  name: "Pranav",
   role: "Back-End",
-  email:"wankew22@utexas.edu"
+  email:"varanasipranav@gmail.com"
 };
 const hmallidi = {
+  name: "Hari",
   role: "Back-End",
-  email:"wankew22@utexas.edu"
+  email:"mallidi.harinadha@gmail.com"
 };
-
-
-
-
-
-
-
-
-var totalCommits = 0;
-var totalIssues = 0;
-var totalTests = 0;
 
 
 class About extends Component {
@@ -65,7 +58,6 @@ class About extends Component {
             {
                 headers: {
                     'Private-Token': 'AGN7CEcDXss1xRubmb2F',
-                    'Content-Type': 'application/json'
                 }
             }
         )
@@ -74,13 +66,12 @@ class About extends Component {
                 this.setState({ members: data })
                 console.log(this.state.members)
             })
-            .catch(console.log)
+           
 
         fetch('https://gitlab.com/api/v4/projects/19488109/issues?per_page=100',
             {
                 headers: {
                     'Private-Token': 'AGN7CEcDXss1xRubmb2F',
-                    'Content-Type': 'application/json'
                 }
             }
         )
@@ -89,41 +80,27 @@ class About extends Component {
                 this.setState({ issues: data })
                 console.log(this.state.issues)
             })
-            .catch(console.log)
+            
     }
 
     abc = () => {
-        totalCommits = 0;
         for (let i = 0; i < this.state.members.length; i++) {
             let member = this.state.members[i];
-            if (member.email === "wankew22@utexas.edu"){
+            if (member.email === "wankew22@kewens-mbp.lan"){
                     this.state.members.splice(i, 1);
                     i = 0;
             }
 
         }
         return this.state.members.map(member => {
-            let counter = 0;
             let firstName = member.name.split(" ")[0];
-            console.log(member['name'] + ": " + member.email);
-            totalCommits += member['commits'];
-
-
-            this.state.issues.forEach(issue => {
-                //console.log(issue);
-                counter += issue['author']['name'] === member['name'] ? 1 : 0;
-            });
-
-            totalIssues += counter;
-            // console.log("totalIssues: " + totalIssues);
-
             return (
                 <Col lg={4} sm={6} style={{ display: 'flex', justifyContent: 'center' }}>
                     <p style={{ width: '85%' }}>
                         <Card className="text-center">
-                            <Card.Img className="cardpic rounded" variant="top" src={images[(member.name + ".jpg")]} />
+                            {/* <Card.Img className="cardpic rounded" variant="top" src={images[(member.name + ".jpg")]} /> */}
                             <Card.Body>
-                                <Card.Title>{member['name']}</Card.Title>
+                                <Card.Title>{eval(firstName).name}</Card.Title>
                                 <ListGroup className="list-group-flush">
                                     <ListGroupItem>
                                         <div>
@@ -133,6 +110,7 @@ class About extends Component {
                                         </div>
                                         
                                         </ListGroupItem>
+                                        
                                     <ListGroupItem>
                                         <Row className="about-row" style={{ marginTop: '1rem'}}>Commits: </Row>
                                         <Row className="about-row" style={{ marginTop: '1rem'}}>Issues: </Row>
@@ -165,10 +143,6 @@ class About extends Component {
                 </Row>
                 <br></br>
                 <br></br>
-
-              
-
-
 
                 <Row className={"aboutMissionCard"}>
                     <br></br>
@@ -241,8 +215,6 @@ class About extends Component {
                             <Row className="about-row" style={{ marginTop: '1rem'}}>Total Commits: 187 / Total Issues: 43 / Total Tests: 0</Row>
                           </div>
                         </div> 
-
-
                     </Row>
       
                 
@@ -275,6 +247,7 @@ const srcImg = {
   width: '100px',
   height: '100px',
   margin: '10px'
+  
 }
 
 const aboutStats = {
