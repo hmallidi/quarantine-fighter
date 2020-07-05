@@ -280,8 +280,9 @@ def testImport():
     longitude = city_info['longitude']
     state = city_info['state']
     pop = city_info['population']
-    # entry = City(name = 'Anaheim', state = state, latitude = lat, longitude = longitude, population = pop)
-    # db.session.add(entry)
+    
+    entryCity = City(name = 'Anaheim', state = state, latitude = lat, longitude = longitude, population = pop)
+    db.session.add(entryCity)
 
     result = getJSON('drugstore', 'Anaheim', state)[0]
     name = result['name']
