@@ -1,0 +1,146 @@
+.space{
+    height: 90px;
+}
+h2, p, ul, li {
+    font-family:Taviraj;
+    color: rgb(178, 34, 34);
+}
+a {
+    color:rgb(178, 34, 34);
+}
+a:hover {
+    color: black;
+}
+
+.about {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    /* align-items: center; */
+    /* padding-left: 10vw;
+    padding-right: 10vw; */
+}
+
+.about-row.row{
+    display: flex; 
+    justify-content: center;
+    flex-direction: row;
+    /* width: 40vw; */
+    color:rgb(178, 34, 34);
+    font-family:Taviraj;
+}
+
+.repostats{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    min-width: 30vw;
+}
+
+.side {
+    margin-left: 10vw;
+    margin-right: 10vw;
+}
+
+.cardpic{
+    /* height: auto; */
+    max-height: 230px;
+    /* width: auto; */
+    max-width: 230px;
+    margin: auto;
+    box-shadow:  5px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card{
+    border: 0px;
+    /* width: 18rem; */
+    width: 100%;
+}
+
+.personal-card{
+    position: relative;
+    height: 600px;
+}
+
+
+.icon {
+    max-width: 30px;
+}
+
+.icon2 {
+    max-width: 50px;
+    max-height: 50px;
+
+}
+
+.postman{
+    max-width: 20vh;
+    max-height: 20vh;
+
+}
+/* .tools-button:hover{
+    border: 0px;
+    box-shadow:  5px 5px 15px rgba(0, 0, 0, 0.2);
+} */
+.tool-icon{
+    max-width: 20vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    /* border: 0px;
+    box-shadow:  5px 5px 15px rgba(0, 0, 0, 0.2); */
+    
+
+}
+
+.tool-icon.btn.btn-primary{
+    border: 0px;
+    box-shadow:  5px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.tool-icon.btn.btn-primary:hover{
+    background-color: transparent;
+    box-shadow:  5px 5px 15px tomato;
+}
+
+.aboutMissionCard.row{
+    min-width: 70vw;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0px 0px 15px 8px rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    padding: 2vw;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    flex-grow: 0;
+}
+
+
+/* .srcImg {
+    width: '100px';
+    height: '100px';
+    margin: '10px';
+  }
+ .aboutStats{
+    color: 'white';
+    display: 'inline-block';
+    margin: '30px';
+    borderRadius: '3px';
+  
+  }
+  .aboutTop {
+    textAlign: 'center';
+    borderBottom: 'solid rgb(53, 53, 53)';
+    borderWidth: '1px';
+    borderRadius: '3px';
+    padding: '10px';
+  }
+  .aboutDown {
+    margin: '10px';
+    textAlign: 'center';
+    padding: '10px';
+  } */
+  
+  
