@@ -1,16 +1,12 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 import os
-
- #   os.environ['DATABASE_URL'] = "postgresql+psycopg2://postgres:locations123@/postgres?host=/cloudsql/covidfighter-280919:us-central1:locationsdb"
+import psycopg2
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DB_STRING", 'postgres://postgres:@localhost:5432/locationsdb') # 'postgres://postgres:@localhost:5432/locationsdb'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://postgres:locations123@35.193.211.128/locationsdb'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 db = SQLAlchemy(app)
-
-
-
 
 
 class Drugstore(db.Model):
