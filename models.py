@@ -25,11 +25,11 @@ class Drugstore(db.Model):
     opening_hours = db.Column(db.String, nullable=False)
     business_status = db.Column(db.String, nullable=False)
 
-    rating = db.Column(db.Float, nullable=False)
+    # rating = db.Column(db.Float, nullable=False)
 
-    website = db.Column(db.String, nullable=False)
+    # website = db.Column(db.String, nullable=False)
     google_maps_url = db.Column(db.String, nullable=False)
-    phone_number = db.Column(db.String, nullable=False)
+    # phone_number = db.Column(db.String, nullable=False)
     # img_url = db.Column(db.String, nullable=False)
 
     city_id = db.Column(db.Integer, db.ForeignKey('city.id'))
@@ -50,11 +50,11 @@ class Hospital(db.Model):
     opening_hours = db.Column(db.String, nullable=False)
     business_status = db.Column(db.String, nullable=False)
 
-    rating = db.Column(db.Float, nullable=False)
+    # rating = db.Column(db.Float, nullable=False)
 
-    website = db.Column(db.String, nullable=False)
+    # website = db.Column(db.String, nullable=False)
     google_maps_url = db.Column(db.String, nullable=False)
-    phone_number = db.Column(db.String, nullable=False)
+    # phone_number = db.Column(db.String, nullable=False)
     # img_url = db.Column(db.String, nullable=False)
 
     city_id = db.Column(db.Integer, db.ForeignKey('city.id'))
