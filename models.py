@@ -5,7 +5,7 @@ import os
 os.environ['DATABASE_URL'] = "postgresql+psycopg2://postgres:locations123@/postgres?host=/cloudsql/covidfighter-280919:us-central1:locationsdb"
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DB_STRING", 'postgres://postgres:cvsu2020@localhost:5432/locationsdb') # 'postgres://postgres:@localhost:5432/locationsdb'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DB_STRING", 'postgres://postgres:@localhost:5432/locationsdb') # 'postgres://postgres:@localhost:5432/locationsdb'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 db = SQLAlchemy(app)
 
