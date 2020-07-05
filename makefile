@@ -41,7 +41,7 @@ local run: models.py
 models.html: models.py
 	$(PYDOC) -w models
 IDB1.log:
-	git log > IDB1.log
+	git log --use-mailmap > IDB1.log
 versions:
 	which       git
 	git         --version

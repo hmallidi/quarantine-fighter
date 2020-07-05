@@ -57,12 +57,12 @@ class Healthcare extends Component {
   }
 
   const headCells = [
-
+	  
   ];
 
-  export default function SimpleTable() {
+  function EnhancedTableHead(props) {
 	const {classes, onSelectAllClick, order, orderBy, numSelected, rowCount, onRequestSort} = props;
-	const createSortHandler = (property) => event => {
+	const createSortHandler = (property) => (event) => {
 		onRequestSort(event, property);
 	};
 
