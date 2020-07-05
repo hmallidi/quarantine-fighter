@@ -2,6 +2,10 @@ from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
+errordict = {
+            'code': 500,
+            'message': 'An error occurred'
+        }
 
 @app.route("/api/City/")
 def getCitiesByQuery():
@@ -9,7 +13,7 @@ def getCitiesByQuery():
     try:
         return jsonify({'name': name}), 200
     except Exception:
-        return jsonify({'error': 'An error occured'}), 500
+        return jsonify(errordict), 500
 
 
 @app.route("/api/City/<int:city_id>")
@@ -17,11 +21,12 @@ def getCityById(city_id: int):
     try:
         return jsonify({'city_id': city_id}), 200
     except Exception:
-        return jsonify({'error': 'An error occured'}), 500
+        return jsonify(errordict), 500
 
 
 @app.route("/api/Hospital/")
 def getHospitalsByQuery():
+    print("here")
     name = request.args.get("name")
     city = request.args.get("city")
     min_rating = request.args.get("min_rating")
@@ -36,7 +41,7 @@ def getHospitalsByQuery():
         }
         return jsonify(dicty), 200
     except Exception:
-        return jsonify({'error': 'An error occured'}), 500
+        return jsonify(errordict), 500
 
 
 @app.route("/api/Hospital/nearby/<string:drugstore_id>")
@@ -44,7 +49,7 @@ def getNearbyHospitals(drugstore_id: str):
     try:
         return jsonify({'drugstore_id': drugstore_id}), 200
     except Exception:
-        return jsonify({'error': 'An error occured'}), 500
+        return jsonify(errordict), 500
 
 
 @app.route("/api/Drugstore/")
