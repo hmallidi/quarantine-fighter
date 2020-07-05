@@ -215,6 +215,7 @@ def populateTable(type):
     db.session.add(entry)
     db.session.commit()
 
+
 def testImport():
     city_info = get_city_opendata('Anaheim')
     city_name = 'Anaheim'
