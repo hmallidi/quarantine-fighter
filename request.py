@@ -9,6 +9,7 @@ from flask import Flask, session, render_template, request, url_for, session, re
 from flask_sqlalchemy import SQLAlchemy
 from flask_session import Session
 from sqlalchemy.orm import scoped_session, sessionmaker
+from sqlalchemy import text
 import os
 
 from models import City, Hospital, Drugstore, db
@@ -98,20 +99,10 @@ def reformatLocation(location):
     else:
         location['opening_hours'] = ''
 
-    # if "formatted_phone_number" in location:
-    #     location['phone_number'] = location['formatted_phone_number']
-    #     del location['formatted_phone_number']
-    # else:
-    #     location['phone_number'] = ''
-
-    # if 'rating' not in location:
-    #     location['rating'] = -1
 
     if 'url' not in location:
         location['url'] = ''
 
-    # if 'website' not in location:
-    #     location['website'] = ''
 
     location['address'] = location['formatted_address']
     del location['formatted_address']
@@ -180,50 +171,6 @@ def getJSON(place_type, city, state, name=""):
 city = 'Anaheim'
 city_result = get_city_opendata(city) # city information (dict)
 
-# location = getPlaceDetails('ChIJ_47yiLe0RIYRSxhM6Yfn8fQ')
-# state = city_result['state']
-# hospital_results = getJSON("hospital", city, state) # hospitals information (list of dicts)
-# drugstore_results = getJSON("drugstore", city, state) # drugstores information (list of dicts)
-
-
-# LOCATIONS DICT (HOSPITALS, DRUGSTORES)
-#   Keys/Info
-#       place_id - primary key (string) Ex: ('ChIJfZvX20Ep3YAROaNeDxI_FBs')
-#
-#       name - string
-#
-#       address - string
-#       zipcode - string
-#       latitude - float
-#       longitude - float
-#
-#       business_status - string
-#       opening_hours - string  
-#       rating - float
-#
-#       url - string
-#       website - string
-#       phone_number - string
-
-# CITY DICT (CITIES)
-#   Keys/Info
-#       city - string
-#       state - string
-#
-#       longitude - string
-#       latitude - string
-#
-#       population - int
-
-# print(location)
-# print(location['opening_hours'])
-
-# for location in places_results:
-#     print(location)
-#     break
-
-# usaddress==0.5.10
-# requests==2.23.0
 
 #uses the cities api to populate information about the cities in the table
 def populateCitiesTable():
@@ -264,18 +211,13 @@ def populateTable(type):
         else:
             entry = Drugstore(id=id, name=name, address=address, zipcode=zipcode, latitude=latitude, longitude=longitude,
                               opening_hours=opening_hours, business_status=business_status, google_maps_url=google_maps_url, city_id=city_id)
-        # if(type == 'hospital'):
-        #     entry = Hospital(id = id, name=name, address=address, zipcode=zipcode, latitude=latitude, longitude=longitude,
-        #                                 opening_hours=opening_hours, business_status=business_status, rating=rating, website=website, google_maps_url=google_maps_url, phone_number=phone_number, city_id=city_id)
-        # else:
-        #     entry = Drugstore(id = id, name=name, address=address, zipcode=zipcode, latitude=latitude, longitude=longitude,
-        #                                 opening_hours=opening_hours, business_status=business_status, rating=rating, website=website, google_maps_url=google_maps_url, phone_number=phone_number, city_id=city_id)
-        
-        db.session.add(entry)
+       
+    db.session.add(entry)
     db.session.commit()
 
 def testImport():
     city_info = get_city_opendata('Anaheim')
+    city_name = 'Anaheim'
     lat = city_info['latitude']
     longitude = city_info['longitude']
     state = city_info['state']
@@ -284,7 +226,7 @@ def testImport():
     entryCity = City(name = 'Anaheim', state = state, latitude = lat, longitude = longitude, population = pop)
     db.session.add(entryCity)
 
-    result = getJSON('drugstore', 'Anaheim', state)[0]
+    result = getJSON('hospital', 'Anaheim', state)[0]
     name = result['name']
     address = result['address']
     zipcode = result['zipcode']
@@ -292,17 +234,22 @@ def testImport():
     longitude = result['longitude']
     opening_hours = result['opening_hours']
     business_status = result['business_status']
-    # rating = result['rating']
-    # website = result['website']
+
     google_maps_url = result['url']
     # phone_number = result['phone_number']
     id = result['place_id']
-    # city_id = db.execute("SELECT * FROM city WHERE name = :city", {":city": 'Anaheim'}).first()
+   
+    db.session.commit()
+
+    sql_query = text("SELECT city.id FROM city WHERE city.name = \'" + city_name + "\';")
+    result = db.engine.execute(sql_query).first()
+
+
+    cityID = result[0]
 
     entry = Hospital(id=id, name=name, address=address, zipcode=zipcode, latitude=latitude, longitude=longitude,
-                     opening_hours=opening_hours, business_status=business_status, google_maps_url=google_maps_url)
-    # entry = Hospital(id = id, name=name, address=address, zipcode=zipcode, latitude=latitude, longitude=longitude,
-    #                                     opening_hours=opening_hours, business_status=business_status, rating=rating, website=website, google_maps_url=google_maps_url, phone_number=phone_number)
+                     opening_hours=opening_hours, business_status=business_status, google_maps_url=google_maps_url, city_id = cityID)
+    
     db.session.add(entry)
     db.session.commit()
 
