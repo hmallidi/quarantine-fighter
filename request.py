@@ -226,6 +226,14 @@ def testImport():
     entryCity = City(name = 'Anaheim', state = state, latitude = lat, longitude = longitude, population = pop)
     db.session.add(entryCity)
 
+    db.session.commit()
+
+    sql_query = text("SELECT city.id FROM city WHERE city.name = \'" + city_name + "\';")
+    result = db.engine.execute(sql_query).first()
+
+
+    cityID = result[0]
+
     result = getJSON('hospital', 'Anaheim', state)[0]
     name = result['name']
     address = result['address']
@@ -239,13 +247,6 @@ def testImport():
     # phone_number = result['phone_number']
     id = result['place_id']
    
-    db.session.commit()
-
-    sql_query = text("SELECT city.id FROM city WHERE city.name = \'" + city_name + "\';")
-    result = db.engine.execute(sql_query).first()
-
-
-    cityID = result[0]
 
     entry = Hospital(id=id, name=name, address=address, zipcode=zipcode, latitude=latitude, longitude=longitude,
                      opening_hours=opening_hours, business_status=business_status, google_maps_url=google_maps_url, city_id = cityID)

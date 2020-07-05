@@ -16,7 +16,7 @@ def grocery():
     """
         grocery page, contains open/close status and general info for each grocery stores listed
     """
-    return render_template('grocery.html')
+    return render_template('grocery.js')
 
 
 @app.route('/restaurants', methods=['GET', 'POST'])
