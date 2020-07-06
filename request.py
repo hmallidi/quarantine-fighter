@@ -218,7 +218,7 @@ def populateTable(type):
 
 def populateTable():
     addOneCityInfo('Anaheim')
-    addOneCityInfo('Denver')
+    # addOneCityInfo('Denver')
 
 
 def addOneCityInfo(city_name):
@@ -279,9 +279,7 @@ def addOneCityInfo(city_name):
         sql_query = text("SELECT hospital.id FROM hospital WHERE hospital.zipcode = \'" + zipcode + "\';")
         result = db.engine.execute(sql_query)
 
-        if result.first() is None:
-            break
-        else:
+        if result.returns_rows:
             hospital_ids = [item[0] for item in result.fetchall()]
             for hospital_id in hospital_ids:
                 entry.hospitals_nearby.append(hospital_id)
