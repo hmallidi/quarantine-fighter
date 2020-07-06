@@ -226,7 +226,7 @@ def addOneCityInfo(city_name):
     longitude = city_info['longitude']
     state = city_info['state']
     pop = city_info['population']
-    
+
     entryCity = City(name=city_name, state=state, latitude=lat, longitude=longitude, population=pop)
     db.session.add(entryCity)
 
@@ -270,12 +270,20 @@ def addOneCityInfo(city_name):
         google_maps_url = drugstore['url']
         id = drugstore['place_id']
 
-        # hospitals_nearby
-
         entry = Drugstore(id=id, name=name, address=address, zipcode=zipcode, latitude=latitude, longitude=longitude,
                          opening_hours=opening_hours, business_status=business_status, google_maps_url=google_maps_url,
                          city_id = cityID)
         db.session.add(entry)
+
+        sql_query = text("SELECT hospital.id FROM hospital WHERE hospital.zipcode = \'" + zipcode + "\';")
+        result = db.engine.execute(sql_query)
+
+        if result.first() is None:
+            break
+        else:
+            hospital_ids = [item[0] for item in result.fetchall()]
+            for hospital_id in hospital_ids:
+                entry.hospitals_nearby.append(hospital_id)
 
     db.session.commit()
 
