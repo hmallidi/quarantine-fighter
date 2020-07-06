@@ -9,6 +9,11 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 db = SQLAlchemy(app)
 
 
+
+drugstore_hospital_link = db.Table('drugstore_hospital_link',
+                                   db.Column('drugstore_id', db.String, db.ForeignKey('drugstore.id')),
+                                   db.Column('hospital_id', db.String, db.ForeignKey('hospital.id')))
+
 class Drugstore(db.Model):
     __tablename__ = 'drugstore'
     id = db.Column(db.String, primary_key=True, nullable=False)
@@ -31,7 +36,7 @@ class Drugstore(db.Model):
     # img_url = db.Column(db.String, nullable=False)
 
     city_id = db.Column(db.Integer, db.ForeignKey('city.id'))
-    hospitals_nearby = db.relationship('Hospital', secondary='drugstore_hospital_link', backref='drugstores_nearby')
+    hospitals_nearby = db.relationship('Hospital', secondary=drugstore_hospital_link, backref=db.backref('drugstores_nearby', lazy='dynamic'))
 
 
 class Hospital(db.Model):
@@ -70,10 +75,6 @@ class City(db.Model):
     hospitals = db.relationship('Hospital', backref='city')
     drugstores = db.relationship('Drugstore', backref='city')
 
-
-drugstore_hospital_link = db.Table('drugstore_hospital_link',
-                                   db.Column('drugstore_id', db.String, db.ForeignKey('drugstore.id')),
-                                   db.Column('hospital_id', db.String, db.ForeignKey('hospital.id')))
 
 
 if __name__ == "__main__":
