@@ -62,10 +62,10 @@ errordict = {
             'message': 'An error occurred'
         }
 
+
 @app.route("/api/City/")
 def getCitiesByQuery():
     name = request.args.get("name")
-    print(name)
     try:
         if name is None:
             return jsonify([]), 200
@@ -80,7 +80,7 @@ def getCitiesByQuery():
             result2 = db.engine.execute(new_query)
 
             hospital_ids = [item[0] for item in result2.fetchall()]
-                
+
             new_query = text("SELECT drugstore.id FROM city JOIN drugstore ON drugstore.city_id = " + str(city_id) + ";")
             result3 = db.engine.execute(new_query).fetchall()
 
@@ -89,10 +89,9 @@ def getCitiesByQuery():
             city_dict = {"id": city_id, "name": result[1], "state": result[2], "latitude": result[3], "longitude": result[4], "population": result[5], "hospitals": hospital_ids, "drugstores": drugstore_ids}
             city_list = []
             city_list.append(city_dict)
-    
 
         return jsonify(city_list), 200
-    except Exception as e:
+    except Exception:
         return jsonify(errordict), 500
 
 
@@ -108,16 +107,15 @@ def getCityById(city_id: int):
         new_query = text("SELECT hospital.id FROM city JOIN hospital ON hospital.city_id = " + str(city_id) + ";")
         result2 = db.engine.execute(new_query).fetchall()
         hospital_ids = [item[0] for item in result2]
-                
+
         new_query = text("SELECT drugstore.id FROM city JOIN drugstore ON drugstore.city_id = " + str(city_id) + ";")
         result3 = db.engine.execute(new_query).fetchall()
         drugstore_ids = [item[0] for item in result3]
 
         city_dict = {"id": city_id, "name": result[1], "state": result[2], "latitude": result[3], "longitude": result[4], "population": result[5], "hospitals": hospital_ids, "drugstores": drugstore_ids}
-    
+
         return jsonify(city_dict), 200
-    except Exception as e:
-        print(e)
+    except Exception:
         return jsonify(errordict), 500
 
 
