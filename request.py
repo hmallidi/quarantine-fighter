@@ -211,52 +211,77 @@ def populateTable(type):
         else:
             entry = Drugstore(id=id, name=name, address=address, zipcode=zipcode, latitude=latitude, longitude=longitude,
                               opening_hours=opening_hours, business_status=business_status, google_maps_url=google_maps_url, city_id=city_id)
-       
-    db.session.add(entry)
+
+        db.session.add(entry)
     db.session.commit()
 
 
-def testImport():
-    city_info = get_city_opendata('Anaheim')
-    city_name = 'Anaheim'
+def populateTable():
+    addOneCityInfo('Anaheim')
+
+
+def addOneCityInfo(city_name):
+    city_info = get_city_opendata(city_name)
     lat = city_info['latitude']
     longitude = city_info['longitude']
     state = city_info['state']
     pop = city_info['population']
     
-    entryCity = City(name = 'Anaheim', state = state, latitude = lat, longitude = longitude, population = pop)
+    entryCity = City(name=city_name, state=state, latitude=lat, longitude=longitude, population=pop)
     db.session.add(entryCity)
 
     db.session.commit()
 
     sql_query = text("SELECT city.id FROM city WHERE city.name = \'" + city_name + "\';")
     result = db.engine.execute(sql_query).first()
-
-
     cityID = result[0]
 
-    result = getJSON('hospital', 'Anaheim', state)[0]
-    name = result['name']
-    address = result['address']
-    zipcode = result['zipcode']
-    latitude = result['latitude']
-    longitude = result['longitude']
-    opening_hours = result['opening_hours']
-    business_status = result['business_status']
+    hospital_results = getJSON('hospital', city_name, state)
 
-    google_maps_url = result['url']
-    # phone_number = result['phone_number']
-    id = result['place_id']
-   
+    for hospital in hospital_results:
+        name = hospital['name']
+        address = hospital['address']
+        zipcode = hospital['zipcode']
+        latitude = hospital['latitude']
+        longitude = hospital['longitude']
+        opening_hours = hospital['opening_hours']
+        business_status = hospital['business_status']
 
-    entry = Hospital(id=id, name=name, address=address, zipcode=zipcode, latitude=latitude, longitude=longitude,
-                     opening_hours=opening_hours, business_status=business_status, google_maps_url=google_maps_url, city_id = cityID)
-    
-    db.session.add(entry)
+        google_maps_url = hospital['url']
+        id = hospital['place_id']
+
+        entry = Hospital(id=id, name=name, address=address, zipcode=zipcode, latitude=latitude, longitude=longitude,
+                         opening_hours=opening_hours, business_status=business_status, google_maps_url=google_maps_url, city_id=cityID)
+        db.session.add(entry)
+
     db.session.commit()
 
+    drugstore_results = getJSON('drugstore', city_name, state)
+
+    for drugstore in drugstore_results:
+        name = drugstore['name']
+        address = drugstore['address']
+        zipcode = drugstore['zipcode']
+        latitude = drugstore['latitude']
+        longitude = drugstore['longitude']
+        opening_hours = drugstore['opening_hours']
+        business_status = drugstore['business_status']
+
+        google_maps_url = drugstore['url']
+        id = drugstore['place_id']
+
+        # hospitals_nearby
+
+        entry = Drugstore(id=id, name=name, address=address, zipcode=zipcode, latitude=latitude, longitude=longitude,
+                         opening_hours=opening_hours, business_status=business_status, google_maps_url=google_maps_url,
+                         city_id = cityID)
+        db.session.add(entry)
+
+    db.session.commit()
+
+
 if __name__ == "__main__":
-    testImport()
+    populateTable()
     # populateCitiesTable()
     # populateTable('hospital')
     # populateTable('drugstore')
