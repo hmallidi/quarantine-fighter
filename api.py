@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, request
-
+from models import db
 app = Flask(__name__)
 
 errordict = {
