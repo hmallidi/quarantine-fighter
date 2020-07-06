@@ -19,6 +19,7 @@ errordict = {
             'message': 'An error occurred'
         }
 
+
 @app.route("/api/City/")
 def getCitiesByQuery():
     name = request.args.get("name")

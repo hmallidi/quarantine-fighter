@@ -218,6 +218,7 @@ def populateTable(type):
 
 def populateTable():
     addOneCityInfo('Anaheim')
+    addOneCityInfo('Denver')
 
 
 def addOneCityInfo(city_name):
