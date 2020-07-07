@@ -284,13 +284,5 @@ def addOneCityInfo(city_name):
             hospital_ids = [item[0] for item in result.fetchall()]
             for hospital_id in hospital_ids:
                 hospitalObj = db.session.query(Hospital).get(hospital_id)
-                #print(hospitalObj)
                 entry.hospitals_nearby.append(hospitalObj)
                 db.session.commit()
-
-
-if __name__ == "__main__":
-    # populateTable()
-    # populateCitiesTable()
-    # populateTable('hospital')
-    # populateTable('drugstore')
