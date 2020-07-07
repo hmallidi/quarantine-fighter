@@ -275,6 +275,7 @@ def addOneCityInfo(city_name):
                          opening_hours=opening_hours, business_status=business_status, google_maps_url=google_maps_url,
                          city_id = cityID)
         db.session.add(entry)
+        db.session.commit()
 
         sql_query = text("SELECT hospital.id FROM hospital WHERE hospital.zipcode = \'" + zipcode + "\';")
         result = db.engine.execute(sql_query)
@@ -282,9 +283,12 @@ def addOneCityInfo(city_name):
         if result.returns_rows:
             hospital_ids = [item[0] for item in result.fetchall()]
             for hospital_id in hospital_ids:
-                entry.hospitals_nearby.append(hospital_id)
+                hospitalObj = db.session.query(Hospital).get(hospital_id)
+                #print(hospitalObj)
+                entry.hospitals_nearby.append(hospitalObj)
+                db.session.commit()
 
-    db.session.commit()
+    
 
 
 if __name__ == "__main__":
