@@ -70,23 +70,32 @@ def getCitiesByQuery():
         if name is None:
             return jsonify([]), 200
         else:
-            sql_query = text("SELECT * FROM city WHERE city.name = \'" + name + "\';")
-            result = db.engine.execute(sql_query).first()
-            if result is None:
+            city_result = db.session.query(City).filter_by(name=name).all()
+
+            if len(city_result) == 0:
                 return jsonify([]), 200
 
-            city_id = result[0]
-            new_query = text("SELECT hospital.id FROM city JOIN hospital ON hospital.city_id = " + str(city_id) + ";")
-            result2 = db.engine.execute(new_query)
+            city_result = city_result[0]
 
-            hospital_ids = [item[0] for item in result2.fetchall()]
+            city_dict = {"id": city_result.id, "name": city_result.name, "state": city_result.state,
+                         "latitude": city_result.latitude, "longitude": city_result.longitude,
+                         "population": city_result.population}
 
-            new_query = text("SELECT drugstore.id FROM city JOIN drugstore ON drugstore.city_id = " + str(city_id) + ";")
-            result3 = db.engine.execute(new_query).fetchall()
+            hospital_list = list()
+            hospital_result = db.session.query(Hospital).filter_by(city_id=city_result.id).all()
 
-            drugstore_ids = [item[0] for item in result3]
+            for hospital in hospital_result:
+                hospital_list.append(hospital.id)
 
-            city_dict = {"id": city_id, "name": result[1], "state": result[2], "latitude": result[3], "longitude": result[4], "population": result[5], "hospitals": hospital_ids, "drugstores": drugstore_ids}
+            drugstore_list = list()
+            drugstore_result = db.session.query(Drugstore).filter_by(city_id=city_result.id).all()
+
+            for drugstore in drugstore_result:
+                drugstore_list.append(drugstore.id)
+
+            city_dict['hospitals'] = hospital_list
+            city_dict['drugstores'] = drugstore_list
+
             city_list = []
             city_list.append(city_dict)
 
@@ -98,23 +107,36 @@ def getCitiesByQuery():
 @app.route("/api/City/<int:city_id>")
 def getCityById(city_id: int):
     try:
-        sql_query = text("SELECT * FROM city WHERE city.id = \'" + str(city_id) + "\';")
-        result = db.engine.execute(sql_query).first()
+        city_result = db.session.query(City).filter_by(id=city_id).all()
 
-        if result is None:
-            return jsonify({}), 200
+        if len(city_result) == 0:
+            return jsonify([]), 200
 
-        new_query = text("SELECT hospital.id FROM city JOIN hospital ON hospital.city_id = " + str(city_id) + ";")
-        result2 = db.engine.execute(new_query).fetchall()
-        hospital_ids = [item[0] for item in result2]
+        city_result = city_result[0]
 
-        new_query = text("SELECT drugstore.id FROM city JOIN drugstore ON drugstore.city_id = " + str(city_id) + ";")
-        result3 = db.engine.execute(new_query).fetchall()
-        drugstore_ids = [item[0] for item in result3]
+        city_dict = {"id": city_result.id, "name": city_result.name, "state": city_result.state,
+                     "latitude": city_result.latitude, "longitude": city_result.longitude,
+                     "population": city_result.population}
 
-        city_dict = {"id": city_id, "name": result[1], "state": result[2], "latitude": result[3], "longitude": result[4], "population": result[5], "hospitals": hospital_ids, "drugstores": drugstore_ids}
+        hospital_list = list()
+        hospital_result = db.session.query(Hospital).filter_by(city_id=city_result.id).all()
 
-        return jsonify(city_dict), 200
+        for hospital in hospital_result:
+            hospital_list.append(hospital.id)
+
+        drugstore_list = list()
+        drugstore_result = db.session.query(Drugstore).filter_by(city_id=city_result.id).all()
+
+        for drugstore in drugstore_result:
+            drugstore_list.append(drugstore.id)
+
+        city_dict['hospitals'] = hospital_list
+        city_dict['drugstores'] = drugstore_list
+
+        city_list = []
+        city_list.append(city_dict)
+
+        return jsonify(city_list), 200
     except Exception:
         return jsonify(errordict), 500
 
