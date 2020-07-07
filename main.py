@@ -119,6 +119,100 @@ def getCityById(city_id: int):
         return jsonify(errordict), 500
 
 
+@app.route("/api/Hospital/")
+def getHospitalsByQuery():
+    name = request.args.get("name")
+    city = request.args.get("city")
+
+    try:
+        if name is None and city is None:
+            return jsonify([]), 200
+
+        elif name is None:
+            city_result = db.session.query(City).filter_by(name=city).all()
+
+            if len(city_result) == 0:
+                return jsonify([]), 200
+
+            city_id = city_result[0].id
+
+            result = db.session.query(Hospital).filter_by(city_id=city_id).all()
+
+            if len(result) == 0:
+                return jsonify([]), 200
+
+            return_list = list()
+
+            for hospital in result:
+                return_dict = {'id': hospital.id, 'name': hospital.name, 'address': hospital.address, 'zipcode': hospital.zipcode, 'latitude': hospital.latitude,
+                               'longitude': hospital.longitude, 'opening_hours': hospital.opening_hours, 'business_status': hospital.business_status,
+                               'google_maps_url': hospital.google_maps_url, 'city_id': hospital.city_id}
+
+                return_dict['drugstores_nearby'] = list()
+
+                for drugstore in hospital.drugstores_nearby:
+                    return_dict['drugstores_nearby'].append(drugstore.id)
+
+                return_list.append(return_dict)
+
+            return jsonify(return_list), 200
+
+        elif city is None:
+            result = db.session.query(Hospital).filter_by(name=name).all()
+
+            if len(result) == 0:
+                return jsonify([]), 200
+
+            return_list = list()
+
+            for hospital in result:
+                return_dict = {'id': hospital.id, 'name': hospital.name, 'address': hospital.address, 'zipcode': hospital.zipcode, 'latitude': hospital.latitude,
+                               'longitude': hospital.longitude, 'opening_hours': hospital.opening_hours, 'business_status': hospital.business_status,
+                               'google_maps_url': hospital.google_maps_url, 'city_id': hospital.city_id}
+
+                return_dict['drugstores_nearby'] = list()
+
+                for drugstore in hospital.drugstores_nearby:
+                    return_dict['drugstores_nearby'].append(drugstore.id)
+
+                return_list.append(return_dict)
+
+            return jsonify(return_list), 200
+
+        else:
+            city_result = db.session.query(City).filter_by(name=city).all()
+
+            if len(city_result) == 0:
+                return jsonify([]), 200
+
+            city_id = city_result[0].id
+
+            print("hello")
+            result = db.session.query(Hospital).filter_by(name=name, city_id=city_id).all()
+            print("hello2")
+
+            if len(result) == 0:
+                return jsonify([]), 200
+
+            return_list = list()
+
+            for hospital in result:
+                return_dict = {'id': hospital.id, 'name': hospital.name, 'address': hospital.address, 'zipcode': hospital.zipcode, 'latitude': hospital.latitude,
+                               'longitude': hospital.longitude, 'opening_hours': hospital.opening_hours, 'business_status': hospital.business_status,
+                               'google_maps_url': hospital.google_maps_url, 'city_id': hospital.city_id}
+
+                return_dict['drugstores_nearby'] = list()
+
+                for drugstore in hospital.drugstores_nearby:
+                    return_dict['drugstores_nearby'].append(drugstore.id)
+
+                return_list.append(return_dict)
+
+            return jsonify(return_list), 200
+    except Exception:
+        return jsonify(errordict), 500
+
+
 if __name__ == "__main__":
     app.debug = True
     app.run()
