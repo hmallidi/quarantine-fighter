@@ -1,26 +1,26 @@
 openapi: 3.0.0
 info:
   description: |
-    Covid-Fighter API
+    QuarantineFighter API
   version: "1.0.0"
   title: Covid Fighter
 servers:
-  - description: Covid Fighter Website
-    url: http://covid19fighter.me
+  - description: Quarantine Fighter Website
+    url: quarantinefighters.me/api
 tags:
-  - name: Restaurant
-    description: A restaurant 
+  - name: City
+    description: A city
   - name: Hospital
     description: A hospital
-  - name: GroceryStore
-    description:  A grocery store
+  - name: Drugstore
+    description:  A drugstore
 paths:
   /Hospital/nearby/{drugstore_id}:
     get:
       tags:
         - Hospital
       summary: hospitals nearby drugstore
-      description: Get hospitals within the same zipcode as a given drugstore
+      description: Get hospitals within the nearby area as a given drugstore
       operationId: getHospitalsNearbyDrugstore
       parameters:
         - in: path
@@ -40,7 +40,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HospitalArray'
+                $ref: '#/components/schemas/HospitalArrayDict'
         default:
           description: Unexpected error
           content:
@@ -66,11 +66,6 @@ paths:
           schema:
             type: string
           description: City in which Hospital is located
-        - in: query
-          name: rating
-          schema:
-            type: string
-          description: Rating of Hospital
       responses:
         '200':
           description: 'Sample response: Details about a Hospital by Query'
@@ -82,7 +77,40 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HospitalArray'
+                $ref: '#/components/schemas/HospitalArrayDict'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /Hospital/{hospital_id}:
+    get:
+      tags:
+        - Hospital
+      summary: hospital by id
+      description: Get hospital that corresponds with the specific id
+      operationId: getCityByID
+      parameters:
+        - in: path
+          name: hospital_id
+          schema:
+            type: string
+          description: ID of the Hospital
+          required: true
+      responses:
+        '200':
+          description: 'Sample response: Details about a Hospital by ID'
+          headers:
+            hospital-obj:
+              description: Hospital Object with Specific ID Given
+              schema:
+                type: object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Hospital'
         default:
           description: Unexpected error
           content:
@@ -96,7 +124,7 @@ paths:
       tags:
         - Drugstore
       summary: drugstores nearby hospital
-      description: Get drugstores within the same zipcode as a given hospital
+      description: Get hospitals within the nearby area as a given drugstore
       operationId: getDrugstoresNearbyHospital
       parameters:
         - in: path
@@ -116,7 +144,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DrugstoreArray'
+                $ref: '#/components/schemas/DrugstoreArrayDict'
         default:
           description: Unexpected error
           content:
@@ -141,13 +169,7 @@ paths:
           name: city
           schema:
             type: string
-          description: City in which Drugstore is located
-        - in: query
-          name: rating
-          schema:
-            type: number
-            format: double
-          description: Rating of Drugstore
+          description: City in which Drugstore is locate
       responses:
         '200':
           description: 'Sample response: Details about a Drugstore by Query'
@@ -159,7 +181,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DrugstoreArray'
+                $ref: '#/components/schemas/DrugstoreArrayDict'
         default:
           description: Unexpected error
           content:
@@ -167,7 +189,40 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
   
-  /City/{city_id}/:
+  /Drugstore/{drugstore_id}:
+    get:
+      tags:
+        - Drugstore
+      summary: drugstore by id
+      description: Get drugstore that corresponds with the specific id
+      operationId: getDrugstoreByID
+      parameters:
+        - in: path
+          name: drugstore_id
+          schema:
+            type: string
+          description: ID of the Drugstore
+          required: true
+      responses:
+        '200':
+          description: 'Sample response: Details about a Drugstore by ID'
+          headers:
+            drugstore-obj:
+              description: Drugstore Object with Specific ID Given
+              schema:
+                type: object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Drugstore'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  
+  /City/{city_id}:
     get:
       tags:
         - City
@@ -185,7 +240,7 @@ paths:
         '200':
           description: 'Sample response: Details about a City by ID'
           headers:
-            restaurant-obj:
+            city-obj:
               description: City Object with Specific ID Given
               schema:
                 type: object
@@ -219,14 +274,14 @@ paths:
         '200':
           description: 'Sample response: Details about a City by Query'
           headers:
-            restaurant-array:
+            city-array:
               description: City Array with Specific Query Given
               schema:
                 type: array
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CityArray'
+                $ref: '#/components/schemas/CityArrayDict'
         default:
           description: Unexpected error
           content:
@@ -267,25 +322,22 @@ components:
           type: string
         business_status:
           type: string
-        rating:
-          type: number
-          format: double
-        website:
-          type: string
         google_maps_url:
           type: string
-        phone_number:
-          type: string
-        city:
+        city_id:
           type: integer
         hospitals_nearby:
           type: array
           items:
-            type: integer
-    DrugstoreArray:
-      type: array
-      items:
-        $ref: '#/components/schemas/Drugstore'
+            type: string
+    DrugstoreArrayDict:
+      type: object
+      description: A dict containing a list of drugstores
+      properties:
+        drugstores:
+          type: array
+          items:
+            $ref: '#/components/schemas/Drugstore'
     Hospital:
       type: object
       description: A hospital
@@ -315,25 +367,22 @@ components:
           type: string
         business_status:
           type: string
-        rating:
-          type: number
-          format: double
-        website:
-          type: string
         google_maps_url:
           type: string
-        phone_number:
-          type: string
-        city:
+        city_id:
           type: integer
         drugstores_nearby:
           type: array
           items:
-            type: integer
-    HospitalArray:
-      type: array
-      items:
-        $ref: '#/components/schemas/Hospital'
+            type: string
+    HospitalArrayDict:
+      type: object
+      description: A dict containing a list of hospitals
+      properties:
+        hospitals:
+          type: array
+          items:
+            $ref: '#/components/schemas/Hospital'
     City:
       type: object
       description: A city
@@ -341,7 +390,6 @@ components:
         - id
         - name
         - state
-        - zipcode
         - latitude
         - longitude
         - population
@@ -353,8 +401,6 @@ components:
         name:
           type: string
         state:
-          type: string
-        zipcode:
           type: string
         latitude:
           type: number
@@ -372,10 +418,14 @@ components:
           type: array
           items:
             type: string
-    CityArray:
-      type: array
-      items:
-        $ref: '#/components/schemas/City'
+    CityArrayDict:
+      type: object
+      description: A dict containing a list of cities
+      properties:
+        cities:
+          type: array
+          items:
+            $ref: '#/components/schemas/City'
     Error:
       type: object
       required:
