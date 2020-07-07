@@ -81,7 +81,7 @@ def reformatLocation(location):
     else:
         location['latitude'] = ''
         location['longitude'] = ''
-    
+
     if "opening_hours" in location:
         if "weekday_text" in location["opening_hours"]:
             weekday_text_array = location["opening_hours"]["weekday_text"]
@@ -168,8 +168,8 @@ def getJSON(place_type, city, state, name=""):
     return places_results
 
 
-city = 'Anaheim'
-city_result = get_city_opendata(city) # city information (dict)
+# city = 'Anaheim'
+# city_result = get_city_opendata(city) city information (dict)
 
 
 #uses the cities api to populate information about the cities in the table
@@ -288,11 +288,9 @@ def addOneCityInfo(city_name):
                 entry.hospitals_nearby.append(hospitalObj)
                 db.session.commit()
 
-    
-
 
 if __name__ == "__main__":
-    populateTable()
+    # populateTable()
     # populateCitiesTable()
     # populateTable('hospital')
     # populateTable('drugstore')

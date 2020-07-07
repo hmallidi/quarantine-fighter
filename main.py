@@ -121,13 +121,13 @@ def getHospitalsByQuery():
     hospitals_dict = {'hospitals': list()}
     try:
         if name is None and city is None:
-            return jsonify([]), 200
+            return jsonify({}), 200
 
         elif name is None:
             city_result = db.session.query(City).filter_by(name=city).all()
 
             if len(city_result) == 0:
-                return jsonify([]), 200
+                return jsonify({}), 200
 
             for city in city_result:
                 hospital_results = db.session.query(Hospital).filter_by(city_id=city.id).all()
@@ -147,7 +147,7 @@ def getHospitalsByQuery():
             hospital_results = db.session.query(Hospital).filter_by(name=name).all()
 
             if len(hospital_results) == 0:
-                return jsonify([]), 200
+                return jsonify({}), 200
 
             for hospital in hospital_results:
                 hospital_dict = {'id': hospital.id, 'name': hospital.name, 'address': hospital.address, 'zipcode': hospital.zipcode, 'latitude': hospital.latitude,
@@ -161,7 +161,7 @@ def getHospitalsByQuery():
             city_result = db.session.query(City).filter_by(name=city).all()
 
             if len(city_result) == 0:
-                return jsonify([]), 200
+                return jsonify({}), 200
 
             for city in city_result:
                 hospital_results = db.session.query(Hospital).filter_by(city_id=city.id, name=name).all()
@@ -189,7 +189,7 @@ def getNearbyHospitals(drugstore_id: str):
         drugstore_result = db.session.query(Drugstore).filter_by(id=drugstore_id).all()
 
         if len(drugstore_result) == 0:
-            return jsonify([]), 200
+            return jsonify({}), 200
 
         drugstore = drugstore_result[0]
 
@@ -234,13 +234,13 @@ def getDrugstoresByQuery():
     drugstores_dict = {'drugstores': list()}
     try:
         if name is None and city is None:
-            return jsonify([]), 200
+            return jsonify({}), 200
 
         elif name is None:
             city_result = db.session.query(City).filter_by(name=city).all()
 
             if len(city_result) == 0:
-                return jsonify([]), 200
+                return jsonify({}), 200
 
             for city in city_result:
                 drugstore_results = db.session.query(Drugstore).filter_by(city_id=city.id).all()
@@ -260,7 +260,7 @@ def getDrugstoresByQuery():
             drugstore_results = db.session.query(Drugstore).filter_by(name=name).all()
 
             if len(drugstore_results) == 0:
-                return jsonify([]), 200
+                return jsonify({}), 200
 
             for drugstore in drugstore_results:
                 drugstore_dict = {'id': drugstore.id, 'name': drugstore.name, 'address': drugstore.address, 'zipcode': drugstore.zipcode, 'latitude': drugstore.latitude,
@@ -274,7 +274,7 @@ def getDrugstoresByQuery():
             city_result = db.session.query(City).filter_by(name=city).all()
 
             if len(city_result) == 0:
-                return jsonify([]), 200
+                return jsonify({}), 200
 
             for city in city_result:
                 drugstore_results = db.session.query(Drugstore).filter_by(city_id=city.id, name=name).all()
@@ -302,7 +302,7 @@ def getNearbyDrugstores(hospital_id: str):
         hospital_result = db.session.query(Hospital).filter_by(id=hospital_id).all()
 
         if len(hospital_result) == 0:
-            return jsonify([]), 200
+            return jsonify({}), 200
 
         hospital = hospital_result[0]
 
