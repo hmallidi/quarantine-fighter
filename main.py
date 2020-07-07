@@ -38,7 +38,7 @@ def restaurants():
     """
         restaurants page, contains open/close status and general info for each restaurants listed
     """
-    return render_template('restaurants.html')
+    return render_template('restaurants.js')
 
 
 @app.route('/healthcare', methods=['GET', 'POST'])
@@ -46,7 +46,7 @@ def healthcare():
     """
         healthcare page, contains open/close status and general info for each healthcare listed
     """
-    return render_template('healthcare.html')
+    return render_template('healthcare.js')
 
 
 @app.route('/about', methods=['GET', 'POST'])
