@@ -34,7 +34,7 @@ cities_list = ['New York', 'Los Angeles', 'Chicago', 'Houston', 'Philadelphia',
                'Greensboro', 'Birmingham', 'Fort Wayne', 'Scottsdale',
                'Hialeah', 'Madison', 'Baton Rouge', 'Chesapeake', 'Garland',
                'Modesto', 'Paradise', 'Chula Vista', 'Lubbock', 'Rochester',
-               'Laredo', 'Akron', 'Orlando', 'Durham', 'Glendale', 'Fremont',
+               'Laredo', 'Akron', 'Orlando', 'Durham', 'Fremont',
                'San Bernardino', 'Reno']
 
 
@@ -152,7 +152,7 @@ def getJSON(place_type, city, state, name=""):
             break
 
         for location in places_results_next_page["results"]:
-            # location = getPlaceDetails(location['place_id'])
+            location = getPlaceDetails(location['place_id'])
             location = reformatLocation(location)
 
             if location is not None:
@@ -217,8 +217,8 @@ def populateTable(type):
 
 
 def populateTable():
-    addOneCityInfo('Anaheim')
-    # addOneCityInfo('Denver')
+    for city in cities_list:
+        addOneCityInfo(city)
 
 
 def addOneCityInfo(city_name):
