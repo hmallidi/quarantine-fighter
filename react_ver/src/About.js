@@ -240,7 +240,7 @@ export class About extends Component {
                       <td>An unofficial json API interface to search OpenTable restaurant data.</td>
                     </tr>
                     <tr>
-                      <td><a href="https://covid-19-apis.postman.com/">Data Sources 2: Postman API</a></td>
+                      <td><a href="https://covidfighter.postman.co/collections/11793543-aa0a6284-4632-4140-ba3a-e07d30deb89c?version=latest&workspace=eb82f992-3f6d-4f0e-8710-bd785e3c1d2b">Data Sources 2: Postman API</a></td>
                       <td>API Collections provided by Postman to Help in the COVID-19 Fight.</td>
                     </tr>
                     <tr>
