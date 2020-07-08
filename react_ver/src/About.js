@@ -93,107 +93,100 @@ export class About extends Component {
 
   render() {
     return (
-      <Container className="text-center" style={{display:'flex', flexDirection:'column', alignItems:'center'}}>
-            <Row className={"aboutMissionCard"}>
+      <Container className="text-center">
+            <Row className={"bg_square"}>
             <Row className="text-center"><h1>Team Members</h1></Row>
             <br></br>
             <br></br>
-               
-
-          <div className="row">
-            <div className="col-lg-6 mb-4">
-              <div className="card h-100 text-center">
-                <img className="card-img-top" src={KewenPic} style={member_img} alt="Kewen"/>
-                <div className="card-body">
-                  <h4 className="card-title">Kewen Wang</h4>
-                  <h6 className="card-subtitle mb-2 text-muted">
-                    Front-End
-                  </h6>
-                  <p>
-                    Rising senior at UTCS <br></br>
-                    wankew22@utexas.edu
-                  </p>
-                  <p>
-                    Commits: {this.state.KewenCommits} <br></br>
-                    Issues: {this.state.KewenIssues}<br></br>
-                    Unit Tests: 0
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-6 mb-4">
-              <div className="card h-100 text-center">
-                <img className="card-img-top" src={AngelaPic} style={member_img} alt="Ang"/>
-                <div className="card-body">
-                  <h4 className="card-title">Angela Cao</h4>
-                  <h6 className="card-subtitle mb-2 text-muted">Front-End</h6>
-                  <p>
-                    Rising Senior at UTCS and Math<br></br>
-                    angela_cao@utexas.com
-                  </p>
-                  <p>
-                  Commits: {this.state.AngelaCommits} <br></br>
-                    Issues: {this.state.AngelaIssues}<br></br>
-                    Unit Tests: 0
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* another row*/}
-          <div className="row">
-            <div className="col-lg-4 mb-4">
-                <div className="card h-100 text-center">
-                  <img className="card-img-top" src={HariPic} style={member_img} alt="Hari"/>
+             
+            <div className="row">
+              <div className="col-lg-6">
+                <div>
+                  <img src={KewenPic} style={member_img} alt="Kewen"/>
                   <div className="card-body">
-                    <h4 className="card-title">Harinadha Re Mallidi</h4>
-                    <h6 className="card-subtitle mb-2 text-muted">
-                      Back-End
+                    <h4>Kewen Wang</h4>
+                    <h6 className="role_intro">
+                      Front-End
                     </h6>
                     <p>
-                      Rising Junior in UTCS<br></br>
-                      mallidi.harinadha@gmail.com
+                      Rising senior at UTCS <br></br>
+                      wankew22@utexas.edu
                     </p>
                     <p>
-                      Commits: {this.state.HariCommits} <br></br>
-                      Issues: {this.state.HariIssues}<br></br>
-                      Unit Tests: 3
+                      Commits: {this.state.KewenCommits} <br></br>
+                      Issues: {this.state.KewenIssues}<br></br>
+                      Unit Tests: 0
                     </p>
                   </div>
                 </div>
               </div>
-
-
-          <div className="col-lg-4 mb-4">
-            <div className="card h-100 text-center">
-              <img className="card-img-top" src={PranavPic} style={member_img} alt="Pranav"/>
-              <div className="card-body">
-                <h4 className="card-title">Pranav Varanasi</h4>
-                <h6 className="card-subtitle mb-2 text-muted">
-                    Back-End
-                </h6>
-                <p>
-                Rising Junior in UTCS
-                varanasipranav@gmail.com
-                </p>
-                <p>
-                    Commits: {this.state.PranavCommits} <br></br>
-                    Issues: {this.state.PranavIssues}<br></br>
-                    Unit Tests: 3
-                </p>
+              <div className="col-lg-6">
+                <div>
+                  <img src={AngelaPic} style={member_img} alt="Ang"/>
+                  <div className="card-body">
+                    <h4>Angela Cao</h4>
+                    <h6 className="role_intro">Front-End</h6>
+                    <p>
+                      Rising Senior at UTCS and Math<br></br>
+                      angela_cao@utexas.com
+                    </p>
+                    <p>
+                    Commits: {this.state.AngelaCommits} <br></br>
+                    Issues: {this.state.AngelaIssues}<br></br>
+                    Unit Tests: 0
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
 
-            <div className="col-lg-4 mb-4">
-              <div className="card h-100 text-center">
-                <img className="card-img-top" src={NayanPic} style={member_img} alt="Nayan"/>
+            {/* next row*/}
+            <div className="row">
+              <div className="col-lg-4">
+                  <div>
+                    <img src={HariPic} style={member_img} alt="Hari"/>
+                    <div className="card-body">
+                      <h4>Harinadha Re Mallidi</h4>
+                      <h6 className="role_intro">Back-End</h6>
+                      <p>
+                        Rising Junior in UTCS<br></br>
+                        mallidi.harinadha@gmail.com
+                      </p>
+                      <p>
+                        Commits: {this.state.HariCommits} <br></br>
+                        Issues: {this.state.HariIssues}<br></br>
+                        Unit Tests: 3
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+
+            <div className="col-lg-4">
+              <div>
+                <img src={PranavPic} style={member_img} alt="Pranav"/>
                 <div className="card-body">
-                  <h4 className="card-title">Nayan Shashidhar</h4>
-                  <h6 className="card-subtitle mb-2 text-muted">
-                      Back-End
-                  </h6>
+                  <h4>Pranav Varanasi</h4>
+                  <h6 className="role_intro">Back-End</h6>
+                  <p>
+                  Rising Junior in UTCS
+                  varanasipranav@gmail.com
+                  </p>
+                  <p>
+                      Commits: {this.state.PranavCommits} <br></br>
+                      Issues: {this.state.PranavIssues}<br></br>
+                      Unit Tests: 3
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-lg-4 col-sm-4">
+              <div>
+                <img src={NayanPic} style={member_img} alt="Nayan"/>
+                <div className="card-body">
+                  <h4>Nayan Shashidhar</h4>
+                  <h6 className="role_intro">Back-End</h6>
                   <p>
                     Rising Junior in UTCS<br></br>
                     nayan.shashidhar@utexas.edu
@@ -210,11 +203,12 @@ export class About extends Component {
         </Row>
         <br></br>
         <br></br>
+        <br></br>
+        <br></br>
 
-        <Row className={"aboutMissionCard"}>
-            <br></br>
+        <Row className={"bg_square"}>
           <div className="container">
-                <div style={aboutTop}>
+                <div style={section_format}>
                   <h1>Links</h1>
                 </div>
                 <table className="table">
@@ -228,12 +222,10 @@ export class About extends Component {
                     <tr>
                       <td><a href="https://gitlab.com/nayan1222/covid-fighter/-/issues">GitLab Issue Tracker</a></td>
                       <td>A link to gitlab issue tracker, a to do list to record the project progress.</td>
-                      
                     </tr>      
                     <tr>
                       <td><a href="https://gitlab.com/nayan1222/covid-fighter">GitLab Repo</a></td>
                       <td>A link to gitlab public repo.</td>
-                      
                     </tr>
                     <tr>
                       <td><a href="https://gitlab.com/nayan1222/covid-fighter/-/wikis/Technical-Report">GitLab Wiki</a></td>
@@ -243,12 +235,10 @@ export class About extends Component {
                       <td><a href="https://covidfighter.postman.co/collections/11793543-0fe85034-5526-46f4-9eda-9faf385f0baa?version=latest&workspace=eb82f992-3f6d-4f0e-8710-bd785e3c1d2b">Postman API</a></td>
                       <td>Documentation of APIs used in the projects. Presented using Postman.</td>
                     </tr>
-
                     <tr>
                       <td><a href="https://opentable.herokuapp.com/">Data Sources 1: OpenTable API</a></td>
                       <td>An unofficial json API interface to search OpenTable restaurant data.</td>
                     </tr>
-                  
                     <tr>
                       <td><a href="https://covid-19-apis.postman.com/">Data Sources 2: Postman API</a></td>
                       <td>API Collections provided by Postman to Help in the COVID-19 Fight.</td>
@@ -268,32 +258,39 @@ export class About extends Component {
         
 
 
-
-                
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>        
 
             
-              <Row className="repostats" >
-                  <div style={aboutStats}>
-                    <div style={aboutTop}>
+              
+                  
+                    <div style={section_format}>
                       <h1>Repo Stats</h1>
+                      <hr></hr>
                     </div>
-                    <div style={aboutDown}>
+                    <div style={section_format}>
                       <img src={gitlab} style={tool} alt = "gitlab"></img>
                       <img src={issue} style={tool} alt = "issue"></img>
                       <img src={test} style={tool} alt = "test"></img>
                       <Row className="about-row" style={{ marginTop: '1rem'}}>Total Commits: {repo_commits} / Total Issues: {repo_issues} / Total Tests: 9</Row>
                     </div>
-                  </div> 
-              </Row>
-      
+          
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br> 
+                
                 
          
                 
-              <div style={aboutStats}>
-                <div style={aboutTop}>
+            
+                <div style={section_format}>
                   <h1>Tools</h1>
+                  <hr></hr>
                 </div>
-                <div style={aboutDown}>
+                <div style={section_format}>
                   <img src={react} style={tool} alt = "react"></img>
                   <img src={postman} style={tool} alt = "postman"></img>
                   <img src={postgres} style={tool} alt = "postgres"></img>
@@ -301,7 +298,7 @@ export class About extends Component {
                   <img src={bootstrap} style={tool} alt = "bootstrap"></img>
                   <img src={flask} style={tool} alt = "flask"></img>
                 </div>
-              </div> 
+           
             </Container>
             
     );
@@ -311,40 +308,20 @@ export class About extends Component {
 const tool = {
   width: '100px',
   height: '100px',
-  margin: '10px',
+  margin: '15px',
 }
 
 const member_img = {
   borderRadius: '200px',
   height: '300px',
-  width: '300px'
-}
-
-const aboutStats = {
-  color: 'white',
-  display: 'inline-block',
-  margin: '30px',
-  borderRadius: '3px'
-
-}
-
-const aboutTop = {
-  textAlign: 'center',
-  borderBottom: 'solid rgb(53, 53, 53)',
-  borderWidth: '1px',
-  borderRadius: '3px',
+  width: '300px',
   padding: '10px'
 }
 
-const aboutDown = {
-  margin: '10px',
+const section_format = {
   textAlign: 'center',
   padding: '10px'
 }
-
-
-
-
 
 export default About;
 
