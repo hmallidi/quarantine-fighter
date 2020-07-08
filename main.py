@@ -17,44 +17,44 @@ from models import app, db
 # app = Flask(__name__)
 
 
-@app.route('/')
-def index():
-    """
-       home page, can be redirected to grocery, restaurants, healthcare page, and about page
-    """
-    return render_template('index.html')
+# @app.route('/')
+# def index():
+#     """
+#        home page, can be redirected to grocery, restaurants, healthcare page, and about page
+#     """
+#     return render_template('index.html')
 
 
-@app.route('/grocery', methods=['GET', 'POST'])
-def grocery():
-    """
-        grocery page, contains open/close status and general info for each grocery stores listed
-    """
-    return render_template('grocery.js')
+# @app.route('/grocery', methods=['GET', 'POST'])
+# def grocery():
+#     """
+#         grocery page, contains open/close status and general info for each grocery stores listed
+#     """
+#     return render_template('grocery.js')
 
 
-@app.route('/restaurants', methods=['GET', 'POST'])
-def restaurants():
-    """
-        restaurants page, contains open/close status and general info for each restaurants listed
-    """
-    return render_template('restaurants.js')
+# @app.route('/restaurants', methods=['GET', 'POST'])
+# def restaurants():
+#     """
+#         restaurants page, contains open/close status and general info for each restaurants listed
+#     """
+#     return render_template('restaurants.js')
 
 
-@app.route('/healthcare', methods=['GET', 'POST'])
-def healthcare():
-    """
-        healthcare page, contains open/close status and general info for each healthcare listed
-    """
-    return render_template('healthcare.js')
+# @app.route('/healthcare', methods=['GET', 'POST'])
+# def healthcare():
+#     """
+#         healthcare page, contains open/close status and general info for each healthcare listed
+#     """
+#     return render_template('healthcare.js')
 
 
-@app.route('/about', methods=['GET', 'POST'])
-def about():
-    """
-        about page, contains introductions of each team memeber, data source used, and all the required
-    """
-    return render_template('about.html')
+# @app.route('/about', methods=['GET', 'POST'])
+# def about():
+#     """
+#         about page, contains introductions of each team memeber, data source used, and all the required
+#     """
+#     return render_template('about.html')
 
 
 # API ENDPOINTS FROM HERE ON DOWN #
