@@ -22,16 +22,13 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import FilterListIcon from '@material-ui/icons/FilterList';
  
 class Grocery extends Component {
+  
   function createData(name, state, longitude, latitude, population) {
     return {name, state, longitude, latitude, population};
   }
 
   const rows = [
-    createData('New York', 'NY', 0, 0, 0), 
-    createData('Los Angeles', 'CA', 0, 0, 0),
-    createData('Chicago', 'IL', 0, 0, 0),
-    createData('Houston', 'TX', 0, 0, 0),
-    createData('Austin', 'TX', 0, 0, 0)
+    
   ];
 
   function descendingComparator(a, b, orderBy) {
@@ -341,7 +338,7 @@ class Grocery extends Component {
     );
   }
   
-  render() {
+  //render() {
     return (
       <HashRouter>
 	        <div>
@@ -363,7 +360,6 @@ class Grocery extends Component {
 	        </div>
 	        
 	    </HashRouter>
-      /*
       <div>
         <h2>Grocery</h2>
         <p>Mauris sem velit, vehicula eget sodales vitae,
@@ -380,7 +376,6 @@ class Grocery extends Component {
     );
   }
 }
-
 class GoogleMap extends Component {
   googleMapRef = React.createRef()
 
@@ -390,7 +385,7 @@ class GoogleMap extends Component {
     window.document.body.appendChild(googleScript)
 
     googleScript.addEventListener('load', {
-      this.googleMap = this.createGoogleMap()
+      this.googleMap = this.createGoogleMap(),
       this.marker = this.createMarker()
     })
   }
@@ -421,6 +416,5 @@ class GoogleMap extends Component {
     )
   }
 }
-
 export default Grocery;
 export default GoogleMap; 
