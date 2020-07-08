@@ -12,14 +12,6 @@ import issue from "./issue.png";
 import test from "./test.png"
 
 
-// function importAll(r) {
-//     let images = {};
-//     r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
-//     return images;
-// }
-// const images = importAll(require.context('./media', false, /\.(png|jpe?g|svg)$/));
-
-
 const Kewen = {
   name:"Kewen",
   role: "Front-End",
@@ -160,37 +152,41 @@ class About extends Component {
               </tr>
             </thead>
             <tbody>
-              <tr class="info">
+              <tr>
                 <td class><a href="https://gitlab.com/nayan1222/covid-fighter/-/issues">GitLab Issue Tracker</a></td>
                 <td>A link to gitlab issue tracker, a to do list to record the project progress.</td>
                 
               </tr>      
-              <tr class="success">
+              <tr>
                 <td><a href="https://gitlab.com/nayan1222/covid-fighter">GitLab Repo</a></td>
                 <td>A link to gitlab public repo.</td>
                 
               </tr>
-              <tr class="danger">
+              <tr>
                 <td><a href="https://gitlab.com/nayan1222/covid-fighter/-/wikis/Technical-Report">GitLab Wiki</a></td>
                 <td>A link to gitlab wiki, a documentation page introducing the project details.</td>
               </tr>
-              <tr class="warning">
+              <tr>
                 <td><a href="https://covidfighter.postman.co/collections/11793543-0fe85034-5526-46f4-9eda-9faf385f0baa?version=latest&workspace=eb82f992-3f6d-4f0e-8710-bd785e3c1d2b">Postman API</a></td>
                 <td>Documentation of APIs used in the projects. Presented using Postman.</td>
               </tr>
 
-              <tr class="info">
+              <tr>
                 <td><a href="https://opentable.herokuapp.com/">Data Sources 1: OpenTable API</a></td>
                 <td>An unofficial json API interface to search OpenTable restaurant data.</td>
               </tr>
             
-              <tr class="success">
+              <tr>
                 <td><a href="https://covid-19-apis.postman.com/">Data Sources 2: Postman API</a></td>
                 <td>API Collections provided by Postman to Help in the COVID-19 Fight.</td>
               </tr>
-              <tr class="danger">
+              <tr>
                 <td><a href=" https://developers.google.com/places/web-service/intro">Data Sources 3: Places API</a></td>
                 <td>Returns information about places (establishments, geographic locations, or prominent points of interest) using HTTP requests. </td>
+              </tr>
+              <tr>
+                <td><a href=" https://gitlab.com/nayan1222/covid-fighter/-/blob/master/tests.py">Unit Tests</a></td>
+                <td>A link to unit tests on gitlab, testing our database. </td>
               </tr>
             </tbody>
           </table>
