@@ -232,7 +232,7 @@ export class About extends Component {
                       <td>A link to gitlab wiki, a documentation page introducing the project details.</td>
                     </tr>
                     <tr>
-                      <td><a href="https://covidfighter.postman.co/collections/11793543-0fe85034-5526-46f4-9eda-9faf385f0baa?version=latest&workspace=eb82f992-3f6d-4f0e-8710-bd785e3c1d2b">Postman API</a></td>
+                      <td><a href="https://covidfighter.postman.co/collections/11793543-aa0a6284-4632-4140-ba3a-e07d30deb89c?version=latest&workspace=eb82f992-3f6d-4f0e-8710-bd785e3c1d2b">Postman API</a></td>
                       <td>Documentation of APIs used in the projects. Presented using Postman.</td>
                     </tr>
                     <tr>
@@ -240,7 +240,7 @@ export class About extends Component {
                       <td>An unofficial json API interface to search OpenTable restaurant data.</td>
                     </tr>
                     <tr>
-                      <td><a href="https://covidfighter.postman.co/collections/11793543-aa0a6284-4632-4140-ba3a-e07d30deb89c?version=latest&workspace=eb82f992-3f6d-4f0e-8710-bd785e3c1d2b">Data Sources 2: Postman API</a></td>
+                      <td><a href="https://covid-19-apis.postman.com/">Data Sources 2: Postman API</a></td>
                       <td>API Collections provided by Postman to Help in the COVID-19 Fight.</td>
                     </tr>
                     <tr>
@@ -265,41 +265,41 @@ export class About extends Component {
 
             
               
-                  
-                    <div style={section_format}>
-                      <h1>Repo Stats</h1>
-                      <hr></hr>
-                    </div>
-                    <div style={section_format}>
-                      <img src={gitlab} style={tool} alt = "gitlab"></img>
-                      <img src={issue} style={tool} alt = "issue"></img>
-                      <img src={test} style={tool} alt = "test"></img>
-                      <Row className="about-row" style={{ marginTop: '1rem'}}>Total Commits: {repo_commits} / Total Issues: {repo_issues} / Total Tests: 9</Row>
-                    </div>
-          
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                    <br></br> 
+        
+          <div style={section_format}>
+            <h1>Repo Stats</h1>
+            <hr></hr>
+          </div>
+          <div style={section_format}>
+            <img src={gitlab} style={tool} alt = "gitlab"></img>
+            <img src={issue} style={tool} alt = "issue"></img>
+            <img src={test} style={tool} alt = "test"></img>
+            <Row className="about-row" style={{ marginTop: '1rem'}}>Total Commits: {repo_commits} / Total Issues: {repo_issues} / Total Tests: 9</Row>
+          </div>
+
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br> 
                 
                 
          
                 
             
-                <div style={section_format}>
-                  <h1>Tools</h1>
-                  <hr></hr>
-                </div>
-                <div style={section_format}>
-                  <img src={react} style={tool} alt = "react"></img>
-                  <img src={postman} style={tool} alt = "postman"></img>
-                  <img src={postgres} style={tool} alt = "postgres"></img>
-                  <img src={gcp} style={tool} alt = "gcp"></img>
-                  <img src={bootstrap} style={tool} alt = "bootstrap"></img>
-                  <img src={flask} style={tool} alt = "flask"></img>
-                </div>
+          <div style={section_format}>
+            <h1>Tools</h1>
+            <hr></hr>
+          </div>
+          <div style={section_format}>
+            <img src={react} style={tool} alt = "react"></img>
+            <img src={postman} style={tool} alt = "postman"></img>
+            <img src={postgres} style={tool} alt = "postgres"></img>
+            <img src={gcp} style={tool} alt = "gcp"></img>
+            <img src={bootstrap} style={tool} alt = "bootstrap"></img>
+            <img src={flask} style={tool} alt = "flask"></img>
+          </div>
            
-            </Container>
+        </Container>
             
     );
   }
