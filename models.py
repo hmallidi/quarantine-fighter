@@ -74,8 +74,3 @@ class City(db.Model):
 
     hospitals = db.relationship('Hospital', backref='city')
     drugstores = db.relationship('Drugstore', backref='city')
-
-
-# if __name__ == "__main__":
-#     db.drop_all()
-#     db.create_all()

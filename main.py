@@ -339,6 +339,7 @@ def getDrugstoreById(drugstore_id: str):
         return jsonify(error_dict), 500
 
 
+# @app.route("/api/City/all/")
 def getAllCities():
     cities_dict = {'cities': list()}
     city_result = db.session.query(City).all()
@@ -358,6 +359,7 @@ def getAllCities():
     return jsonify(cities_dict), 200
 
 
+# @app.route("/api/Hospital/all/")
 def getAllHospitals():
     hospitals_dict = {'hospitals': list()}
     hospital_results = db.session.query(Hospital).all()
@@ -376,6 +378,7 @@ def getAllHospitals():
     return jsonify(hospitals_dict), 200
 
 
+# @app.route("/api/Drugstore/all/")
 def getAllDrugstores():
     drugstores_dict = {'drugstores': list()}
     drugstore_results = db.session.query(Drugstore).all()
