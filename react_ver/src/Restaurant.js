@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { lighten, makeStyles } from '@material-ui/core/styles';
@@ -21,7 +23,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 import DeleteIcon from '@material-ui/icons/Delete';
 import FilterListIcon from '@material-ui/icons/FilterList';
-import 'bootstrap/dist/css/bootstrap.css';
+
 
 class Restaurant extends Component {
   constructor (props) {
@@ -44,7 +46,9 @@ class Restaurant extends Component {
     this.setState({data})
   }
   render() {
+    var newdata = this.state.data;
     return (
+      /*
       <HashRouter>
 	        <div>
 	        <h1>COVID	FIGHTER</h1>
@@ -62,7 +66,8 @@ class Restaurant extends Component {
 				  <Route path="/Healthcare" exact component={Healthcare}/>
 				  <Route path="/About" exact component={About}/>
 				</div>
-	        </div>
+          </div>
+          */
       <table className = "m-table">
         <thead>
           <th onClick = {e => this.onSort(e, 'name')}>Name</th>
@@ -81,7 +86,7 @@ class Restaurant extends Component {
           })}
         </tbody>
       </table>
-      </HashRouter>
+     // </HashRouter>
     );
   }
 }
