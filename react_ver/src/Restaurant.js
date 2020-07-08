@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Route } from "react-router-dom";
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { lighten, makeStyles } from '@material-ui/core/styles';
@@ -20,6 +21,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 import DeleteIcon from '@material-ui/icons/Delete';
 import FilterListIcon from '@material-ui/icons/FilterList';
+import 'bootstrap/dist/css/bootstrap.css';
 
 function createData(name, calories, fat, carbs, protein) {
   return { name, calories, fat, carbs, protein };
@@ -213,7 +215,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function EnhancedTable() {
+function EnhancedTable() {
   const classes = useStyles();
   const [order, setOrder] = React.useState('asc');
   const [orderBy, setOrderBy] = React.useState('calories');
@@ -355,7 +357,7 @@ export default function EnhancedTable() {
 
 class Restaurant extends Component {
   constructor (props) {
-    
+
   }
 /*
   const useStyles = makeStyles({
@@ -681,6 +683,7 @@ class Restaurant extends Component {
     );
   }
 */
+/*
   render() {
     return (
       <HashRouter>
@@ -703,17 +706,16 @@ class Restaurant extends Component {
 	        </div>
 	        
 	    </HashRouter>
-		/*
       <div>
         <h2>Restaurant</h2>
         <p>The easiest thing to do is post on
         our <a href="http://forum.kirupa.com">forums</a>.
         </p>
       </div>
-*/
     );
   }
 }
+*/
 /*
 class GoogleMap extends Component {
   googleMapRef = React.createRef()
@@ -754,7 +756,6 @@ class GoogleMap extends Component {
       />
     )
   }
+  */
 }
- */
 export default Restaurant;
-//export default GoogleMap; 
