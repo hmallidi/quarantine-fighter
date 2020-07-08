@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { lighten, makeStyles } from '@material-ui/core/styles';
@@ -22,7 +22,11 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import FilterListIcon from '@material-ui/icons/FilterList';
  
 class Healthcare extends Component {
-  
+
+  constructor (props) {
+    
+  }
+  /*
   function createData(name, address, phone_number, website, hours) {
     return {name, address, phone_number, website, hours};
   }
@@ -476,7 +480,7 @@ class Healthcare extends Component {
       </div>
     );
   }
-
+*/
 	/*
 	return(
 		<TableContainer component={Paper}>
@@ -508,6 +512,7 @@ class Healthcare extends Component {
 	);
   }
   */
+ /*
   render() {
     return (
       <HashRouter>
@@ -529,7 +534,7 @@ class Healthcare extends Component {
 				</div>
 	        </div>
 	        
-	    </HashRouter>
+      </HashRouter>
 		/*
       <div>
         <h2>HELLO</h2>
@@ -542,11 +547,11 @@ class Healthcare extends Component {
  
         <p>Duis a turpis sed lacus dapibus elementum sed eu lectus.</p>
 	  </div>
-	  */
     );
   }
+  */
 }
-
+/*
 class GoogleMap extends Component {
   googleMapRef = React.createRef()
 
@@ -587,6 +592,6 @@ class GoogleMap extends Component {
     )
   }
 }
-
+*/
 export default Healthcare;
-export default GoogleMap; 
+//export default GoogleMap; 
