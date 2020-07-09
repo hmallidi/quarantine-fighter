@@ -7,6 +7,7 @@ import time
 import usaddress
 import requests
 
+from unittest import main, TestCase
 from models import db, app, City, Hospital, Drugstore, drugstore_hospital_link
 from flask import Flask, session, render_template, request, url_for, session, redirect
 from flask_sqlalchemy import SQLAlchemy
@@ -14,7 +15,8 @@ from flask_session import Session
 from sqlalchemy.orm import scoped_session, sessionmaker
 from sqlalchemy import text
 
-class DBTestCases(unittest.TestCase):
+
+class DBTestCases(TestCase):
     def test_city_1(self):
         r = db.session.query(City).filter_by(id = '3').all()
         self.assertEqual(r[0].name, 'Chicago')
@@ -54,4 +56,4 @@ class DBTestCases(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    unittest.main()
+    main()

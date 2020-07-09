@@ -155,30 +155,11 @@ def about():
     """
         about page, contains introductions of each team memeber, data source used, and all the required
     """
-    # results = []
-    result = ".........\n" + '----------------------------------------------------------------------\n' + 'Ran 9 tests in 0.882s\n\n' + 'OK'
-    results = result.splitlines()
     if request.method == 'POST':
-        # results = []
-        # r = db.session.query(City).filter_by(id='3').all()
-        # results.append(r[0].name)
-        # r2 = db.session.query(City).filter_by(name='New York').all()
-        # results.append(r2[0].name)
-        # r3 = db.session.query(City).filter_by(name='Toronto').all()
-        # results.append(r3[0])
-        # r4 = db.session.query(Hospital).filter_by(id='ChIJpYoZlyJawokRv65psH6e2pI').all()
-        # results.append(r4[0].name)
-        # r5 = db.session.query(Hospital).filter_by(zipcode='10025').all()
-        # results.append(r5[0].name)
-        # r6 = db.session.query(Hospital).filter_by(city_id=3).all()
-        # results.append(r6[0].name)
-        # r7 = db.session.query(Drugstore).filter_by(id='ChIJT5aLX5tZwokRFuz5h0KWsEo').all()
-        # results.append(r7[0].name)
-        # r8 = db.session.query(Drugstore).filter_by(zipcode='60657').all()
-        # results.append(r8[0].name)
-        # r9 = db.session.query(Drugstore).filter_by(city_id=5).all()
-        # results.append(r9[0].name)
-
+        os.system('coverage run --branch tests.py >  tests.out 2>&1')
+        output = open('tests.out', 'r')
+        results = output.readlines()
+        os.system('rm tests.out')
         return render_template('about.html', results=results)
     
     return render_template('about.html', results=[])
