@@ -57,6 +57,31 @@ def about():
     return render_template('about.html')
 
 
+#unit tests
+@app.route('/unittests', methods=['GET', 'POST'])
+def unittests():
+    results = []
+    r = db.session.query(City).filter_by(id = '3').all()
+    results.append(r[0])
+    r2 = db.session.query(City).filter_by(name = 'New York').all()
+    results.append(r2[0])
+    r3 = db.session.query(City).filter_by(name = 'Toronto').all()
+    results.append(r3[0])
+    r4 = db.session.query(Hospital).filter_by(id = 'ChIJpYoZlyJawokRv65psH6e2pI').all()
+    results.append(r4[0])
+    r5 = db.session.query(Hospital).filter_by(zipcode = '10025').all()
+    results.append(r5[0])
+    r6 = db.session.query(Hospital).filter_by(city_id = 3).all()
+    results.append(r6[0])
+    r7 = db.session.query(Drugstore).filter_by(id = 'ChIJT5aLX5tZwokRFuz5h0KWsEo').all()
+    results.append(r7[0])
+    r8 = db.session.query(Drugstore).filter_by(zipcode = '60657').all()
+    results.append(r8[0])
+    r9 = db.session.query(Drugstore).filter_by(city_id = 5).all()
+    results.append(r9[0])
+
+    return jsonify(results)
+
 # API ENDPOINTS FROM HERE ON DOWN #
 
 error_dict = {
