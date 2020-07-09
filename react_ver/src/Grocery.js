@@ -1,17 +1,18 @@
-import React, { Component } from "react";
+import React, { Component, useState, useEffect } from "react";
 import { Map, GoogleApiWrapper } from "google-maps-react";
 import { Route } from "react-router-dom";
 import { HashRouter } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
+import Axios from "axios";
 
 const mapStyles = {
   width: '50%',
   height: '50%'
 };
 
-class Grocery extends Component {
+class Grocery extends React.Component {
 
   static defaultProps = {
     center: {
@@ -41,13 +42,45 @@ class Grocery extends Component {
     this.setState({data})
   }
 
- render() {
-  var newdata = this.state.data;
+  // Option 1
+  getCities(){
+    var cityList;
+    const path = 'http://localhost:5000/api/City/1'
+    axios.get(path)
+    .then(response => {this.cityList = response.data})
+    .catch(error => {
+      console.log(error)
+    })
+  }
+  
+  render() {
+  // Option 1:
+  var data = this.getCities()
+  
+  // Option 2:
+  const [responseName, setResponse] = useState(0);
+  //var newdata = this.state.data;
+
+  useEffect(() => {
+    fetch('/City').then(res => res.json()).then(data => {
+      setResponse(data.name);
+    });
+  }, []);
+
   return (
     <div class = "grocery-container">
         <table className = "m-table">
         <thead>
-          <th onClick = {e => this.onSort(e, 'name')}>Name</th>
+
+          <th onClick = {e => this.onSort(e, 'name')}>{{data}}</th> 
+
+
+          <th onClick = {e => this.onSort(e, 'name')}>{{responseName}}</th>
+
+
+
+
+          <th onClick = {e => this.onSort(e, 'name')}> Name </th>
           <th onClick = {e => this.onSort(e, 'address')}>Address</th>
           <th onClick = {e => this.onSort(e, 'phoneNumber')}>Phone Number</th>
           <th onClick = {e => this.onSort(e, 'website')}>Website</th>
