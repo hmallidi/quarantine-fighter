@@ -122,20 +122,19 @@ def city():
     """
     name = request.args.get("name")
 
-    city_list = list()
-    city_result = db.session.query(City).all()
-
-    for city in city_result:
-        city_dict = {"id": city.id, "name": city.name, "state": city.state,
-                     "latitude": city.latitude, "longitude": city.longitude,
-                     "population": city.population,
-                     "hospitals": [hospital.id for hospital in city.hospitals],
-                     "drugstores": [drugstore.id for drugstore in city.drugstores]}
-
-        city_list.append(city_dict)
-
     empty_city_list = []
     if name is None:
+        city_list = list()
+        city_result = db.session.query(City).all()
+
+        for city in city_result:
+            city_dict = {"id": city.id, "name": city.name, "state": city.state,
+                         "latitude": city.latitude, "longitude": city.longitude,
+                         "population": city.population,
+                         "hospitals": [hospital.id for hospital in city.hospitals],
+                         "drugstores": [drugstore.id for drugstore in city.drugstores]}
+
+            city_list.append(city_dict)
         return render_template('city.html', city_list=city_list, name="")
 
     good_name = (name + '.')[:-1]
