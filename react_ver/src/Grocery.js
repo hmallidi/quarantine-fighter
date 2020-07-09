@@ -54,8 +54,7 @@ class Grocery extends React.Component {
   }
   
   render() {
-  // Option 1:
-  var data = this.getCities()
+  // Option 1: var data = this.getCities()   <th onClick = {e => this.onSort(e, 'name')}>{{data}}</th> 
   
   // Option 2:
   const [responseName, setResponse] = useState(0);
@@ -72,12 +71,9 @@ class Grocery extends React.Component {
         <table className = "m-table">
         <thead>
 
-          <th onClick = {e => this.onSort(e, 'name')}>{{data}}</th> 
 
 
           <th onClick = {e => this.onSort(e, 'name')}>{{responseName}}</th>
-
-
 
 
           <th onClick = {e => this.onSort(e, 'name')}> Name </th>
@@ -86,7 +82,8 @@ class Grocery extends React.Component {
           <th onClick = {e => this.onSort(e, 'website')}>Website</th>
           <th onClick = {e => this.onSort(e, 'hours')}>Hours</th>
         </thead>
-        <tbody>
+
+        {/* <tbody>
           {newdata.map(function(hospital, index) {
             return (
               <tr key={index} data-item={hospital}>
@@ -98,8 +95,10 @@ class Grocery extends React.Component {
               </tr>
             );
           })}
-        </tbody>
-      </table> 
+        </tbody>  */}
+        
+      </table>  
+
       <Map
           google={this.props.google}
           zoom={8}
