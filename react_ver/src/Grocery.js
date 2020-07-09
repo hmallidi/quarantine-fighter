@@ -24,7 +24,15 @@ class Grocery extends React.Component {
   
   constructor (props) {
     super(props)
-    this.state = {data: [] };
+    this.state = {
+      data: [],
+      city_id: 0,
+      name: "",
+      state: "",
+      latitude: 0.0,
+      longitude: 0.0,
+      population: 0,  
+    };
     this.onSort = this.onSort.bind(this)
   }
 
@@ -34,6 +42,16 @@ class Grocery extends React.Component {
         return response.json();
       })
       .then(items => this.setState({data: items}));
+
+
+    let url = "http://localhost:5000/";
+    axios.get(url + 'api/City').then((result) => {
+      console.log(result.data);
+      this.setState({ data: result.data});
+      console.log(this.state.data);
+    });
+
+    this.setState({name: this.state.name});
   }
 
   onSort(event, sortKey) {
@@ -42,40 +60,14 @@ class Grocery extends React.Component {
     this.setState({data})
   }
 
-  // Option 1
-  getCities(){
-    var cityList;
-    const path = 'http://localhost:5000/api/City/1'
-    axios.get(path)
-    .then(response => {this.cityList = response.data})
-    .catch(error => {
-      console.log(error)
-    })
-  }
   
   render() {
   // Option 1: var data = this.getCities()   <th onClick = {e => this.onSort(e, 'name')}>{{data}}</th> 
   
-  // Option 2:
-  const [responseName, setResponse] = useState(0);
-  //var newdata = this.state.data;
-
-  useEffect(() => {
-    fetch('/City').then(res => res.json()).then(data => {
-      setResponse(data.name);
-    });
-  }, []);
-
   return (
     <div class = "grocery-container">
         <table className = "m-table">
         <thead>
-
-
-
-          <th onClick = {e => this.onSort(e, 'name')}>{{responseName}}</th>
-
-
           <th onClick = {e => this.onSort(e, 'name')}> Name </th>
           <th onClick = {e => this.onSort(e, 'address')}>Address</th>
           <th onClick = {e => this.onSort(e, 'phoneNumber')}>Phone Number</th>
@@ -110,9 +102,9 @@ class Grocery extends React.Component {
 }
 }
 
-App = GoogleApiWrapper({
-  apiKey: 'AIzaSyAYVNrhNbNDCs08puZcbPtPfXXj1sH61x8'
-})(App);
+//App = GoogleApiWrapper({
+  //apiKey: 'AIzaSyAYVNrhNbNDCs08puZcbPtPfXXj1sH61x8'
+//})(App);
 
 const rootElement = document.getElementById("root");
 export default Grocery;
