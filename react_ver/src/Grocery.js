@@ -110,7 +110,11 @@ class Grocery extends React.Component {
   );
 }
 }
-GoogleApiWrapper({
+
+App = GoogleApiWrapper({
   apiKey: 'AIzaSyAYVNrhNbNDCs08puZcbPtPfXXj1sH61x8'
-})(Grocery);
+})(App);
+
+const rootElement = document.getElementById("root");
+ReactDOM.render(<App />, rootElement);
 export default Grocery;
