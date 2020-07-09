@@ -71,6 +71,6 @@ class Healthcare extends Component {
   }
 }
 GoogleApiWrapper({
-  apiKey: 'AIzaSyDzN3W-S4TxBm3wqslV1_JqfwhLjEsSKI8'
+  apiKey: 'AIzaSyAYVNrhNbNDCs08puZcbPtPfXXj1sH61x8'
 })(Healthcare);
 export default Healthcare;
