@@ -77,9 +77,7 @@ class Grocery extends Component {
   );
 }
 }
-
 GoogleApiWrapper({
   apiKey: 'AIzaSyDzN3W-S4TxBm3wqslV1_JqfwhLjEsSKI8'
 })(Grocery);
-
 export default Grocery;
