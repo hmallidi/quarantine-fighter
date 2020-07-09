@@ -1,4 +1,3 @@
-service: reactapp
 runtime: nodejs
 env: flex
 automatic_scaling:
