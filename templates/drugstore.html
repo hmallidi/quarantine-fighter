@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hospitals</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css2?family=Piedra&display=swap" rel="stylesheet">
+
+         <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+ 
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+       
+        <script src="https://kryogenix.org/code/browser/sorttable/sorttable.js" type="text/javascript"></script>
+
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
+
+        <style>
+            #map {
+                width: 50%;
+                height: 400px;
+                background-color: grey; 
+            }
+
+            form {
+                border: none;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+            } 
+        </style>
+    </head>
+    <body>
+        <nav class = "navbar navbar-default">
+            <div class="container">
+        
+            <div class = "navbar-header">
+              <!-- resize and get the hamburger -->
+              <!-- data target matches id  -->
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                  <span class="sr-only">Toggle navigation</span>
+                  <!-- hamburger bars = icon-bar -->
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                  <a href="/" class="navbar-brand">Covid Fighter</a>
+            </div>
+        
+          <!-- id matches target -->
+          <div class = "collapse navbar-collapse" id = "bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+              <li><a href="city">Cities</a></li>
+              <li><a href="drugstore">Drugstores</a></li>
+              <li><a href="hospital">Hospitals</a></li>
+              </ul>
+        
+              <ul class="nav navbar-nav navbar-right">
+              <li><a href="about">About</a></li>
+              </ul>
+            </div>
+        
+            </div> <!-- end of container -->
+        </nav>
+        
+        <center>
+            <img src="../static/img/drugstore.jpg" ALIGN = "center" alt="Drugstore" width="800" height="300">
+            {% if name == "" and city == "" %}
+                <h1>Drugstores</h1>
+            {% endif %}
+            {% if name == "" and city != ""%}
+                <h1>Drugstores in {{city}}</h1>
+            {% endif %}
+            {% if city == "" and name != "" %}
+                <h1>Drugstores named {{name}}</h1>
+            {% endif %}
+            {% if name != ""  and city != "" %}
+                <h1>Drugstores named {{name}} in {{city}}</h1>
+            {% endif %}
+        </center>
+        <center>
+
+            <center>
+                <form action="drugstore" method="get">
+                    <label for="name">Drugstore Name:  &nbsp;</label>
+                    <input type="text" id="name" name="name"> &nbsp; &nbsp;
+                    <label for="city">City:  &nbsp;</label>
+                    <input type="text" id="city" name="city"> &nbsp; &nbsp;
+                    <button type="submit">Enter</button>
+                  </form>
+            </center>
+
+            <!--Table featuring information of each place in the respective page-->
+            <table id = "drugstoreTable" class="js-sort-table table table-striped table-bordered table-sm" style="width: 100%;">
+                <thead>
+                    <tr>
+                        <th class="th-sm">Name (Click to Sort)</th>
+                        <th class="th-sm">Address (Click to Sort)</th>
+                        <th class="th-sm">Business Status (Click to Sort)</th>
+                        <th class="th-sm">Opening Hours (Click to Sort)</th>
+                        <th class="th-sm">Google Maps URL (Click to Sort)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for drugstore in drugstore_list %}
+                        <tr>
+                            <td>{{drugstore.name}}</td>
+                            <td>{{drugstore.address}}</td>
+                            <td>{{drugstore.business_status}}</td>
+                            <td>
+                                {% for drugstore_hour in drugstore.opening_hours %}
+                                <p>{{drugstore_hour}}</p>
+                                {% endfor %}
+                            </td>
+                            <td><a href={{drugstore.google_maps_url}}>Check Google Maps</a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <script>
+                $('#drugstoreTable').dataTable( {
+                    "searching": false,
+                    "pageLength": 10,
+                    "lengthMenu": [5, 10, 20]
+                } );
+            </script>
+
+            <!--Google Map to showcase location of places featured in this certain page-->
+            <!-- <h3>Map</h3>
+            <div id="map"></div>
+            <script>
+                function initMap() {
+                    var austin = {lat: 30.313021, lng: -97.730750};
+                    var map = new google.maps.Map(document.getElementById('map'), {zoom: 11, center: austin});
+                    var homeslice = {lat: 30.249077, lng: -97.749307};
+                    var infoWindowOne = new google.maps.InfoWindow({content: '<h6>Home Slice Pizza</h6>'});
+                    var marker_one = new google.maps.Marker({position: homeslice, title: 'Home Slice Pizza', map: map, animation: google.maps.Animation.DROP}); 
+                    marker_one.addListener('click', function(){
+                        infoWindowOne.open(map, marker_one);
+                    });
+                    marker_one.addListener('click', function() {
+                        if(marker_one.getAnimation() !== null) {
+                            marker_one.setAnimation(null);
+                        } 
+                        else {
+                            marker_one.setAnimation(google.maps.Animation.BOUNCE);
+                        }
+                    });
+                    var franklin = {lat: 30.268243, lng: -97.730781};
+                    var infoWindowTwo = new google.maps.InfoWindow({content: '<h6>Franklin\'s Barbecue</h6>'});
+                    var marker_two = new google.maps.Marker({position: franklin, title: 'Franklin\'s Barbecue', map: map, animation: google.maps.Animation.DROP}); 
+                    marker_two.addListener('click', function(){
+                        infoWindowTwo.open(map, marker_two);
+                    });
+                    marker_two.addListener('click', function() {
+                        if(marker_two.getAnimation() !== null) {
+                            marker_two.setAnimation(null);
+                        } 
+                        else {
+                            marker_two.setAnimation(google.maps.Animation.BOUNCE);
+                        }
+                    });
+                    var hula = {lat: 30.292153, lng: -97.787852};
+                    var infoWindowThree = new google.maps.InfoWindow({content: '<h6>Hula Hut</h6>'});
+                    var marker_three = new google.maps.Marker({position: hula, title: 'Hula Hut', map: map, animation: google.maps.Animation.DROP}); 
+                    marker_three.addListener('click', function(){
+                        infoWindowThree.open(map, marker_three);
+                    });
+                    marker_three.addListener('click', function() {
+                        if(marker_three.getAnimation() !== null) {
+                            marker_three.setAnimation(null);
+                        } 
+                        else {
+                            marker_three.setAnimation(google.maps.Animation.BOUNCE);
+                        }
+                    });
+                    var gourdough = {lat: 30.247063, lng: -97.753936};
+                    var infoWindowFour = new google.maps.InfoWindow({content: '<h6>Gourdough\'s</h6>'});
+                    var marker_four = new google.maps.Marker({position: gourdough, title: 'Gourdough\'s', map: map, animation: google.maps.Animation.DROP}); 
+                    marker_four.addListener('click', function(){
+                        infoWindowFour.open(map, marker_four);
+                    });
+                    marker_four.addListener('click', function() {
+                        if(marker_four.getAnimation() !== null) {
+                            marker_four.setAnimation(null);
+                        } 
+                        else {
+                            marker_four.setAnimation(google.maps.Animation.BOUNCE);
+                        }
+                    });
+                    var mandola = {lat: 30.313883, lng: -97.735797};
+                    var infoWindowFive = new google.maps.InfoWindow({content: '<h6>Mandola\'s Kitchen</h6>'});
+                    var marker_five = new google.maps.Marker({position: mandola, title: 'Mandola\'s Kitchen', map: map, animation: google.maps.Animation.DROP}); 
+                    marker_five.addListener('click', function(){
+                        infoWindowFive.open(map, marker_five);
+                    });
+                    marker_five.addListener('click', function() {
+                        if(marker_five.getAnimation() !== null) {
+                            marker_five.setAnimation(null);
+                        } 
+                        else {
+                            marker_five.setAnimation(google.maps.Animation.BOUNCE);
+                        }
+                    });
+                }
+            </script> -->
+            <!-- Google Maps API-->
+            <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYVNrhNbNDCs08puZcbPtPfXXj1sH61x8&callback=initMap"
+            type="text/javascript"></script>
+            <br></br>
+        </center>
+    </body>
+</html>

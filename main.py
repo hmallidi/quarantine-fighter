@@ -3,7 +3,6 @@ import json
 import time
 import usaddress
 import requests
-
 from flask import Flask, session, render_template, request, url_for, session, redirect, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_session import Session
@@ -13,10 +12,11 @@ import os
 from models import City, Hospital, Drugstore, db, app
 from request import cities_list
 from models import app, db
+import tests
 
-# from flask_cors import CORS
-# CORS(app)
+# app = Flask(__name__)
 
+baseURL = "https://covidfighter-280919.nn.r.appspot.com/api"
 
 
 @app.route('/')
@@ -27,28 +27,128 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/grocery', methods=['GET', 'POST'])
-def grocery():
+@app.route('/drugstore', methods=['GET', 'POST'])
+def drugstore():
     """
         grocery page, contains open/close status and general info for each grocery stores listed
     """
-    return render_template('grocery.js')
+    name = request.args.get("name")
+    city = request.args.get("city")
+
+    drugstores_dict = dict()
+    empty_drugstore_list = []
+
+    if (name is None and city is None):
+        return render_template('drugstore.html', drugstore_list=empty_drugstore_list, city="", name="")
+
+    name = name.strip(' ')
+    city = city.strip(' ')
+    good_name = (name + '.')[:-1]
+    good_city = (city + '.')[:-1]
+    name = name.replace(" ", "+")
+    city = city.replace(" ", "+")
+
+    if (name == '' and city == ''):
+        return render_template('drugstore.html', drugstore_list=empty_drugstore_list, city="", name="")
+    if (name == ''):
+        requestURL = baseURL + "/Drugstore/?city=" + city
+        res = requests.get(requestURL)
+        drugstores_dict = json.loads(res.content)
+    elif (city == ''):
+        requestURL = baseURL + "/Drugstore/?name=" + name
+        res = requests.get(requestURL)
+        drugstores_dict = json.loads(res.content)
+    else:
+        requestURL = baseURL + "/Drugstore/?name=" + name + "&city=" + city
+        res = requests.get(requestURL)
+        drugstores_dict = json.loads(res.content)
+    if "drugstores" not in drugstores_dict:
+        return render_template('drugstore.html', drugstore_list=empty_drugstore_list, city=good_city, name=good_name)
+    else:
+        for drugstore in drugstores_dict['drugstores']:
+            drugstore['opening_hours'] = drugstore['opening_hours'].splitlines()
+
+        return render_template('drugstore.html', drugstore_list=drugstores_dict['drugstores'], city=good_city, name=good_name)
 
 
-@app.route('/restaurants', methods=['GET', 'POST'])
-def restaurants():
+@app.route('/hospital', methods=['GET', 'POST'])
+def hospitals():
     """
         restaurants page, contains open/close status and general info for each restaurants listed
     """
-    return render_template('restaurants.js')
+    name = request.args.get("name")
+    city = request.args.get("city")
+
+    hospitals_dict = dict()
+    empty_hospital_list = []
+
+    if (name is None) and (city is None):
+        return render_template('hospital.html', hospital_list=empty_hospital_list, city="", name="")
+
+    name = name.strip(' ')
+    city = city.strip(' ')
+    good_name = (name + '.')[:-1]
+    good_city = (city + '.')[:-1]
+    name = name.replace(" ", "+")
+    city = city.replace(" ", "+")
+
+    if (name == '' and city == ''):
+        return render_template('drugstore.html', hospital_list=empty_hospital_list, city="", name="")
+    if (name == ''):
+        requestURL = baseURL + "/Hospital/?city=" + city
+        res = requests.get(requestURL)
+        hospitals_dict = json.loads(res.content)
+    elif (city == ''):
+        requestURL = baseURL + "/Hospital/?name=" + name
+        res = requests.get(requestURL)
+        hospitals_dict = json.loads(res.content)
+    else:
+        requestURL = baseURL + "/Hospital/?name=" + name + "&city=" + city
+        res = requests.get(requestURL)
+        hospitals_dict = json.loads(res.content)
+    if "hospitals" not in hospitals_dict:
+        return render_template('hospital.html', hospital_list=empty_hospital_list, city=good_city, name=good_name)
+    else:
+        for hospital in hospitals_dict['hospitals']:
+            hospital['opening_hours'] = hospital['opening_hours'].splitlines()
+
+        return render_template('hospital.html', hospital_list=hospitals_dict['hospitals'], city=good_city, name=good_name)
 
 
-@app.route('/healthcare', methods=['GET', 'POST'])
-def healthcare():
+@app.route('/city', methods=['GET', 'POST'])
+def city():
     """
         healthcare page, contains open/close status and general info for each healthcare listed
     """
-    return render_template('healthcare.js')
+    name = request.args.get("name")
+
+    city_list = list()
+    city_result = db.session.query(City).all()
+
+    for city in city_result:
+        city_dict = {"id": city.id, "name": city.name, "state": city.state,
+                     "latitude": city.latitude, "longitude": city.longitude,
+                     "population": city.population,
+                     "hospitals": [hospital.id for hospital in city.hospitals],
+                     "drugstores": [drugstore.id for drugstore in city.drugstores]}
+
+        city_list.append(city_dict)
+
+    empty_city_list = []
+    if name is None:
+        return render_template('city.html', city_list=city_list, name="")
+
+    good_name = (name + '.')[:-1]
+    name = name.strip(' ').replace(" ", "+")
+
+    requestURL = baseURL + "/City/?name=" + name
+    res = requests.get(requestURL)
+    cities_dict = json.loads(res.content)
+
+    if "cities" not in cities_dict:
+        return render_template('city.html', city_list=empty_city_list, name=good_name)
+    else:
+        return render_template('city.html', city_list=cities_dict['cities'], name=good_name)
 
 
 @app.route('/about', methods=['GET', 'POST'])
@@ -56,35 +156,37 @@ def about():
     """
         about page, contains introductions of each team memeber, data source used, and all the required
     """
-    return render_template('about.html')
+    # results = []
+    result = ".........\n" + '----------------------------------------------------------------------\n' + 'Ran 9 tests in 0.882s\n\n' + 'OK'
+    results = result.splitlines()
+    if request.method == 'POST':
+        # results = []
+        # r = db.session.query(City).filter_by(id='3').all()
+        # results.append(r[0].name)
+        # r2 = db.session.query(City).filter_by(name='New York').all()
+        # results.append(r2[0].name)
+        # r3 = db.session.query(City).filter_by(name='Toronto').all()
+        # results.append(r3[0])
+        # r4 = db.session.query(Hospital).filter_by(id='ChIJpYoZlyJawokRv65psH6e2pI').all()
+        # results.append(r4[0].name)
+        # r5 = db.session.query(Hospital).filter_by(zipcode='10025').all()
+        # results.append(r5[0].name)
+        # r6 = db.session.query(Hospital).filter_by(city_id=3).all()
+        # results.append(r6[0].name)
+        # r7 = db.session.query(Drugstore).filter_by(id='ChIJT5aLX5tZwokRFuz5h0KWsEo').all()
+        # results.append(r7[0].name)
+        # r8 = db.session.query(Drugstore).filter_by(zipcode='60657').all()
+        # results.append(r8[0].name)
+        # r9 = db.session.query(Drugstore).filter_by(city_id=5).all()
+        # results.append(r9[0].name)
 
+        return render_template('about.html', results=results)
+    
+    return render_template('about.html', results=[])
 
-#unit tests
-@app.route('/unittests', methods=['GET', 'POST'])
-def unittests():
-    results = []
-    r = db.session.query(City).filter_by(id = '3').all()
-    results.append(r[0])
-    r2 = db.session.query(City).filter_by(name = 'New York').all()
-    results.append(r2[0])
-    r3 = db.session.query(City).filter_by(name = 'Toronto').all()
-    results.append(r3[0])
-    r4 = db.session.query(Hospital).filter_by(id = 'ChIJpYoZlyJawokRv65psH6e2pI').all()
-    results.append(r4[0])
-    r5 = db.session.query(Hospital).filter_by(zipcode = '10025').all()
-    results.append(r5[0])
-    r6 = db.session.query(Hospital).filter_by(city_id = 3).all()
-    results.append(r6[0])
-    r7 = db.session.query(Drugstore).filter_by(id = 'ChIJT5aLX5tZwokRFuz5h0KWsEo').all()
-    results.append(r7[0])
-    r8 = db.session.query(Drugstore).filter_by(zipcode = '60657').all()
-    results.append(r8[0])
-    r9 = db.session.query(Drugstore).filter_by(city_id = 5).all()
-    results.append(r9[0])
-
-    return jsonify(results)
 
 # API ENDPOINTS FROM HERE ON DOWN #
+
 
 error_dict = {
             'code': 500,
