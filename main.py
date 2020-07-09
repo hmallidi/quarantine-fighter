@@ -16,14 +16,10 @@ from models import app, db
 
 # app = Flask(__name__)
 
-
-# @app.route('/')
-# def index():
-#     """
-#        home page, can be redirected to grocery, restaurants, healthcare page, and about page
-#     """
-#     return render_template('index.html')
-
+#@app.route('/')
+#def index():
+       # home page, can be redirected to grocery, restaurants, healthcare page, and about page
+  #  return 'Hello'
 
 # @app.route('/grocery', methods=['GET', 'POST'])
 # def grocery():
