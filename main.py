@@ -14,7 +14,9 @@ from models import City, Hospital, Drugstore, db, app
 from request import cities_list
 from models import app, db
 
-# app = Flask(__name__)
+# from flask_cors import CORS
+# CORS(app)
+
 
 
 @app.route('/')

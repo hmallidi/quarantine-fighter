@@ -82,8 +82,7 @@ function grocery(props){
   //apiKey: 'AIzaSyAYVNrhNbNDCs08puZcbPtPfXXj1sH61x8'
 //})(App);
 
-const rootElement = document.getElementById("root");
-export default Grocery;
+
 
 // class Grocery extends React.Component {
 
@@ -174,4 +173,7 @@ export default Grocery;
 //   );
 // }
 // }
+
+const rootElement = document.getElementById("root");
+export default Grocery;
 

@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 import os
 import psycopg2
 
+#app = Flask(__name__, static_folder='react-ver/build', static_url_path='/')
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://postgres:locations123@35.193.211.128/locationsdb'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
