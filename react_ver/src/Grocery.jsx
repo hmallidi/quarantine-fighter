@@ -44,8 +44,7 @@ function grocery(props){
     */
 
     // setState({name: state.name});
-    setState(state.name);
-  }
+    //setState(state.name);
 
   onSort = (event, sortKey) => {
     const data = state.data;
@@ -78,7 +77,9 @@ function grocery(props){
         />
       </div> 
   );
-}
+
+};
+
 
 //App = GoogleApiWrapper({
   //apiKey: 'AIzaSyAYVNrhNbNDCs08puZcbPtPfXXj1sH61x8'
