@@ -1,11 +1,25 @@
 import React, { Component } from "react";
+import { Map, GoogleApiWrapper } from "google-maps-react";
 import { Route } from "react-router-dom";
 import { HashRouter } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 
+const mapStyles = {
+  width: '50%',
+  height: '50%'
+};
+
 class Grocery extends Component {
+
+  static defaultProps = {
+    center: {
+      lat: 59.95,
+      lng: 30.33
+    },
+    zoom: 11
+  }; 
   
   constructor (props) {
     super(props)
@@ -30,30 +44,13 @@ class Grocery extends Component {
  render() {
   var newdata = this.state.data;
   return (
-    /*
-    <HashRouter>
-        <div>
-        <h1>COVID	FIGHTER</h1>
-          <ul className="header">
-            <li><NavLink exact to="/">Home</NavLink></li>
-            <li><NavLink exact to="/Grocery">Grocery</NavLink></li>
-            <li><NavLink exact to="/Restaurant">Restaurant</NavLink></li>
-            <li><NavLink exact to="/Healthcare">Healthcare</NavLink></li>
-            <li><NavLink exact to="/About">About</NavLink></li>
-          </ul>
-          <div className="content">
-        <Route exact path="/" component={Home}/>
-        <Route path="/Grocery" exact component={Grocery}/>
-        <Route path="/Restaurant" exact component={Restaurant}/>
-        <Route path="/Healthcare" exact component={Healthcare}/>
-        <Route path="/About" exact component={About}/>
-      </div>
-        </div>
-        */
+    <div class = "grocery-container">
         <table className = "m-table">
         <thead>
           <th onClick = {e => this.onSort(e, 'name')}>Name</th>
           <th onClick = {e => this.onSort(e, 'address')}>Address</th>
+          <th onClick = {e => this.onSort(e, 'phoneNumber')}>Phone Number</th>
+          <th onClick = {e => this.onSort(e, 'website')}>Website</th>
           <th onClick = {e => this.onSort(e, 'hours')}>Hours</th>
         </thead>
         <tbody>
@@ -62,14 +59,27 @@ class Grocery extends Component {
               <tr key={index} data-item={hospital}>
                 <td data-title="Name">{hospital.name}</td>
                 <td data-title="Address">{hospital.address}</td>
+                <td data-title="Phone Number">{hospital.phoneNumber}</td>
+                <td data-title="Website">{hospital.website}</td>
                 <td data-title="Hours">{hospital.hours}</td>
               </tr>
             );
           })}
         </tbody>
-      </table>    
-    //</HashRouter>
+      </table> 
+      <Map
+          google={this.props.google}
+          zoom={8}
+          style={mapStyles}
+          initialCenter={{ lat: 47.444, lng: -122.176}}
+        />
+      </div> 
   );
 }
 }
+
+GoogleApiWrapper({
+  apiKey: 'AIzaSyDzN3W-S4TxBm3wqslV1_JqfwhLjEsSKI8'
+})(Grocery);
+
 export default Grocery;
