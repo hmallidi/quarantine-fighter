@@ -5,7 +5,7 @@ import { HashRouter } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import Axios from "axios";
+import axios from "axios";
 
 const mapStyles = {
   width: '50%',
