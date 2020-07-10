@@ -1,3 +1,55 @@
+commit bd1f9612f351aeb2c2d1ff5c3705e45dbde85fba
+Author: hmallidi <mallidi.harinadha@gmail.com>
+Date:   Thu Jul 9 21:23:12 2020 -0500
+
+    ready for submission once again
+
+commit db6966d704050cbbd5ffec8ee774436508c404db
+Merge: f8fca80c 22f13f8b
+Author: Pranav Varanasi <varanasipranav@gmail.com>
+Date:   Thu Jul 9 19:12:29 2020 -0700
+
+    Merge branch 'master' of https://gitlab.com/nayan1222/covid-fighter
+
+commit f8fca80c0db362c811d311ad4c69ec19d2075299
+Merge: e9a80dae 26ce96b5
+Author: Pranav Varanasi <varanasipranav@gmail.com>
+Date:   Thu Jul 9 19:12:18 2020 -0700
+
+    Merge branch 'master' of https://gitlab.com/nayan1222/covid-fighter
+
+commit 22f13f8be7a5bca98bbc2eb025b98cc0351050c0
+Merge: 27195ec6 26ce96b5
+Author: nayan1222 <nayan.shashidhar123@gmail.com>
+Date:   Thu Jul 9 21:12:13 2020 -0500
+
+    Merge branch 'master' of https://gitlab.com/nayan1222/covid-fighter
+
+commit e9a80dae9815d3e774d31bc4229ed18517ec12a9
+Merge: e3f5c289 5557c238
+Author: Pranav Varanasi <varanasipranav@gmail.com>
+Date:   Thu Jul 9 19:11:48 2020 -0700
+
+    Merge branch 'master' of https://gitlab.com/nayan1222/covid-fighter
+
+commit 26ce96b58e3d1fc9f6159aa1104c722fef982f1c
+Author: hmallidi <mallidi.harinadha@gmail.com>
+Date:   Thu Jul 9 21:11:48 2020 -0500
+
+    updated log for submission
+
+commit 27195ec65db53029d0d7d28dc2e6337bcf8dadc3
+Author: nayan1222 <nayan.shashidhar123@gmail.com>
+Date:   Thu Jul 9 21:11:46 2020 -0500
+
+    changed Restaurant.jsx (Drugstore), need to incorporate for loop still
+
+commit e3f5c289db1b2ef5208ef6fe944ab44be0b01fd4
+Author: Pranav Varanasi <varanasipranav@gmail.com>
+Date:   Thu Jul 9 19:11:37 2020 -0700
+
+    fixed grocery
+
 commit 5557c238cda7e1a1159a6b0953ea80077faa4276
 Author: hmallidi <mallidi.harinadha@gmail.com>
 Date:   Thu Jul 9 21:10:49 2020 -0500
