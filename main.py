@@ -11,7 +11,6 @@ from sqlalchemy import text
 import os
 from models import City, Hospital, Drugstore, db, app
 from request import cities_list
-from models import app, db
 import tests
 
 # app = Flask(__name__)
@@ -276,7 +275,7 @@ def about():
         about page, contains introductions of each team memeber, data source used, and all the required
     """
     if request.method == 'POST':
-        os.system('coverage run --branch app/tests.py >  tests.out 2>&1')
+        os.system('coverage run --branch tests.py >  tests.out 2>&1')
         output = open('tests.out', 'r')
         results = output.readlines()
         os.system('rm tests.out')
