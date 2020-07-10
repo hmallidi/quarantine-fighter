@@ -276,7 +276,7 @@ def about():
         about page, contains introductions of each team memeber, data source used, and all the required
     """
     if request.method == 'POST':
-        os.system('coverage run --branch tests.py >  tests.out 2>&1')
+        os.system('coverage run --branch app/tests.py >  tests.out 2>&1')
         output = open('tests.out', 'r')
         results = output.readlines()
         os.system('rm tests.out')
