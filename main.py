@@ -41,7 +41,7 @@ def drugstore():
     if (name is None and city is None):
         return render_template('drugstore.html', drugstore_list=empty_drugstore_list, city="", name="")
 
-    name = name.strip(' ')
+    name = name.strip(' ').lower()
     city = city.strip(' ')
     good_name = (name + '.')[:-1]
     good_city = (city + '.')[:-1]
@@ -161,7 +161,7 @@ def about():
         results = output.readlines()
         os.system('rm tests.out')
         return render_template('about.html', results=results)
-    
+
     return render_template('about.html', results=[])
 
 
@@ -182,6 +182,7 @@ def getCitiesByQuery():
         if name is None:
             return jsonify({}), 200
         else:
+            name = name.capitalize()
             city_result = db.session.query(City).filter_by(name=name).all()
 
             if len(city_result) == 0:
@@ -233,6 +234,7 @@ def getHospitalsByQuery():
             return jsonify({}), 200
 
         elif name is None:
+            city = city.capitalize()
             city_result = db.session.query(City).filter_by(name=city).all()
 
             if len(city_result) == 0:
@@ -267,6 +269,7 @@ def getHospitalsByQuery():
                 hospitals_dict['hospitals'].append(hospital_dict)
 
         else:
+            city = city.capitalize()
             city_result = db.session.query(City).filter_by(name=city).all()
 
             if len(city_result) == 0:
@@ -337,7 +340,6 @@ def getHospitalById(hospital_id: str):
 
 @app.route("/api/Drugstore/")
 def getDrugstoresByQuery():
-    name = request.args.get("name")
     city = request.args.get("city")
 
     drugstores_dict = {'drugstores': list()}
@@ -346,6 +348,7 @@ def getDrugstoresByQuery():
             return jsonify({}), 200
 
         elif name is None:
+            city = city.capitalize()
             city_result = db.session.query(City).filter_by(name=city).all()
 
             if len(city_result) == 0:
@@ -380,6 +383,8 @@ def getDrugstoresByQuery():
                 drugstores_dict['drugstores'].append(drugstore_dict)
 
         else:
+            name = name.capitalize()
+            city = city.capitalize()
             city_result = db.session.query(City).filter_by(name=city).all()
 
             if len(city_result) == 0:
