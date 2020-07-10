@@ -80,12 +80,21 @@ function Grocery(props){
           <th onClick = {e => onSort(e, 'hours')}>Hours</th>
         </thead>
         <tbody>
-            {
-            data && <h2>{data.name}</h2>
-
+            
+            {data && <td>{data.name}</td>}
+            {data && <td>{data.id}</td>}
+            {data && <td>{data.state}</td>}
+            {data && <td>{data.latitude}</td>}
+            {data && <td>{data.longitude}</td>}
+            {data && <td>{data.popuation}</td>}
               
-
-
+              {
+              // var values = Object.entries(data);
+              
+              // for (const [key, value] of values) {
+              //    setName(values[0]);
+              //    setID(values[1]);
+              // }
 
             }
           
