@@ -41,7 +41,7 @@ def drugstore():
     if (name is None and city is None):
         return render_template('drugstore.html', drugstore_list=empty_drugstore_list, city="", name="")
 
-    name = name.strip(' ').lower()
+    name = name.strip(' ')
     city = city.strip(' ')
     good_name = (name + '.')[:-1]
     good_city = (city + '.')[:-1]
