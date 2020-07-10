@@ -1,3 +1,122 @@
+commit 5557c238cda7e1a1159a6b0953ea80077faa4276
+Author: hmallidi <mallidi.harinadha@gmail.com>
+Date:   Thu Jul 9 21:10:49 2020 -0500
+
+    submission ready
+
+commit 350dbf12513079b009bd0a4d11bd5aed7bdc1606
+Merge: 870bd12e 904ff3f6
+Author: hmallidi <mallidi.harinadha@gmail.com>
+Date:   Thu Jul 9 21:09:57 2020 -0500
+
+    Merge branch 'master' of gitlab.com:nayan1222/covid-fighter
+
+commit 870bd12e58c359978ed34b91b43be4a5ef2debd2
+Author: hmallidi <mallidi.harinadha@gmail.com>
+Date:   Thu Jul 9 21:09:40 2020 -0500
+
+    submission
+
+commit 904ff3f6bb7e247eb7bc57caa76f503b52d38602
+Merge: de27038c cbb331fb
+Author: hmallidi <mallidi.harinadha@gmail.com>
+Date:   Thu Jul 9 20:57:33 2020 -0500
+
+    Merge branch 'master' of gitlab.com:nayan1222/covid-fighter
+
+commit de27038c37a31b2a3b975dc09245175105a60ac7
+Author: hmallidi <mallidi.harinadha@gmail.com>
+Date:   Thu Jul 9 20:57:14 2020 -0500
+
+    project_3_submission
+
+commit d393bf0a36c2e899cb95f266d661f207da756541
+Author: hmallidi <mallidi.harinadha@gmail.com>
+Date:   Thu Jul 9 20:56:10 2020 -0500
+
+    reformatted for submission
+
+commit cbb331fbdc786d71a787d125bbef501f1bc9aac7
+Author: hmallidi <mallidi.harinadha@gmail.com>
+Date:   Fri Jul 10 01:55:05 2020 +0000
+
+    Delete .coverage
+
+commit a547c8ef9af2182d2d17853cfca3b6fc978e3423
+Merge: 813a42c0 d2f06ca7
+Author: Pranav Varanasi <varanasipranav@gmail.com>
+Date:   Thu Jul 9 18:20:03 2020 -0700
+
+    fixec react
+
+commit 813a42c0ae1df9d8f54696ee54301bc4ba2945e2
+Author: Pranav Varanasi <varanasipranav@gmail.com>
+Date:   Thu Jul 9 18:17:35 2020 -0700
+
+    react fix
+
+commit 4090ca1f7b8f7a4267eb43546d61d37508274cb6
+Author: Pranav Varanasi <varanasipranav@gmail.com>
+Date:   Thu Jul 9 18:15:15 2020 -0700
+
+    fixed fetch bug
+
+commit d2f06ca72a28e92f59589088b8d0a36d13cc3193
+Author: hmallidi <mallidi.harinadha@gmail.com>
+Date:   Thu Jul 9 19:57:59 2020 -0500
+
+    changes in fetching database data for website
+
+commit cf1633a5679fdec6bdc81a6a7c652e314248d8c7
+Author: hmallidi <mallidi.harinadha@gmail.com>
+Date:   Thu Jul 9 19:20:46 2020 -0500
+
+    removed main.py input lowercase bug
+
+commit 1f915d5920a0015fdf3c7a9345ae14623b3cbf57
+Author: hmallidi <mallidi.harinadha@gmail.com>
+Date:   Thu Jul 9 19:19:14 2020 -0500
+
+    updated requirements
+
+commit 453fa692e6b63ae56308941961c237cccba8bba8
+Author: hmallidi <mallidi.harinadha@gmail.com>
+Date:   Thu Jul 9 19:17:51 2020 -0500
+
+    changed capitalization rules
+
+commit 689bedab138cf6c052cc80c54d834f9b7cd7e2bf
+Author: hmallidi <mallidi.harinadha@gmail.com>
+Date:   Thu Jul 9 18:35:11 2020 -0500
+
+    added running tests.p
+    y
+
+commit abf28a613fea76de6abac3c0f9e036d2483b8750
+Author: hmallidi <mallidi.harinadha@gmail.com>
+Date:   Thu Jul 9 18:16:39 2020 -0500
+
+    some interface changes
+
+commit ae2826fc898861f261451b3af4dd6284f55ce970
+Merge: f81f4c40 aeb36155
+Author: Pranav Varanasi <varanasipranav@gmail.com>
+Date:   Thu Jul 9 15:40:16 2020 -0700
+
+    Merge branch 'master' of https://gitlab.com/nayan1222/covid-fighter
+
+commit f81f4c40ebcee4b5a9f7ab5b84a7c2371ea05b3d
+Author: Pranav Varanasi <varanasipranav@gmail.com>
+Date:   Thu Jul 9 15:40:10 2020 -0700
+
+    modified jsx
+
+commit aeb36155a45295b050aa4823b113be108e1904fb
+Author: Kewen Wang <wankew22@utexas.edu>
+Date:   Thu Jul 9 17:30:39 2020 -0500
+
+    update git log
+
 commit fc544bb78ff11783506f60281d776f28b921422d
 Author: Angela Cao <runningnerdtroll@gmail.com>
 Date:   Thu Jul 9 17:01:29 2020 -0500

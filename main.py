@@ -11,7 +11,6 @@ from sqlalchemy import text
 import os
 from models import City, Hospital, Drugstore, db, app
 from request import cities_list
-from models import app, db
 import tests
 
 # app = Flask(__name__)
