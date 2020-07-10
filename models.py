@@ -10,12 +10,17 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 db = SQLAlchemy(app)
 
 
-
 drugstore_hospital_link = db.Table('drugstore_hospital_link',
                                    db.Column('drugstore_id', db.String, db.ForeignKey('drugstore.id')),
                                    db.Column('hospital_id', db.String, db.ForeignKey('hospital.id')))
 
+
 class Drugstore(db.Model):
+    """
+    Model of a Drugstore Object.
+    Many to Many relation to Hospitals (Hospitals Nearby Drugstores and vice versa)
+    Many to One relation to Cities (Drugstores in City)
+    """
     __tablename__ = 'drugstore'
     id = db.Column(db.String, primary_key=True, nullable=False)
 
@@ -41,6 +46,11 @@ class Drugstore(db.Model):
 
 
 class Hospital(db.Model):
+    """
+    Model of a Hospital Object.
+    Many to Many relation to Drugstores (Drugstores Nearby Hospital and vice versa)
+    Many to One relation to Cities (Hospitals in City)
+    """
     __tablename__ = 'hospital'
     id = db.Column(db.String, primary_key=True, nullable=False)
 
@@ -65,6 +75,11 @@ class Hospital(db.Model):
 
 
 class City(db.Model):
+    """
+    Model of a City Object.
+    One to Many relation to Drugstores (City has Drugstores)
+    One to Many relation to Cities (City has Hospitals)
+    """
     __tablename__ = 'city'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)

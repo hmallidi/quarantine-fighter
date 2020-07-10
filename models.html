@@ -8,26 +8,298 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>models</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/Users/chloewang/Desktop/covid-fighter/models.py">/Users/chloewang/Desktop/covid-fighter/models.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/Users/harimallidi/Desktop/cs373/cs373_website/covid-fighter/models.py">/Users/harimallidi/Desktop/cs373/cs373_website/covid-fighter/models.py</a></font></td></tr></table>
     <p></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#eeaa77">
+<tr bgcolor="#aa55cc">
 <td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
     
-<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><dl><dt><a name="-about"><strong>about</strong></a>()</dt><dd><tt>about&nbsp;page,&nbsp;contains&nbsp;introductions&nbsp;of&nbsp;each&nbsp;team&nbsp;memeber,&nbsp;data&nbsp;source&nbsp;used,&nbsp;and&nbsp;all&nbsp;the&nbsp;required</tt></dd></dl>
- <dl><dt><a name="-grocery"><strong>grocery</strong></a>()</dt><dd><tt>grocery&nbsp;page,&nbsp;contains&nbsp;open/close&nbsp;status&nbsp;and&nbsp;general&nbsp;info&nbsp;for&nbsp;each&nbsp;grocery&nbsp;stores&nbsp;listed</tt></dd></dl>
- <dl><dt><a name="-healthcare"><strong>healthcare</strong></a>()</dt><dd><tt>healthcare&nbsp;page,&nbsp;contains&nbsp;open/close&nbsp;status&nbsp;and&nbsp;general&nbsp;info&nbsp;for&nbsp;each&nbsp;healthcare&nbsp;listed</tt></dd></dl>
- <dl><dt><a name="-index"><strong>index</strong></a>()</dt><dd><tt>home&nbsp;page,&nbsp;can&nbsp;be&nbsp;redirected&nbsp;to&nbsp;grocery,&nbsp;restaurants,&nbsp;healthcare&nbsp;page,&nbsp;and&nbsp;about&nbsp;page</tt></dd></dl>
- <dl><dt><a name="-restaurants"><strong>restaurants</strong></a>()</dt><dd><tt>restaurants&nbsp;page,&nbsp;contains&nbsp;open/close&nbsp;status&nbsp;and&nbsp;general&nbsp;info&nbsp;for&nbsp;each&nbsp;restaurants&nbsp;listed</tt></dd></dl>
-</td></tr></table><p>
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="os.html">os</a><br>
+</td><td width="25%" valign=top><a href="psycopg2.html">psycopg2</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial">sqlalchemy.ext.declarative.api.Model(<a href="flask_sqlalchemy.model.html#Model">flask_sqlalchemy.model.Model</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="models.html#City">City</a>
+</font></dt><dt><font face="helvetica, arial"><a href="models.html#Drugstore">Drugstore</a>
+</font></dt><dt><font face="helvetica, arial"><a href="models.html#Hospital">Hospital</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="City">class <strong>City</strong></a>(sqlalchemy.ext.declarative.api.Model)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#City">City</a>(**kwargs)<br>
+&nbsp;<br>
+Model&nbsp;of&nbsp;a&nbsp;<a href="#City">City</a>&nbsp;Object.<br>
+One&nbsp;to&nbsp;Many&nbsp;relation&nbsp;to&nbsp;Drugstores&nbsp;(<a href="#City">City</a>&nbsp;has&nbsp;Drugstores)<br>
+One&nbsp;to&nbsp;Many&nbsp;relation&nbsp;to&nbsp;Cities&nbsp;(<a href="#City">City</a>&nbsp;has&nbsp;Hospitals)<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="models.html#City">City</a></dd>
+<dd>sqlalchemy.ext.declarative.api.Model</dd>
+<dd><a href="flask_sqlalchemy.model.html#Model">flask_sqlalchemy.model.Model</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="City-__init__"><strong>__init__</strong></a>(self, **kwargs)</dt><dd><tt>A&nbsp;simple&nbsp;constructor&nbsp;that&nbsp;allows&nbsp;initialization&nbsp;from&nbsp;kwargs.<br>
+&nbsp;<br>
+Sets&nbsp;attributes&nbsp;on&nbsp;the&nbsp;constructed&nbsp;instance&nbsp;using&nbsp;the&nbsp;names&nbsp;and<br>
+values&nbsp;in&nbsp;``kwargs``.<br>
+&nbsp;<br>
+Only&nbsp;keys&nbsp;that&nbsp;are&nbsp;present&nbsp;as<br>
+attributes&nbsp;of&nbsp;the&nbsp;instance's&nbsp;class&nbsp;are&nbsp;allowed.&nbsp;These&nbsp;could&nbsp;be,<br>
+for&nbsp;example,&nbsp;any&nbsp;mapped&nbsp;columns&nbsp;or&nbsp;relationships.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>drugstores</strong></dt>
+</dl>
+<dl><dt><strong>hospitals</strong></dt>
+</dl>
+<dl><dt><strong>id</strong></dt>
+</dl>
+<dl><dt><strong>latitude</strong></dt>
+</dl>
+<dl><dt><strong>longitude</strong></dt>
+</dl>
+<dl><dt><strong>name</strong></dt>
+</dl>
+<dl><dt><strong>population</strong></dt>
+</dl>
+<dl><dt><strong>state</strong></dt>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x10f4af1d0; City&gt;</dl>
+
+<dl><dt><strong>__table__</strong> = Table('city', MetaData(bind=None), Column('id', ...er(), table=&lt;city&gt;, nullable=False), schema=None)</dl>
+
+<dl><dt><strong>__tablename__</strong> = 'city'</dl>
+
+<hr>
+Data and other attributes inherited from sqlalchemy.ext.declarative.api.Model:<br>
+<dl><dt><strong>metadata</strong> = MetaData(bind=None)</dl>
+
+<dl><dt><strong>query</strong> = &lt;flask_sqlalchemy.BaseQuery object&gt;</dl>
+
+<dl><dt><strong>query_class</strong> = &lt;class 'flask_sqlalchemy.BaseQuery'&gt;<dd><tt>SQLAlchemy&nbsp;:class:`~sqlalchemy.orm.query.Query`&nbsp;subclass&nbsp;with&nbsp;convenience&nbsp;methods&nbsp;for&nbsp;querying&nbsp;in&nbsp;a&nbsp;web&nbsp;application.<br>
+&nbsp;<br>
+This&nbsp;is&nbsp;the&nbsp;default&nbsp;:attr:`~Model.query`&nbsp;object&nbsp;used&nbsp;for&nbsp;models,&nbsp;and&nbsp;exposed&nbsp;as&nbsp;:attr:`~SQLAlchemy.Query`.<br>
+Override&nbsp;the&nbsp;query&nbsp;class&nbsp;for&nbsp;an&nbsp;individual&nbsp;model&nbsp;by&nbsp;subclassing&nbsp;this&nbsp;and&nbsp;setting&nbsp;:attr:`~Model.query_class`.</tt></dl>
+
+<hr>
+Methods inherited from <a href="flask_sqlalchemy.model.html#Model">flask_sqlalchemy.model.Model</a>:<br>
+<dl><dt><a name="City-__repr__"><strong>__repr__</strong></a>(self)</dt><dd><tt>Return&nbsp;repr(self).</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="flask_sqlalchemy.model.html#Model">flask_sqlalchemy.model.Model</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="flask_sqlalchemy.model.html#Model">flask_sqlalchemy.model.Model</a>:<br>
+<dl><dt><strong>__weakref__</strong> = &lt;weakref at 0x10f4a1278; to 'DefaultMeta' at 0x7f93ef84cb18 (City)&gt;</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Drugstore">class <strong>Drugstore</strong></a>(sqlalchemy.ext.declarative.api.Model)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Drugstore">Drugstore</a>(**kwargs)<br>
+&nbsp;<br>
+Model&nbsp;of&nbsp;a&nbsp;<a href="#Drugstore">Drugstore</a>&nbsp;Object.<br>
+Many&nbsp;to&nbsp;Many&nbsp;relation&nbsp;to&nbsp;Hospitals&nbsp;(Hospitals&nbsp;Nearby&nbsp;Drugstores&nbsp;and&nbsp;vice&nbsp;versa)<br>
+Many&nbsp;to&nbsp;One&nbsp;relation&nbsp;to&nbsp;Cities&nbsp;(Drugstores&nbsp;in&nbsp;<a href="#City">City</a>)<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="models.html#Drugstore">Drugstore</a></dd>
+<dd>sqlalchemy.ext.declarative.api.Model</dd>
+<dd><a href="flask_sqlalchemy.model.html#Model">flask_sqlalchemy.model.Model</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Drugstore-__init__"><strong>__init__</strong></a>(self, **kwargs)</dt><dd><tt>A&nbsp;simple&nbsp;constructor&nbsp;that&nbsp;allows&nbsp;initialization&nbsp;from&nbsp;kwargs.<br>
+&nbsp;<br>
+Sets&nbsp;attributes&nbsp;on&nbsp;the&nbsp;constructed&nbsp;instance&nbsp;using&nbsp;the&nbsp;names&nbsp;and<br>
+values&nbsp;in&nbsp;``kwargs``.<br>
+&nbsp;<br>
+Only&nbsp;keys&nbsp;that&nbsp;are&nbsp;present&nbsp;as<br>
+attributes&nbsp;of&nbsp;the&nbsp;instance's&nbsp;class&nbsp;are&nbsp;allowed.&nbsp;These&nbsp;could&nbsp;be,<br>
+for&nbsp;example,&nbsp;any&nbsp;mapped&nbsp;columns&nbsp;or&nbsp;relationships.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>address</strong></dt>
+</dl>
+<dl><dt><strong>business_status</strong></dt>
+</dl>
+<dl><dt><strong>city</strong></dt>
+</dl>
+<dl><dt><strong>city_id</strong></dt>
+</dl>
+<dl><dt><strong>google_maps_url</strong></dt>
+</dl>
+<dl><dt><strong>hospitals_nearby</strong></dt>
+</dl>
+<dl><dt><strong>id</strong></dt>
+</dl>
+<dl><dt><strong>latitude</strong></dt>
+</dl>
+<dl><dt><strong>longitude</strong></dt>
+</dl>
+<dl><dt><strong>name</strong></dt>
+</dl>
+<dl><dt><strong>opening_hours</strong></dt>
+</dl>
+<dl><dt><strong>zipcode</strong></dt>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x10e450a58; Drugstore&gt;</dl>
+
+<dl><dt><strong>__table__</strong> = Table('drugstore', MetaData(bind=None), Column('...nKey('city.id'), table=&lt;drugstore&gt;), schema=None)</dl>
+
+<dl><dt><strong>__tablename__</strong> = 'drugstore'</dl>
+
+<hr>
+Data and other attributes inherited from sqlalchemy.ext.declarative.api.Model:<br>
+<dl><dt><strong>metadata</strong> = MetaData(bind=None)</dl>
+
+<dl><dt><strong>query</strong> = &lt;flask_sqlalchemy.BaseQuery object&gt;</dl>
+
+<dl><dt><strong>query_class</strong> = &lt;class 'flask_sqlalchemy.BaseQuery'&gt;<dd><tt>SQLAlchemy&nbsp;:class:`~sqlalchemy.orm.query.Query`&nbsp;subclass&nbsp;with&nbsp;convenience&nbsp;methods&nbsp;for&nbsp;querying&nbsp;in&nbsp;a&nbsp;web&nbsp;application.<br>
+&nbsp;<br>
+This&nbsp;is&nbsp;the&nbsp;default&nbsp;:attr:`~Model.query`&nbsp;object&nbsp;used&nbsp;for&nbsp;models,&nbsp;and&nbsp;exposed&nbsp;as&nbsp;:attr:`~SQLAlchemy.Query`.<br>
+Override&nbsp;the&nbsp;query&nbsp;class&nbsp;for&nbsp;an&nbsp;individual&nbsp;model&nbsp;by&nbsp;subclassing&nbsp;this&nbsp;and&nbsp;setting&nbsp;:attr:`~Model.query_class`.</tt></dl>
+
+<hr>
+Methods inherited from <a href="flask_sqlalchemy.model.html#Model">flask_sqlalchemy.model.Model</a>:<br>
+<dl><dt><a name="Drugstore-__repr__"><strong>__repr__</strong></a>(self)</dt><dd><tt>Return&nbsp;repr(self).</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="flask_sqlalchemy.model.html#Model">flask_sqlalchemy.model.Model</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="flask_sqlalchemy.model.html#Model">flask_sqlalchemy.model.Model</a>:<br>
+<dl><dt><strong>__weakref__</strong> = &lt;weakref at 0x10f47c2c8; to 'DefaultMeta' at 0x7f93ef844a38 (Drugstore)&gt;</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Hospital">class <strong>Hospital</strong></a>(sqlalchemy.ext.declarative.api.Model)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Hospital">Hospital</a>(**kwargs)<br>
+&nbsp;<br>
+Model&nbsp;of&nbsp;a&nbsp;<a href="#Hospital">Hospital</a>&nbsp;Object.<br>
+Many&nbsp;to&nbsp;Many&nbsp;relation&nbsp;to&nbsp;Drugstores&nbsp;(Drugstores&nbsp;Nearby&nbsp;<a href="#Hospital">Hospital</a>&nbsp;and&nbsp;vice&nbsp;versa)<br>
+Many&nbsp;to&nbsp;One&nbsp;relation&nbsp;to&nbsp;Cities&nbsp;(Hospitals&nbsp;in&nbsp;<a href="#City">City</a>)<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="models.html#Hospital">Hospital</a></dd>
+<dd>sqlalchemy.ext.declarative.api.Model</dd>
+<dd><a href="flask_sqlalchemy.model.html#Model">flask_sqlalchemy.model.Model</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Hospital-__init__"><strong>__init__</strong></a>(self, **kwargs)</dt><dd><tt>A&nbsp;simple&nbsp;constructor&nbsp;that&nbsp;allows&nbsp;initialization&nbsp;from&nbsp;kwargs.<br>
+&nbsp;<br>
+Sets&nbsp;attributes&nbsp;on&nbsp;the&nbsp;constructed&nbsp;instance&nbsp;using&nbsp;the&nbsp;names&nbsp;and<br>
+values&nbsp;in&nbsp;``kwargs``.<br>
+&nbsp;<br>
+Only&nbsp;keys&nbsp;that&nbsp;are&nbsp;present&nbsp;as<br>
+attributes&nbsp;of&nbsp;the&nbsp;instance's&nbsp;class&nbsp;are&nbsp;allowed.&nbsp;These&nbsp;could&nbsp;be,<br>
+for&nbsp;example,&nbsp;any&nbsp;mapped&nbsp;columns&nbsp;or&nbsp;relationships.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>address</strong></dt>
+</dl>
+<dl><dt><strong>business_status</strong></dt>
+</dl>
+<dl><dt><strong>city</strong></dt>
+</dl>
+<dl><dt><strong>city_id</strong></dt>
+</dl>
+<dl><dt><strong>drugstores_nearby</strong></dt>
+</dl>
+<dl><dt><strong>google_maps_url</strong></dt>
+</dl>
+<dl><dt><strong>id</strong></dt>
+</dl>
+<dl><dt><strong>latitude</strong></dt>
+</dl>
+<dl><dt><strong>longitude</strong></dt>
+</dl>
+<dl><dt><strong>name</strong></dt>
+</dl>
+<dl><dt><strong>opening_hours</strong></dt>
+</dl>
+<dl><dt><strong>zipcode</strong></dt>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x10f47dba8; Hospital&gt;</dl>
+
+<dl><dt><strong>__table__</strong> = Table('hospital', MetaData(bind=None), Column('i...gnKey('city.id'), table=&lt;hospital&gt;), schema=None)</dl>
+
+<dl><dt><strong>__tablename__</strong> = 'hospital'</dl>
+
+<hr>
+Data and other attributes inherited from sqlalchemy.ext.declarative.api.Model:<br>
+<dl><dt><strong>metadata</strong> = MetaData(bind=None)</dl>
+
+<dl><dt><strong>query</strong> = &lt;flask_sqlalchemy.BaseQuery object&gt;</dl>
+
+<dl><dt><strong>query_class</strong> = &lt;class 'flask_sqlalchemy.BaseQuery'&gt;<dd><tt>SQLAlchemy&nbsp;:class:`~sqlalchemy.orm.query.Query`&nbsp;subclass&nbsp;with&nbsp;convenience&nbsp;methods&nbsp;for&nbsp;querying&nbsp;in&nbsp;a&nbsp;web&nbsp;application.<br>
+&nbsp;<br>
+This&nbsp;is&nbsp;the&nbsp;default&nbsp;:attr:`~Model.query`&nbsp;object&nbsp;used&nbsp;for&nbsp;models,&nbsp;and&nbsp;exposed&nbsp;as&nbsp;:attr:`~SQLAlchemy.Query`.<br>
+Override&nbsp;the&nbsp;query&nbsp;class&nbsp;for&nbsp;an&nbsp;individual&nbsp;model&nbsp;by&nbsp;subclassing&nbsp;this&nbsp;and&nbsp;setting&nbsp;:attr:`~Model.query_class`.</tt></dl>
+
+<hr>
+Methods inherited from <a href="flask_sqlalchemy.model.html#Model">flask_sqlalchemy.model.Model</a>:<br>
+<dl><dt><a name="Hospital-__repr__"><strong>__repr__</strong></a>(self)</dt><dd><tt>Return&nbsp;repr(self).</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="flask_sqlalchemy.model.html#Model">flask_sqlalchemy.model.Model</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="flask_sqlalchemy.model.html#Model">flask_sqlalchemy.model.Model</a>:<br>
+<dl><dt><strong>__weakref__</strong> = &lt;weakref at 0x10f4a1228; to 'DefaultMeta' at 0x7f93ef84b9b8 (Hospital)&gt;</dl>
+
+</td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#55aa55">
 <td colspan=3 valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><strong>app</strong> = &lt;Flask 'models'&gt;</td></tr></table>
+<td width="100%"><strong>app</strong> = &lt;Flask 'models'&gt;<br>
+<strong>db</strong> = &lt;SQLAlchemy engine=postgresql+psycopg2://postgres:***@35.193.211.128/locationsdb&gt;<br>
+<strong>drugstore_hospital_link</strong> = Table('drugstore_hospital_link', MetaData(bind=N...), table=&lt;drugstore_hospital_link&gt;), schema=None)</td></tr></table>
 </body></html>

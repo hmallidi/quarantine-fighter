@@ -3,4 +3,5 @@
 .pylintrc
 *.pyc
 *.tmp
+.coverage
 venv
