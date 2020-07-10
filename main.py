@@ -3,12 +3,13 @@ import json
 import time
 import usaddress
 import requests
+import sys
+import os
 from flask import Flask, session, render_template, request, url_for, session, redirect, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_session import Session
 from sqlalchemy.orm import scoped_session, sessionmaker
 from sqlalchemy import text
-import os
 from models import City, Hospital, Drugstore, db, app
 from request import cities_list
 import tests
