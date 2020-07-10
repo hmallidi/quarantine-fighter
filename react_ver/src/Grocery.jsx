@@ -13,15 +13,31 @@ const mapStyles = {
 };
 
 // function made from the Grocery class below
-function grocery(props){
-  //variables 
-  var [data, setData] = useState([]);
+function Grocery(props){
+  //variables, change all vars to const or let
+  var [data, setData] = useState();
   var [id, setID] = useState(0);
   var [name, setName] = useState("");
   var [state, setState] = useState("");
   var [latitude, setLatitude] = useState(0.0);
   var [longitude, setLongitude] = useState(0.0);
   var [popuation, setPopulation] = useState(0); 
+
+  useEffect(()=> {
+
+    axios.get('/api/City/1').then((result) => {
+      console.log(result)
+      console.log(result.data);
+
+      // setState({ data: result.data});
+      setData(result.data);
+      console.log(state.data);
+    });
+
+  }, []  )
+
+
+  
 
   /*componentDidMount = () => {
     fetch("http://localhost:5000/api/City/1")
@@ -46,7 +62,7 @@ function grocery(props){
     // setState({name: state.name});
     //setState(state.name);
 
-  onSort = (event, sortKey) => {
+  const onSort = (event, sortKey) => {
     const data = state.data;
     data.sort((a, b) => a[sortKey].localeCompare(b[sortKey]))
     setState({data})
@@ -64,7 +80,15 @@ function grocery(props){
           <th onClick = {e => onSort(e, 'hours')}>Hours</th>
         </thead>
         <tbody>
+            {
+            data && <h2>{data.name}</h2>
 
+              
+
+
+
+            }
+          
         </tbody>
         
       </table>  
@@ -177,6 +201,6 @@ function grocery(props){
 // }
 // }
 
-const rootElement = document.getElementById("root");
+//const rootElement = document.getElementById("root");
 export default Grocery;
 
