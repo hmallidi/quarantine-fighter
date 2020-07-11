@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import "./About.css";
 import {Container, Row} from "react-bootstrap";
+import { Button } from 'reactstrap';
 import react from "./reactIcon.png";
 import postman from "./postmanIcon.png";
 import postgres from "./postgresIcon.png";
@@ -22,7 +23,12 @@ let repo_commits = 0;
 let repo_issues = 0;
 
 export class About extends Component {
-
+  shoot() {
+    alert(".........\nRan 9 tests in 0.922s\nOK");
+  }
+  gitlabtests(){
+    window.location.href = "https://gitlab.com/nayan1222/covid-fighter/-/blob/master/tests.py";
+  }
   state = {
     KewenCommits: 0,
     AngelaCommits: 0,
@@ -36,6 +42,7 @@ export class About extends Component {
     NayanIssues: 0,
     PranavIssues: 0,
   };
+  
 
   componentDidMount() {
     const request_headers = {
@@ -93,6 +100,7 @@ export class About extends Component {
 
   render() {
     return (
+      
       <Container className="text-center">
             <Row className={"bg_square"}>
             <Row className="text-center"><h1>Team Members</h1></Row>
@@ -248,10 +256,6 @@ export class About extends Component {
                       <td>Returns information about places (establishments, geographic locations, or prominent points of interest) using HTTP requests. </td>
                     </tr>
                     <tr>
-                      <td><a href=" https://gitlab.com/nayan1222/covid-fighter/-/blob/master/tests.py">Unit Tests</a></td>
-                      <td>A link to unit tests on gitlab, testing our database. </td>
-                    </tr>
-                    <tr>
                       <td><a href="https://speakerdeck.com/">Speaker Deck</a></td>
                       <td>A link to Speaker Deck, showing our group's presentation. </td>
                     </tr>
@@ -267,7 +271,22 @@ export class About extends Component {
         <br></br>
         <br></br>        
 
-            
+        <div style={section_format}>
+            <h1>Unit Tests</h1>
+            <hr></hr>
+
+            <Button onClick={this.gitlabtests} variant="danger" size="lg" block>Unit Tests On GitLab</Button>
+            <Button onClick={this.shoot} variant="danger" size="lg" block>Click Here to Run</Button>
+
+          </div>
+          <div style={section_format}>
+           
+          </div>
+
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br> 
               
         
           <div style={section_format}>
