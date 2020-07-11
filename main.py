@@ -638,6 +638,5 @@ def serve():
 
 if __name__ == "__main__":
     app.debug = True
-    #app = Flask(__name__, static_folder='react-app/build', static_url_path='/')
     # os.system('npm start')
     app.run()
