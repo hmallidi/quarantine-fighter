@@ -5,7 +5,7 @@ import usaddress
 import requests
 import sys
 import os
-from flask import Flask, session, render_template, request, url_for, session, redirect, jsonify
+from flask import Flask, session, render_template, request, url_for, session, redirect, jsonify,  send_from_directory
 from flask_sqlalchemy import SQLAlchemy
 from flask_session import Session
 from sqlalchemy.orm import scoped_session, sessionmaker
@@ -13,18 +13,21 @@ from sqlalchemy import text
 from models import City, Hospital, Drugstore, db, app
 from request import cities_list
 import tests
+from flask_cors import CORS
 
 # app = Flask(__name__)
 
+CORS(app)
+
 baseURL = "https://covidfighter-280919.nn.r.appspot.com/api"
 
-
-@app.route('/')
-def index():
-    """
-       home page, can be redirected to grocery, restaurants, healthcare page, and about page
-    """
-    return render_template('index.html')
+# """
+# @app.route('/')
+# def index():
+#     """
+#       # home page, can be redirected to grocery, restaurants, healthcare page, and about page
+#     return render_template('index.html')
+# """
 
 
 @app.route('/drugstore', methods=['GET', 'POST'])
@@ -233,7 +236,7 @@ def city():
                          "drugstores": [drugstore.id for drugstore in city.drugstores]}
 
             city_list.append(city_dict)
-        return render_template('city.html', city_list=city_list, name="")
+        return render_template('city.html', city_list=city_list, name="") # changed from city.html
 
     name = name.strip(' ')
 
@@ -625,7 +628,16 @@ def getAllDrugstores():
     return jsonify(drugstores_dict), 200
 
 
+#@app.route(app.static_url_path)
+#app_static_folder = '/react_ver/build/'
+
+@app.route("/")
+def serve():
+    """serves React App"""
+    return send_from_directory(app.static_folder, "index.html")
+
 if __name__ == "__main__":
     app.debug = True
+    #app = Flask(__name__, static_folder='react-app/build', static_url_path='/')
     # os.system('npm start')
     app.run()
