@@ -48,7 +48,7 @@ function Drugstore(props){
   return (
     //form that represents the search bar
     <form action="/Restaurant" method="post">
-      <input type="text" name="searchInput"></input>
+      <input type="text" name="searchInput" value={search} ></input>
       <button>Search!</button>
     </form>
     // <label htmlFor="search">Search for a Drugstore</label>
