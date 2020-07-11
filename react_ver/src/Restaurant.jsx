@@ -13,7 +13,8 @@ const mapStyles = {
 };
 
 function Drugstore(props){
-
+  const [search, setSearch] = useState(""); // search is null to start with
+    
   const [data, setData] = useState();
   const [id, setID] = useState("");
   const [name, setName] = useState("");
@@ -28,7 +29,9 @@ function Drugstore(props){
 
 
   useEffect(()=> {
-    axios.get('/api/Drugstore/?name=&city=Austin').then((result) => {
+    setSearch(searchInput);
+    axios.get('/api/Drugstore/?name=' + search).then((result) => {
+    // axios.get('/api/Drugstore/?name=&city=Austin').then((result) => {
       console.log(result)
       console.log(result.data);
       setData(result.data);
@@ -43,6 +46,14 @@ function Drugstore(props){
   }
   // what’s being returned
   return (
+    //form that represents the search bar
+    <form action="/Restaurant" method="post">
+      <input type="text" name="searchInput"></input>
+      <button>Search!</button>
+    </form>
+    // <label htmlFor="search">Search for a Drugstore</label>
+    // <input type="text" value={props.inputValue} 
+
     <div class = "grocery-container">
         <table className = "m-table">
         <thead>
@@ -53,11 +64,22 @@ function Drugstore(props){
           <th onClick = {e => onSort(e, 'hours')}>Hours</th>
         </thead>
         <tbody>
-            { data && <td>{data.name}</td> }
+            {/* { data && <td>{data.name}</td> }
             { data && <td>{data.address}</td> }
             { data && <td>{data.businessStatus}</td> }
             { data && <td>{data.gMapURL}</td> }
-            { data && <td>{data.openingHours}</td> }
+            { data && <td>{data.openingHours}</td> } */}
+            
+            const drugstores = Information.map(data =>  {
+              
+              <td>{data.name}</td>
+              <td>{data.address}</td>
+              <td>{data.businessStatus}</td>
+              <td>{data.gMapURL}</td>
+              <td>{data.openingHours}</td>
+              
+            })
+            
         </tbody>
       </table>
       <Map
@@ -128,5 +150,5 @@ function Drugstore(props){
 // }
 GoogleApiWrapper({
   apiKey: 'AIzaSyAYVNrhNbNDCs08puZcbPtPfXXj1sH61x8'
-})(Restaurant);
+})(Drugstore);
 export default Drugstore;
