@@ -251,6 +251,10 @@ export class About extends Component {
                       <td><a href=" https://gitlab.com/nayan1222/covid-fighter/-/blob/master/tests.py">Unit Tests</a></td>
                       <td>A link to unit tests on gitlab, testing our database. </td>
                     </tr>
+                    <tr>
+                      <td><a href="https://speakerdeck.com/">Speaker Deck</a></td>
+                      <td>A link to Speaker Deck, showing our group's presentation. </td>
+                    </tr>
                   </tbody>
                 </table>
         </div>
