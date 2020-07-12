@@ -41,6 +41,20 @@ class DBTestCases(TestCase):
     def test_city_6(self):
         r6 = db.session.query(City).filter_by(name = 'Minneapolis').all()
         self.assertEqual(len(r6), 0)
+        
+    def test_city_7(self):
+        r7 = db.session.query(City).filter_by(name = 'Laredo').all()
+        self.assertEqual(r7[0].state, 'TX')
+        
+    def test_city_8(self):
+        r8 = db.session.query(City).filter_by(id = '10').all()
+        self.assertEqual(r8[0].name, 'San Jose')
+        
+    def test_city_9(self):
+        r9 = db.session.query(City).filter_by(name = 'Corpus Christi').all()
+        self.assertEqual(len(r9), 0)
+        
+    
     
     def test_hospital_1(self):
         r = db.session.query(Hospital).filter_by(id = 'ChIJpYoZlyJawokRv65psH6e2pI').all()
