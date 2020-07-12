@@ -24,7 +24,7 @@ let repo_issues = 0;
 
 export class About extends Component {
   shoot() {
-    alert(".........\nRan 9 tests in 0.922s\nOK");
+    alert("..............\nRan 14 tests in 2.411s\nOK");
   }
   gitlabtests(){
     window.location.href = "https://gitlab.com/nayan1222/covid-fighter/-/blob/master/tests.py";
@@ -123,7 +123,7 @@ export class About extends Component {
                     <p>
                       Commits: {this.state.KewenCommits} <br></br>
                       Issues: {this.state.KewenIssues}<br></br>
-                      Unit Tests: 0
+                      Unit Tests: 5
                     </p>
                   </div>
                 </div>
@@ -297,7 +297,7 @@ export class About extends Component {
             <img src={gitlab} style={tool} alt = "gitlab"></img>
             <img src={issue} style={tool} alt = "issue"></img>
             <img src={test} style={tool} alt = "test"></img>
-            <Row className="about-row" style={{ marginTop: '1rem'}}>Total Commits: {repo_commits} / Total Issues: {repo_issues} / Total Tests: 9</Row>
+            <Row className="about-row" style={{ marginTop: '1rem'}}>Total Commits: {repo_commits} / Total Issues: {repo_issues} / Total Tests: 14</Row>
           </div>
 
           <br></br>
