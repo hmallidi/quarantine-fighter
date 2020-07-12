@@ -51,8 +51,13 @@ class DBTestCases(TestCase):
         self.assertEqual(r8[0].name, 'San Jose')
         
     def test_city_9(self):
-        r9 = db.session.query(City).filter_by(name = 'Corpus Christi').all()
+        #shouldn't be in the database
+        r9 = db.session.query(City).filter_by(name = 'Washington DC').all()
         self.assertEqual(len(r9), 0)
+        
+    def test_city_10(self):
+        r10 = db.session.query(City).filter_by(name = 'Bakersfield').all()
+        self.assertEqual(r10[0].state, 'CA')
         
     
     
