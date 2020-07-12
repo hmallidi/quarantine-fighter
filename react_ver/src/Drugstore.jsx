@@ -32,8 +32,9 @@ function Drugstore(props){
 
 
   useEffect(()=> {
-    axios.get('/api/Drugstore/?name' + searchName + '=&city=' + searchCity).then((result) => {
+    axios.get('/drugstore/?name' + searchName + '=&city=' + searchCity).then((result) => {
     // axios.get('/api/Drugstore/?name=&city=Austin').then((result) => {
+      console.log("Hello");
       console.log(result)
       console.log(result.data);
       setData(result.data);
@@ -60,7 +61,7 @@ function Drugstore(props){
   return (
     //form that represents the search bars
     <div>
-      <form action="/Restaurant" method="post">
+      <form action="/drugstore" method="post">
         {/* search by city or by name */}
         <input type="text" name="searchInput" value={searchCity} onChange={getCityInput} placeholder="Search by City"></input>
         <input type="text" name="searchInput" value={searchName} onChange={getNameInput} placeholder="Search by Name"></input>

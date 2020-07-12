@@ -35,6 +35,7 @@ def drugstore():
     """
         grocery page, contains open/close status and general info for each grocery stores listed
     """
+    print("In Flask /drugstore")
     name = request.args.get("name")
     city = request.args.get("city")
 
