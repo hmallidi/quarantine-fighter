@@ -38,8 +38,10 @@ status:
 # run locally
 local run: models.py
 	python models.py
+.PHONY: models
 models.html: models.py
 	$(PYDOC) -w models
+.PHONY: IDB3.log
 IDB3.log:
 	git log --use-mailmap > IDB3.log
 versions:
