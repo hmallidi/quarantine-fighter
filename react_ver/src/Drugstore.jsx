@@ -37,7 +37,6 @@ function Drugstore(props){
       console.log(result)
       console.log(result.data);
       setData(result.data);
-      // console.log(state.data);
     });
   }, [] )
 
@@ -59,17 +58,15 @@ function Drugstore(props){
   // }
   // what’s being returned
   return (
-    //form that represents the search bar
+    //form that represents the search bars
     <div>
       <form action="/Restaurant" method="post">
-        {/* search by city */}
+        {/* search by city or by name */}
         <input type="text" name="searchInput" value={searchCity} onChange={getCityInput} placeholder="Search by City"></input>
         <input type="text" name="searchInput" value={searchName} onChange={getNameInput} placeholder="Search by Name"></input>
         <button>Search!</button>
       </form>
     </div>
-    // <label htmlFor="search">Search for a Drugstore</label>
-    // <input type="text" value={props.inputValue} 
 
     // <div class = "grocery-container">
     //     <table className = "m-table">
