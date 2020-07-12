@@ -15,29 +15,36 @@ const mapStyles = {
 function Drugstore(props){
   const [search, setSearch] = useState(""); // search is null to start with
     
+  //data encapsulates all of the fields below it, so those aren't necessary
   const [data, setData] = useState();
-  const [id, setID] = useState("");
-  const [name, setName] = useState("");
-  const [address, setAddress] = useState("");
-  const [zipcode, setZipcode] = useState("");
-  const [latitude, setLatitude] = useState(0.0);
-  const [longitude, setLongitude] = useState(0.0);
-  const [openingHours, setOpeningHours] = useState("");
-  const [businessStatus, seBusinessStatus] = useState("");
-  const [gMapURL, setGMapURL] = useState("");
-  const [cityID, setCityID] = useState(0);
+
+  // const [id, setID] = useState("");
+  // const [name, setName] = useState("");
+  // const [address, setAddress] = useState("");
+  // const [zipcode, setZipcode] = useState("");
+  // const [latitude, setLatitude] = useState(0.0);
+  // const [longitude, setLongitude] = useState(0.0);
+  // const [openingHours, setOpeningHours] = useState("");
+  // const [businessStatus, seBusinessStatus] = useState("");
+  // const [gMapURL, setGMapURL] = useState("");
+  // const [cityID, setCityID] = useState(0);
 
 
-  // useEffect(()=> {
-  //   setSearch(searchInput);
-  //   axios.get('/api/Drugstore/?name=' + search).then((result) => {
-  //   // axios.get('/api/Drugstore/?name=&city=Austin').then((result) => {
-  //     console.log(result)
-  //     console.log(result.data);
-  //     setData(result.data);
-  //     console.log(state.data);
-  //   });
-  // }, [] )
+  useEffect(()=> {
+    axios.get('/api/Drugstore/?name=&city=' + search).then((result) => {
+    // axios.get('/api/Drugstore/?name=&city=Austin').then((result) => {
+      console.log(result)
+      console.log(result.data);
+      setData(result.data);
+      // console.log(state.data);
+    });
+  }, [] )
+
+  //function to set the search variable to the input of the form
+  const getInput = event => {
+    setSearch(event.target.value);
+    console.log(search);
+  };
 
   // const onSort = (event, sortKey) => {
   //   const data = state.data;
@@ -48,7 +55,8 @@ function Drugstore(props){
   return (
     //form that represents the search bar
     <form action="/Restaurant" method="post">
-      <input type="text" name="searchInput" value={search} ></input>
+      {/* value={search} sets the search bar input to the search variable */}
+      <input type="text" name="searchInput" value={search} onChange={getInput} placeholder="Search by City name"></input>
       <button>Search!</button>
     </form>
     // <label htmlFor="search">Search for a Drugstore</label>
