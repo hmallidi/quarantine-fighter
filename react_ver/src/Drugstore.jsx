@@ -6,6 +6,7 @@ import { NavLink } from "react-router-dom";
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import axios from 'axios';
+import ReactDOM from "react-dom";
 
 const mapStyles = {
   width: '50%',
@@ -84,16 +85,14 @@ function Drugstore(props){
     //         { data && <td>{data.businessStatus}</td> }
     //         { data && <td>{data.gMapURL}</td> }
     //         { data && <td>{data.openingHours}</td> } */}
-            
-    //         const drugstores = Information.map(data =>  {
-              
-    //           <td>{data.name}</td>
-    //           <td>{data.address}</td>
-    //           <td>{data.businessStatus}</td>
-    //           <td>{data.gMapURL}</td>
-    //           <td>{data.openingHours}</td>
-              
-    //         })
+
+    //         {data.map(item => (
+    //           <td>item.name</td>
+    //           <td>item.address</td>
+    //           <td>item.businessStatus</td>
+    //           <td>item.gMapURL</td>
+    //           <td>item.openingHours</td>
+    //         ))}
             
     //     </tbody>
     //   </table>

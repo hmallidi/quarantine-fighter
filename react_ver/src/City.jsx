@@ -14,17 +14,20 @@ const mapStyles = {
 
 // function made from the Grocery class below
 function Grocery(props){
+  //variables for search parameters
+  const [searchName, setSearchName] = useState("");
+
   //variables, change all vars to const or let
-  var [data, setData] = useState();
-  var [id, setID] = useState(0);
-  var [name, setName] = useState("");
-  var [state, setState] = useState("");
-  var [latitude, setLatitude] = useState(0.0);
-  var [longitude, setLongitude] = useState(0.0);
-  var [popuation, setPopulation] = useState(0); 
+  const [data, setData] = useState();
+  const [id, setID] = useState(0);
+  const [name, setName] = useState("");
+  const [state, setState] = useState("");
+  const [latitude, setLatitude] = useState(0.0);
+  const [longitude, setLongitude] = useState(0.0);
+  const [popuation, setPopulation] = useState(0); 
 
   useEffect(()=> {
-
+    // axios.get('/api/City/?name=' + searchName).then((result) => {
     axios.get('/api/City/1').then((result) => {
       console.log(result)
       console.log(result.data);
@@ -36,8 +39,12 @@ function Grocery(props){
 
   }, []  )
 
+  //stores the input for searching by city name
+  const getNameInput = event => {
+    setSearchName(event.target.value);
+    console.log(searchName);
+  };
 
-  
 
   /*componentDidMount = () => {
     fetch("http://localhost:5000/api/City/1")
@@ -70,7 +77,15 @@ function Grocery(props){
 
   // what's being returned
   return (
-    <div class = "grocery-container">
+    <div>
+      {/* Form for searching a city */}
+      <form action="/api/City/" method="post">
+        {/* search by city name */}
+        <input type="text" name="searchInput" value={searchName} onChange={getNameInput} placeholder="Search by City Name"></input>
+        <button>Search!</button>
+      </form>
+
+      <div class = "grocery-container">
         <table className = "m-table">
         <thead>
           <th onClick = {e => onSort(e, 'name')}> Name </th>
@@ -108,7 +123,8 @@ function Grocery(props){
           style={mapStyles}
           initialCenter={{ lat: 47.444, lng: -122.176}}
         />
-      </div> 
+      </div>
+    </div> 
   );
 
 };
