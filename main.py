@@ -573,7 +573,7 @@ def getDrugstoreById(drugstore_id: str):
         return jsonify(error_dict), 500
 
 
-# @app.route("/api/City/all/")
+@app.route("/api/City/all/")
 def getAllCities():
     cities_dict = {'cities': list()}
     city_result = db.session.query(City).all()
@@ -582,18 +582,15 @@ def getAllCities():
         return jsonify({}), 200
 
     for city in city_result:
-        city_dict = {"id": city.id, "name": city.name, "state": city.state,
+        city_dict = {"name": city.name, "state": city.state,
                      "latitude": city.latitude, "longitude": city.longitude,
-                     "population": city.population,
-                     "hospitals": [hospital.id for hospital in city.hospitals],
-                     "drugstores": [drugstore.id for drugstore in city.drugstores]}
+                     "population": city.population}
 
         cities_dict['cities'].append(city_dict)
 
-    return jsonify(cities_dict), 200
+    return jsonify(cities_dict['cities']), 200
 
-
-# @app.route("/api/Hospital/all/")
+@app.route("/api/Hospital/all/")
 def getAllHospitals():
     hospitals_dict = {'hospitals': list()}
     hospital_results = db.session.query(Hospital).all()
@@ -602,17 +599,16 @@ def getAllHospitals():
         return jsonify({}), 200
 
     for hospital in hospital_results:
-        hospital_dict = {'id': hospital.id, 'name': hospital.name, 'address': hospital.address, 'zipcode': hospital.zipcode, 'latitude': hospital.latitude,
-                         'longitude': hospital.longitude, 'opening_hours': hospital.opening_hours, 'business_status': hospital.business_status,
-                         'google_maps_url': hospital.google_maps_url, 'city_id': hospital.city_id,
-                         'drugstores_nearby': [drugstore.id for drugstore in hospital.drugstores_nearby]}
+        hospital_dict = {'name': hospital.name, 'address': hospital.address, 
+                         'opening_hours': hospital.opening_hours.splitlines(), 'business_status': hospital.business_status,
+                         'google_maps_url': hospital.google_maps_url }
 
         hospitals_dict['hospitals'].append(hospital_dict)
 
-    return jsonify(hospitals_dict), 200
+    return jsonify(hospitals_dict['hospitals']), 200
 
 
-# @app.route("/api/Drugstore/all/")
+@app.route("/api/Drugstore/all/")
 def getAllDrugstores():
     drugstores_dict = {'drugstores': list()}
     drugstore_results = db.session.query(Drugstore).all()
@@ -621,14 +617,13 @@ def getAllDrugstores():
         return jsonify({}), 200
 
     for drugstore in drugstore_results:
-        drugstore_dict = {'id': drugstore.id, 'name': drugstore.name, 'address': drugstore.address, 'zipcode': drugstore.zipcode, 'latitude': drugstore.latitude,
-                          'longitude': drugstore.longitude, 'opening_hours': drugstore.opening_hours, 'business_status': drugstore.business_status,
-                          'google_maps_url': drugstore.google_maps_url, 'city_id': drugstore.city_id,
-                          'hospitals_nearby': [hospital.id for hospital in drugstore.hospitals_nearby]}
+        drugstore_dict = {'name': drugstore.name, 'address': drugstore.address, 
+                           'opening_hours': drugstore.opening_hours.splitlines(), 'business_status': drugstore.business_status,
+                          'google_maps_url': drugstore.google_maps_url, }
 
         drugstores_dict['drugstores'].append(drugstore_dict)
 
-    return jsonify(drugstores_dict), 200
+    return jsonify(drugstores_dict['drugstores']), 200
 
 
 #@app.route(app.static_url_path)
@@ -641,5 +636,5 @@ def serve():
 
 if __name__ == "__main__":
     app.debug = True
-    # os.system('npm start')
+    os.system('cd react_ver; npm run build; cd ..')
     app.run()

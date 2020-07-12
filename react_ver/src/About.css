@@ -1,7 +1,7 @@
 .space{
     height: 90px;
 }
-h2, p, ul, li {
+h2, p, ul{
     font-family:Taviraj;
     color: rgb(178, 34, 34);
 }
@@ -11,6 +11,18 @@ h4 {
 }
 a {
     color:rgb(178, 34, 34);
+}
+
+li {
+    font-family:Taviraj;
+    color:black;
+    list-style: none;
+}
+
+p{
+    font-family:Taviraj;
+    color:black;
+    list-style: none;
 }
 
 a:hover {

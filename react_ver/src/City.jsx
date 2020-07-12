@@ -6,6 +6,7 @@ import { NavLink } from "react-router-dom";
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import axios from "axios";
+import { MDBDataTable } from 'mdbreact';
 
 const mapStyles = {
   width: '50%',
@@ -29,6 +30,7 @@ function Grocery(props){
   useEffect(()=> {
      axios.get(getURL()).then((result) => {
     //axios.get('/api/City/1').then((result) => {
+
       console.log(result)
       console.log(result.data);
 
@@ -76,65 +78,106 @@ function Grocery(props){
   }
 
   const getURL = () => {
-    var replaceName = searchName.replace(' ', '+');
-    var searchString = '/api/City/?name='.concat(replaceName);
+    //var replaceName = searchName.replace(' ', '+');
+    //var searchString = '/api/City/?name='.concat(replaceName);
+    var searchString  = '/api/City/all/';
     console.log(searchString);
     return searchString;
   }
 
-  // what's being returned
+
+
+  const testData = {
+    columns: [
+      {
+        label: 'Name',
+        field: 'name',
+        sort: 'asc',
+        width: 150
+      },
+      {
+        label: 'State',
+        field: 'state',
+        sort: 'asc',
+        width: 270
+      },
+      {
+        label: 'Latitude',
+        field: 'latitude',
+        sort: 'asc',
+        width: 200
+      },
+      {
+        label: 'Longitude',
+        field: 'longitude',
+        sort: 'asc',
+        width: 100
+      },
+      {
+        label: 'Population',
+        field: 'population',
+        sort: 'asc',
+        width: 150
+      }
+    ],
+    rows: data
+  };
+
   return (
-    <div>
-      {/* Form for searching a city */}
-
-
-      <form action= {getURL()} method="post">
-        {/* search by city name */}
-        <input type="text" name="searchInput" value={searchName} onChange={getNameInput} placeholder="Search by City Name"></input>
-        <button>Search!</button>
-      </form>
-
-      <div class = "grocery-container">
-        <table className = "m-table">
-        <thead>
-          <th onClick = {e => onSort(e, 'name')}> Name </th>
-          <th onClick = {e => onSort(e, 'address')}>Address</th>
-          <th onClick = {e => onSort(e, 'phoneNumber')}>Phone Number</th>
-          <th onClick = {e => onSort(e, 'website')}>Website</th>
-          <th onClick = {e => onSort(e, 'hours')}>Hours</th>
-        </thead>
-        <tbody>
-            
-            {data && <td>{data.name}</td>}
-            {data && <td>{data.id}</td>}
-            {data && <td>{data.state}</td>}
-            {data && <td>{data.latitude}</td>}
-            {data && <td>{data.longitude}</td>}
-            {data && <td>{data.popuation}</td>}
-              
-              {
-              // var values = Object.entries(data);
-              
-              // for (const [key, value] of values) {
-              //    setName(values[0]);
-              //    setID(values[1]);
-              // }
-
-            }
-          
-        </tbody>
-        
-      </table>  
-
-      <Map
-          google={props.google}
-          zoom={8}
-          style={mapStyles}
-          initialCenter={{ lat: 47.444, lng: -122.176}}
-        />
-      </div>
-    </div> 
+    <MDBDataTable
+      striped
+      bordered
+      small
+      data={testData}
+    />
   );
+
+  // // what's being returned
+  // return (
+  //   <div>
+  //     {/* Form for searching a city */}
+
+  //     <div class = "grocery-container">
+  //       <table className = "m-table">
+  //       <thead>
+  //         <th onClick = {e => onSort(e, 'name')}> Name </th>
+  //         <th onClick = {e => onSort(e, 'address')}>Address</th>
+  //         <th onClick = {e => onSort(e, 'phoneNumber')}>Phone Number</th>
+  //         <th onClick = {e => onSort(e, 'website')}>Website</th>
+  //         <th onClick = {e => onSort(e, 'hours')}>Hours</th>
+  //       </thead>
+  //       <tbody>
+            
+  //           {data && <td>{data.name}</td>}
+  //           {data && <td>{data.id}</td>}
+  //           {data && <td>{data.state}</td>}
+  //           {data && <td>{data.latitude}</td>}
+  //           {data && <td>{data.longitude}</td>}
+  //           {data && <td>{data.popuation}</td>}
+              
+  //             {
+  //             // var values = Object.entries(data);
+              
+  //             // for (const [key, value] of values) {
+  //             //    setName(values[0]);
+  //             //    setID(values[1]);
+  //             // }
+
+  //           }
+          
+  //       </tbody>
+        
+  //     </table>  
+
+  //     <Map
+  //         google={props.google}
+  //         zoom={8}
+  //         style={mapStyles}
+  //         initialCenter={{ lat: 47.444, lng: -122.176}}
+  //       />
+  //     </div>
+  //   </div> 
+  // );
 
 };
 

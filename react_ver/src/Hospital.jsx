@@ -1,76 +1,106 @@
-import React, { Component } from "react";
+import React, { Component, useState, useEffect } from "react";
 import { Map, GoogleApiWrapper } from "google-maps-react";
 import { Route } from "react-router-dom";
 import { HashRouter } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
+import axios from 'axios';
+import ReactDOM from "react-dom";
+import { MDBDataTable } from 'mdbreact';
 
 const mapStyles = {
   width: '50%',
   height: '50%'
 };
 
-class Healthcare extends Component {
+function Hospital(props){
+  const [searchCity, setSearchCity] = useState(""); // search is null to start with
+  const [searchName, setSearchName] = useState("");
+    
+  //data encapsulates all of the fields below it, so those aren't necessary
+  const [data, setData] = useState();
 
-  constructor (props) {
-    super(props)
-    this.state = {data: [] };
-    this.onSort = this.onSort.bind(this)
+  useEffect(()=> {
+    axios.get(getURL()).then((result) => {
+   //axios.get('/api/City/1').then((result) => {
+     console.log(result)
+     console.log(result.data);
+
+     for (var index = 0; index < result.data.length; index++) {
+
+        result.data[index].google_maps_url =  <a href={result.data[index].google_maps_url} > Open Google Maps </a>
+        for(var openingIndex = 0; openingIndex < result.data[index].opening_hours.length; openingIndex++){
+          result.data[index].opening_hours[openingIndex] = <li> {result.data[index].opening_hours[openingIndex]} </li>
+        }
+     
+      }
+
+     // setState({ data: result.data});
+     setData(result.data);
+   });
+
+  }, []  )
+
+  const getURL = () => {
+    //var replaceName = searchName.replace(' ', '+');
+    //var searchString = '/api/City/?name='.concat(replaceName);
+    var searchString  = '/api/Hospital/all/';
+    console.log(searchString);
+    return searchString;
   }
 
-  componentDidMount() {
-    fetch("http://localhost:5000/api/City/1")
-      .then(function(response) {
-        return response.json();
-      })
-      .then(items => this.setState({data: items}));
-  }
 
-  onSort(event, sortKey) {
-    const data = this.state.data;
-    data.sort((a, b) => a[sortKey].localeCompare(b[sortKey]))
-    this.setState({data})
-  }
+  const testData = {
+    columns: [
+      {
+        label: 'Name',
+        field: 'name',
+        sort: 'asc',
+        width: 150
+      },
+      {
+        label: 'Address',
+        field: 'address',
+        sort: 'asc',
+        width: 270
+      },
+      {
+        label: 'Opening Hours',
+        field: 'opening_hours',
+        sort: 'asc',
+        width: 100
+      },
+      {
+        label: 'Business Status',
+        field: 'business_status',
+        sort: 'asc',
+        width: 150
+      },
+      {
+        label: 'Google Maps URL',
+        field: 'google_maps_url',
+        sort: 'asc',
+        width: 150
+      }
+    ],
+    rows: data
+  };
 
-  render() {
-    var newdata = this.state.data;
-    return (
-      <div class = "hospital-container">
-          <table className = "m-table">
-        <thead>
-          <th onClick = {e => this.onSort(e, 'name')}>Name</th>
-          <th onClick = {e => this.onSort(e, 'address')}>Address</th>
-          <th onClick = {e => this.onSort(e, 'phoneNumber')}>Phone Number</th>
-          <th onClick = {e => this.onSort(e, 'website')}>Website</th>
-          <th onClick = {e => this.onSort(e, 'hours')}>Hours</th>
-        </thead>
-        <tbody>
-          {newdata.map(function(hospital, index) {
-            return (
-              <tr key={index} data-item={hospital}>
-                <td data-title="Name">{hospital.name}</td>
-                <td data-title="Address">{hospital.address}</td>
-                <td data-title="Phone Number">{hospital.phoneNumber}</td>
-                <td data-title="Website">{hospital.website}</td>
-                <td data-title="Hours">{hospital.hours}</td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-      <Map
-          google={this.props.google}
-          zoom={8}
-          style={mapStyles}
-          initialCenter={{ lat: 47.444, lng: -122.176}}
-        />
-      </div>
-      //</HashRouter>
-    );
-  }
-}
+ 
+
+  return (
+    <MDBDataTable
+      striped
+      bordered
+      small
+      data={testData}
+    />
+  );
+
+};
+
 GoogleApiWrapper({
   apiKey: 'AIzaSyAYVNrhNbNDCs08puZcbPtPfXXj1sH61x8'
-})(Healthcare);
-export default Healthcare;
+})(Hospital);
+export default Hospital;
