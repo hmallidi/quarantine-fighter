@@ -13,82 +13,96 @@ const mapStyles = {
 };
 
 function Drugstore(props){
-  const [search, setSearch] = useState(""); // search is null to start with
+  const [searchCity, setSearchCity] = useState(""); // search is null to start with
+  const [searchName, setSearchName] = useState("");
     
+  //data encapsulates all of the fields below it, so those aren't necessary
   const [data, setData] = useState();
-  const [id, setID] = useState("");
-  const [name, setName] = useState("");
-  const [address, setAddress] = useState("");
-  const [zipcode, setZipcode] = useState("");
-  const [latitude, setLatitude] = useState(0.0);
-  const [longitude, setLongitude] = useState(0.0);
-  const [openingHours, setOpeningHours] = useState("");
-  const [businessStatus, seBusinessStatus] = useState("");
-  const [gMapURL, setGMapURL] = useState("");
-  const [cityID, setCityID] = useState(0);
+
+  // const [id, setID] = useState("");
+  // const [name, setName] = useState("");
+  // const [address, setAddress] = useState("");
+  // const [zipcode, setZipcode] = useState("");
+  // const [latitude, setLatitude] = useState(0.0);
+  // const [longitude, setLongitude] = useState(0.0);
+  // const [openingHours, setOpeningHours] = useState("");
+  // const [businessStatus, seBusinessStatus] = useState("");
+  // const [gMapURL, setGMapURL] = useState("");
+  // const [cityID, setCityID] = useState(0);
 
 
   useEffect(()=> {
-    //setSearch(searchInput);
-    axios.get('/api/Drugstore/?name=' + search).then((result) => {
+    axios.get('/api/Drugstore/?name' + searchName + '=&city=' + searchCity).then((result) => {
     // axios.get('/api/Drugstore/?name=&city=Austin').then((result) => {
       console.log(result)
       console.log(result.data);
       setData(result.data);
-      console.log(result.data);
     });
   }, [] )
 
-  const onSort = (event, sortKey) => {
-    const data = state.data;
-    data.sort((a, b) => a[sortKey].localeCompare(b[sortKey]))
-    setState({data})
-  }
+  //functions to set the search variable to the input of the form
+  const getCityInput = event => {
+    setSearchCity(event.target.value);
+    console.log(searchCity);
+  };
+
+  const getNameInput = event => {
+    setSearchName(event.target.value);
+    console.log(searchName);
+  };
+
+  // const onSort = (event, sortKey) => {
+  //   const data = state.data;
+  //   data.sort((a, b) => a[sortKey].localeCompare(b[sortKey]))
+  //   setState({data})
+  // }
   // what’s being returned
   return (
-    //form that represents the search bar
-    // <label htmlFor="search">Search for a Drugstore</label>
-    // <input type="text" value={props.inputValue} 
-    
-    <div class = "grocery-container">
+    //form that represents the search bars
+    <div>
       <form action="/Restaurant" method="post">
-        <input type="text" name="searchInput" value={search} ></input>
+        {/* search by city or by name */}
+        <input type="text" name="searchInput" value={searchCity} onChange={getCityInput} placeholder="Search by City"></input>
+        <input type="text" name="searchInput" value={searchName} onChange={getNameInput} placeholder="Search by Name"></input>
         <button>Search!</button>
       </form>
-    <table className = "m-table">
-    <thead>
-      <th onClick = {e => onSort(e, 'name')}> Name </th>
-      <th onClick = {e => onSort(e, 'address')}>Address</th>
-      <th onClick = {e => onSort(e, 'businessStatus')}>Business Status</th>
-      <th onClick = {e => onSort(e, 'gMapURL')}>Google Maps Link</th>
-      <th onClick = {e => onSort(e, 'hours')}>Hours</th>
-    </thead>
-    <tbody>
-        { data && <td>{data.name}</td> }
-        { data && <td>{data.address}</td> }
-        { data && <td>{data.businessStatus}</td> }
-        { data && <td>{data.gMapURL}</td> }
-        { data && <td>{data.openingHours}</td> }
+    </div>
+
+    // <div class = "grocery-container">
+    //     <table className = "m-table">
+    //     <thead>
+    //       <th onClick = {e => onSort(e, 'name')}> Name </th>
+    //       <th onClick = {e => onSort(e, 'address')}>Address</th>
+    //       <th onClick = {e => onSort(e, 'businessStatus')}>Business Status</th>
+    //       <th onClick = {e => onSort(e, 'gMapURL')}>Google Maps Link</th>
+    //       <th onClick = {e => onSort(e, 'hours')}>Hours</th>
+    //     </thead>
+    //     <tbody>
+    //         {/* { data && <td>{data.name}</td> }
+    //         { data && <td>{data.address}</td> }
+    //         { data && <td>{data.businessStatus}</td> }
+    //         { data && <td>{data.gMapURL}</td> }
+    //         { data && <td>{data.openingHours}</td> } */}
             
-      {/* const drugstores = Information.map(data =>  {
-        
-        <td>{data.name}</td>
-        <td>{data.address}</td>
-        <td>{data.businessStatus}</td>
-        <td>{data.gMapURL}</td>
-        <td>{data.openingHours}</td>
-        
-      }) */}
+    //         const drugstores = Information.map(data =>  {
+              
+    //           <td>{data.name}</td>
+    //           <td>{data.address}</td>
+    //           <td>{data.businessStatus}</td>
+    //           <td>{data.gMapURL}</td>
+    //           <td>{data.openingHours}</td>
+              
+    //         })
             
-      </tbody>
-      </table>
-      <Map
-          google={props.google}
-          zoom={8}
-          style={mapStyles}
-          initialCenter={{ lat: 47.444, lng: -122.176}}
-        />
-      </div>
+    //     </tbody>
+    //   </table>
+    //   <Map
+    //       google={props.google}
+    //       zoom={8}
+    //       style={mapStyles}
+    //       initialCenter={{ lat: 47.444, lng: -122.176}}
+    //     />
+    //   </div>
   );
 };
 
