@@ -64,11 +64,6 @@ function Drugstore(props){
       <form action="/Restaurant" method="post">
         {/* search by city */}
         <input type="text" name="searchInput" value={searchCity} onChange={getCityInput} placeholder="Search by City"></input>
-        <button>Search!</button>
-      </form>
-
-      <form action="/Restaurant" method="post">
-        {/* search by name */}
         <input type="text" name="searchInput" value={searchName} onChange={getNameInput} placeholder="Search by Name"></input>
         <button>Search!</button>
       </form>
