@@ -29,13 +29,13 @@ function Drugstore(props){
 
 
   useEffect(()=> {
-    setSearch(searchInput);
+    //setSearch(searchInput);
     axios.get('/api/Drugstore/?name=' + search).then((result) => {
     // axios.get('/api/Drugstore/?name=&city=Austin').then((result) => {
       console.log(result)
       console.log(result.data);
       setData(result.data);
-      console.log(state.data);
+      console.log(result.data);
     });
   }, [] )
 
@@ -47,40 +47,40 @@ function Drugstore(props){
   // what’s being returned
   return (
     //form that represents the search bar
-    <form action="/Restaurant" method="post">
-      <input type="text" name="searchInput" value={search} ></input>
-      <button>Search!</button>
-    </form>
     // <label htmlFor="search">Search for a Drugstore</label>
     // <input type="text" value={props.inputValue} 
-
+    
     <div class = "grocery-container">
-        <table className = "m-table">
-        <thead>
-          <th onClick = {e => onSort(e, 'name')}> Name </th>
-          <th onClick = {e => onSort(e, 'address')}>Address</th>
-          <th onClick = {e => onSort(e, 'businessStatus')}>Business Status</th>
-          <th onClick = {e => onSort(e, 'gMapURL')}>Google Maps Link</th>
-          <th onClick = {e => onSort(e, 'hours')}>Hours</th>
-        </thead>
-        <tbody>
-            {/* { data && <td>{data.name}</td> }
-            { data && <td>{data.address}</td> }
-            { data && <td>{data.businessStatus}</td> }
-            { data && <td>{data.gMapURL}</td> }
-            { data && <td>{data.openingHours}</td> } */}
+      <form action="/Restaurant" method="post">
+        <input type="text" name="searchInput" value={search} ></input>
+        <button>Search!</button>
+      </form>
+    <table className = "m-table">
+    <thead>
+      <th onClick = {e => onSort(e, 'name')}> Name </th>
+      <th onClick = {e => onSort(e, 'address')}>Address</th>
+      <th onClick = {e => onSort(e, 'businessStatus')}>Business Status</th>
+      <th onClick = {e => onSort(e, 'gMapURL')}>Google Maps Link</th>
+      <th onClick = {e => onSort(e, 'hours')}>Hours</th>
+    </thead>
+    <tbody>
+        { data && <td>{data.name}</td> }
+        { data && <td>{data.address}</td> }
+        { data && <td>{data.businessStatus}</td> }
+        { data && <td>{data.gMapURL}</td> }
+        { data && <td>{data.openingHours}</td> }
             
-            const drugstores = Information.map(data =>  {
-              
-              <td>{data.name}</td>
-              <td>{data.address}</td>
-              <td>{data.businessStatus}</td>
-              <td>{data.gMapURL}</td>
-              <td>{data.openingHours}</td>
-              
-            })
+      {/* const drugstores = Information.map(data =>  {
+        
+        <td>{data.name}</td>
+        <td>{data.address}</td>
+        <td>{data.businessStatus}</td>
+        <td>{data.gMapURL}</td>
+        <td>{data.openingHours}</td>
+        
+      }) */}
             
-        </tbody>
+      </tbody>
       </table>
       <Map
           google={props.google}
