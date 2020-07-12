@@ -141,7 +141,7 @@ export class About extends Component {
                     <p>
                     Commits: {this.state.AngelaCommits} <br></br>
                     Issues: {this.state.AngelaIssues}<br></br>
-                    Unit Tests: 0
+                    Unit Tests: 4
                     </p>
                   </div>
                 </div>
