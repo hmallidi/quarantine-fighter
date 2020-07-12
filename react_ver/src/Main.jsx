@@ -27,11 +27,11 @@ class Main extends Component {
 	          </ul>
 	          <div className="content">
 				  <Route exact path="/" component={Home}/>
-				  <Route path="/city" exact component={City}/>
-				  <Route path="/drugstore" exact component={Drugstore}/>
-				  <Route path="/hospital" exact component={Hospital}/>
-				  <Route path="/About" exact component={About}/>
-				  <Route path="/Group3" exact component={Group3}/>
+				  <Route exact path="/city" exact component={City}/>
+				  <Route exact path="/drugstore" exact component={Drugstore}/>
+				  <Route exact path="/hospital" exact component={Hospital}/>
+				  <Route exact path="/About" exact component={About}/>
+				  <Route exact path="/Group3" exact component={Group3}/>
 				</div>
 	        </div>
 	        

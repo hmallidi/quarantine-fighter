@@ -30,266 +30,266 @@ baseURL = "https://covidfighter-280919.nn.r.appspot.com/api"
 # """
 
 
-@app.route('/drugstore', methods=['GET', 'POST'])
-def drugstore():
-    """
-        grocery page, contains open/close status and general info for each grocery stores listed
-    """
-    print("In Flask /drugstore")
-    name = request.args.get("name")
-    city = request.args.get("city")
+# @app.route('/drugstore', methods=['GET', 'POST'])
+# def drugstore():
+#     """
+#         grocery page, contains open/close status and general info for each grocery stores listed
+#     """
+#     print("In Flask /drugstore")
+#     name = request.args.get("name")
+#     city = request.args.get("city")
 
-    drugstores_dict = dict()
-    empty_drugstore_list = []
+#     drugstores_dict = dict()
+#     empty_drugstore_list = []
 
-    if (name is None and city is None):
-        return render_template('drugstore.html', drugstore_list=empty_drugstore_list, city="", name="")
+#     if (name is None and city is None):
+#         return render_template('drugstore.html', drugstore_list=empty_drugstore_list, city="", name="")
 
-    name = name.strip(' ')
-    city = city.strip(' ')
+#     name = name.strip(' ')
+#     city = city.strip(' ')
 
-    drugstores_dict = getDrugstoresInsideByQuery(name=name, city=city)
+#     drugstores_dict = getDrugstoresInsideByQuery(name=name, city=city)
 
-    if "drugstores" not in drugstores_dict:
-        return render_template('drugstore.html', drugstore_list=empty_drugstore_list, city=city, name=name)
-    else:
-        for drugstore in drugstores_dict['drugstores']:
-            drugstore['opening_hours'] = drugstore['opening_hours'].splitlines()
+#     if "drugstores" not in drugstores_dict:
+#         return render_template('drugstore.html', drugstore_list=empty_drugstore_list, city=city, name=name)
+#     else:
+#         for drugstore in drugstores_dict['drugstores']:
+#             drugstore['opening_hours'] = drugstore['opening_hours'].splitlines()
 
-        return render_template('drugstore.html', drugstore_list=drugstores_dict['drugstores'], city=city, name=name)
+#         return render_template('drugstore.html', drugstore_list=drugstores_dict['drugstores'], city=city, name=name)
 
 
-def getDrugstoresInsideByQuery(name='', city=''):
-    drugstores_dict = {'drugstores': list()}
-    try:
-        if name == "" and city == "":
-            return {}
+# def getDrugstoresInsideByQuery(name='', city=''):
+#     drugstores_dict = {'drugstores': list()}
+#     try:
+#         if name == "" and city == "":
+#             return {}
 
-        elif name == "":
-            city_result = db.session.query(City).filter_by(name=city).all()
+#         elif name == "":
+#             city_result = db.session.query(City).filter_by(name=city).all()
 
-            if len(city_result) == 0:
-                return {}
+#             if len(city_result) == 0:
+#                 return {}
 
-            for city in city_result:
-                drugstore_results = db.session.query(Drugstore).filter_by(city_id=city.id).all()
+#             for city in city_result:
+#                 drugstore_results = db.session.query(Drugstore).filter_by(city_id=city.id).all()
 
-                if len(drugstore_results) == 0:
-                    return {}
+#                 if len(drugstore_results) == 0:
+#                     return {}
 
-                for drugstore in drugstore_results:
-                    drugstore_dict = {'id': drugstore.id, 'name': drugstore.name, 'address': drugstore.address, 'zipcode': drugstore.zipcode, 'latitude': drugstore.latitude,
-                                      'longitude': drugstore.longitude, 'opening_hours': drugstore.opening_hours, 'business_status': drugstore.business_status,
-                                      'google_maps_url': drugstore.google_maps_url, 'city_id': drugstore.city_id,
-                                      'hospitals_nearby': [hospital.id for hospital in drugstore.hospitals_nearby]}
+#                 for drugstore in drugstore_results:
+#                     drugstore_dict = {'id': drugstore.id, 'name': drugstore.name, 'address': drugstore.address, 'zipcode': drugstore.zipcode, 'latitude': drugstore.latitude,
+#                                       'longitude': drugstore.longitude, 'opening_hours': drugstore.opening_hours, 'business_status': drugstore.business_status,
+#                                       'google_maps_url': drugstore.google_maps_url, 'city_id': drugstore.city_id,
+#                                       'hospitals_nearby': [hospital.id for hospital in drugstore.hospitals_nearby]}
 
-                    drugstores_dict['drugstores'].append(drugstore_dict)
+#                     drugstores_dict['drugstores'].append(drugstore_dict)
 
-        elif city == "":
-            drugstore_results = db.session.query(Drugstore).filter_by(name=name).all()
+#         elif city == "":
+#             drugstore_results = db.session.query(Drugstore).filter_by(name=name).all()
 
-            if len(drugstore_results) == 0:
-                return {}
+#             if len(drugstore_results) == 0:
+#                 return {}
 
-            for drugstore in drugstore_results:
-                drugstore_dict = {'id': drugstore.id, 'name': drugstore.name, 'address': drugstore.address, 'zipcode': drugstore.zipcode, 'latitude': drugstore.latitude,
-                                  'longitude': drugstore.longitude, 'opening_hours': drugstore.opening_hours, 'business_status': drugstore.business_status,
-                                  'google_maps_url': drugstore.google_maps_url, 'city_id': drugstore.city_id,
-                                  'hospitals_nearby': [hospital.id for hospital in drugstore.hospitals_nearby]}
+#             for drugstore in drugstore_results:
+#                 drugstore_dict = {'id': drugstore.id, 'name': drugstore.name, 'address': drugstore.address, 'zipcode': drugstore.zipcode, 'latitude': drugstore.latitude,
+#                                   'longitude': drugstore.longitude, 'opening_hours': drugstore.opening_hours, 'business_status': drugstore.business_status,
+#                                   'google_maps_url': drugstore.google_maps_url, 'city_id': drugstore.city_id,
+#                                   'hospitals_nearby': [hospital.id for hospital in drugstore.hospitals_nearby]}
 
-                drugstores_dict['drugstores'].append(drugstore_dict)
+#                 drugstores_dict['drugstores'].append(drugstore_dict)
 
-        else:
-            city_result = db.session.query(City).filter_by(name=city).all()
+#         else:
+#             city_result = db.session.query(City).filter_by(name=city).all()
 
-            if len(city_result) == 0:
-                return {}
+#             if len(city_result) == 0:
+#                 return {}
 
-            for city in city_result:
-                drugstore_results = db.session.query(Drugstore).filter_by(city_id=city.id, name=name).all()
+#             for city in city_result:
+#                 drugstore_results = db.session.query(Drugstore).filter_by(city_id=city.id, name=name).all()
 
-                if len(drugstore_results) == 0:
-                    continue
+#                 if len(drugstore_results) == 0:
+#                     continue
 
-                for drugstore in drugstore_results:
-                    drugstore_dict = {'id': drugstore.id, 'name': drugstore.name, 'address': drugstore.address, 'zipcode': drugstore.zipcode, 'latitude': drugstore.latitude,
-                                      'longitude': drugstore.longitude, 'opening_hours': drugstore.opening_hours, 'business_status': drugstore.business_status,
-                                      'google_maps_url': drugstore.google_maps_url, 'city_id': drugstore.city_id,
-                                      'hospitals_nearby': [hospital.id for hospital in drugstore.hospitals_nearby]}
+#                 for drugstore in drugstore_results:
+#                     drugstore_dict = {'id': drugstore.id, 'name': drugstore.name, 'address': drugstore.address, 'zipcode': drugstore.zipcode, 'latitude': drugstore.latitude,
+#                                       'longitude': drugstore.longitude, 'opening_hours': drugstore.opening_hours, 'business_status': drugstore.business_status,
+#                                       'google_maps_url': drugstore.google_maps_url, 'city_id': drugstore.city_id,
+#                                       'hospitals_nearby': [hospital.id for hospital in drugstore.hospitals_nearby]}
 
-                    drugstores_dict['drugstores'].append(drugstore_dict)
+#                     drugstores_dict['drugstores'].append(drugstore_dict)
 
-        return drugstores_dict
-    except Exception:
-        return {}
+#         return drugstores_dict
+#     except Exception:
+#         return {}
 
 
-@app.route('/hospital', methods=['GET', 'POST'])
-def hospitals():
-    """
-        restaurants page, contains open/close status and general info for each restaurants listed
-    """
-    name = request.args.get("name")
-    city = request.args.get("city")
+# @app.route('/hospital', methods=['GET', 'POST'])
+# def hospitals():
+#     """
+#         restaurants page, contains open/close status and general info for each restaurants listed
+#     """
+#     name = request.args.get("name")
+#     city = request.args.get("city")
 
-    hospitals_dict = dict()
-    empty_hospital_list = []
+#     hospitals_dict = dict()
+#     empty_hospital_list = []
 
-    if (name is None) and (city is None):
-        return render_template('hospital.html', hospital_list=empty_hospital_list, city="", name="")
+#     if (name is None) and (city is None):
+#         return render_template('hospital.html', hospital_list=empty_hospital_list, city="", name="")
 
-    name = name.strip(' ')
-    city = city.strip(' ')
+#     name = name.strip(' ')
+#     city = city.strip(' ')
 
-    hospitals_dict = getHospitalsInsideByQuery(name=name, city=city)
+#     hospitals_dict = getHospitalsInsideByQuery(name=name, city=city)
 
-    if "hospitals" not in hospitals_dict:
-        return render_template('hospital.html', hospital_list=empty_hospital_list, city=city, name=name)
-    else:
-        for hospital in hospitals_dict['hospitals']:
-            hospital['opening_hours'] = hospital['opening_hours'].splitlines()
+#     if "hospitals" not in hospitals_dict:
+#         return render_template('hospital.html', hospital_list=empty_hospital_list, city=city, name=name)
+#     else:
+#         for hospital in hospitals_dict['hospitals']:
+#             hospital['opening_hours'] = hospital['opening_hours'].splitlines()
 
-        return render_template('hospital.html', hospital_list=hospitals_dict['hospitals'], city=city, name=name)
+#         return render_template('hospital.html', hospital_list=hospitals_dict['hospitals'], city=city, name=name)
 
 
-def getHospitalsInsideByQuery(name="", city=""):
-    hospitals_dict = {'hospitals': list()}
-    try:
-        if name is "" and city is "":
-            return {}
+# def getHospitalsInsideByQuery(name="", city=""):
+#     hospitals_dict = {'hospitals': list()}
+#     try:
+#         if name is "" and city is "":
+#             return {}
 
-        elif name is "":
-            city_result = db.session.query(City).filter_by(name=city).all()
+#         elif name is "":
+#             city_result = db.session.query(City).filter_by(name=city).all()
 
-            if len(city_result) == 0:
-                return {}
+#             if len(city_result) == 0:
+#                 return {}
 
-            for city in city_result:
-                hospital_results = db.session.query(Hospital).filter_by(city_id=city.id).all()
+#             for city in city_result:
+#                 hospital_results = db.session.query(Hospital).filter_by(city_id=city.id).all()
 
-                if len(hospital_results) == 0:
-                    continue
+#                 if len(hospital_results) == 0:
+#                     continue
 
-                for hospital in hospital_results:
-                    hospital_dict = {'id': hospital.id, 'name': hospital.name, 'address': hospital.address, 'zipcode': hospital.zipcode, 'latitude': hospital.latitude,
-                                     'longitude': hospital.longitude, 'opening_hours': hospital.opening_hours, 'business_status': hospital.business_status,
-                                     'google_maps_url': hospital.google_maps_url, 'city_id': hospital.city_id,
-                                     'drugstores_nearby': [drugstore.id for drugstore in hospital.drugstores_nearby]}
+#                 for hospital in hospital_results:
+#                     hospital_dict = {'id': hospital.id, 'name': hospital.name, 'address': hospital.address, 'zipcode': hospital.zipcode, 'latitude': hospital.latitude,
+#                                      'longitude': hospital.longitude, 'opening_hours': hospital.opening_hours, 'business_status': hospital.business_status,
+#                                      'google_maps_url': hospital.google_maps_url, 'city_id': hospital.city_id,
+#                                      'drugstores_nearby': [drugstore.id for drugstore in hospital.drugstores_nearby]}
 
-                    hospitals_dict['hospitals'].append(hospital_dict)
+#                     hospitals_dict['hospitals'].append(hospital_dict)
 
-        elif city == "":
-            hospital_results = db.session.query(Hospital).filter_by(name=name).all()
+#         elif city == "":
+#             hospital_results = db.session.query(Hospital).filter_by(name=name).all()
 
-            if len(hospital_results) == 0:
-                return {}
+#             if len(hospital_results) == 0:
+#                 return {}
 
-            for hospital in hospital_results:
-                hospital_dict = {'id': hospital.id, 'name': hospital.name, 'address': hospital.address, 'zipcode': hospital.zipcode, 'latitude': hospital.latitude,
-                                 'longitude': hospital.longitude, 'opening_hours': hospital.opening_hours, 'business_status': hospital.business_status,
-                                 'google_maps_url': hospital.google_maps_url, 'city_id': hospital.city_id,
-                                 'drugstores_nearby': [drugstore.id for drugstore in hospital.drugstores_nearby]}
+#             for hospital in hospital_results:
+#                 hospital_dict = {'id': hospital.id, 'name': hospital.name, 'address': hospital.address, 'zipcode': hospital.zipcode, 'latitude': hospital.latitude,
+#                                  'longitude': hospital.longitude, 'opening_hours': hospital.opening_hours, 'business_status': hospital.business_status,
+#                                  'google_maps_url': hospital.google_maps_url, 'city_id': hospital.city_id,
+#                                  'drugstores_nearby': [drugstore.id for drugstore in hospital.drugstores_nearby]}
 
-                hospitals_dict['hospitals'].append(hospital_dict)
+#                 hospitals_dict['hospitals'].append(hospital_dict)
 
-        else:
-            city_result = db.session.query(City).filter_by(name=city).all()
+#         else:
+#             city_result = db.session.query(City).filter_by(name=city).all()
 
-            if len(city_result) == 0:
-                return {}
+#             if len(city_result) == 0:
+#                 return {}
 
-            for city in city_result:
-                hospital_results = db.session.query(Hospital).filter_by(city_id=city.id, name=name).all()
+#             for city in city_result:
+#                 hospital_results = db.session.query(Hospital).filter_by(city_id=city.id, name=name).all()
 
-                if len(hospital_results) == 0:
-                    continue
+#                 if len(hospital_results) == 0:
+#                     continue
 
-                for hospital in hospital_results:
-                    hospital_dict = {'id': hospital.id, 'name': hospital.name, 'address': hospital.address, 'zipcode': hospital.zipcode, 'latitude': hospital.latitude,
-                                     'longitude': hospital.longitude, 'opening_hours': hospital.opening_hours, 'business_status': hospital.business_status,
-                                     'google_maps_url': hospital.google_maps_url, 'city_id': hospital.city_id,
-                                     'drugstores_nearby': [drugstore.id for drugstore in hospital.drugstores_nearby]}
+#                 for hospital in hospital_results:
+#                     hospital_dict = {'id': hospital.id, 'name': hospital.name, 'address': hospital.address, 'zipcode': hospital.zipcode, 'latitude': hospital.latitude,
+#                                      'longitude': hospital.longitude, 'opening_hours': hospital.opening_hours, 'business_status': hospital.business_status,
+#                                      'google_maps_url': hospital.google_maps_url, 'city_id': hospital.city_id,
+#                                      'drugstores_nearby': [drugstore.id for drugstore in hospital.drugstores_nearby]}
 
-                    hospitals_dict['hospitals'].append(hospital_dict)
+#                     hospitals_dict['hospitals'].append(hospital_dict)
 
-        return hospitals_dict
-    except Exception:
-        return []
+#         return hospitals_dict
+#     except Exception:
+#         return []
 
 
-@app.route('/city', methods=['GET', 'POST'])
-def city():
-    """
-        healthcare page, contains open/close status and general info for each healthcare listed
-    """
-    name = request.args.get("name")
+# @app.route('/city', methods=['GET', 'POST'])
+# def city():
+#     """
+#         healthcare page, contains open/close status and general info for each healthcare listed
+#     """
+#     name = request.args.get("name")
 
-    empty_city_list = []
-    if name is None:
-        city_list = list()
-        city_result = db.session.query(City).all()
+#     empty_city_list = []
+#     if name is None:
+#         city_list = list()
+#         city_result = db.session.query(City).all()
 
-        for city in city_result:
-            city_dict = {"id": city.id, "name": city.name, "state": city.state,
-                         "latitude": city.latitude, "longitude": city.longitude,
-                         "population": city.population,
-                         "hospitals": [hospital.id for hospital in city.hospitals],
-                         "drugstores": [drugstore.id for drugstore in city.drugstores]}
+#         for city in city_result:
+#             city_dict = {"id": city.id, "name": city.name, "state": city.state,
+#                          "latitude": city.latitude, "longitude": city.longitude,
+#                          "population": city.population,
+#                          "hospitals": [hospital.id for hospital in city.hospitals],
+#                          "drugstores": [drugstore.id for drugstore in city.drugstores]}
 
-            city_list.append(city_dict)
-        return render_template('city.html', city_list=city_list, name="") # changed from city.html
+#             city_list.append(city_dict)
+#         return render_template('city.html', city_list=city_list, name="") # changed from city.html
 
-    name = name.strip(' ')
+#     name = name.strip(' ')
 
-    cities_dict = getCitiesInsideByQuery(name=name)
+#     cities_dict = getCitiesInsideByQuery(name=name)
 
-    if "cities" not in cities_dict:
-        return render_template('city.html', city_list=empty_city_list, name=name)
-    else:
-        return render_template('city.html', city_list=cities_dict['cities'], name=name)
+#     if "cities" not in cities_dict:
+#         return render_template('city.html', city_list=empty_city_list, name=name)
+#     else:
+#         return render_template('city.html', city_list=cities_dict['cities'], name=name)
 
 
-def getCitiesInsideByQuery(name=''):
-    cities_dict = {'cities': list()}
-    try:
-        if name == '':
-            return {}
-        else:
-            city_result = db.session.query(City).filter_by(name=name).all()
+# def getCitiesInsideByQuery(name=''):
+#     cities_dict = {'cities': list()}
+#     try:
+#         if name == '':
+#             return {}
+#         else:
+#             city_result = db.session.query(City).filter_by(name=name).all()
 
-            if len(city_result) == 0:
-                return {}
+#             if len(city_result) == 0:
+#                 return {}
 
-            for city in city_result:
-                city_dict = {"id": city.id, "name": city.name, "state": city.state,
-                             "latitude": city.latitude, "longitude": city.longitude,
-                             "population": city.population,
-                             "hospitals": [hospital.id for hospital in city.hospitals],
-                             "drugstores": [drugstore.id for drugstore in city.drugstores]}
+#             for city in city_result:
+#                 city_dict = {"id": city.id, "name": city.name, "state": city.state,
+#                              "latitude": city.latitude, "longitude": city.longitude,
+#                              "population": city.population,
+#                              "hospitals": [hospital.id for hospital in city.hospitals],
+#                              "drugstores": [drugstore.id for drugstore in city.drugstores]}
 
-                cities_dict['cities'].append(city_dict)
+#                 cities_dict['cities'].append(city_dict)
 
-        return cities_dict
-    except Exception:
-        return {}
+#         return cities_dict
+#     except Exception:
+#         return {}
     
 
-@app.route('/about', methods=['GET', 'POST'])
-def about():
-    """
-        about page, contains introductions of each team memeber, data source used, and all the required
-    """
-    if request.method == 'POST':
-        os.system('coverage run --branch tests.py >  tests.out 2>&1')
-        output = open('tests.out', 'r')
-        results = output.readlines()
-        os.system('rm tests.out')
-        return render_template('about.html', results=results)
+# @app.route('/about', methods=['GET', 'POST'])
+# def about():
+#     """
+#         about page, contains introductions of each team memeber, data source used, and all the required
+#     """
+#     if request.method == 'POST':
+#         os.system('coverage run --branch tests.py >  tests.out 2>&1')
+#         output = open('tests.out', 'r')
+#         results = output.readlines()
+#         os.system('rm tests.out')
+#         return render_template('about.html', results=results)
 
-    return render_template('about.html', results=[])
+#     return render_template('about.html', results=[])
 
 
-# API ENDPOINTS FROM HERE ON DOWN #
+# # API ENDPOINTS FROM HERE ON DOWN #
 
 
 error_dict = {
@@ -298,9 +298,11 @@ error_dict = {
         }
 
 
-@app.route("/api/City/")
+@app.route("/api/City/", methods = ['GET', 'POST'])
 def getCitiesByQuery():
     name = request.args.get("name")
+    print('Name: ')
+    print(name)
     cities_dict = {'cities': list()}
     try:
         if name is None:

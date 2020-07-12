@@ -27,8 +27,8 @@ function Grocery(props){
   const [popuation, setPopulation] = useState(0); 
 
   useEffect(()=> {
-    // axios.get('/api/City/?name=' + searchName).then((result) => {
-    axios.get('/api/City/1').then((result) => {
+     axios.get(getURL()).then((result) => {
+    //axios.get('/api/City/1').then((result) => {
       console.log(result)
       console.log(result.data);
 
@@ -75,11 +75,20 @@ function Grocery(props){
     setState({data})
   }
 
+  const getURL = () => {
+    var replaceName = searchName.replace(' ', '+');
+    var searchString = '/api/City/?name='.concat(replaceName);
+    console.log(searchString);
+    return searchString;
+  }
+
   // what's being returned
   return (
     <div>
       {/* Form for searching a city */}
-      <form action="/api/City/" method="post">
+
+
+      <form action= {getURL()} method="post">
         {/* search by city name */}
         <input type="text" name="searchInput" value={searchName} onChange={getNameInput} placeholder="Search by City Name"></input>
         <button>Search!</button>
