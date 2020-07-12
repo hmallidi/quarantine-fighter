@@ -13,7 +13,8 @@ const mapStyles = {
 };
 
 function Drugstore(props){
-  const [search, setSearch] = useState(""); // search is null to start with
+  const [searchCity, setSearchCity] = useState(""); // search is null to start with
+  const [searchName, setSearchName] = useState("");
     
   //data encapsulates all of the fields below it, so those aren't necessary
   const [data, setData] = useState();
@@ -31,7 +32,7 @@ function Drugstore(props){
 
 
   useEffect(()=> {
-    axios.get('/api/Drugstore/?name=&city=' + search).then((result) => {
+    axios.get('/api/Drugstore/?name' + searchName + '=&city=' + searchCity).then((result) => {
     // axios.get('/api/Drugstore/?name=&city=Austin').then((result) => {
       console.log(result)
       console.log(result.data);
@@ -40,10 +41,15 @@ function Drugstore(props){
     });
   }, [] )
 
-  //function to set the search variable to the input of the form
-  const getInput = event => {
-    setSearch(event.target.value);
-    console.log(search);
+  //functions to set the search variable to the input of the form
+  const getCityInput = event => {
+    setSearchCity(event.target.value);
+    console.log(searchCity);
+  };
+
+  const getNameInput = event => {
+    setSearchName(event.target.value);
+    console.log(searchName);
   };
 
   // const onSort = (event, sortKey) => {
@@ -54,11 +60,19 @@ function Drugstore(props){
   // what’s being returned
   return (
     //form that represents the search bar
-    <form action="/Restaurant" method="post">
-      {/* value={search} sets the search bar input to the search variable */}
-      <input type="text" name="searchInput" value={search} onChange={getInput} placeholder="Search by City name"></input>
-      <button>Search!</button>
-    </form>
+    <div>
+      <form action="/Restaurant" method="post">
+        {/* search by city */}
+        <input type="text" name="searchInput" value={searchCity} onChange={getCityInput} placeholder="Search by City"></input>
+        <button>Search!</button>
+      </form>
+
+      <form action="/Restaurant" method="post">
+        {/* search by name */}
+        <input type="text" name="searchInput" value={searchName} onChange={getNameInput} placeholder="Search by Name"></input>
+        <button>Search!</button>
+      </form>
+    </div>
     // <label htmlFor="search">Search for a Drugstore</label>
     // <input type="text" value={props.inputValue} 
 
