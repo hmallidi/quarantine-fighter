@@ -297,6 +297,16 @@ error_dict = {
             'message': 'An error occurred'
         }
 
+@app.route('/test', methods=['GET', 'POST'])
+def test():
+    """
+        about page, contains introductions of each team memeber, data source used, and all the required
+    """
+    os.system('coverage run --branch tests.py >  tests.out 2>&1')
+    output = open('tests.out', 'r')
+    results = output.readlines()
+    return jsonify(results), 200
+
 
 @app.route("/api/City/", methods = ['GET', 'POST'])
 def getCitiesByQuery():

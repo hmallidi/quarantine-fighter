@@ -43,7 +43,7 @@ class DBTestCases(TestCase):
         self.assertEqual(len(r6), 0)
         
     def test_city_7(self):
-        r7 = db.session.query(City).filter_by(name = 'Laredo').all()
+        r7 = db.session.query(City).filter_by(name = 'Houston').all()
         self.assertEqual(r7[0].state, 'TX')
         
     def test_city_8(self):
@@ -56,7 +56,7 @@ class DBTestCases(TestCase):
         self.assertEqual(len(r9), 0)
         
     def test_city_10(self):
-        r10 = db.session.query(City).filter_by(name = 'Bakersfield').all()
+        r10 = db.session.query(City).filter_by(name = 'San Francisco').all()
         self.assertEqual(r10[0].state, 'CA')
         
     

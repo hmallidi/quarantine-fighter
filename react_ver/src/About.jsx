@@ -24,7 +24,20 @@ let repo_issues = 0;
 
 export class About extends Component {
   shoot() {
-    alert("..............\nRan 14 tests in 2.411s\nOK");
+    axios({
+      method: 'post',
+      url: '/test',
+    })
+
+    axios.get('/test')
+      .then(response => {
+        alert(response.data)
+      })
+      .catch(error => {
+        console.log(error);
+    });
+
+
   }
   gitlabtests(){
     window.location.href = "https://gitlab.com/nayan1222/covid-fighter/-/blob/master/tests.py";
