@@ -8,7 +8,7 @@ import clsx from 'clsx';
 import axios from "axios";
 import citypic from "./citypic.jpg"
 import { MDBDataTable } from 'mdbreact';
-import "./City.css";
+import "./subpage.css";
 
 
 // function made from the Grocery class below

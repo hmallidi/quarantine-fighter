@@ -8,6 +8,7 @@ import clsx from 'clsx';
 import axios from 'axios';
 import ReactDOM from "react-dom";
 import { MDBDataTable } from 'mdbreact';
+import "./subpage.css";
 
 const mapStyles = {
   width: '50%',
