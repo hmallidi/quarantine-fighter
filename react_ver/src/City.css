@@ -1,0 +1,11 @@
+.city_img  {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding-top: 1px;
+    padding-right: 5vw;
+    padding-bottom: 30px;
+    padding-left: 5vw;
+    height: 300px;
+    width: 100%;
+  }

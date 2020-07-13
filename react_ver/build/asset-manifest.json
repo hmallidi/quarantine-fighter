@@ -1,22 +1,23 @@
 {
   "files": {
-    "main.css": "/static/css/main.c2a8f11e.chunk.css",
-    "main.js": "/static/js/main.5fe1628a.chunk.js",
-    "main.js.map": "/static/js/main.5fe1628a.chunk.js.map",
+    "main.css": "/static/css/main.c054f843.chunk.css",
+    "main.js": "/static/js/main.6ece5891.chunk.js",
+    "main.js.map": "/static/js/main.6ece5891.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.9bbc073c.js",
     "runtime-main.js.map": "/static/js/runtime-main.9bbc073c.js.map",
-    "static/js/2.1d4a1ea0.chunk.js": "/static/js/2.1d4a1ea0.chunk.js",
-    "static/js/2.1d4a1ea0.chunk.js.map": "/static/js/2.1d4a1ea0.chunk.js.map",
+    "static/js/2.6f87b79d.chunk.js": "/static/js/2.6f87b79d.chunk.js",
+    "static/js/2.6f87b79d.chunk.js.map": "/static/js/2.6f87b79d.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.bf5815d1a554646f358b3e1e60f7bdd8.js": "/precache-manifest.bf5815d1a554646f358b3e1e60f7bdd8.js",
+    "precache-manifest.522f07aa97fadfa339d8e8757d3624ee.js": "/precache-manifest.522f07aa97fadfa339d8e8757d3624ee.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/main.c2a8f11e.chunk.css.map": "/static/css/main.c2a8f11e.chunk.css.map",
-    "static/js/2.1d4a1ea0.chunk.js.LICENSE.txt": "/static/js/2.1d4a1ea0.chunk.js.LICENSE.txt",
+    "static/css/main.c054f843.chunk.css.map": "/static/css/main.c054f843.chunk.css.map",
+    "static/js/2.6f87b79d.chunk.js.LICENSE.txt": "/static/js/2.6f87b79d.chunk.js.LICENSE.txt",
     "static/media/Hari.jpg": "/static/media/Hari.a6900bc8.jpg",
     "static/media/Kewen.jpg": "/static/media/Kewen.5a605e9e.jpg",
     "static/media/Nayan.jpg": "/static/media/Nayan.fddc367e.jpg",
     "static/media/Pranav.jpg": "/static/media/Pranav.f96312b4.jpg",
     "static/media/bootstrapIcon.png": "/static/media/bootstrapIcon.73844123.png",
+    "static/media/citypic.jpg": "/static/media/citypic.ee3f6b4d.jpg",
     "static/media/flaskIcon.png": "/static/media/flaskIcon.64f694ca.png",
     "static/media/gcpIcon.png": "/static/media/gcpIcon.764b7303.png",
     "static/media/postgresIcon.png": "/static/media/postgresIcon.6c9652ac.png",
@@ -24,8 +25,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.9bbc073c.js",
-    "static/js/2.1d4a1ea0.chunk.js",
-    "static/css/main.c2a8f11e.chunk.css",
-    "static/js/main.5fe1628a.chunk.js"
+    "static/js/2.6f87b79d.chunk.js",
+    "static/css/main.c054f843.chunk.css",
+    "static/js/main.6ece5891.chunk.js"
   ]
 }
