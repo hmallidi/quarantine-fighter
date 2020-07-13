@@ -1,32 +1,34 @@
 {
   "files": {
-    "main.css": "/static/css/main.c054f843.chunk.css",
-    "main.js": "/static/js/main.6ece5891.chunk.js",
-    "main.js.map": "/static/js/main.6ece5891.chunk.js.map",
+    "main.css": "/static/css/main.118bd058.chunk.css",
+    "main.js": "/static/js/main.6d40ba74.chunk.js",
+    "main.js.map": "/static/js/main.6d40ba74.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.9bbc073c.js",
     "runtime-main.js.map": "/static/js/runtime-main.9bbc073c.js.map",
-    "static/js/2.6f87b79d.chunk.js": "/static/js/2.6f87b79d.chunk.js",
-    "static/js/2.6f87b79d.chunk.js.map": "/static/js/2.6f87b79d.chunk.js.map",
+    "static/js/2.46fc5f1a.chunk.js": "/static/js/2.46fc5f1a.chunk.js",
+    "static/js/2.46fc5f1a.chunk.js.map": "/static/js/2.46fc5f1a.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.522f07aa97fadfa339d8e8757d3624ee.js": "/precache-manifest.522f07aa97fadfa339d8e8757d3624ee.js",
+    "precache-manifest.94cda9c607a9fbbd5fb74ff08ac55f13.js": "/precache-manifest.94cda9c607a9fbbd5fb74ff08ac55f13.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/main.c054f843.chunk.css.map": "/static/css/main.c054f843.chunk.css.map",
-    "static/js/2.6f87b79d.chunk.js.LICENSE.txt": "/static/js/2.6f87b79d.chunk.js.LICENSE.txt",
+    "static/css/main.118bd058.chunk.css.map": "/static/css/main.118bd058.chunk.css.map",
+    "static/js/2.46fc5f1a.chunk.js.LICENSE.txt": "/static/js/2.46fc5f1a.chunk.js.LICENSE.txt",
     "static/media/Hari.jpg": "/static/media/Hari.a6900bc8.jpg",
     "static/media/Kewen.jpg": "/static/media/Kewen.5a605e9e.jpg",
     "static/media/Nayan.jpg": "/static/media/Nayan.fddc367e.jpg",
     "static/media/Pranav.jpg": "/static/media/Pranav.f96312b4.jpg",
     "static/media/bootstrapIcon.png": "/static/media/bootstrapIcon.73844123.png",
     "static/media/citypic.jpg": "/static/media/citypic.ee3f6b4d.jpg",
+    "static/media/drugstore.jpg": "/static/media/drugstore.6e12ea24.jpg",
     "static/media/flaskIcon.png": "/static/media/flaskIcon.64f694ca.png",
     "static/media/gcpIcon.png": "/static/media/gcpIcon.764b7303.png",
+    "static/media/hospital.jpeg": "/static/media/hospital.a7b0f5be.jpeg",
     "static/media/postgresIcon.png": "/static/media/postgresIcon.6c9652ac.png",
     "static/media/reactIcon.png": "/static/media/reactIcon.638be909.png"
   },
   "entrypoints": [
     "static/js/runtime-main.9bbc073c.js",
-    "static/js/2.6f87b79d.chunk.js",
-    "static/css/main.c054f843.chunk.css",
-    "static/js/main.6ece5891.chunk.js"
+    "static/js/2.46fc5f1a.chunk.js",
+    "static/css/main.118bd058.chunk.css",
+    "static/js/main.6d40ba74.chunk.js"
   ]
 }

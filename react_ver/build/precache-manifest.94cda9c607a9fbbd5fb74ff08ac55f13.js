@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "5da4c043bca1d62e9577829b735bc09b",
+    "revision": "99d475b725004632c32cdbed5c7d4a72",
     "url": "/index.html"
   },
   {
-    "revision": "cfde43f65c5b9f6097c5",
-    "url": "/static/css/main.c054f843.chunk.css"
+    "revision": "12cd6c3672cbed95caf0",
+    "url": "/static/css/main.118bd058.chunk.css"
   },
   {
-    "revision": "05e84a82d2b7c96bb533",
-    "url": "/static/js/2.6f87b79d.chunk.js"
+    "revision": "0d673fdb2174be084d09",
+    "url": "/static/js/2.46fc5f1a.chunk.js"
   },
   {
     "revision": "bdfa2c3e6f6699725955bbe62a396cbc",
-    "url": "/static/js/2.6f87b79d.chunk.js.LICENSE.txt"
+    "url": "/static/js/2.46fc5f1a.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "cfde43f65c5b9f6097c5",
-    "url": "/static/js/main.6ece5891.chunk.js"
+    "revision": "12cd6c3672cbed95caf0",
+    "url": "/static/js/main.6d40ba74.chunk.js"
   },
   {
     "revision": "108b4d3f42300bdf4ed9",
@@ -48,12 +48,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/citypic.ee3f6b4d.jpg"
   },
   {
+    "revision": "6e12ea24191203f9b42cccb49f1ffdc5",
+    "url": "/static/media/drugstore.6e12ea24.jpg"
+  },
+  {
     "revision": "64f694ca8fe936e60f1a26837e9ee06c",
     "url": "/static/media/flaskIcon.64f694ca.png"
   },
   {
     "revision": "764b7303f084f49a1b3a24cef6944609",
     "url": "/static/media/gcpIcon.764b7303.png"
+  },
+  {
+    "revision": "a7b0f5be37f778c0aea5d0ee3e78575e",
+    "url": "/static/media/hospital.a7b0f5be.jpeg"
   },
   {
     "revision": "6c9652ac8b1975ec4f40bc0c2fe724c0",

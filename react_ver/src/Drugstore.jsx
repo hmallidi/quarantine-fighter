@@ -88,7 +88,7 @@ function Drugstore(props){
 
   return (
     <div>
-  <img src={drugstorepic} className={"subpage_img"} alt="city"/>
+  <img src={drugstorepic} className={"subpage_img"} alt="drugstore"/>
   <br></br>
   <br></br>
   <MDBDataTable

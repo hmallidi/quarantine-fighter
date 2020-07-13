@@ -88,7 +88,7 @@ function Hospital(props){
 
   return (
     <div>
-  <img src={hospitalpic} className={"subpage_img"} alt="city"/>
+  <img src={hospitalpic} className={"subpage_img"} alt="hospital"/>
   <br></br>
   <br></br>
   <MDBDataTable
