@@ -59,69 +59,79 @@ baseURL = "https://covidfighter-280919.nn.r.appspot.com/api"
 #         return render_template('drugstore.html', drugstore_list=drugstores_dict['drugstores'], city=city, name=name)
 
 
-# def getDrugstoresInsideByQuery(name='', city=''):
-#     drugstores_dict = {'drugstores': list()}
-#     try:
-#         if name == "" and city == "":
-#             return {}
+@app.route('/drugstore/search', methods=['GET', 'POST'])
+def getDrugstoresInsideByQuery():
+    name = request.args.get("name")
+    city = request.args.get("city")
 
-#         elif name == "":
-#             city_result = db.session.query(City).filter_by(name=city).all()
+    drugstores_dict = {'drugstores': list()}
+    try:
+        if name == "" and city == "":
+            return []
 
-#             if len(city_result) == 0:
-#                 return {}
+        elif name == "":
+            city = city.lower()
+            # city_result = db.session.query(City).filter_by(name=city).all()
+            city_result = db.session.query(City).filter_by(City.name.ilike("%" + city + "%")).all()
 
-#             for city in city_result:
-#                 drugstore_results = db.session.query(Drugstore).filter_by(city_id=city.id).all()
+            if len(city_result) == 0:
+                return []
 
-#                 if len(drugstore_results) == 0:
-#                     return {}
+            for city in city_result:
+                drugstore_results = db.session.query(Drugstore).filter_by(city_id=city.id).all()
 
-#                 for drugstore in drugstore_results:
-#                     drugstore_dict = {'id': drugstore.id, 'name': drugstore.name, 'address': drugstore.address, 'zipcode': drugstore.zipcode, 'latitude': drugstore.latitude,
-#                                       'longitude': drugstore.longitude, 'opening_hours': drugstore.opening_hours, 'business_status': drugstore.business_status,
-#                                       'google_maps_url': drugstore.google_maps_url, 'city_id': drugstore.city_id,
-#                                       'hospitals_nearby': [hospital.id for hospital in drugstore.hospitals_nearby]}
+                if len(drugstore_results) == 0:
+                    return []
 
-#                     drugstores_dict['drugstores'].append(drugstore_dict)
+                for drugstore in drugstore_results:
+                    drugstore_dict = {'id': drugstore.id, 'name': drugstore.name, 'address': drugstore.address, 'zipcode': drugstore.zipcode, 'latitude': drugstore.latitude,
+                                      'longitude': drugstore.longitude, 'opening_hours': drugstore.opening_hours, 'business_status': drugstore.business_status,
+                                      'google_maps_url': drugstore.google_maps_url, 'city_id': drugstore.city_id,
+                                      'hospitals_nearby': [hospital.id for hospital in drugstore.hospitals_nearby]}
 
-#         elif city == "":
-#             drugstore_results = db.session.query(Drugstore).filter_by(name=name).all()
+                    drugstores_dict['drugstores'].append(drugstore_dict)
 
-#             if len(drugstore_results) == 0:
-#                 return {}
+        elif city == "":
+            name = name.lower()
+            # drugstore_results = db.session.query(Drugstore).filter_by(name=name).all()
+            drugstore_results = db.session.query(Drugstore).filter_by(Drugstore.name.ilike("%" + name + "%")).all()
 
-#             for drugstore in drugstore_results:
-#                 drugstore_dict = {'id': drugstore.id, 'name': drugstore.name, 'address': drugstore.address, 'zipcode': drugstore.zipcode, 'latitude': drugstore.latitude,
-#                                   'longitude': drugstore.longitude, 'opening_hours': drugstore.opening_hours, 'business_status': drugstore.business_status,
-#                                   'google_maps_url': drugstore.google_maps_url, 'city_id': drugstore.city_id,
-#                                   'hospitals_nearby': [hospital.id for hospital in drugstore.hospitals_nearby]}
+            if len(drugstore_results) == 0:
+                return []
 
-#                 drugstores_dict['drugstores'].append(drugstore_dict)
+            for drugstore in drugstore_results:
+                drugstore_dict = {'id': drugstore.id, 'name': drugstore.name, 'address': drugstore.address, 'zipcode': drugstore.zipcode, 'latitude': drugstore.latitude,
+                                  'longitude': drugstore.longitude, 'opening_hours': drugstore.opening_hours, 'business_status': drugstore.business_status,
+                                  'google_maps_url': drugstore.google_maps_url, 'city_id': drugstore.city_id,
+                                  'hospitals_nearby': [hospital.id for hospital in drugstore.hospitals_nearby]}
 
-#         else:
-#             city_result = db.session.query(City).filter_by(name=city).all()
+                drugstores_dict['drugstores'].append(drugstore_dict)
 
-#             if len(city_result) == 0:
-#                 return {}
+        else:
+            city = city.lower()
+            # city_result = db.session.query(City).filter_by(name=city).all()
+            city_result = db.session.query(City).filter_by(City.name.ilike("%" + city + "%")).all()
 
-#             for city in city_result:
-#                 drugstore_results = db.session.query(Drugstore).filter_by(city_id=city.id, name=name).all()
+            if len(city_result) == 0:
+                return []
 
-#                 if len(drugstore_results) == 0:
-#                     continue
+            for city in city_result:
+                drugstore_results = db.session.query(Drugstore).filter_by(Drugstore.name.ilike("%" + name + "%"), city_id=city.id).all()
 
-#                 for drugstore in drugstore_results:
-#                     drugstore_dict = {'id': drugstore.id, 'name': drugstore.name, 'address': drugstore.address, 'zipcode': drugstore.zipcode, 'latitude': drugstore.latitude,
-#                                       'longitude': drugstore.longitude, 'opening_hours': drugstore.opening_hours, 'business_status': drugstore.business_status,
-#                                       'google_maps_url': drugstore.google_maps_url, 'city_id': drugstore.city_id,
-#                                       'hospitals_nearby': [hospital.id for hospital in drugstore.hospitals_nearby]}
+                if len(drugstore_results) == 0:
+                    continue
 
-#                     drugstores_dict['drugstores'].append(drugstore_dict)
+                for drugstore in drugstore_results:
+                    drugstore_dict = {'id': drugstore.id, 'name': drugstore.name, 'address': drugstore.address, 'zipcode': drugstore.zipcode, 'latitude': drugstore.latitude,
+                                      'longitude': drugstore.longitude, 'opening_hours': drugstore.opening_hours, 'business_status': drugstore.business_status,
+                                      'google_maps_url': drugstore.google_maps_url, 'city_id': drugstore.city_id,
+                                      'hospitals_nearby': [hospital.id for hospital in drugstore.hospitals_nearby]}
 
-#         return drugstores_dict
-#     except Exception:
-#         return {}
+                    drugstores_dict['drugstores'].append(drugstore_dict)
+
+        return drugstores_dict['drugstores']
+    except Exception:
+        return jsonify(error_dict), 500
 
 
 # @app.route('/hospital', methods=['GET', 'POST'])
