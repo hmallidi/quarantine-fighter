@@ -20,7 +20,6 @@ function Drugstore(props){
 
   useEffect(()=> {
     axios.get(getURL()).then((result) => {
-   //axios.get('/api/City/1').then((result) => {
      console.log(result)
      console.log(result.data);
 
@@ -84,20 +83,36 @@ function Drugstore(props){
     rows: data
   };
 
- 
+  const getNameInput = event => {
+    setSearchName(event.target.value);
+    console.log(search);
+  };
+
+  const getCityInput = event => {
+    setSearchCity(event.target.value);
+    console.log(search);
+  };
+
 
   return (
     <div>
-  <img src={drugstorepic} className={"subpage_img"} alt="drugstore"/>
-  <br></br>
-  <br></br>
-  <MDBDataTable
-    striped
-    bordered
-    small
-    data={testData}
-  />
-  </div>
+      <img src={drugstorepic} className={"subpage_img"} alt="drugstore"/>
+
+      <form action="/drugstore/search" method="post">
+        <input type="text" name="city" value={searchCity} onChange={getCityInput} placeholder="Search by City Name"></input>
+        <input type="text" name="name" value={searchName} onChange={getNameInput} placeholder="Search by Drugstore Name"></input>
+        <button>Search!</button>
+      </form>
+
+      <br></br>
+      <br></br>
+      <MDBDataTable
+        striped
+        bordered
+        small
+        data={testData}
+      />
+    </div>
   );
 
 };

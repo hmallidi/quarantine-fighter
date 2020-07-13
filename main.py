@@ -59,10 +59,10 @@ baseURL = "https://covidfighter-280919.nn.r.appspot.com/api"
 #         return render_template('drugstore.html', drugstore_list=drugstores_dict['drugstores'], city=city, name=name)
 
 
-@app.route('/drugstore/search', methods=['GET', 'POST'])
-def getDrugstoresInsideByQuery():
-    name = request.args.get("name")
-    city = request.args.get("city")
+# @app.route('/drugstore/search', methods=['GET', 'POST'])
+def getDrugstoresInsideByQuery(name = '', city = ''):
+    # name = request.args.get("name")
+    # city = request.args.get("city")
 
     drugstores_dict = {'drugstores': list()}
     try:
@@ -84,10 +84,9 @@ def getDrugstoresInsideByQuery():
                     return []
 
                 for drugstore in drugstore_results:
-                    drugstore_dict = {'id': drugstore.id, 'name': drugstore.name, 'address': drugstore.address, 'zipcode': drugstore.zipcode, 'latitude': drugstore.latitude,
+                    drugstore_dict = {'name': drugstore.name, 'address': drugstore.address, 'latitude': drugstore.latitude,
                                       'longitude': drugstore.longitude, 'opening_hours': drugstore.opening_hours, 'business_status': drugstore.business_status,
-                                      'google_maps_url': drugstore.google_maps_url, 'city_id': drugstore.city_id,
-                                      'hospitals_nearby': [hospital.id for hospital in drugstore.hospitals_nearby]}
+                                      'google_maps_url': drugstore.google_maps_url}
 
                     drugstores_dict['drugstores'].append(drugstore_dict)
 
@@ -100,10 +99,9 @@ def getDrugstoresInsideByQuery():
                 return []
 
             for drugstore in drugstore_results:
-                drugstore_dict = {'id': drugstore.id, 'name': drugstore.name, 'address': drugstore.address, 'zipcode': drugstore.zipcode, 'latitude': drugstore.latitude,
-                                  'longitude': drugstore.longitude, 'opening_hours': drugstore.opening_hours, 'business_status': drugstore.business_status,
-                                  'google_maps_url': drugstore.google_maps_url, 'city_id': drugstore.city_id,
-                                  'hospitals_nearby': [hospital.id for hospital in drugstore.hospitals_nearby]}
+                drugstore_dict = {'name': drugstore.name, 'address': drugstore.address, 'latitude': drugstore.latitude,
+                                      'longitude': drugstore.longitude, 'opening_hours': drugstore.opening_hours, 'business_status': drugstore.business_status,
+                                      'google_maps_url': drugstore.google_maps_url}
 
                 drugstores_dict['drugstores'].append(drugstore_dict)
 
@@ -122,14 +120,13 @@ def getDrugstoresInsideByQuery():
                     continue
 
                 for drugstore in drugstore_results:
-                    drugstore_dict = {'id': drugstore.id, 'name': drugstore.name, 'address': drugstore.address, 'zipcode': drugstore.zipcode, 'latitude': drugstore.latitude,
+                    drugstore_dict = {'name': drugstore.name, 'address': drugstore.address, 'latitude': drugstore.latitude,
                                       'longitude': drugstore.longitude, 'opening_hours': drugstore.opening_hours, 'business_status': drugstore.business_status,
-                                      'google_maps_url': drugstore.google_maps_url, 'city_id': drugstore.city_id,
-                                      'hospitals_nearby': [hospital.id for hospital in drugstore.hospitals_nearby]}
+                                      'google_maps_url': drugstore.google_maps_url}
 
                     drugstores_dict['drugstores'].append(drugstore_dict)
 
-        return drugstores_dict['drugstores']
+        return jsonify(drugstores_dict['drugstores']), 200
     except Exception:
         return jsonify(error_dict), 500
 
@@ -628,22 +625,27 @@ def getAllHospitals():
     return jsonify(hospitals_dict['hospitals']), 200
 
 
-@app.route("/api/Drugstore/all/")
+@app.route("/api/Drugstore/all/", methods=['GET', 'POST'])
 def getAllDrugstores():
-    drugstores_dict = {'drugstores': list()}
-    drugstore_results = db.session.query(Drugstore).all()
+    if request.method == 'POST':
+        name = request.args.get("name")
+        city = request.args.get("city")
+        return getDrugstoresInsideByQuery(name, city)
+    else: #get request
+        drugstores_dict = {'drugstores': list()}
+        drugstore_results = db.session.query(Drugstore).all()
 
-    if len(drugstore_results) == 0:
-        return jsonify({}), 200
+        if len(drugstore_results) == 0:
+            return jsonify({}), 200
 
-    for drugstore in drugstore_results:
-        drugstore_dict = {'name': drugstore.name, 'address': drugstore.address, 
-                           'opening_hours': drugstore.opening_hours.splitlines(), 'business_status': drugstore.business_status,
-                          'google_maps_url': drugstore.google_maps_url, }
+        for drugstore in drugstore_results:
+            drugstore_dict = {'name': drugstore.name, 'address': drugstore.address, 
+                            'opening_hours': drugstore.opening_hours.splitlines(), 'business_status': drugstore.business_status,
+                            'google_maps_url': drugstore.google_maps_url, }
 
-        drugstores_dict['drugstores'].append(drugstore_dict)
+            drugstores_dict['drugstores'].append(drugstore_dict)
 
-    return jsonify(drugstores_dict['drugstores']), 200
+        return jsonify(drugstores_dict['drugstores']), 200
 
 
 #@app.route(app.static_url_path)
