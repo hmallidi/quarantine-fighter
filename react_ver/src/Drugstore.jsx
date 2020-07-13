@@ -85,12 +85,12 @@ function Drugstore(props){
 
   const getNameInput = event => {
     setSearchName(event.target.value);
-    console.log(search);
+    console.log(searchName);
   };
 
   const getCityInput = event => {
     setSearchCity(event.target.value);
-    console.log(search);
+    console.log(searchCity);
   };
 
 
