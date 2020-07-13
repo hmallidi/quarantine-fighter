@@ -9,11 +9,7 @@ import axios from 'axios';
 import ReactDOM from "react-dom";
 import { MDBDataTable } from 'mdbreact';
 import "./subpage.css";
-
-const mapStyles = {
-  width: '50%',
-  height: '50%'
-};
+import drugstorepic from "./drugstore.jpg"
 
 function Drugstore(props){
   const [searchCity, setSearchCity] = useState(""); // search is null to start with
@@ -91,12 +87,17 @@ function Drugstore(props){
  
 
   return (
-    <MDBDataTable
-      striped
-      bordered
-      small
-      data={testData}
-    />
+    <div>
+  <img src={drugstorepic} className={"subpage_img"} alt="city"/>
+  <br></br>
+  <br></br>
+  <MDBDataTable
+    striped
+    bordered
+    small
+    data={testData}
+  />
+  </div>
   );
 
 };

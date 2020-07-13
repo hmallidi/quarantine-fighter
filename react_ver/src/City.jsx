@@ -14,38 +14,36 @@ import "./subpage.css";
 // function made from the Grocery class below
 function City(props){
 
+  //variables for search parameters
+  const [searchName, setSearchName] = useState("");
 
+  //variables, change all vars to const or let
+  const [data, setData] = useState();
+  const [id, setID] = useState(0);
+  const [name, setName] = useState("");
+  const [state, setState] = useState("");
+  const [latitude, setLatitude] = useState(0.0);
+  const [longitude, setLongitude] = useState(0.0);
+  const [popuation, setPopulation] = useState(0); 
 
-//variables for search parameters
-const [searchName, setSearchName] = useState("");
+  useEffect(()=> {
+      axios.get(getURL()).then((result) => {
+    //axios.get('/api/City/1').then((result) => {
 
-//variables, change all vars to const or let
-const [data, setData] = useState();
-const [id, setID] = useState(0);
-const [name, setName] = useState("");
-const [state, setState] = useState("");
-const [latitude, setLatitude] = useState(0.0);
-const [longitude, setLongitude] = useState(0.0);
-const [popuation, setPopulation] = useState(0); 
+      console.log(result)
+      console.log(result.data);
 
-useEffect(()=> {
-    axios.get(getURL()).then((result) => {
-  //axios.get('/api/City/1').then((result) => {
+      // setState({ data: result.data});
+      setData(result.data);
+      console.log(state.data);
+    });
 
-    console.log(result)
-    console.log(result.data);
+  }, []  )
 
-    // setState({ data: result.data});
-    setData(result.data);
-    console.log(state.data);
-  });
-
-}, []  )
-
-//stores the input for searching by city name
-const getNameInput = event => {
-  setSearchName(event.target.value);
-  console.log(searchName);
+  //stores the input for searching by city name
+  const getNameInput = event => {
+    setSearchName(event.target.value);
+    console.log(searchName);
 };
 
 
@@ -104,7 +102,7 @@ const testData = {
 
 return (
   <div>
-  <img src={citypic} className={"city_img"} alt="city"/>
+  <img src={citypic} className={"subpage_img"} alt="city"/>
   <br></br>
   <br></br>
   <MDBDataTable
