@@ -639,6 +639,37 @@ def getAllDrugstores():
 #@app.route(app.static_url_path)
 #app_static_folder = '/react_ver/build/'
 
+@app.route('/Group3/', methods=['GET', 'POST'])
+def group3():
+    name = request.args.get("name")
+
+    try:
+        if name is None:
+            return jsonify({}), 200
+
+        url = 'http://rockinwiththerona.me/api/tracks?id=&name=%s&date='
+        cmd = url % (name)
+        res = requests.get(cmd)
+        res = json.loads(res.content)
+        tracks = res['tracks'] #list
+
+        # for track in tracks:
+        track = tracks[0]
+        album_name = track['track_album']['album_name']
+        track_name = track['track_name']
+        track_duration = track['track_duration']
+        track_image_url = track['track_image_url']
+        track_artists = []
+        for artist in track['track_artists']:
+            track_artists.append(artist['artist_name'])
+        track_dict = {'album_name': album_name, 'track_name': track_name, 'track_duration': track_duration, 'track_image_url': track_image_url,
+                        'track_artists': track_artists}
+        return jsonify(track_dict), 200
+
+    except Exception as e:
+        return jsonify(error_dict), 500
+
+
 @app.route("/")
 def serve():
     """serves React App"""
