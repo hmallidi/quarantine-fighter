@@ -122,23 +122,6 @@ def getDrugstoresInsideByQuery(name = '', city = ''):
                                   'google_maps_url': drugstore.google_maps_url}
 
                 drugstores_dict['drugstores'].append(drugstore_dict)
-            # city_result = db.session.query(City).filter(City.name.ilike(city_search)).all()
-
-            # if len(city_result) == 0:
-            #     return jsonify([]), 200
-
-            # for city in city_result:
-            #     drugstore_results = db.session.query(Drugstore).filter(Drugstore.name.ilike(name_search), Drugstore.ilike(city_search)).all()
-
-            #     if len(drugstore_results) == 0:
-            #         continue
-
-            #     for drugstore in drugstore_results:
-            #         drugstore_dict = {'name': drugstore.name, 'address': drugstore.address, 'latitude': drugstore.latitude,
-            #                           'longitude': drugstore.longitude, 'opening_hours': drugstore.opening_hours, 'business_status': drugstore.business_status,
-            #                           'google_maps_url': drugstore.google_maps_url}
-
-            #         drugstores_dict['drugstores'].append(drugstore_dict)
 
         return jsonify(drugstores_dict['drugstores']), 200
     except Exception:
@@ -224,23 +207,17 @@ def getHospitalsInsideByQuery(name = '', city = ''):
                 hospitals_dict['hospitals'].append(hospital_dict)
 
         else:
-            city_result = db.session.query(City).filter(City.name.ilike(city_search)).all()
+            hospital_results = db.session.query(Hospital).join(City).filter(Hospital.name.ilike(name_search)).filter(City.name.ilike(city_search)).all()
 
-            if len(city_result) == 0:
+            if len(hospital_results) == 0:
                 return jsonify([]), 200
 
-            for city in city_result:
-                hospital_results = db.session.query(Hospital).filter(Hospital.name.ilike(name_search)).all()
+            for hospital in hospital_results:
+                drugstore_dict = {'name': hospital.name, 'address': hospital.address, 'latitude': hospital.latitude,
+                                  'longitude': hospital.longitude, 'opening_hours': hospital.opening_hours, 'business_status': hospital.business_status,
+                                  'google_maps_url': hospital.google_maps_url}
 
-                if len(hospital_results) == 0:
-                    continue
-
-                for hospital in hospital_results:
-                    hospital_dict = {'name': hospital.name, 'address': hospital.address, 'latitude': hospital.latitude,
-                                     'longitude': hospital.longitude, 'opening_hours': hospital.opening_hours, 'business_status': hospital.business_status,
-                                     'google_maps_url': hospital.google_maps_url}
-
-                    hospitals_dict['hospitals'].append(hospital_dict)
+                hospital_results['hospitals'].append(drugstore_dict)
 
         return jsonify(hospitals_dict['hospitals']), 200
     except Exception:
