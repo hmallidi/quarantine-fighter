@@ -62,23 +62,33 @@ baseURL = "https://covidfighter-280919.nn.r.appspot.com/api"
 # @app.route('/drugstore/search', methods=['GET', 'POST'])
 def getDrugstoresInsideByQuery(name = '', city = ''):
     drugstores_dict = {'drugstores': list()}
+
+    if name is None:
+        name = ''
+    if city is None:
+        city = ''
+
+    name = name.lower()
+    city = city.lower()
+
+    name_search = "%{}%".format(name)
+    city_search = "%{}%".format(city)
+
     try:
         if name == "" and city == "":
-            return []
+            return jsonify([]), 200
 
         elif name == "":
-            city = city.lower()
-            # city_result = db.session.query(City).filter_by(name=city).all()
-            city_result = db.session.query(City).filter_by(City.name.ilike("%" + city + "%")).all()
+            city_result = db.session.query(City).filter(City.name.ilike(city_search)).all()
 
             if len(city_result) == 0:
-                return []
+                return jsonify([]), 200
 
             for city in city_result:
                 drugstore_results = db.session.query(Drugstore).filter_by(city_id=city.id).all()
 
                 if len(drugstore_results) == 0:
-                    return []
+                    return jsonify([]), 200
 
                 for drugstore in drugstore_results:
                     drugstore_dict = {'name': drugstore.name, 'address': drugstore.address, 'latitude': drugstore.latitude,
@@ -88,12 +98,10 @@ def getDrugstoresInsideByQuery(name = '', city = ''):
                     drugstores_dict['drugstores'].append(drugstore_dict)
 
         elif city == "":
-            name = name.lower()
-            # drugstore_results = db.session.query(Drugstore).filter_by(name=name).all()
-            drugstore_results = db.session.query(Drugstore).filter_by(Drugstore.name.ilike("%" + name + "%")).all()
+            drugstore_results = db.session.query(Drugstore).filter(Drugstore.name.ilike(name_search)).all()
 
             if len(drugstore_results) == 0:
-                return []
+                return jsonify([]), 200
 
             for drugstore in drugstore_results:
                 drugstore_dict = {'name': drugstore.name, 'address': drugstore.address, 'latitude': drugstore.latitude,
@@ -103,16 +111,13 @@ def getDrugstoresInsideByQuery(name = '', city = ''):
                 drugstores_dict['drugstores'].append(drugstore_dict)
 
         else:
-            city = city.lower()
-            name = name.lower()
-            # city_result = db.session.query(City).filter_by(name=city).all()
-            city_result = db.session.query(City).filter_by(City.name.ilike("%" + city + "%")).all()
+            city_result = db.session.query(City).filter(City.name.ilike(city_search)).all()
 
             if len(city_result) == 0:
-                return []
+                return jsonify([]), 200
 
             for city in city_result:
-                drugstore_results = db.session.query(Drugstore).filter_by(Drugstore.name.ilike("%" + name + "%"), city_id=city.id).all()
+                drugstore_results = db.session.query(Drugstore).filter(Drugstore.name.ilike(name_search)).all()
 
                 if len(drugstore_results) == 0:
                     continue
@@ -626,8 +631,8 @@ def getAllHospitals():
 @app.route("/api/Drugstore/all/", methods=['GET', 'POST'])
 def getAllDrugstores():
     if request.method == 'POST':
-        name = request.args.get("name")
-        city = request.args.get("city")
+        name = request.form['name']
+        city = request.form['city']
         return getDrugstoresInsideByQuery(name, city)
     else: #get request
         drugstores_dict = {'drugstores': list()}
