@@ -18,24 +18,33 @@ function Drugstore(props){
   //data encapsulates all of the fields below it, so those aren't necessary
   const [data, setData] = useState();
 
+  const updateTable = (result) => {
+    console.log(result)
+    console.log(result.data);
+
+    for (var index = 0; index < result.data.length; index++) {
+
+       result.data[index].google_maps_url =  <a href={result.data[index].google_maps_url} > Open Google Maps </a>
+       for(var openingIndex = 0; openingIndex < result.data[index].opening_hours.length; openingIndex++){
+         result.data[index].opening_hours[openingIndex] = <li> {result.data[index].opening_hours[openingIndex]} </li>
+       }
+    
+     }
+
+    setData(result.data);
+  }
+
   useEffect(()=> {
     axios.get(getURL()).then((result) => {
-     console.log(result)
-     console.log(result.data);
-
-     for (var index = 0; index < result.data.length; index++) {
-
-        result.data[index].google_maps_url =  <a href={result.data[index].google_maps_url} > Open Google Maps </a>
-        for(var openingIndex = 0; openingIndex < result.data[index].opening_hours.length; openingIndex++){
-          result.data[index].opening_hours[openingIndex] = <li> {result.data[index].opening_hours[openingIndex]} </li>
-        }
-     
-      }
-
-     // setState({ data: result.data});
-     setData(result.data);
-   });
-
+      updateTable(result);
+    });
+ 
+    axios.post(getURL(), {
+      name: searchName,
+      city: searchCity
+    }).then(function (result) {
+      updateTable(result);
+    })
   }, []  )
 
   const getURL = () => {
@@ -98,7 +107,7 @@ function Drugstore(props){
     <div>
       <img src={drugstorepic} className={"subpage_img"} alt="drugstore"/>
 
-      <form action='/api/Drugstore/all/' method="post">
+      <form action={getURL()} method="post">
         <input type="text" name="city" value={searchCity} onChange={getCityInput} placeholder="Search by City Name"></input>
         <input type="text" name="name" value={searchName} onChange={getNameInput} placeholder="Search by Drugstore Name"></input>
         <button>Search!</button>
