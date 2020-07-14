@@ -13,7 +13,7 @@ class Home extends Component {
       // </div>
       <main>
       <div>
-      <h1>Welcome to the World of Covid Fighters!</h1>
+      <h1>Welcome to the World of Quarantine Fighters!</h1>
       <p className="lead">
           COVID-19 has had a tremendous impact on the world. 
           Aside from the health crisis, it has also caused the closing of many businesses 
