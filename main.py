@@ -162,69 +162,78 @@ def getDrugstoresInsideByQuery(name = '', city = ''):
 #         return render_template('hospital.html', hospital_list=hospitals_dict['hospitals'], city=city, name=name)
 
 
-# def getHospitalsInsideByQuery(name="", city=""):
-#     hospitals_dict = {'hospitals': list()}
-#     try:
-#         if name is "" and city is "":
-#             return {}
+def getHospitalsInsideByQuery(name = '', city = ''):
+    hospitals_dict = {'hospitals': list()}
 
-#         elif name is "":
-#             city_result = db.session.query(City).filter_by(name=city).all()
+    if name is None:
+        name = ''
+    if city is None:
+        city = ''
 
-#             if len(city_result) == 0:
-#                 return {}
+    name = name.lower()
+    city = city.lower()
 
-#             for city in city_result:
-#                 hospital_results = db.session.query(Hospital).filter_by(city_id=city.id).all()
+    name_search = "%{}%".format(name)
+    city_search = "%{}%".format(city)
 
-#                 if len(hospital_results) == 0:
-#                     continue
+    try:
+        if name == "" and city == "":
+            return jsonify([]), 200
 
-#                 for hospital in hospital_results:
-#                     hospital_dict = {'id': hospital.id, 'name': hospital.name, 'address': hospital.address, 'zipcode': hospital.zipcode, 'latitude': hospital.latitude,
-#                                      'longitude': hospital.longitude, 'opening_hours': hospital.opening_hours, 'business_status': hospital.business_status,
-#                                      'google_maps_url': hospital.google_maps_url, 'city_id': hospital.city_id,
-#                                      'drugstores_nearby': [drugstore.id for drugstore in hospital.drugstores_nearby]}
+        elif name == "":
+            city_result = db.session.query(City).filter(City.name.ilike(city_search)).all()
 
-#                     hospitals_dict['hospitals'].append(hospital_dict)
+            if len(city_result) == 0:
+                return jsonify([]), 200
 
-#         elif city == "":
-#             hospital_results = db.session.query(Hospital).filter_by(name=name).all()
+            for city in city_result:
+                hospital_results = db.session.query(Hospital).filter_by(city_id=city.id).all()
 
-#             if len(hospital_results) == 0:
-#                 return {}
+                if len(hospital_results) == 0:
+                    return jsonify([]), 200
 
-#             for hospital in hospital_results:
-#                 hospital_dict = {'id': hospital.id, 'name': hospital.name, 'address': hospital.address, 'zipcode': hospital.zipcode, 'latitude': hospital.latitude,
-#                                  'longitude': hospital.longitude, 'opening_hours': hospital.opening_hours, 'business_status': hospital.business_status,
-#                                  'google_maps_url': hospital.google_maps_url, 'city_id': hospital.city_id,
-#                                  'drugstores_nearby': [drugstore.id for drugstore in hospital.drugstores_nearby]}
+                for hospital in hospital_results:
+                    hospital_dict = {'name': hospital.name, 'address': hospital.address, 'latitude': hospital.latitude,
+                                     'longitude': hospital.longitude, 'opening_hours': hospital.opening_hours, 'business_status': hospital.business_status,
+                                     'google_maps_url': hospital.google_maps_url}
 
-#                 hospitals_dict['hospitals'].append(hospital_dict)
+                    hospitals_dict['hospitals'].append(hospital_dict)
 
-#         else:
-#             city_result = db.session.query(City).filter_by(name=city).all()
+        elif city == "":
+            hospital_results = db.session.query(Hospital).filter(Hospital.name.ilike(name_search)).all()
 
-#             if len(city_result) == 0:
-#                 return {}
+            if len(hospital_results) == 0:
+                return jsonify([]), 200
 
-#             for city in city_result:
-#                 hospital_results = db.session.query(Hospital).filter_by(city_id=city.id, name=name).all()
+            for hospital in hospital_results:
+                hospital_dict = {'name': hospital.name, 'address': hospital.address, 'latitude': hospital.latitude,
+                                 'longitude': hospital.longitude, 'opening_hours': hospital.opening_hours, 'business_status': hospital.business_status,
+                                 'google_maps_url': hospital.google_maps_url}
 
-#                 if len(hospital_results) == 0:
-#                     continue
+                hospitals_dict['hospitals'].append(hospital_dict)
 
-#                 for hospital in hospital_results:
-#                     hospital_dict = {'id': hospital.id, 'name': hospital.name, 'address': hospital.address, 'zipcode': hospital.zipcode, 'latitude': hospital.latitude,
-#                                      'longitude': hospital.longitude, 'opening_hours': hospital.opening_hours, 'business_status': hospital.business_status,
-#                                      'google_maps_url': hospital.google_maps_url, 'city_id': hospital.city_id,
-#                                      'drugstores_nearby': [drugstore.id for drugstore in hospital.drugstores_nearby]}
+        else:
+            city_result = db.session.query(City).filter(City.name.ilike(city_search)).all()
 
-#                     hospitals_dict['hospitals'].append(hospital_dict)
+            if len(city_result) == 0:
+                return jsonify([]), 200
 
-#         return hospitals_dict
-#     except Exception:
-#         return []
+            for city in city_result:
+                hospital_results = db.session.query(Hospital).filter(Hospital.name.ilike(name_search)).all()
+
+                if len(hospital_results) == 0:
+                    continue
+
+                for hospital in hospital_results:
+                    hospital_dict = {'name': hospital.name, 'address': hospital.address, 'latitude': hospital.latitude,
+                                     'longitude': hospital.longitude, 'opening_hours': hospital.opening_hours, 'business_status': hospital.business_status,
+                                     'google_maps_url': hospital.google_maps_url}
+
+                    hospitals_dict['hospitals'].append(hospital_dict)
+
+        return jsonify(hospitals_dict['hospitals']), 200
+    except Exception:
+        return jsonify(error_dict), 500
 
 
 # @app.route('/city', methods=['GET', 'POST'])
@@ -612,20 +621,25 @@ def getAllCities():
 
 @app.route("/api/Hospital/all/")
 def getAllHospitals():
-    hospitals_dict = {'hospitals': list()}
-    hospital_results = db.session.query(Hospital).all()
+    if request.method == 'POST':
+        name = request.form['name']
+        city = request.form['city']
+        return getHospitalsInsideByQuery(name, city)
+    else: #get request
+        hospitals_dict = {'hospitals': list()}
+        hospital_results = db.session.query(Drugstore).all()
 
-    if len(hospital_results) == 0:
-        return jsonify({}), 200
+        if len(hospital_results) == 0:
+            return jsonify({}), 200
 
-    for hospital in hospital_results:
-        hospital_dict = {'name': hospital.name, 'address': hospital.address, 
-                         'opening_hours': hospital.opening_hours.splitlines(), 'business_status': hospital.business_status,
-                         'google_maps_url': hospital.google_maps_url }
+        for hospital in hospital_results:
+            hospital_dict = {'name': hospital.name, 'address': hospital.address, 
+                             'opening_hours': hospital.opening_hours.splitlines(), 'business_status': hospital.business_status,
+                             'google_maps_url': hospital.google_maps_url, }
 
-        hospitals_dict['hospitals'].append(hospital_dict)
+            hospitals_dict['hospitals'].append(hospital_dict)
 
-    return jsonify(hospitals_dict['hospitals']), 200
+        return jsonify(hospitals_dict['hospitals']), 200
 
 
 @app.route("/api/Drugstore/all/", methods=['GET', 'POST'])
