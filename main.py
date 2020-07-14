@@ -268,30 +268,35 @@ def getHospitalsInsideByQuery(name = '', city = ''):
 #         return render_template('city.html', city_list=cities_dict['cities'], name=name)
 
 
-# def getCitiesInsideByQuery(name=''):
-#     cities_dict = {'cities': list()}
-#     try:
-#         if name == '':
-#             return {}
-#         else:
-#             city_result = db.session.query(City).filter_by(name=name).all()
+def getCitiesInsideByQuery(name=''):
+    cities_dict = {'cities': list()}
 
-#             if len(city_result) == 0:
-#                 return {}
+    if name is None:
+        name = ''
 
-#             for city in city_result:
-#                 city_dict = {"id": city.id, "name": city.name, "state": city.state,
-#                              "latitude": city.latitude, "longitude": city.longitude,
-#                              "population": city.population,
-#                              "hospitals": [hospital.id for hospital in city.hospitals],
-#                              "drugstores": [drugstore.id for drugstore in city.drugstores]}
+    name = name.lower()
+    name_search = "%{}%".format(name)
 
-#                 cities_dict['cities'].append(city_dict)
+    try:
+        if name == '':
+            return jsonify([]), 200
+        else:
+            city_result = db.session.query(City).filter(City.name.ilike(name_search)).all()
 
-#         return cities_dict
-#     except Exception:
-#         return {}
-    
+            if len(city_result) == 0:
+                return jsonify([]), 200
+
+            for city in city_result:
+                city_dict = {"name": city.name, "state": city.state,
+                             "latitude": city.latitude, "longitude": city.longitude,
+                             "population": city.population}
+
+                cities_dict['cities'].append(city_dict)
+
+        return cities_dict['cities']
+    except Exception:
+        return jsonify([]), 200
+
 
 # @app.route('/about', methods=['GET', 'POST'])
 # def about():
@@ -604,20 +609,25 @@ def getDrugstoreById(drugstore_id: str):
 
 @app.route("/api/City/all/")
 def getAllCities():
-    cities_dict = {'cities': list()}
-    city_result = db.session.query(City).all()
+    if request.method == 'POST':
+        name = request.form['name']
+        return getCitiesInsideByQuery(name)
+    else: #get request
+        cities_dict = {'cities': list()}
+        city_result = db.session.query(City).all()
 
-    if len(city_result) == 0:
-        return jsonify({}), 200
+        if len(city_result) == 0:
+            return jsonify([]), 200
 
-    for city in city_result:
-        city_dict = {"name": city.name, "state": city.state,
-                     "latitude": city.latitude, "longitude": city.longitude,
-                     "population": city.population}
+        for city in city_result:
+            city_dict = {"name": city.name, "state": city.state,
+                        "latitude": city.latitude, "longitude": city.longitude,
+                        "population": city.population}
 
-        cities_dict['cities'].append(city_dict)
+            cities_dict['cities'].append(city_dict)
 
-    return jsonify(cities_dict['cities']), 200
+        return jsonify(cities_dict['cities']), 200
+
 
 @app.route("/api/Hospital/all/")
 def getAllHospitals():
@@ -630,7 +640,7 @@ def getAllHospitals():
         hospital_results = db.session.query(Drugstore).all()
 
         if len(hospital_results) == 0:
-            return jsonify({}), 200
+            return jsonify([]), 200
 
         for hospital in hospital_results:
             hospital_dict = {'name': hospital.name, 'address': hospital.address, 
@@ -653,7 +663,7 @@ def getAllDrugstores():
         drugstore_results = db.session.query(Drugstore).all()
 
         if len(drugstore_results) == 0:
-            return jsonify({}), 200
+            return jsonify([]), 200
 
         for drugstore in drugstore_results:
             drugstore_dict = {'name': drugstore.name, 'address': drugstore.address, 
