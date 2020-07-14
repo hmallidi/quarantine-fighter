@@ -601,20 +601,10 @@ def getAllCities():
         name = request.form['name']
         return getCitiesInsideByQuery(name)
     else: #get request
-        cities_dict = {'cities': list()}
-        city_result = db.session.query(City).all()
-
-        if len(city_result) == 0:
-            return jsonify([]), 200
-
-        for city in city_result:
-            city_dict = {"name": city.name, "state": city.state,
-                        "latitude": city.latitude, "longitude": city.longitude,
-                        "population": city.population}
-
-            cities_dict['cities'].append(city_dict)
-
-        return jsonify(cities_dict['cities']), 200
+        cities_list = list()
+        with open('all_cities.txt') as json_file:
+            cities_list = json.load(json_file)
+        return jsonify(cities_list), 200
 
 
 @app.route("/api/Hospital/all/")
@@ -624,20 +614,10 @@ def getAllHospitals():
         city = request.form['city']
         return getHospitalsInsideByQuery(name, city)
     else: #get request
-        hospitals_dict = {'hospitals': list()}
-        hospital_results = db.session.query(Drugstore).all()
-
-        if len(hospital_results) == 0:
-            return jsonify([]), 200
-
-        for hospital in hospital_results:
-            hospital_dict = {'name': hospital.name, 'address': hospital.address, 
-                             'opening_hours': hospital.opening_hours.splitlines(), 'business_status': hospital.business_status,
-                             'google_maps_url': hospital.google_maps_url, }
-
-            hospitals_dict['hospitals'].append(hospital_dict)
-
-        return jsonify(hospitals_dict['hospitals']), 200
+        hospitals_list = list()
+        with open('all_hospitals.txt') as json_file:
+            hospitals_list = json.load(json_file)
+        return jsonify(hospitals_list), 200
 
 
 @app.route("/api/Drugstore/all/", methods=['GET', 'POST'])
@@ -647,20 +627,10 @@ def getAllDrugstores():
         city = request.form['city']
         return getDrugstoresInsideByQuery(name, city)
     else: #get request
-        drugstores_dict = {'drugstores': list()}
-        drugstore_results = db.session.query(Drugstore).all()
-
-        if len(drugstore_results) == 0:
-            return jsonify([]), 200
-
-        for drugstore in drugstore_results:
-            drugstore_dict = {'name': drugstore.name, 'address': drugstore.address, 
-                            'opening_hours': drugstore.opening_hours.splitlines(), 'business_status': drugstore.business_status,
-                            'google_maps_url': drugstore.google_maps_url, }
-
-            drugstores_dict['drugstores'].append(drugstore_dict)
-
-        return jsonify(drugstores_dict['drugstores']), 200
+        drugstores_list = list()
+        with open('all_drugstores.txt') as json_file:
+            drugstores_list = json.load(json_file)
+        return jsonify(drugstores_list), 200
 
 
 #@app.route(app.static_url_path)
