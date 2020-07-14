@@ -61,9 +61,6 @@ baseURL = "https://covidfighter-280919.nn.r.appspot.com/api"
 
 # @app.route('/drugstore/search', methods=['GET', 'POST'])
 def getDrugstoresInsideByQuery(name = '', city = ''):
-    # name = request.args.get("name")
-    # city = request.args.get("city")
-
     drugstores_dict = {'drugstores': list()}
     try:
         if name == "" and city == "":
@@ -107,6 +104,7 @@ def getDrugstoresInsideByQuery(name = '', city = ''):
 
         else:
             city = city.lower()
+            name = name.lower()
             # city_result = db.session.query(City).filter_by(name=city).all()
             city_result = db.session.query(City).filter_by(City.name.ilike("%" + city + "%")).all()
 
