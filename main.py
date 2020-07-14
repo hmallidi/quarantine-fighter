@@ -111,23 +111,34 @@ def getDrugstoresInsideByQuery(name = '', city = ''):
                 drugstores_dict['drugstores'].append(drugstore_dict)
 
         else:
-            city_result = db.session.query(City).filter(City.name.ilike(city_search)).all()
+            drugstore_results = db.session.query(Drugstore).join(City).filter(Drugstore.name.ilike(name_search)).filter(City.name.ilike(city_search)).all()
 
-            if len(city_result) == 0:
+            if len(drugstore_results) == 0:
                 return jsonify([]), 200
 
-            for city in city_result:
-                drugstore_results = db.session.query(Drugstore).filter(Drugstore.name.ilike(name_search)).all()
+            for drugstore in drugstore_results:
+                drugstore_dict = {'name': drugstore.name, 'address': drugstore.address, 'latitude': drugstore.latitude,
+                                  'longitude': drugstore.longitude, 'opening_hours': drugstore.opening_hours, 'business_status': drugstore.business_status,
+                                  'google_maps_url': drugstore.google_maps_url}
 
-                if len(drugstore_results) == 0:
-                    continue
+                drugstores_dict['drugstores'].append(drugstore_dict)
+            # city_result = db.session.query(City).filter(City.name.ilike(city_search)).all()
 
-                for drugstore in drugstore_results:
-                    drugstore_dict = {'name': drugstore.name, 'address': drugstore.address, 'latitude': drugstore.latitude,
-                                      'longitude': drugstore.longitude, 'opening_hours': drugstore.opening_hours, 'business_status': drugstore.business_status,
-                                      'google_maps_url': drugstore.google_maps_url}
+            # if len(city_result) == 0:
+            #     return jsonify([]), 200
 
-                    drugstores_dict['drugstores'].append(drugstore_dict)
+            # for city in city_result:
+            #     drugstore_results = db.session.query(Drugstore).filter(Drugstore.name.ilike(name_search), Drugstore.ilike(city_search)).all()
+
+            #     if len(drugstore_results) == 0:
+            #         continue
+
+            #     for drugstore in drugstore_results:
+            #         drugstore_dict = {'name': drugstore.name, 'address': drugstore.address, 'latitude': drugstore.latitude,
+            #                           'longitude': drugstore.longitude, 'opening_hours': drugstore.opening_hours, 'business_status': drugstore.business_status,
+            #                           'google_maps_url': drugstore.google_maps_url}
+
+            #         drugstores_dict['drugstores'].append(drugstore_dict)
 
         return jsonify(drugstores_dict['drugstores']), 200
     except Exception:
