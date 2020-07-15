@@ -674,6 +674,42 @@ def group3album():
         if name is None:
             return jsonify({}), 200
 
+        url = 'http://rockinwiththerona.me/api/artists?id=&name=%s&genre='
+        cmd = url % (name)
+        res = requests.get(cmd)
+        res = json.loads(res.content)
+        artists = res['artists'] #list
+
+        # for artist in artists:
+        artist = artists[0]
+
+        artist_name = album['artist_name']
+        artist_image_url = album['artist_image_url']
+        artist_spotify_url = artist['artist_spotify_url']
+
+        artist_genres = []
+        for genre in album['artist_genres']:
+            album_genres.append(genre)
+
+        artist_albums = []
+        for album in artist['artist_albums']:
+            artist_albums.append(album['album_name'])
+        
+        
+        artist_dict = {'artist_name': artist_name, 'artist_image_url': artist_image_url, 'artist_spotify_url': artist_spotify_url, 'artist_genres': artist_genres,'artist_albums': artist_albums}
+        return jsonify(artist_dict), 200
+
+    except Exception as e:
+        return jsonify(error_dict), 500
+
+@app.route('/Group3/artist', methods=['GET', 'POST'])
+def group3artist():
+    name = request.args.get("name")
+
+    try:
+        if name is None:
+            return jsonify({}), 200
+
         url = 'http://rockinwiththerona.me/api/albums?id=&name=%s&date='
         cmd = url % (name)
         res = requests.get(cmd)
@@ -703,10 +739,6 @@ def group3album():
 
     except Exception as e:
         return jsonify(error_dict), 500
-
-@app.route('/Group3/artist', methods=['GET', 'POST'])
-def group3artist():
-    pass
 
 @app.route("/")
 def serve():
