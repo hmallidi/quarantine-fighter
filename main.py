@@ -636,8 +636,8 @@ def getAllDrugstores():
 #@app.route(app.static_url_path)
 #app_static_folder = '/react_ver/build/'
 
-@app.route('/Group3/', methods=['GET', 'POST'])
-def group3():
+@app.route('/Group3/track', methods=['GET', 'POST'])
+def group3track():
     name = request.args.get("name")
 
     try:
@@ -666,6 +666,47 @@ def group3():
     except Exception as e:
         return jsonify(error_dict), 500
 
+@app.route('/Group3/album', methods=['GET', 'POST'])
+def group3album():
+    name = request.args.get("name")
+
+    try:
+        if name is None:
+            return jsonify({}), 200
+
+        url = 'http://rockinwiththerona.me/api/albums?id=&name=%s&date='
+        cmd = url % (name)
+        res = requests.get(cmd)
+        res = json.loads(res.content)
+        albums = res['albums'] #list
+
+        # for album in albums:
+        album = albums[0]
+
+        album_name = album['album_name']
+        album_image_url = album['album_image_url']
+
+        album_genres = []
+        for genre in album['album_genres']:
+            album_genres.append(genre)
+
+        album_tracks = []
+        for track in album['album_tracks']:
+            album_tracks.append(track['track_name'])
+        
+        album_artists = []
+        for artist in album['album_artists']:
+            album_artists.append(artist['artist_name'])
+        
+        album_dict = {'album_name': album_name, 'album_tracks': album_tracks, 'album_genres': album_genres, 'album_image_url': album_image_url,'album_artists': album_artists}
+        return jsonify(album_dict), 200
+
+    except Exception as e:
+        return jsonify(error_dict), 500
+
+@app.route('/Group3/artist', methods=['GET', 'POST'])
+def group3artist():
+    pass
 
 @app.route("/")
 def serve():
