@@ -30,8 +30,12 @@ export class About extends Component {
     })
 
     axios.get('/test')
-      .then(response => {
-        alert(response.data)
+      .then(result => {
+        var result_string = "";
+        for (var index = 0; index < result.data.length; index++) {
+          result_string = (result_string.concat(result.data[index]));
+        }
+        alert(result_string);
       })
       .catch(error => {
         console.log(error);

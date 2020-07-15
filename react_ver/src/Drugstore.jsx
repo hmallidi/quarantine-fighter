@@ -28,7 +28,6 @@ function Drugstore(props){
        for(var openingIndex = 0; openingIndex < result.data[index].opening_hours.length; openingIndex++){
          result.data[index].opening_hours[openingIndex] = <li> {result.data[index].opening_hours[openingIndex]} </li>
        }
-    
      }
 
     setData(result.data);
