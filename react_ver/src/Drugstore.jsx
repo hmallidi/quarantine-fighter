@@ -35,14 +35,16 @@ function Drugstore(props){
 
   useEffect(()=> {
     console.log("Hi inside use effect");
-    axios.get(getURL()).then((result) => {
+    var urlString = '/api/Drugstore/all/';
+    axios.get(urlString).then((result) => {
       updateTable(result);
     });
  
-    axios.post(getURL(), {
+    axios.post(urlString, {
       name: searchName,
       city: searchCity
     }).then(function (result) {
+      console.log("In post:");
       console.log(result);
       updateTable(result);
     })
@@ -51,7 +53,7 @@ function Drugstore(props){
   const getURL = () => {
     //var replaceName = searchName.replace(' ', '+');
     //var searchString = '/api/City/?name='.concat(replaceName);
-    var searchString  = '/api/Drugstore/all/';
+    var searchString  = '/#/drugstore';
     console.log(searchString);
     return searchString;
   }
