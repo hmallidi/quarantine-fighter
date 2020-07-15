@@ -19,7 +19,7 @@ function Drugstore(props){
   const [data, setData] = useState();
 
   const updateTable = (result) => {
-    console.log(result)
+    console.log(result);
     console.log(result.data);
 
     for (var index = 0; index < result.data.length; index++) {
@@ -35,6 +35,7 @@ function Drugstore(props){
   }
 
   useEffect(()=> {
+    console.log("Hi inside use effect");
     axios.get(getURL()).then((result) => {
       updateTable(result);
     });
@@ -43,6 +44,7 @@ function Drugstore(props){
       name: searchName,
       city: searchCity
     }).then(function (result) {
+      console.log(result);
       updateTable(result);
     })
   }, []  )
