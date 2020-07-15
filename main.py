@@ -76,7 +76,10 @@ def getDrugstoresInsideByQuery(name = '', city = ''):
 
     try:
         if name == "" and city == "":
-            return jsonify([]), 200
+            drugstores_list = list()
+            with open('all_drugstores.txt') as json_file:
+                drugstores_list = json.load(json_file)
+            return jsonify(drugstores_list), 200
 
         elif name == "":
             city_result = db.session.query(City).filter(City.name.ilike(city_search)).all()
@@ -620,17 +623,19 @@ def getAllHospitals():
         return jsonify(hospitals_list), 200
 
 
-@app.route("/api/Drugstore/all/", methods=['GET', 'POST'])
+@app.route("/api/Drugstore/all/", methods=['GET'])
 def getAllDrugstores():
-    if request.method == 'POST':
-        name = request.form['name']
-        city = request.form['city']
-        return getDrugstoresInsideByQuery(name, city)
-    else: #get request
-        drugstores_list = list()
-        with open('all_drugstores.txt') as json_file:
-            drugstores_list = json.load(json_file)
-        return jsonify(drugstores_list), 200
+    print("Hello")
+    name = request.args.get('name')
+    city = request.args.get('city')
+    print(name)
+    print(city)
+    return getDrugstoresInsideByQuery(name, city)
+    # else: #get request
+    #     drugstores_list = list()
+    #     with open('all_drugstores.txt') as json_file:
+    #         drugstores_list = json.load(json_file)
+    #     return jsonify(drugstores_list), 200
 
 
 #@app.route(app.static_url_path)

@@ -36,18 +36,25 @@ function Drugstore(props){
   useEffect(()=> {
     console.log("Hi inside use effect");
     var urlString = '/api/Drugstore/all/';
-    axios.get(urlString).then((result) => {
+    console.log(searchName.concat("Helloname"))
+    console.log(searchCity.concat("Hellocity"))
+    axios.get(urlString, {
+      params: {
+        name: searchName,
+        city: searchCity
+      }
+    }).then((result) => {
       updateTable(result);
     });
  
-    axios.post(urlString, {
-      name: searchName,
-      city: searchCity
-    }).then(function (result) {
-      console.log("In post:");
-      console.log(result);
-      updateTable(result);
-    })
+    // axios.post(urlString, {
+    //   name: searchName,
+    //   city: searchCity
+    // }).then(function (result) {
+    //   console.log("In post:");
+    //   console.log(result);
+    //   updateTable(result);
+    // })
   }, []  )
 
   const getURL = () => {
