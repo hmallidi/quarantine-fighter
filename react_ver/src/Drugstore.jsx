@@ -110,7 +110,7 @@ function Drugstore(props){
     <div>
       <img src={drugstorepic} className={"subpage_img"} alt="drugstore"/>
 
-      <form action={getURL()} method="post">
+      <form action={getURL()} method="get">
         <input type="text" name="city" value={searchCity} onChange={getCityInput} placeholder="Search by City Name"></input>
         <input type="text" name="name" value={searchName} onChange={getNameInput} placeholder="Search by Drugstore Name"></input>
         <button>Search!</button>
