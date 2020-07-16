@@ -273,7 +273,7 @@ export class About extends Component {
                       <td>Returns information about places (establishments, geographic locations, or prominent points of interest) using HTTP requests. </td>
                     </tr>
                     <tr>
-                      <td><a href="https://speakerdeck.com/">Speaker Deck</a></td>
+                      <td><a href="https://speakerdeck.com/angc1998/covid-fighters-presentation">Speaker Deck</a></td>
                       <td>A link to Speaker Deck, showing our group's presentation. </td>
                     </tr>
                   </tbody>
