@@ -12,12 +12,12 @@ import "./subpage.css";
 import hospitalpic from "./hospital.jpeg"
 
 function Hospital(props){
-  const [search, setSearch] = useState(""); // search is null to start with
+  const [search, setSearch] = useState(""); // search is empty to start with
   const [data, setData] = useState();
   const [originalData, setOriginalData] = useState();
 
   useEffect(()=> {
-    axios.get(getURL()).then((result) => {
+    axios.get('/api/Hospital/all/').then((result) => {
      console.log(result)
      console.log(result.data);
 
@@ -35,13 +35,6 @@ function Hospital(props){
    });
 
   }, []  )
-
-  const getURL = () => {
-    var searchString  = '/api/Hospital/all/';
-    console.log(searchString);
-    return searchString;
-  }
-
 
   const testData = {
     columns: [
@@ -91,14 +84,17 @@ function Hospital(props){
    
     if(search === ""){
       setData(originalData);
-    } else if(search.includes(" ")) {
+    }
+    
+    if(search.includes(" ")){
       let words = search.split(" ");
 
         for (var index = 0; index < originalData.length; index++) {
           let wordAdded = true;
 
           for(var i = 0; i < words.length; i++){
-            if(!(originalData[index].name.toLowerCase().includes(words[i].toLowerCase())) && !(originalData[index].address.toLowerCase().includes(words[i].toLowerCase()))){
+            if(!(originalData[index].name.toLowerCase().includes(words[i].toLowerCase())) && !(originalData[index].address.toLowerCase().includes(words[i].toLowerCase())) && 
+                !(originalData[index].business_status.toLowerCase().includes(words[i].toLowerCase()))){
               wordAdded = false;
             }
           }
@@ -106,21 +102,20 @@ function Hospital(props){
           if(wordAdded){
             updateData.push(originalData[index]);
           }
-
         }
-      } else {
-        for (var index = 0; index < originalData.length; index++) {
-          if(originalData[index].name.toLowerCase().includes(search.toLowerCase())){
+    } else {
+      for (var index = 0; index < originalData.length; index++) {
+        if(originalData[index].name.toLowerCase().includes(search.toLowerCase()) || originalData[index].address.toLowerCase().includes(search.toLowerCase()) ||
+          (originalData[index].business_status.toLowerCase().includes(search.toLowerCase()))){
+          
             updateData.push(originalData[index]);
-          }
-          else if(originalData[index].address.toLowerCase().includes(search.toLowerCase())){
-            updateData.push(originalData[index]);
-          }
         }
       }
+    }
   
-      setData(updateData);
-    }; 
+    setData(updateData);
+
+  }; 
 
  
 
@@ -131,7 +126,7 @@ function Hospital(props){
       <br></br>
 
       <center>
-          <h2>Hospitals</h2>
+        <h2>Hospitals</h2>
       </center>
 
       <br></br>
@@ -139,8 +134,8 @@ function Hospital(props){
 
       <center>
         <form onSubmit={e => { e.preventDefault(); }}>
-        <input type="text" name="input" value={search} onChange={getUserInput} placeholder="Search by name or location"></input>
-      </form>
+          <input type="text" name="input" value={search} onChange={getUserInput} placeholder="Search by Name or Location"></input>
+        </form>
       </center>
 
       

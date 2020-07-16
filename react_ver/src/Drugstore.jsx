@@ -13,9 +13,6 @@ import drugstorepic from "./drugstore.jpg"
 
 function Drugstore(props){
   const [search, setSearch] = useState(""); // search is null to start with
-  // const [searchName, setSearchName] = useState("");
-    
-  //data encapsulates all of the fields below it, so those aren't necessary
   const [data, setData] = useState(); 
   const [originalData, setOriginalData] = useState();
 
