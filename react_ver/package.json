@@ -30,6 +30,7 @@
     "react-bootstrap-validation": "^0.1.11",
     "react-chartjs-2": "^2.9.0",
     "react-dom": "^16.13.1",
+    "react-highlight-words": "^0.16.0",
     "react-image-lightbox": "^5.1.1",
     "react-native-elements": "^2.0.4",
     "react-numeric-input": "^2.2.3",

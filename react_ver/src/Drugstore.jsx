@@ -108,15 +108,8 @@ function Drugstore(props){
               wordAdded = false;
 
             }
-            let nameIndex = originalData[index].name.toLowerCase().indexOf(words[i].toLowerCase());
-            if(nameIndex >= 0){
-              let lhs = originalData[index].name.substring(0, nameIndex);
-              let word = <mark>{ originalData[index].name.substring(nameIndex, words[i].length + nameIndex) }</mark>
-              let rhs = originalData[index].name.substring(words[i].length + nameIndex, originalData[index].name.length);
-              
-            }
           }
-          
+
           if(wordAdded){
             updateData.push(originalData[index]);
           }
@@ -132,6 +125,7 @@ function Drugstore(props){
       }
     }
   
+    
     setData(updateData);
 
   }; 
@@ -155,8 +149,7 @@ function Drugstore(props){
         <input type="text" name="input" value={search} onChange={getUserInput} placeholder="Search by Name, Location, Business Status"></input>
       </form>
       </center>
-
-      
+  
       <br></br>
 
       <MDBDataTable
