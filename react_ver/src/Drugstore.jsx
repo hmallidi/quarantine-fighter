@@ -21,16 +21,24 @@ function Drugstore(props){
   const updateTable = (result) => {
     console.log(result);
     console.log(result.data);
+    let temp = [];
 
     for (var index = 0; index < result.data.length; index++) {
+      //  if(searchName.equals("")){
 
-       result.data[index].google_maps_url =  <a href={result.data[index].google_maps_url} > Open Google Maps </a>
-       for(var openingIndex = 0; openingIndex < result.data[index].opening_hours.length; openingIndex++){
-         result.data[index].opening_hours[openingIndex] = <li> {result.data[index].opening_hours[openingIndex]} </li>
+      //  }
+       let addToList = result.data[index].name.includes(searchName);
+       if(addToList){
+          result.data[index].google_maps_url =  <a href={result.data[index].google_maps_url} > Open Google Maps </a>
+          for(var openingIndex = 0; openingIndex < result.data[index].opening_hours.length; openingIndex++){
+           result.data[index].opening_hours[openingIndex] = <li> {result.data[index].opening_hours[openingIndex]} </li>
+         }
+         temp.push(result.data[index]);
        }
      }
 
-    setData(result.data);
+    // setData(result.data);
+    setData(temp);
   }
 
   useEffect(()=> {
@@ -38,12 +46,7 @@ function Drugstore(props){
     var urlString = '/api/Drugstore/all/';
     console.log(searchName.concat("Helloname"))
     console.log(searchCity.concat("Hellocity"))
-    axios.get(urlString, {
-      params: {
-        name: searchName,
-        city: searchCity
-      }
-    }).then((result) => {
+    axios.get(urlString).then((result) => {
       updateTable(result);
     });
  
@@ -104,6 +107,9 @@ function Drugstore(props){
 
   const getNameInput = event => {
     setSearchName(event.target.value);
+    axios.get(urlString).then((result) => {
+      updateTable(result);
+    });
     console.log(searchName);
   };
 

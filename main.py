@@ -623,6 +623,8 @@ def getAllHospitals():
         return jsonify(hospitals_list), 200
 
 
+# @app.route("/Drugstore/<string:")
+
 @app.route("/api/Drugstore/all/", methods=['GET'])
 def getAllDrugstores():
     print("Hello")
@@ -671,8 +673,8 @@ def group3track():
     except Exception as e:
         return jsonify(error_dict), 500
 
-@app.route('/Group3/album', methods=['GET', 'POST'])
-def group3album():
+@app.route('/Group3/artist', methods=['GET', 'POST'])
+def group3artist():
     name = request.args.get("name")
 
     try:
@@ -707,8 +709,8 @@ def group3album():
     except Exception as e:
         return jsonify(error_dict), 500
 
-@app.route('/Group3/artist', methods=['GET', 'POST'])
-def group3artist():
+@app.route('/Group3/album', methods=['GET', 'POST'])
+def group3album():
     name = request.args.get("name")
 
     try:
