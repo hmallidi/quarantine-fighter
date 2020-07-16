@@ -1,3 +1,546 @@
+commit d6fe6a570eb7a55426798ba5e0a04cbbfadff81e
+Author: hmallidi <mallidi.harinadha@gmail.com>
+Date:   Thu Jul 16 17:48:26 2020 -0500
+
+    added (Click here to sort) on pages
+
+commit dfd90333d56a2b6569b8fdf67c4b86b8cfa4a6b1
+Author: hmallidi <mallidi.harinadha@gmail.com>
+Date:   Thu Jul 16 17:40:42 2020 -0500
+
+    back to normal drugstore
+
+commit 2c5d22552221d375b5e98f58b04ccf6bbf826b50
+Author: nayan1222 <nayan.shashidhar123@gmail.com>
+Date:   Thu Jul 16 16:59:32 2020 -0500
+
+    started working on highlighting searches
+
+commit 987b8fd4d2f3b013c268367ffeb1d28dfe0747c4
+Author: hmallidi <mallidi.harinadha@gmail.com>
+Date:   Thu Jul 16 21:40:36 2020 +0000
+
+    Update About.jsx
+
+commit 392c1060263ea1e383b933ca3832a3544d4614ed
+Merge: 84fcae5f5 4933b8d01
+Author: hmallidi <mallidi.harinadha@gmail.com>
+Date:   Thu Jul 16 15:36:30 2020 -0500
+
+    Merge branch 'master' of gitlab.com:nayan1222/covid-fighter
+
+commit 84fcae5f555bd48cb73cdd7e98a8bf81118893ad
+Author: hmallidi <mallidi.harinadha@gmail.com>
+Date:   Thu Jul 16 15:35:57 2020 -0500
+
+    updated API link in About page
+
+commit 4933b8d01c60e64c8dfd3fef28ce08e9ba1fcddf
+Author: Kewen Wang <wankew22@utexas.edu>
+Date:   Thu Jul 16 15:10:49 2020 -0500
+
+    update speaker deck link
+
+commit 7247d326661b81330d4aa8a93f75f6d55015239c
+Author: hmallidi <mallidi.harinadha@gmail.com>
+Date:   Thu Jul 16 13:22:17 2020 -0500
+
+    updated tab bar title to Quarantine Fighter
+
+commit edcab6f7b2cbead20c4cd45cfd2632b02914a80f
+Author: hmallidi <mallidi.harinadha@gmail.com>
+Date:   Thu Jul 16 13:09:02 2020 -0500
+
+    cleaned up main.py and other changes
+
+commit 95919a71682f98fb4a8c3406d70803b374810e69
+Author: hmallidi <mallidi.harinadha@gmail.com>
+Date:   Thu Jul 16 13:02:18 2020 -0500
+
+    drugstore and hospital search works now
+
+commit e0fbebadc60086aee4fa4deca51456f49cd904de
+Author: hmallidi <mallidi.harinadha@gmail.com>
+Date:   Thu Jul 16 12:49:21 2020 -0500
+
+    fixed City search bar
+
+commit 5748c5fd5b45008db838911e35281ec0634b7b53
+Author: Angela Cao <runningnerdtroll@gmail.com>
+Date:   Thu Jul 16 11:32:53 2020 -0500
+
+    fixed number of total tests
+
+commit 4eaca3c23e98053db5754057396787d0fbc27226
+Author: Pranav Varanasi <varanasipranav@gmail.com>
+Date:   Thu Jul 16 00:20:03 2020 -0700
+
+    Fixed search bars
+
+commit 9ef1610dbf3b95ffe1bc25561d264f8a8d090be3
+Author: Pranav Varanasi <varanasipranav@gmail.com>
+Date:   Thu Jul 16 00:09:55 2020 -0700
+
+    Fixed all table search
+
+commit 0622357985945cc7ed7c8587e2a0704bd139e623
+Author: nayan1222 <nayan.shashidhar123@gmail.com>
+Date:   Thu Jul 16 01:47:42 2020 -0500
+
+    removed width tag from hospital input
+
+commit d1db10ec9d16870468d268c00e5b202559bc3396
+Merge: 0b4609789 6797e05bc
+Author: nayan1222 <nayan.shashidhar123@gmail.com>
+Date:   Thu Jul 16 01:24:13 2020 -0500
+
+    Merge branch 'master' of https://gitlab.com/nayan1222/covid-fighter
+
+commit 6797e05bc0a5af63f8c6dd0417bbd918e5730b50
+Merge: 588291b28 3512398a6
+Author: Pranav Varanasi <varanasipranav@gmail.com>
+Date:   Wed Jul 15 23:23:41 2020 -0700
+
+    Merge branch 'master' of https://gitlab.com/nayan1222/covid-fighter
+
+commit 0b4609789d4f2a66b65a072ca40d8c335d4a1987
+Author: nayan1222 <nayan.shashidhar123@gmail.com>
+Date:   Thu Jul 16 01:23:12 2020 -0500
+
+    copying over functional search bar to hospitals
+
+commit 588291b28eca6807e062cf3a6e7f6cdb9615f299
+Author: Pranav Varanasi <varanasipranav@gmail.com>
+Date:   Wed Jul 15 23:22:58 2020 -0700
+
+    Added operational search
+
+commit 3512398a69a7d01f4eaa24270b7e62b17c42d851
+Author: Angela Cao <runningnerdtroll@gmail.com>
+Date:   Thu Jul 16 01:02:18 2020 -0500
+
+    added one more unit test to even out to 60 commits yay
+
+commit 283ef466e6acada486f67f7b2521337ed170df9e
+Author: Pranav Varanasi <varanasipranav@gmail.com>
+Date:   Wed Jul 15 22:33:44 2020 -0700
+
+    Fixed search bar
+
+commit b3ff5942767dc3cd676dc242a11aec2a6b95daa7
+Author: Pranav Varanasi <varanasipranav@gmail.com>
+Date:   Wed Jul 15 20:04:26 2020 -0700
+
+    Added group3 tables, table headers
+
+commit 0f7d11544e6e875394b16ee45767936d972594f4
+Author: nayan1222 <nayan.shashidhar123@gmail.com>
+Date:   Wed Jul 15 19:31:09 2020 -0500
+
+    wrote code for rendering tables for group 3's API
+
+commit 1eec1693e4ce0fe9040fe188b901d6befff7dd4d
+Author: hmallidi <mallidi.harinadha@gmail.com>
+Date:   Wed Jul 15 17:56:28 2020 -0500
+
+    working with search bar
+
+commit b9543b1c3512744b14afb8ec59e6bfb6de2c7dbb
+Author: Pranav Varanasi <varanasipranav@gmail.com>
+Date:   Wed Jul 15 15:37:10 2020 -0700
+
+    post
+
+commit 02d51a6ce2094c9123a38881424eacf1272c6159
+Author: Pranav Varanasi <varanasipranav@gmail.com>
+Date:   Wed Jul 15 15:33:56 2020 -0700
+
+    axios post
+
+commit 8a9671515c8a721de138c7f3d872671b7498b088
+Author: nayan1222 <nayan.shashidhar123@gmail.com>
+Date:   Wed Jul 15 16:03:52 2020 -0500
+
+    implemented group 3 artist model from their api
+
+commit 4149a9d0a627d40c744d6760bd0c71f07f4325d0
+Author: nayan1222 <nayan.shashidhar123@gmail.com>
+Date:   Wed Jul 15 15:54:14 2020 -0500
+
+    implemented group 3 album model from their api
+
+commit 94856916f3d30d8689d44cf4b4e9c59e816c5d33
+Author: hmallidi <mallidi.harinadha@gmail.com>
+Date:   Tue Jul 14 20:19:14 2020 -0500
+
+    unit test output is good now
+
+commit e400859c7f787f197f690a1beb394198d1f18155
+Author: hmallidi <mallidi.harinadha@gmail.com>
+Date:   Tue Jul 14 19:43:01 2020 -0500
+
+    added mdbreact dependencies
+
+commit b6cb065b414fea47f865b9dcdafe1e98f98aca73
+Author: Pranav Varanasi <varanasipranav@gmail.com>
+Date:   Tue Jul 14 17:01:11 2020 -0700
+
+    use effect drugstore
+
+commit b5dfa63badb757aed45e014e6fb091b403fce041
+Author: nayan1222 <nayan.shashidhar123@gmail.com>
+Date:   Tue Jul 14 18:17:54 2020 -0500
+
+    added axios.post function in drugstore
+
+commit b1ea6cbf980662eab781abd143b9a66eed7eb7ae
+Author: hmallidi <mallidi.harinadha@gmail.com>
+Date:   Tue Jul 14 18:01:43 2020 -0500
+
+    requirements.txt and drugstores button addition
+
+commit b014de6bd7ca587d1f9cd13daab91a0a4ea0794a
+Author: hmallidi <mallidi.harinadha@gmail.com>
+Date:   Tue Jul 14 17:35:50 2020 -0500
+
+    quick button change on drugstores
+
+commit 8c1ecc9c52a2927154b9f8452562ca4f7386c5ca
+Author: nayan1222 <nayan.shashidhar123@gmail.com>
+Date:   Tue Jul 14 17:21:05 2020 -0500
+
+    changed covid fighter to quarantine fighter
+
+commit a46a317934b8814364c9b8fc96c9d8f873ebd959
+Author: hmallidi <mallidi.harinadha@gmail.com>
+Date:   Tue Jul 14 17:12:55 2020 -0500
+
+    saved drugstore, hospital, and city json objects locally
+
+commit b10ef9eb79366823604053ffa7558d9c1ec4005a
+Author: hmallidi <mallidi.harinadha@gmail.com>
+Date:   Tue Jul 14 16:57:03 2020 -0500
+
+    updateed multisearch forr hospitals
+
+commit f6e13afe52b2158e1c233656a6030e60f124755d
+Author: hmallidi <mallidi.harinadha@gmail.com>
+Date:   Tue Jul 14 16:55:01 2020 -0500
+
+    updated multisearch drugstores
+
+commit 37c320cc7d321a3ccc1913c31fe34781042da2ec
+Author: hmallidi <mallidi.harinadha@gmail.com>
+Date:   Tue Jul 14 16:36:54 2020 -0500
+
+    getCitiesInsideByQuery implemented
+
+commit fec52d4db5218ad65c124880bcc3855e23567209
+Author: hmallidi <mallidi.harinadha@gmail.com>
+Date:   Tue Jul 14 16:31:26 2020 -0500
+
+    getHospitalsInsideByQuery implemented
+
+commit d8a3a2f78780ad896a68b313d5f5dc639c4a9970
+Author: hmallidi <mallidi.harinadha@gmail.com>
+Date:   Tue Jul 14 16:21:20 2020 -0500
+
+    getDrugstoresInsideByQuery is working well
+
+commit 1246f6b44566bc3166dd60881a0cd870cc2d46af
+Author: hmallidi <mallidi.harinadha@gmail.com>
+Date:   Tue Jul 14 14:38:21 2020 -0500
+
+    slight additions to getDrugstoresInsideByQuery
+
+commit 6d29c266019eaf860c3d566b1b06dd31c3216726
+Author: Pranav Varanasi <varanasipranav@gmail.com>
+Date:   Mon Jul 13 17:37:31 2020 -0700
+
+    drugstore call
+
+commit dbec39f3ea722cb3fb42928c54a203642fd399dd
+Author: hmallidi <mallidi.harinadha@gmail.com>
+Date:   Mon Jul 13 18:44:01 2020 -0500
+
+    changed search compile error Drugstore
+
+commit 3dc57b67eb461464b6bf116664ee48d2ed4c4245
+Author: nayan1222 <nayan.shashidhar123@gmail.com>
+Date:   Mon Jul 13 18:33:30 2020 -0500
+
+    added search bar to drugstore
+
+commit fdc48474a06a642a47b9467309595334ee5d1a02
+Author: hmallidi <mallidi.harinadha@gmail.com>
+Date:   Mon Jul 13 18:15:06 2020 -0500
+
+    added search for drugstore
+
+commit 746c6fe336a9e8e439ec3e3928c0e934f5b0e39a
+Author: nayan1222 <nayan.shashidhar123@gmail.com>
+Date:   Mon Jul 13 18:03:28 2020 -0500
+
+    implemented group3 API searching based on track
+
+commit 59e15d5889b3dcc51299587250f548d2b6aa6aaf
+Author: Kewen Wang <wankew22@utexas.edu>
+Date:   Mon Jul 13 01:14:58 2020 -0500
+
+    adjust width and center
+
+commit bef64057e3d5975ee5412058caa51be302067714
+Author: Kewen Wang <wankew22@utexas.edu>
+Date:   Mon Jul 13 01:05:18 2020 -0500
+
+    finish adding media to subpages
+
+commit 6a74b6c87a5056511ff32353a8ae5c6cb19d14df
+Author: Kewen Wang <wankew22@utexas.edu>
+Date:   Mon Jul 13 00:58:14 2020 -0500
+
+    subpage.css
+
+commit 44dd2d774f15124f82fa40a3500c26b4a045384a
+Author: Kewen Wang <wankew22@utexas.edu>
+Date:   Mon Jul 13 00:53:10 2020 -0500
+
+    fix city export error
+
+commit 409a4c0c6ce13b4b4604b4b9aebe3ea9a8d50bfa
+Author: Pranav Varanasi <varanasipranav@gmail.com>
+Date:   Sun Jul 12 17:08:50 2020 -0700
+
+    passing unit tests
+
+commit 2627d98407ca2848450e759a79fc625d9c5093f5
+Merge: a9aaa168d 37112bfc7
+Author: Pranav Varanasi <varanasipranav@gmail.com>
+Date:   Sun Jul 12 17:05:16 2020 -0700
+
+    Merge branch 'master' of https://gitlab.com/nayan1222/covid-fighter
+
+commit a9aaa168d2a725d6d1aa59835ad19bfde2a33ee0
+Author: Pranav Varanasi <varanasipranav@gmail.com>
+Date:   Sun Jul 12 17:05:11 2020 -0700
+
+    unit test button
+
+commit 37112bfc7cea92de0d976c0812d8322ec87855b7
+Author: Angela Cao <runningnerdtroll@gmail.com>
+Date:   Sun Jul 12 18:55:25 2020 -0500
+
+    added more unit tests Angela
+
+commit f24dc170abdcf8bea055e4d732ec3aeb16b252bc
+Author: Angela Cao <runningnerdtroll@gmail.com>
+Date:   Sun Jul 12 18:38:45 2020 -0500
+
+    update on number of unit tests
+
+commit 520f7ccffb45c4d65f2899aada343cada711298c
+Merge: d1772112d cfda46d9e
+Author: Pranav Varanasi <varanasipranav@gmail.com>
+Date:   Sun Jul 12 16:30:19 2020 -0700
+
+    Merge branch 'master' of https://gitlab.com/nayan1222/covid-fighter
+
+commit d1772112d68d410b6facfcb069ca5a8102fd34e0
+Author: Pranav Varanasi <varanasipranav@gmail.com>
+Date:   Sun Jul 12 16:30:08 2020 -0700
+
+    hospital, drugstore tables
+
+commit cfda46d9ee87008d960f73a24e82b14e51a56229
+Author: Angela Cao <runningnerdtroll@gmail.com>
+Date:   Sun Jul 12 16:03:28 2020 -0500
+
+    Angela unit tests
+
+commit bfd7a358bc52f1e26f035f980ca69effc89c7eb0
+Author: Angela Cao <runningnerdtroll@gmail.com>
+Date:   Sun Jul 12 15:57:08 2020 -0500
+
+    Angela unit test update
+
+commit c860c553cdf790f645ab0ca3f3b524482d15399b
+Author: Angela Cao <runningnerdtroll@gmail.com>
+Date:   Sun Jul 12 15:55:21 2020 -0500
+
+    Angela unit tests
+
+commit e8e8765d5b4030010e47165bfb82cd399b070eb3
+Author: Pranav Varanasi <varanasipranav@gmail.com>
+Date:   Sun Jul 12 13:36:37 2020 -0700
+
+    fixed url new york
+
+commit 29a6e681fac600e2a77910b214607eb0f3c6afb7
+Author: nayan1222 <nayan.shashidhar123@gmail.com>
+Date:   Sun Jul 12 14:02:12 2020 -0500
+
+    added search bar to city.jsx, need to test
+
+commit 7bf7804e53eab20095227526bb3ac06abc431498
+Merge: c4a71ee34 6c478f2f6
+Author: nayan1222 <nayan.shashidhar123@gmail.com>
+Date:   Sun Jul 12 13:03:11 2020 -0500
+
+    Merge branch 'master' of https://gitlab.com/nayan1222/covid-fighter
+
+commit c4a71ee343e7253e2c5ce30ca80986aa2b302b45
+Author: nayan1222 <nayan.shashidhar123@gmail.com>
+Date:   Sun Jul 12 12:57:56 2020 -0500
+
+    fixed where form sends input to in Drugstore.jsx
+
+commit 6c478f2f6d23d858ca31c5db6b6e32f0392bacba
+Merge: f9c4e7a63 79408fda4
+Author: Pranav Varanasi <varanasipranav@gmail.com>
+Date:   Sun Jul 12 10:17:48 2020 -0700
+
+    fixed merge
+
+commit f9c4e7a633563d0200aeda9e70b70da094886ed8
+Author: Pranav Varanasi <varanasipranav@gmail.com>
+Date:   Sun Jul 12 10:15:53 2020 -0700
+
+    react build folder
+
+commit 79408fda4762f1b7b8f16c744de6e12e32aa1b2a
+Author: nayan1222 <nayan.shashidhar123@gmail.com>
+Date:   Sun Jul 12 10:25:04 2020 -0500
+
+    fixed some comments
+
+commit 1d569172fd5513a1a866c76faa39714b7b750289
+Author: nayan1222 <nayan.shashidhar123@gmail.com>
+Date:   Sun Jul 12 10:21:35 2020 -0500
+
+    combined two searches into one form
+
+commit c19e1c0ee6f4dec8459f8854482c595b0127189c
+Author: nayan1222 <nayan.shashidhar123@gmail.com>
+Date:   Sun Jul 12 10:19:51 2020 -0500
+
+    added two search bars in Drugstore.jsx, one for city, one for name
+
+commit b41a5337f0633dd02b07b0c560d6152a0e6a208b
+Author: nayan1222 <nayan.shashidhar123@gmail.com>
+Date:   Sun Jul 12 01:28:03 2020 -0500
+
+    able to store search inputs (done in drugstore.jsx)
+
+commit e2716f9057d15b5523aba13bec50301f1d4b5677
+Author: Kewen Wang <wankew22@utexas.edu>
+Date:   Sat Jul 11 20:16:56 2020 -0500
+
+    revise run unit tests button for react
+
+commit 6a8e72b6a9fb1f607a159a8a50d900a058199935
+Author: Kewen Wang <wankew22@utexas.edu>
+Date:   Sat Jul 11 20:11:36 2020 -0500
+
+    more unit tests
+
+commit 00cdb96f2e3f850c0f76bc82fb65545a8bb7432f
+Author: Kewen Wang <wankew22@utexas.edu>
+Date:   Sat Jul 11 19:55:55 2020 -0500
+
+    revise makefile with .PHONY
+
+commit 6eb16e2001c70c865c053c5d4b8090931b2a6a14
+Author: Kewen Wang <wankew22@utexas.edu>
+Date:   Sun Jul 12 00:51:46 2020 +0000
+
+    Update makefile
+
+commit 55b5669c02b9b5a78e1fc3504e3d4957bb4d6c53
+Author: Kewen Wang <wankew22@utexas.edu>
+Date:   Sat Jul 11 18:32:33 2020 -0500
+
+    for react version, add a way to run the unit tests on the web page
+
+commit 8f02fd057e60ac85e3273c247e44d50939a3ff17
+Author: Kewen Wang <wankew22@utexas.edu>
+Date:   Sat Jul 11 17:33:16 2020 -0500
+
+    speaker deck
+
+commit 4d2b703d5e21e8420954e6a6e693c53d73700f52
+Author: Kewen Wang <wankew22@utexas.edu>
+Date:   Sat Jul 11 17:28:07 2020 -0500
+
+    fix issue causing about page to disappear
+
+commit 18dc1918d1905b06c39408283a1de12ccd0455f1
+Author: Pranav Varanasi <varanasipranav@gmail.com>
+Date:   Sat Jul 11 14:58:40 2020 -0700
+
+    removed js extra copy files
+
+commit baed64af2e602700e48f1f4611641f9d3a322dd2
+Merge: 496aa7711 b893a95bc
+Author: nayan1222 <nayan.shashidhar123@gmail.com>
+Date:   Sat Jul 11 16:50:00 2020 -0500
+
+    fixed merge conflict and routes in Main.jsx
+
+commit 496aa77116a75edbc0c2dcf6d0ee94ee39c93d94
+Author: nayan1222 <nayan.shashidhar123@gmail.com>
+Date:   Sat Jul 11 16:48:19 2020 -0500
+
+    copied over Grocery, Restaurant, and Healthcare.jsx into City, Drugstore, and Hospital.jsx
+
+commit b893a95bc2590adb767581e828907d7fb6317b81
+Author: Kewen Wang <wankew22@utexas.edu>
+Date:   Sat Jul 11 16:47:01 2020 -0500
+
+    group3 page
+
+commit 26ad4a53727f39e6849ef0fd945d048d720689cf
+Author: Pranav Varanasi <varanasipranav@gmail.com>
+Date:   Sat Jul 11 14:45:39 2020 -0700
+
+    requirements.txt cors
+
+commit 1340ca9c088f79de45e194c37a2c66f8e22a4c3a
+Merge: 554016d14 0a0c5cf40
+Author: Pranav Varanasi <varanasipranav@gmail.com>
+Date:   Sat Jul 11 14:34:33 2020 -0700
+
+    Merge branch 'master' of https://gitlab.com/nayan1222/covid-fighter
+
+commit 554016d1409db18edfecf94d9d560a1dc5597dd3
+Author: Pranav Varanasi <varanasipranav@gmail.com>
+Date:   Sat Jul 11 14:34:29 2020 -0700
+
+    fixed react
+
+commit 0a0c5cf40e1fd09cb2192152d581ad31eeab3c45
+Author: Kewen Wang <wankew22@utexas.edu>
+Date:   Sat Jul 11 16:31:29 2020 -0500
+
+    delete react templates
+
+commit 781207937b77597b83b7bf87cdd8fa080d97cd4a
+Author: nayan1222 <nayan.shashidhar123@gmail.com>
+Date:   Sat Jul 11 16:05:30 2020 -0500
+
+    changed form a little bit
+
+commit f757f5c2dbab744d7ecc3bed5546dbbe6b6d5d87
+Author: nayan1222 <nayan.shashidhar123@gmail.com>
+Date:   Sat Jul 11 15:53:26 2020 -0500
+
+    working on search bar in Restaurant.jsx (drugstores
+
+commit df7748dbc134087fda99cb29ff74c854f23743b3
+Author: hmallidi <mallidi.harinadha@gmail.com>
+Date:   Thu Jul 9 21:54:48 2020 -0500
+
+    other change layout
+
 commit a337861005970517cfac676d8226c792dd1f57cf
 Author: hmallidi <mallidi.harinadha@gmail.com>
 Date:   Thu Jul 9 21:53:58 2020 -0500
@@ -41,28 +584,28 @@ Date:   Thu Jul 9 21:23:12 2020 -0500
     ready for submission once again
 
 commit db6966d704050cbbd5ffec8ee774436508c404db
-Merge: f8fca80c 22f13f8b
+Merge: f8fca80c0 22f13f8be
 Author: Pranav Varanasi <varanasipranav@gmail.com>
 Date:   Thu Jul 9 19:12:29 2020 -0700
 
     Merge branch 'master' of https://gitlab.com/nayan1222/covid-fighter
 
 commit f8fca80c0db362c811d311ad4c69ec19d2075299
-Merge: e9a80dae 26ce96b5
+Merge: e9a80dae9 26ce96b58
 Author: Pranav Varanasi <varanasipranav@gmail.com>
 Date:   Thu Jul 9 19:12:18 2020 -0700
 
     Merge branch 'master' of https://gitlab.com/nayan1222/covid-fighter
 
 commit 22f13f8be7a5bca98bbc2eb025b98cc0351050c0
-Merge: 27195ec6 26ce96b5
+Merge: 27195ec65 26ce96b58
 Author: nayan1222 <nayan.shashidhar123@gmail.com>
 Date:   Thu Jul 9 21:12:13 2020 -0500
 
     Merge branch 'master' of https://gitlab.com/nayan1222/covid-fighter
 
 commit e9a80dae9815d3e774d31bc4229ed18517ec12a9
-Merge: e3f5c289 5557c238
+Merge: e3f5c289d 5557c238c
 Author: Pranav Varanasi <varanasipranav@gmail.com>
 Date:   Thu Jul 9 19:11:48 2020 -0700
 
@@ -93,7 +636,7 @@ Date:   Thu Jul 9 21:10:49 2020 -0500
     submission ready
 
 commit 350dbf12513079b009bd0a4d11bd5aed7bdc1606
-Merge: 870bd12e 904ff3f6
+Merge: 870bd12e5 904ff3f6b
 Author: hmallidi <mallidi.harinadha@gmail.com>
 Date:   Thu Jul 9 21:09:57 2020 -0500
 
@@ -106,7 +649,7 @@ Date:   Thu Jul 9 21:09:40 2020 -0500
     submission
 
 commit 904ff3f6bb7e247eb7bc57caa76f503b52d38602
-Merge: de27038c cbb331fb
+Merge: de27038c3 cbb331fbd
 Author: hmallidi <mallidi.harinadha@gmail.com>
 Date:   Thu Jul 9 20:57:33 2020 -0500
 
@@ -131,7 +674,7 @@ Date:   Fri Jul 10 01:55:05 2020 +0000
     Delete .coverage
 
 commit a547c8ef9af2182d2d17853cfca3b6fc978e3423
-Merge: 813a42c0 d2f06ca7
+Merge: 813a42c0a d2f06ca72
 Author: Pranav Varanasi <varanasipranav@gmail.com>
 Date:   Thu Jul 9 18:20:03 2020 -0700
 
@@ -187,7 +730,7 @@ Date:   Thu Jul 9 18:16:39 2020 -0500
     some interface changes
 
 commit ae2826fc898861f261451b3af4dd6284f55ce970
-Merge: f81f4c40 aeb36155
+Merge: f81f4c40e aeb36155a
 Author: Pranav Varanasi <varanasipranav@gmail.com>
 Date:   Thu Jul 9 15:40:16 2020 -0700
 
@@ -254,7 +797,7 @@ Date:   Thu Jul 9 11:31:16 2020 -0500
     fixed a small error in grocery.js
 
 commit cc553299e2511f451aaa7a3bf5687878017bda66
-Merge: 0af13bb6 25bf1bb1
+Merge: 0af13bb68 25bf1bb13
 Author: Pranav Varanasi <varanasipranav@gmail.com>
 Date:   Thu Jul 9 09:23:08 2020 -0700
 
@@ -309,7 +852,7 @@ Date:   Wed Jul 8 21:47:00 2020 -0500
     added testing app.route in main.py
 
 commit 05b2b5390e8f971bc9bf33b0b801f71cf87299fd
-Merge: 7ae165ba 93097a0a
+Merge: 7ae165baf 93097a0ab
 Author: Pranav Varanasi <varanasipranav@gmail.com>
 Date:   Wed Jul 8 16:46:51 2020 -0700
 
@@ -382,7 +925,7 @@ Date:   Wed Jul 8 12:06:26 2020 -0500
     remove media
 
 commit ec4de40db378f9e21278a216a2ce34e611a8c416
-Merge: be158a2d c3308d6c
+Merge: be158a2dc c3308d6c2
 Author: Kewen Wang <wankew22@utexas.edu>
 Date:   Wed Jul 8 11:57:45 2020 -0500
 
@@ -407,7 +950,7 @@ Date:   Tue Jul 7 20:06:16 2020 -0500
     main.py changes
 
 commit e4960e7041e6577b9ea26c5c26ff5f4d61779b29
-Merge: 7412ab1d 8b3d74e5
+Merge: 7412ab1de 8b3d74e51
 Author: Pranav Varanasi <varanasipranav@gmail.com>
 Date:   Tue Jul 7 17:37:42 2020 -0700
 
@@ -486,21 +1029,21 @@ Date:   Mon Jul 6 20:36:00 2020 -0500
     added unit tests for database queries for all 3 tables
 
 commit f78416cad4d4eaf48b35b1f66a8850cba2a6129a
-Merge: 81da85a1 76911154
+Merge: 81da85a1e 76911154d
 Author: Pranav Varanasi <varanasipranav@gmail.com>
 Date:   Mon Jul 6 17:21:18 2020 -0700
 
     Merge branch 'master' of https://gitlab.com/nayan1222/covid-fighter
 
 commit 76911154dead27707c126d09e7b1d370b6e42671
-Merge: 61dd67f8 9305030e
+Merge: 61dd67f8b 9305030e4
 Author: nayan1222 <nayan.shashidhar123@gmail.com>
 Date:   Mon Jul 6 19:21:01 2020 -0500
 
     Merge branch 'master' of https://gitlab.com/nayan1222/covid-fighter
 
 commit 81da85a1e31885dc37f5753bbbe116e17693ff1e
-Merge: 156cca71 9305030e
+Merge: 156cca710 9305030e4
 Author: Pranav Varanasi <varanasipranav@gmail.com>
 Date:   Mon Jul 6 17:20:53 2020 -0700
 
@@ -537,7 +1080,7 @@ Date:   Mon Jul 6 18:40:48 2020 -0500
     added denver city to populateTable()
 
 commit ba87abcdf75324a45b069bb4960a6ab7f109e2cc
-Merge: b31f4182 20f5caa0
+Merge: b31f4182e 20f5caa03
 Author: hmallidi <mallidi.harinadha@gmail.com>
 Date:   Mon Jul 6 18:24:19 2020 -0500
 
@@ -556,7 +1099,7 @@ Date:   Mon Jul 6 17:15:56 2020 -0500
     added google maps default code to react version of the website
 
 commit 1224e65af8db067b51b88a7bc89eba0fa5960854
-Merge: 6e12fe5e da2d16fe
+Merge: 6e12fe5e8 da2d16fef
 Author: Pranav Varanasi <varanasipranav@gmail.com>
 Date:   Sun Jul 5 22:02:51 2020 -0700
 
@@ -569,7 +1112,7 @@ Date:   Sun Jul 5 22:00:00 2020 -0700
     updated requirements
 
 commit da2d16fefdffc0a43d437c6d0c4323e862312d51
-Merge: 13bbe7a1 5667a285
+Merge: 13bbe7a15 5667a2851
 Author: Pranav Varanasi <varanasipranav@gmail.com>
 Date:   Sun Jul 5 21:36:22 2020 -0700
 
@@ -600,7 +1143,7 @@ Date:   Sun Jul 5 20:35:04 2020 -0500
     implemented api for cities
 
 commit be8af3c66d6531cc21c9e94b8e8d7e3027ffea66
-Merge: e595c4bf b54a5363
+Merge: e595c4bfa b54a5363a
 Author: nayan1222 <nayan.shashidhar123@gmail.com>
 Date:   Sun Jul 5 19:32:02 2020 -0500
 
@@ -613,7 +1156,7 @@ Date:   Sun Jul 5 19:30:53 2020 -0500
     added practice query for anaheim
 
 commit b54a5363aacade6b163f29f58bf9c1ffce0ac943
-Merge: 54f2a08a b8534ecb
+Merge: 54f2a08a8 b8534ecb7
 Author: Pranav Varanasi <varanasipranav@gmail.com>
 Date:   Sun Jul 5 17:07:48 2020 -0700
 
@@ -626,7 +1169,7 @@ Date:   Sun Jul 5 17:07:40 2020 -0700
     import
 
 commit b8534ecb7aee2f148a75cb379abd66d43faa61d8
-Merge: e4475af9 851af043
+Merge: e4475af91 851af043b
 Author: hmallidi <mallidi.harinadha@gmail.com>
 Date:   Sun Jul 5 18:51:23 2020 -0500
 
@@ -657,7 +1200,7 @@ Date:   Sun Jul 5 16:18:24 2020 -0700
     Fixed sql connection
 
 commit bb85a3afb0a5d45a01fe3832700ff70d32356c77
-Merge: a5f3f1cc 2616fc7b
+Merge: a5f3f1cc4 2616fc7b5
 Author: Pranav Varanasi <varanasipranav@gmail.com>
 Date:   Sun Jul 5 15:17:55 2020 -0700
 
@@ -682,7 +1225,7 @@ Date:   Sun Jul 5 16:40:58 2020 -0500
     added more code to react files
 
 commit be734ac016fc024257511f8763e3fa0959839c60
-Merge: 1ee481ad bb4077ec
+Merge: 1ee481ad3 bb4077ecd
 Author: Pranav Varanasi <varanasipranav@gmail.com>
 Date:   Sun Jul 5 13:55:37 2020 -0700
 
@@ -707,7 +1250,7 @@ Date:   Sun Jul 5 18:13:33 2020 +0000
     Upload profile pic
 
 commit 4e513b74e3aa56857409c1b389cbacf59770975c
-Merge: 10b40f98 2f25c743
+Merge: 10b40f98c 2f25c743d
 Author: Pranav Varanasi <varanasipranav@gmail.com>
 Date:   Sun Jul 5 09:47:03 2020 -0700
 
@@ -732,14 +1275,14 @@ Date:   Sun Jul 5 09:24:40 2020 -0700
     gcp models
 
 commit 9e26b92956257da42d323ca5c147d1851c426f49
-Merge: f71cd036 087bac0f
+Merge: f71cd036f 087bac0fc
 Author: Pranav Varanasi <varanasipranav@gmail.com>
 Date:   Sun Jul 5 09:20:17 2020 -0700
 
     Merge branch 'master' of https://gitlab.com/nayan1222/covid-fighter
 
 commit 087bac0fc146320a9266f1da2a2e25c075a30c01
-Merge: 6a650604 4daa1013
+Merge: 6a650604b 4daa1013f
 Author: Pranav Varanasi <varanasipranav@gmail.com>
 Date:   Sun Jul 5 09:18:46 2020 -0700
 
@@ -758,7 +1301,7 @@ Date:   Sun Jul 5 16:16:45 2020 +0000
     Update makefile
 
 commit f71cd036fd669789a6c3b127d75282067d12520b
-Merge: 9caa57bc 517a3891
+Merge: 9caa57bc6 517a3891e
 Author: Pranav Varanasi <varanasipranav@gmail.com>
 Date:   Sun Jul 5 09:15:24 2020 -0700
 
@@ -771,7 +1314,7 @@ Date:   Sun Jul 5 11:14:46 2020 -0500
     first implementation of about page in react
 
 commit 9caa57bc668b3ac4cfeeaeee09b49dbf655a2be9
-Merge: ea9ab661 b15abfcb
+Merge: ea9ab6616 b15abfcbc
 Author: Pranav Varanasi <varanasipranav@gmail.com>
 Date:   Sun Jul 5 09:13:12 2020 -0700
 
@@ -814,7 +1357,7 @@ Date:   Sat Jul 4 19:05:23 2020 -0500
     added more code to react files
 
 commit 209b0c319d6461be2641ef49bcb5c29b17826c48
-Merge: bbad7d55 1f80dca7
+Merge: bbad7d556 1f80dca79
 Author: nayan1222 <nayan.shashidhar123@gmail.com>
 Date:   Sat Jul 4 18:50:44 2020 -0500
 
@@ -833,7 +1376,7 @@ Date:   Sat Jul 4 18:11:56 2020 -0500
     added requirements
 
 commit 563bb54a75c31152a6036ce665b89610b4d41fe0
-Merge: 40103259 784e9732
+Merge: 40103259d 784e9732a
 Author: nayan1222 <nayan.shashidhar123@gmail.com>
 Date:   Sat Jul 4 18:06:33 2020 -0500
 
@@ -852,7 +1395,7 @@ Date:   Sat Jul 4 18:03:49 2020 -0500
     wrote code to populate database
 
 commit 784e9732a75777b3302ee7848b81f7f5961fa912
-Merge: 6322d570 0689a849
+Merge: 6322d570a 0689a8498
 Author: Pranav Varanasi <varanasipranav@gmail.com>
 Date:   Sat Jul 4 15:19:37 2020 -0700
 
@@ -889,7 +1432,7 @@ Date:   Sat Jul 4 15:03:56 2020 -0500
     added more code to react
 
 commit f0235014f13fde518bbf1292196a3a122b70f93c
-Merge: d222eb16 609ba66c
+Merge: d222eb168 609ba66ce
 Author: hmallidi <mallidi.harinadha@gmail.com>
 Date:   Sat Jul 4 14:48:15 2020 -0500
 
@@ -902,7 +1445,7 @@ Date:   Sat Jul 4 14:47:44 2020 -0500
     changed dict fields request.py
 
 commit 609ba66cea420f0e6d33a930198a62a3954fd000
-Merge: 0373aead c5d3253e
+Merge: 0373aead1 c5d3253e7
 Author: Angela Cao <runningnerdtroll@gmail.com>
 Date:   Sat Jul 4 13:24:33 2020 -0500
 
@@ -927,7 +1470,7 @@ Date:   Sat Jul 4 12:44:09 2020 -0500
     fixed models.py relation misnaming
 
 commit 09c15b39079f6525b4657b59e75e7a3e044fac2c
-Merge: 15f086f5 0c4f3f9e
+Merge: 15f086f59 0c4f3f9e5
 Author: hmallidi <mallidi.harinadha@gmail.com>
 Date:   Sat Jul 4 12:42:47 2020 -0500
 
@@ -976,7 +1519,7 @@ Date:   Fri Jul 3 22:32:47 2020 -0500
     better optimized reformatLocation() code
 
 commit 7a039607328badca51a375bf2ee8796e55fdf7d8
-Merge: bc550f2e 6888ffcc
+Merge: bc550f2ee 6888ffccc
 Author: hmallidi <mallidi.harinadha@gmail.com>
 Date:   Fri Jul 3 22:32:09 2020 -0500
 
@@ -995,7 +1538,7 @@ Date:   Fri Jul 3 18:08:29 2020 -0500
     changed open_state to open_status models.py
 
 commit e83b285d8793f4add640ad0c951398273df61eff
-Merge: 8a31f090 fdc30eb6
+Merge: 8a31f090c fdc30eb6f
 Author: hmallidi <mallidi.harinadha@gmail.com>
 Date:   Fri Jul 3 18:05:19 2020 -0500
 
@@ -1014,7 +1557,7 @@ Date:   Fri Jul 3 17:24:35 2020 -0500
     tables set up, except for relational parts, can fix this later though
 
 commit 0c60d37dac0a4a5e2972dd439a2acdaa472aa669
-Merge: 2bd9a807 3b8763f0
+Merge: 2bd9a807e 3b8763f0c
 Author: nayan1222 <nayan.shashidhar123@gmail.com>
 Date:   Fri Jul 3 17:16:00 2020 -0500
 
@@ -1051,7 +1594,7 @@ Date:   Fri Jul 3 00:12:54 2020 -0500
     add change for react implemntation
 
 commit 9b139b6346fa3e8e54e88bdc30e862c3ec45e518
-Merge: 3e174c38 4a15b9a4
+Merge: 3e174c385 4a15b9a41
 Author: Kewen Wang <wankew22@utexas.edu>
 Date:   Fri Jul 3 05:08:41 2020 +0000
 
@@ -1268,7 +1811,7 @@ Date:   Wed Jun 24 21:08:40 2020 -0500
     updated personal info for Angela
 
 commit 8e7583f15ba98d5b536d8e6b7a2150e3a0e99801
-Merge: 52afa541 b90f1fb1
+Merge: 52afa541d b90f1fb1c
 Author: Angela Cao <runningnerdtroll@gmail.com>
 Date:   Wed Jun 24 21:05:59 2020 -0500
 
@@ -1293,7 +1836,7 @@ Date:   Wed Jun 24 21:02:04 2020 -0500
     added descriptive elements to id get requests on postman.YAML
 
 commit 7131c66dbda3bd9aa21dfea4fd232d3cb1bcb131
-Merge: 14403677 6ce6603e
+Merge: 14403677a 6ce6603e8
 Author: Angela Cao <runningnerdtroll@gmail.com>
 Date:   Wed Jun 24 21:01:02 2020 -0500
 
@@ -1330,7 +1873,7 @@ Date:   Wed Jun 24 20:41:33 2020 -0500
     forgot to save file
 
 commit 9a97f90be668d7cb616575357fd2c6b86e2a8f3d
-Merge: f3a068d6 d92e3756
+Merge: f3a068d6c d92e3756b
 Author: nayan1222 <nayan.shashidhar123@gmail.com>
 Date:   Wed Jun 24 20:40:37 2020 -0500
 
@@ -1355,7 +1898,7 @@ Date:   Wed Jun 24 20:29:16 2020 -0500
     generate html file to document interface
 
 commit 6781f85305c715b3ed9a6f86229e4b145ad95cbe
-Merge: f8dc2c71 bdf81cc4
+Merge: f8dc2c719 bdf81cc45
 Author: Pranav Varanasi <varanasipranav@gmail.com>
 Date:   Wed Jun 24 18:21:47 2020 -0700
 
@@ -1368,7 +1911,7 @@ Date:   Wed Jun 24 18:21:35 2020 -0700
     Added commit info, issues
 
 commit bdf81cc45616456da13e3d008da45bfaa40b6d5f
-Merge: dea13018 3de12fc8
+Merge: dea130181 3de12fc84
 Author: nayan1222 <nayan.shashidhar123@gmail.com>
 Date:   Wed Jun 24 20:17:55 2020 -0500
 
@@ -1381,14 +1924,14 @@ Date:   Wed Jun 24 20:17:48 2020 -0500
     added my commits and issues to about page
 
 commit 3de12fc8463f292e34ddf01963c9532654a20b96
-Merge: ed490678 1def604d
+Merge: ed4906782 1def604d1
 Author: Angela Cao <runningnerdtroll@gmail.com>
 Date:   Wed Jun 24 20:15:31 2020 -0500
 
     added more personal info in about page
 
 commit ed4906782b331ea6415e04a07a7c83c674297c2d
-Merge: 9928bde5 6ada3a1b
+Merge: 9928bde5a 6ada3a1b6
 Author: Angela Cao <runningnerdtroll@gmail.com>
 Date:   Wed Jun 24 20:14:41 2020 -0500
 
@@ -1503,7 +2046,7 @@ Date:   Wed Jun 24 12:17:21 2020 -0500
     update gitlab-ci and makefile
 
 commit 69818604e87789a245e8a669e5336e5213a0d6e6
-Merge: 2a52c25c c49d3a52
+Merge: 2a52c25c9 c49d3a527
 Author: Kewen Wang <wankew22@utexas.edu>
 Date:   Wed Jun 24 12:01:53 2020 -0500
 
@@ -1522,7 +2065,7 @@ Date:   Wed Jun 24 11:50:45 2020 -0500
     fixed the google map issue
 
 commit 6f68c6af13670e26442c2a4519664427df57c325
-Merge: 5b4616d3 87c4fd50
+Merge: 5b4616d3f 87c4fd509
 Author: Kewen Wang <wankew22@utexas.edu>
 Date:   Wed Jun 24 02:22:43 2020 -0500
 
@@ -1547,7 +2090,7 @@ Date:   Tue Jun 23 23:15:00 2020 -0500
     created table for restaurants page
 
 commit 4f2e8ff1910b3953e401cc9e595f155639818c8c
-Merge: 82cad5a3 2b75e9ca
+Merge: 82cad5a3b 2b75e9cae
 Author: Pranav Varanasi <varanasipranav@gmail.com>
 Date:   Tue Jun 23 17:17:31 2020 -0700
 
@@ -1566,7 +2109,7 @@ Date:   Tue Jun 23 18:46:07 2020 -0500
     updated grocery.html with table
 
 commit 6e4f991158eb06db3834936eff99e71347180bc9
-Merge: 56df000a ef9f6a57
+Merge: 56df000aa ef9f6a57e
 Author: Pranav Varanasi <varanasipranav@gmail.com>
 Date:   Tue Jun 23 16:34:08 2020 -0700
 
@@ -1603,7 +2146,7 @@ Date:   Tue Jun 23 17:40:10 2020 -0500
     added Hari Mallidi About Information Again
 
 commit 7b459cd3b291d9062b545ec4cd706809075ccdfc
-Merge: e6f0645c 0cf3a9d8
+Merge: e6f0645c6 0cf3a9d80
 Author: Angela Cao <runningnerdtroll@gmail.com>
 Date:   Tue Jun 23 17:26:22 2020 -0500
 
@@ -1616,7 +2159,7 @@ Date:   Tue Jun 23 17:25:15 2020 -0500
     added fancy stuff to the map on grocery.html
 
 commit 0cf3a9d8077fbf2ed2e6ae35262060a641d94e18
-Merge: 545321de b68a8072
+Merge: 545321ded b68a80726
 Author: Kewen Wang <wankew22@utexas.edu>
 Date:   Tue Jun 23 17:06:19 2020 -0500
 
@@ -1641,7 +2184,7 @@ Date:   Tue Jun 23 16:40:37 2020 -0500
     added google maps into grocery.html
 
 commit 6bb1c50f1c22dfa0e3ab18786eb184cdbba36e32
-Merge: 87990320 25a86e03
+Merge: 87990320c 25a86e03b
 Author: Kewen Wang <wankew22@utexas.edu>
 Date:   Tue Jun 23 15:42:44 2020 -0500
 
@@ -1684,7 +2227,7 @@ Date:   Tue Jun 23 14:20:56 2020 -0500
     fixed some technical and design issues with several of the pages
 
 commit 9f42ddab8a9bc477e90d521fd9db73f8eeba235a
-Merge: 482e3baf ca92c2ab
+Merge: 482e3bafe ca92c2ab5
 Author: Angela Cao <runningnerdtroll@gmail.com>
 Date:   Tue Jun 23 13:46:52 2020 -0500
 
@@ -1703,7 +2246,7 @@ Date:   Tue Jun 23 00:13:00 2020 -0700
     Fixed about formatting
 
 commit c86bed5dc119c1dbecc95600b42a587e44fd95af
-Merge: 965a91fc 37e6b51b
+Merge: 965a91fc6 37e6b51b1
 Author: Pranav Varanasi <varanasipranav@gmail.com>
 Date:   Mon Jun 22 23:58:28 2020 -0700
 
@@ -1716,7 +2259,7 @@ Date:   Mon Jun 22 23:55:17 2020 -0700
     Finished healthcare page, fixed broken links, added indent formatting in about page
 
 commit 37e6b51b15dc10ad7001d94f51af59e4dd04cae0
-Merge: 2d7dd5f9 91fbf0d7
+Merge: 2d7dd5f9f 91fbf0d77
 Author: nayan1222 <nayan.shashidhar123@gmail.com>
 Date:   Mon Jun 22 23:40:50 2020 -0500
 
@@ -1759,7 +2302,7 @@ Date:   Mon Jun 22 20:47:07 2020 -0500
     fix the broken link, revert to correct version
 
 commit f5d3204b074b506d31099c945b796ada0ace3b49
-Merge: 893d0d9b 4945d475
+Merge: 893d0d9b9 4945d475f
 Author: Kewen Wang <wankew22@utexas.edu>
 Date:   Mon Jun 22 20:30:47 2020 -0500
 
@@ -1790,7 +2333,7 @@ Date:   Mon Jun 22 18:21:20 2020 -0500
     added link for the menu for the index and grocery pages and updated grocery.html with menu
 
 commit 42b45229aec5f68b8cba48b2d0228b42dc850fb1
-Merge: f0439199 9245d2bd
+Merge: f04391992 9245d2bd4
 Author: Angela Cao <runningnerdtroll@gmail.com>
 Date:   Mon Jun 22 18:14:05 2020 -0500
 
@@ -1803,7 +2346,7 @@ Date:   Mon Jun 22 18:12:14 2020 -0500
     finally fixed the collapse issue for grocery.html yay I guess
 
 commit 9245d2bd406e87f0ce05afcd32e8827f095f5443
-Merge: 85f32db2 8986b67c
+Merge: 85f32db29 8986b67cb
 Author: nayan1222 <nayan.shashidhar123@gmail.com>
 Date:   Mon Jun 22 17:42:31 2020 -0500
 
@@ -1864,7 +2407,7 @@ Date:   Mon Jun 22 12:25:08 2020 -0500
     added requirements.txt
 
 commit 55db61b6efb6f1dfa9e5801d284f2d5241735677
-Merge: b2718213 ba67154c
+Merge: b27182139 ba67154c9
 Author: hmallidi <mallidi.harinadha@gmail.com>
 Date:   Mon Jun 22 12:15:25 2020 -0500
 
@@ -1895,7 +2438,7 @@ Date:   Mon Jun 22 11:18:50 2020 -0500
     splash page update
 
 commit 8f3caf7e929426d03cbb54a721559b8ec7c90dff
-Merge: d1126156 21b0af2e
+Merge: d1126156e 21b0af2e8
 Author: nayan1222 <nayan.shashidhar123@gmail.com>
 Date:   Mon Jun 22 10:01:59 2020 -0500
 
@@ -1944,7 +2487,7 @@ Date:   Sun Jun 21 16:27:57 2020 -0500
     have info for restaurants
 
 commit 11a417c5e1630a1f1c4c547025055db1446568d1
-Merge: 23b1c751 b7301ef6
+Merge: 23b1c7519 b7301ef68
 Author: nayan1222 <nayan.shashidhar123@gmail.com>
 Date:   Sun Jun 21 16:27:11 2020 -0500
 
@@ -1957,7 +2500,7 @@ Date:   Sun Jun 21 16:26:45 2020 -0500
     have info for restaurants
 
 commit b7301ef6891a2b1a143a09c0d850f7967a523b7d
-Merge: 34594554 20221f8f
+Merge: 34594554c 20221f8fb
 Author: Angela Cao <runningnerdtroll@gmail.com>
 Date:   Sat Jun 20 18:58:20 2020 -0500
 
