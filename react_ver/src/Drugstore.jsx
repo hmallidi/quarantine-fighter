@@ -43,13 +43,6 @@ function Drugstore(props){
  
   }, []  )
 
-  const getURL = () => {
-    var searchString  = '/api/Drugstore/all/';
-    console.log(searchString);
-    return searchString;
-  }
-
-
   let testData = {
     columns: [
       {
@@ -147,7 +140,7 @@ function Drugstore(props){
 
       <center>
         <form onSubmit={e => { e.preventDefault(); }}>
-        <input type="text" name="input" value={search} onChange={getUserInput} placeholder="Search by name or location"></input>
+        <input type="text" name="input" value={search} onChange={getUserInput} placeholder="Search by Name, Location, Business Status"></input>
       </form>
       </center>
 

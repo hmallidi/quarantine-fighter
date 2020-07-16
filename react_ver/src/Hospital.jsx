@@ -117,8 +117,6 @@ function Hospital(props){
 
   }; 
 
- 
-
   return (
     <div>
       <img src={hospitalpic} className={"subpage_img"} alt="hospital"/>
@@ -134,7 +132,7 @@ function Hospital(props){
 
       <center>
         <form onSubmit={e => { e.preventDefault(); }}>
-          <input type="text" name="input" value={search} onChange={getUserInput} placeholder="Search by Name or Location"></input>
+          <input type="text" name="input" value={search} onChange={getUserInput} placeholder="Search by Name, Location, Business Status"></input>
         </form>
       </center>
 

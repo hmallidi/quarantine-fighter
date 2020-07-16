@@ -15,54 +15,27 @@ import "./subpage.css";
 function City(props){
 
   //variables for search parameters
-  const [searchName, setSearchName] = useState("");
+  const [search, setSearch] = useState(""); // search is null to start with
+
 
   //variables, change all vars to const or let
   const [data, setData] = useState();
-  const [id, setID] = useState(0);
-  const [name, setName] = useState("");
-  const [state, setState] = useState("");
-  const [latitude, setLatitude] = useState(0.0);
-  const [longitude, setLongitude] = useState(0.0);
-  const [popuation, setPopulation] = useState(0); 
+  const [originalData, setOriginalData] = useState();
 
   useEffect(()=> {
-      axios.get(getURL()).then((result) => {
-    //axios.get('/api/City/1').then((result) => {
-
-      console.log(result)
-      console.log(result.data);
-
-      // setState({ data: result.data});
-      setData(result.data);
-      console.log(state.data);
+      var searchString  = '/api/City/all/';
+      axios.get(searchString).then((result) => {
+        for (var index = 0; index < result.data.length; index++) {
+          result.data[index].latitude = result.data[index].latitude.toString();
+          result.data[index].longitude = result.data[index].longitude.toString();
+          result.data[index].population = result.data[index].population.toString();
+        }
+      
+        setOriginalData(result.data);
+        setData(result.data);
     });
 
   }, []  )
-
-  //stores the input for searching by city name
-  const getNameInput = event => {
-    setSearchName(event.target.value);
-    console.log(searchName);
-};
-
-
-
-const onSort = (event, sortKey) => {
-  const data = state.data;
-  data.sort((a, b) => a[sortKey].localeCompare(b[sortKey]))
-  setState({data})
-}
-
-const getURL = () => {
-  //var replaceName = searchName.replace(' ', '+');
-  //var searchString = '/api/City/?name='.concat(replaceName);
-  var searchString  = '/api/City/all/';
-  console.log(searchString);
-  return searchString;
-}
-
-
 
 const testData = {
   columns: [
@@ -100,6 +73,55 @@ const testData = {
   rows: data
 };
 
+
+const getUserInput = event => {
+  setSearch(event.target.value);
+  console.log(search);
+  updateSearchTable();
+};
+
+const updateSearchTable = () => {
+  let updateData = [];
+ 
+  if(search === ""){
+    setData(originalData);
+  }
+  if(search.includes(" ")){
+    let words = search.split(" ");
+
+      for (var index = 0; index < originalData.length; index++) {
+        let wordAdded = true;
+
+        for(var i = 0; i < words.length; i++){
+          if(!(originalData[index].name.toLowerCase().includes(words[i].toLowerCase())) && !(originalData[index].state.toLowerCase().includes(words[i].toLowerCase())) && 
+              !(originalData[index].latitude.toLowerCase().includes(words[i].toLowerCase())) && !(originalData[index].longitude.toLowerCase().includes(words[i].toLowerCase()))
+              && !(originalData[index].population.toLowerCase().includes(words[i].toLowerCase()))){
+
+            wordAdded = false;
+          }
+        }
+        
+        if(wordAdded){
+          updateData.push(originalData[index]);
+        }
+      }
+  }
+  else{
+    for (var index = 0; index < originalData.length; index++) {
+      if((originalData[index].name.toLowerCase().includes(search.toLowerCase())) || (originalData[index].state.toLowerCase().includes(search.toLowerCase())) ||
+        (originalData[index].latitude.toLowerCase().includes(search.toLowerCase())) ||  (originalData[index].longitude.toLowerCase().includes(search.toLowerCase()))
+        || (originalData[index].population.toLowerCase().includes(search.toLowerCase()))){
+        
+          updateData.push(originalData[index]);
+      }
+    }
+  }
+
+  setData(updateData);
+
+}; 
+
+
 return (
   <div>
   <img src={citypic} className={"subpage_img"} alt="city"/>
@@ -109,13 +131,24 @@ return (
   <center>
     <h2>Cities</h2>
       </center>    
-  <br></br>
+  
+    <br></br>
+    <br></br>
+
+    <center>
+      <form onSubmit={e => { e.preventDefault(); }}>
+      <input type="text" name="input" value={search} onChange={getUserInput} placeholder= "Search by Name, State, Latitude, Longitude, Population"></input>
+    </form>
+    </center>
+
+    <br></br>
 
   <MDBDataTable
     striped
     bordered
     small
     data={testData}
+    searching = {false}
   />
   </div>
   
