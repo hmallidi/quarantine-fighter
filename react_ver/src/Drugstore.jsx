@@ -85,6 +85,10 @@ function Drugstore(props){
     updateSearchTable(event.target.value);
   };
 
+  const Highlight = ({ children, highlightIndex }) => (
+    <strong className="highlighted-text">{children}</strong>
+  );
+
   const updateSearchTable = (input_text) => {
     let updateData = [];
    
@@ -102,6 +106,14 @@ function Drugstore(props){
             if(!(originalData[index].name.toLowerCase().includes(words[i].toLowerCase())) && !(originalData[index].address.toLowerCase().includes(words[i].toLowerCase())) && 
                 !(originalData[index].business_status.toLowerCase().includes(words[i].toLowerCase()))){
               wordAdded = false;
+
+            }
+            let nameIndex = originalData[index].name.toLowerCase().indexOf(words[i].toLowerCase());
+            if(nameIndex >= 0){
+              let lhs = originalData[index].name.substring(0, nameIndex);
+              let word = <mark>{ originalData[index].name.substring(nameIndex, words[i].length + nameIndex) }</mark>
+              let rhs = originalData[index].name.substring(words[i].length + nameIndex, originalData[index].name.length);
+              
             }
           }
           
