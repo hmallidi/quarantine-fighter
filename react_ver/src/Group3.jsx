@@ -21,7 +21,7 @@ function Group3(props){
     console.log(result.data);
 
     for (var index = 0; index < result.data.length; index++) {
-          result.data[index].track_image_url =  <img src={result.data[index].track_image_url} alt="Track Image" width="100" height="100"/>
+          result.data[index].track_image_url =  <img src={result.data[index].track_image_url} alt="Track Image" width="50" height="50"/>
           for(var i = 0; i < result.data[index].track_artists.length; i++){
             result.data[index].track_artists[i] = <li> {result.data[index].track_artists[i]} </li>
           }
@@ -35,7 +35,7 @@ function Group3(props){
     console.log(result.data);
 
     for (var index = 0; index < result.data.length; index++) {
-          result.data[index].album_image_url =  <img src={result.data[index].album_image_url} alt="Album Image" width="100" height="100"/>
+          result.data[index].album_image_url =  <img src={result.data[index].album_image_url} alt="Album Image" width="50" height="50"/>
           for(var i = 0; i < result.data[index].album_tracks.length; i++){
             result.data[index].album_tracks[i] = <li> {result.data[index].album_tracks[i]} </li>
           }
@@ -57,7 +57,7 @@ function Group3(props){
     console.log(result.data);
 
     for (var index = 0; index < result.data.length; index++) {
-          result.data[index].artist_image_url =  <img src={result.data[index].artist_image_url} alt="Artist Image" width="100" height="100"/>
+          result.data[index].artist_image_url =  <img src={result.data[index].artist_image_url} alt="Artist Image" width="50" height="50"/>
           result.data[index].artist_spotify_url =  <a href={result.data[index].artist_spotify_url} > Open This Artist's Spotify Link </a>
 
           for(var i = 0; i < result.data[index].artist_genres.length; i++){
