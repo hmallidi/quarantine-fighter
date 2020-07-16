@@ -76,18 +76,18 @@ function Hospital(props){
     setSearch(event.target.value);
     console.log(search);
 
-    updateSearchTable();
+    updateSearchTable(event.target.value);
   };
 
-  const updateSearchTable = () => {
+  const updateSearchTable = (input_text) => {
     let updateData = [];
    
-    if(search === ""){
+    if(input_text === ""){
       setData(originalData);
     }
     
-    if(search.includes(" ")){
-      let words = search.split(" ");
+    if(input_text.includes(" ")){
+      let words = input_text.split(" ");
 
         for (var index = 0; index < originalData.length; index++) {
           let wordAdded = true;
@@ -105,8 +105,8 @@ function Hospital(props){
         }
     } else {
       for (var index = 0; index < originalData.length; index++) {
-        if(originalData[index].name.toLowerCase().includes(search.toLowerCase()) || originalData[index].address.toLowerCase().includes(search.toLowerCase()) ||
-          (originalData[index].business_status.toLowerCase().includes(search.toLowerCase()))){
+        if(originalData[index].name.toLowerCase().includes(input_text.toLowerCase()) || originalData[index].address.toLowerCase().includes(input_text.toLowerCase()) ||
+          (originalData[index].business_status.toLowerCase().includes(input_text.toLowerCase()))){
           
             updateData.push(originalData[index]);
         }

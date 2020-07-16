@@ -627,11 +627,8 @@ def getAllHospitals():
 
 @app.route("/api/Drugstore/all/", methods=['GET'])
 def getAllDrugstores():
-    print("Hello")
     name = request.args.get('name')
     city = request.args.get('city')
-    print(name)
-    print(city)
     return getDrugstoresInsideByQuery(name, city)
     # else: #get request
     #     drugstores_list = list()
