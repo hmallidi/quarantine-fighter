@@ -74,8 +74,6 @@ function Hospital(props){
 
   const getUserInput = event => {
     setSearch(event.target.value);
-    console.log(search);
-
     updateSearchTable(event.target.value);
   };
 

@@ -81,14 +81,11 @@ function Drugstore(props){
 
  
   const getUserInput = event => {
-    console.log(event.target.value)
     setSearch(event.target.value);
-    // console.log(search);
     updateSearchTable(event.target.value);
   };
 
   const updateSearchTable = (input_text) => {
-    console.log("Input Text: ".concat(input_text))
     let updateData = [];
    
     if(input_text === ""){
@@ -117,10 +114,7 @@ function Drugstore(props){
       for (var index = 0; index < originalData.length; index++) {
         if(originalData[index].name.toLowerCase().includes(input_text.toLowerCase()) || originalData[index].address.toLowerCase().includes(input_text.toLowerCase()) ||
           (originalData[index].business_status.toLowerCase().includes(input_text.toLowerCase()))){
-            
-            if (originalData[index].name.includes("Block Drug")) {
-              console.log("ok then");
-            }
+
             updateData.push(originalData[index]);
         }
       }

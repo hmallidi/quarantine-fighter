@@ -21,45 +21,7 @@ CORS(app)
 
 baseURL = "https://covidfighter-280919.nn.r.appspot.com/api"
 
-# """
-# @app.route('/')
-# def index():
-#     """
-#       # home page, can be redirected to grocery, restaurants, healthcare page, and about page
-#     return render_template('index.html')
-# """
 
-
-# @app.route('/drugstore', methods=['GET', 'POST'])
-# def drugstore():
-#     """
-#         grocery page, contains open/close status and general info for each grocery stores listed
-#     """
-#     print("In Flask /drugstore")
-#     name = request.args.get("name")
-#     city = request.args.get("city")
-
-#     drugstores_dict = dict()
-#     empty_drugstore_list = []
-
-#     if (name is None and city is None):
-#         return render_template('drugstore.html', drugstore_list=empty_drugstore_list, city="", name="")
-
-#     name = name.strip(' ')
-#     city = city.strip(' ')
-
-#     drugstores_dict = getDrugstoresInsideByQuery(name=name, city=city)
-
-#     if "drugstores" not in drugstores_dict:
-#         return render_template('drugstore.html', drugstore_list=empty_drugstore_list, city=city, name=name)
-#     else:
-#         for drugstore in drugstores_dict['drugstores']:
-#             drugstore['opening_hours'] = drugstore['opening_hours'].splitlines()
-
-#         return render_template('drugstore.html', drugstore_list=drugstores_dict['drugstores'], city=city, name=name)
-
-
-# @app.route('/drugstore/search', methods=['GET', 'POST'])
 def getDrugstoresInsideByQuery(name = '', city = ''):
     drugstores_dict = {'drugstores': list()}
 
@@ -131,34 +93,6 @@ def getDrugstoresInsideByQuery(name = '', city = ''):
         return jsonify(error_dict), 500
 
 
-# @app.route('/hospital', methods=['GET', 'POST'])
-# def hospitals():
-#     """
-#         restaurants page, contains open/close status and general info for each restaurants listed
-#     """
-#     name = request.args.get("name")
-#     city = request.args.get("city")
-
-#     hospitals_dict = dict()
-#     empty_hospital_list = []
-
-#     if (name is None) and (city is None):
-#         return render_template('hospital.html', hospital_list=empty_hospital_list, city="", name="")
-
-#     name = name.strip(' ')
-#     city = city.strip(' ')
-
-#     hospitals_dict = getHospitalsInsideByQuery(name=name, city=city)
-
-#     if "hospitals" not in hospitals_dict:
-#         return render_template('hospital.html', hospital_list=empty_hospital_list, city=city, name=name)
-#     else:
-#         for hospital in hospitals_dict['hospitals']:
-#             hospital['opening_hours'] = hospital['opening_hours'].splitlines()
-
-#         return render_template('hospital.html', hospital_list=hospitals_dict['hospitals'], city=city, name=name)
-
-
 def getHospitalsInsideByQuery(name = '', city = ''):
     hospitals_dict = {'hospitals': list()}
 
@@ -227,38 +161,6 @@ def getHospitalsInsideByQuery(name = '', city = ''):
         return jsonify(error_dict), 500
 
 
-# @app.route('/city', methods=['GET', 'POST'])
-# def city():
-#     """
-#         healthcare page, contains open/close status and general info for each healthcare listed
-#     """
-#     name = request.args.get("name")
-
-#     empty_city_list = []
-#     if name is None:
-#         city_list = list()
-#         city_result = db.session.query(City).all()
-
-#         for city in city_result:
-#             city_dict = {"id": city.id, "name": city.name, "state": city.state,
-#                          "latitude": city.latitude, "longitude": city.longitude,
-#                          "population": city.population,
-#                          "hospitals": [hospital.id for hospital in city.hospitals],
-#                          "drugstores": [drugstore.id for drugstore in city.drugstores]}
-
-#             city_list.append(city_dict)
-#         return render_template('city.html', city_list=city_list, name="") # changed from city.html
-
-#     name = name.strip(' ')
-
-#     cities_dict = getCitiesInsideByQuery(name=name)
-
-#     if "cities" not in cities_dict:
-#         return render_template('city.html', city_list=empty_city_list, name=name)
-#     else:
-#         return render_template('city.html', city_list=cities_dict['cities'], name=name)
-
-
 def getCitiesInsideByQuery(name=''):
     cities_dict = {'cities': list()}
 
@@ -287,21 +189,6 @@ def getCitiesInsideByQuery(name=''):
         return cities_dict['cities']
     except Exception:
         return jsonify([]), 200
-
-
-# @app.route('/about', methods=['GET', 'POST'])
-# def about():
-#     """
-#         about page, contains introductions of each team memeber, data source used, and all the required
-#     """
-#     if request.method == 'POST':
-#         os.system('coverage run --branch tests.py >  tests.out 2>&1')
-#         output = open('tests.out', 'r')
-#         results = output.readlines()
-#         os.system('rm tests.out')
-#         return render_template('about.html', results=results)
-
-#     return render_template('about.html', results=[])
 
 
 # # API ENDPOINTS FROM HERE ON DOWN #
@@ -600,58 +487,36 @@ def getDrugstoreById(drugstore_id: str):
 
 @app.route("/api/City/all/")
 def getAllCities():
-    if request.method == 'POST':
-        name = request.form['name']
-        return getCitiesInsideByQuery(name)
-    else: #get request
-        cities_list = list()
-        with open('all_cities.txt') as json_file:
-            cities_list = json.load(json_file)
-        return jsonify(cities_list), 200
+    cities_list = list()
+    with open('all_cities.txt') as json_file:
+        cities_list = json.load(json_file)
+    return jsonify(cities_list), 200
 
 
 @app.route("/api/Hospital/all/")
 def getAllHospitals():
-    if request.method == 'POST':
-        name = request.form['name']
-        city = request.form['city']
-        return getHospitalsInsideByQuery(name, city)
-    else: #get request
-        hospitals_list = list()
-        with open('all_hospitals.txt') as json_file:
-            hospitals_list = json.load(json_file)
-        return jsonify(hospitals_list), 200
+    hospitals_list = list()
+    with open('all_hospitals.txt') as json_file:
+        hospitals_list = json.load(json_file)
+    return jsonify(hospitals_list), 200
 
 
-# @app.route("/Drugstore/<string:")
-
-@app.route("/api/Drugstore/all/", methods=['GET'])
+@app.route("/api/Drugstore/all/")
 def getAllDrugstores():
-    name = request.args.get('name')
-    city = request.args.get('city')
-    return getDrugstoresInsideByQuery(name, city)
-    # else: #get request
-    #     drugstores_list = list()
-    #     with open('all_drugstores.txt') as json_file:
-    #         drugstores_list = json.load(json_file)
-    #     return jsonify(drugstores_list), 200
+    drugstores_list = list()
+    with open('all_drugstores.txt') as json_file:
+        drugstores_list = json.load(json_file)
+    return jsonify(drugstores_list), 200
 
-
-#@app.route(app.static_url_path)
-#app_static_folder = '/react_ver/build/'
 
 @app.route('/Group3/track', methods=['GET', 'POST'])
-def group3track():
-    #name = request.args.get('')
-    #name = "Thriller
-    
+def group3track():    
     trackList = ['Shape of You', 'Rockstar','One Dance', 'Closer', 'God\'s Plan', 'Thinking Out Loud', 'Sunflower', 'Señorita', 'Perfect', 'Bad Guy', 'Believer', 'Love Yourself', 'Photograph', 'Starboy', 'Lean On', 'Sad!', 'Something Just Like This'] 
 
     try:
         if trackList is None:
             return jsonify({}), 200
 
-        #url = 'http://rockinwiththerona.me/api/tracks?id=&name=%s&date='
         url = 'http://rockinwiththerona.me/api/tracks?name=%s'
         
         trackLists = []
@@ -689,16 +554,11 @@ def group3track():
 
 @app.route('/Group3/artist', methods=['GET', 'POST'])
 def group3artist():
-    #name = request.args.get("name")
-    #name = "Michael Jackson"
-
     artistList = ['The Weeknd', 'Drake', 'Ariana Grande', 'Justin Bieber', 'Ed Sheeran', 'Lady Gaga', 'Travis Scott', 'J Balvin', 'Post Malone', 'Nicki Minaj', 'Khalid', 'Halsey', 'Marshmello', 'DaBaby', 'Ozuna', 'Maroon 5', 'Beyoncé', 'Billie Eilish', 'Tyga']
     
     try:
         if artistList is None:
             return jsonify({}), 200
-
-        #url = 'http://rockinwiththerona.me/api/artists?id=&name=%s&genre='
 
         artistLists = []
         for name in artistList:
@@ -706,9 +566,6 @@ def group3artist():
             cmd = url % (name)
             res = requests.get(cmd)
             res = json.loads(res.content)
-
-            #print("Res:")
-            #print(res)
 
             artists = res['Artists'] #list
 
@@ -741,16 +598,11 @@ def group3artist():
 
 @app.route('/Group3/album', methods=['GET', 'POST'])
 def group3album():
-    #name = "HIStory - PAST, PRESENT AND FUTURE - BOOK I"
-    #name = request.args.get("name")
-
     albumList = ['Hollywood\'s Bleeding', 'No.6 Collaborations Project', 'Beerbongs & Bentleys', 'Shawn Mendes', 'Beauty Behind the Madness', '25', 'Stoney', 'Views', 'Starboy', 'Camila', 'Purpose', 'Playlist', 'True', '1989', 'ASTROWORLD', 'After Hours']
 
     try:
         if albumList is None:
             return jsonify({}), 200
-
-        #url = 'http://rockinwiththerona.me/api/albums?id=&name=%s&date='
 
         albumLists = []
 

@@ -75,7 +75,6 @@ const testData = {
 
 
 const getUserInput = event => {
-  console.log(event.target.value);
   setSearch(event.target.value);
   updateSearchTable(event.target.value);
 };
