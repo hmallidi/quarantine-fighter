@@ -63,6 +63,11 @@ class DBTestCases(TestCase):
         r11 = db.session.query(City).filter_by(name = 'Laredo').all()
         self.assertEqual(len(r11), 0)
         
+    def test_city_12(self):
+        #shouldn't be in the database
+        r12 = db.session.query(City).filter_by(name = 'Round Rock').all()
+        self.assertEqual(len(r12), 0)
+        
     
     
     def test_hospital_1(self):
