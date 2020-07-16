@@ -1,7 +1,7 @@
 .space{
     height: 90px;
 }
-h2, p, ul{
+h2, p, ul, h5{
     font-family:Taviraj;
     color: rgb(178, 34, 34);
 }

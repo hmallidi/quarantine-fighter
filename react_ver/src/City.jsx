@@ -129,6 +129,8 @@ return (
 
   <center>
     <h2>Cities</h2>
+    <br></br>
+    <h5>(Click on the table headers to sort)</h5>
       </center>    
   
     <br></br>
