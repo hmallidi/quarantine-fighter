@@ -15,7 +15,7 @@ import "./subpage.css";
 function City(props){
 
   //variables for search parameters
-  const [search, setSearch] = useState(""); // search is null to start with
+  const [search, setSearch] = useState("");
 
 
   //variables, change all vars to const or let
@@ -75,19 +75,19 @@ const testData = {
 
 
 const getUserInput = event => {
+  console.log(event.target.value);
   setSearch(event.target.value);
-  console.log(search);
-  updateSearchTable();
+  updateSearchTable(event.target.value);
 };
 
-const updateSearchTable = () => {
+const updateSearchTable = (input_text) => {
   let updateData = [];
  
-  if(search === ""){
+  if(input_text === ""){
     setData(originalData);
   }
-  if(search.includes(" ")){
-    let words = search.split(" ");
+  if(input_text.includes(" ")){
+    let words = input_text.split(" ");
 
       for (var index = 0; index < originalData.length; index++) {
         let wordAdded = true;
@@ -108,9 +108,9 @@ const updateSearchTable = () => {
   }
   else{
     for (var index = 0; index < originalData.length; index++) {
-      if((originalData[index].name.toLowerCase().includes(search.toLowerCase())) || (originalData[index].state.toLowerCase().includes(search.toLowerCase())) ||
-        (originalData[index].latitude.toLowerCase().includes(search.toLowerCase())) ||  (originalData[index].longitude.toLowerCase().includes(search.toLowerCase()))
-        || (originalData[index].population.toLowerCase().includes(search.toLowerCase()))){
+      if((originalData[index].name.toLowerCase().includes(input_text.toLowerCase())) || (originalData[index].state.toLowerCase().includes(input_text.toLowerCase())) ||
+        (originalData[index].latitude.toLowerCase().includes(input_text.toLowerCase())) ||  (originalData[index].longitude.toLowerCase().includes(input_text.toLowerCase()))
+        || (originalData[index].population.toLowerCase().includes(input_text.toLowerCase()))){
         
           updateData.push(originalData[index]);
       }
@@ -137,8 +137,8 @@ return (
 
     <center>
       <form onSubmit={e => { e.preventDefault(); }}>
-      <input type="text" name="input" value={search} onChange={getUserInput} placeholder= "Search by Name, State, Latitude, Longitude, Population"></input>
-    </form>
+        <input type="text" name="input" value={search} onChange={getUserInput} placeholder= "Search by Name, State, Latitude, Longitude, Population"></input>
+      </form>
     </center>
 
     <br></br>
