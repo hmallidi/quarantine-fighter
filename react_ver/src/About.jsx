@@ -171,7 +171,7 @@ export class About extends Component {
                   <div>
                     <img src={HariPic} style={member_img} alt="Hari"/>
                     <div className="card-body">
-                      <h4>Harinadha Re Mallidi</h4>
+                      <h4>Harinadha Reddy Mallidi</h4>
                       <h6 className="role_intro">Back-End</h6>
                       <p>
                         Rising Junior in UTCS<br></br>
