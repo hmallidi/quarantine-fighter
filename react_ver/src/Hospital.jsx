@@ -12,15 +12,12 @@ import "./subpage.css";
 import hospitalpic from "./hospital.jpeg"
 
 function Hospital(props){
-  const [searchCity, setSearchCity] = useState(""); // search is null to start with
-  const [searchName, setSearchName] = useState("");
-    
-  //data encapsulates all of the fields below it, so those aren't necessary
+  const [search, setSearch] = useState(""); // search is null to start with
   const [data, setData] = useState();
+  const [originalData, setOriginalData] = useState();
 
   useEffect(()=> {
     axios.get(getURL()).then((result) => {
-   //axios.get('/api/City/1').then((result) => {
      console.log(result)
      console.log(result.data);
 
@@ -33,15 +30,13 @@ function Hospital(props){
      
       }
 
-     // setState({ data: result.data});
+     setOriginalData(result.data);
      setData(result.data);
    });
 
   }, []  )
 
   const getURL = () => {
-    //var replaceName = searchName.replace(' ', '+');
-    //var searchString = '/api/City/?name='.concat(replaceName);
     var searchString  = '/api/Hospital/all/';
     console.log(searchString);
     return searchString;
@@ -84,24 +79,79 @@ function Hospital(props){
     rows: data
   };
 
+  const getUserInput = event => {
+    setSearch(event.target.value);
+    console.log(search);
+
+    updateSearchTable();
+  };
+
+  const updateSearchTable = () => {
+    let updateData = [];
+   
+    if(search === ""){
+      setData(originalData);
+    } else if(search.includes(" ")) {
+      let words = search.split(" ");
+
+        for (var index = 0; index < originalData.length; index++) {
+          let wordAdded = true;
+
+          for(var i = 0; i < words.length; i++){
+            if(!(originalData[index].name.toLowerCase().includes(words[i].toLowerCase())) && !(originalData[index].address.toLowerCase().includes(words[i].toLowerCase()))){
+              wordAdded = false;
+            }
+          }
+          
+          if(wordAdded){
+            updateData.push(originalData[index]);
+          }
+
+        }
+      } else {
+        for (var index = 0; index < originalData.length; index++) {
+          if(originalData[index].name.toLowerCase().includes(search.toLowerCase())){
+            updateData.push(originalData[index]);
+          }
+          else if(originalData[index].address.toLowerCase().includes(search.toLowerCase())){
+            updateData.push(originalData[index]);
+          }
+        }
+      }
+  
+      setData(updateData);
+    }; 
+
  
 
   return (
     <div>
-  <img src={hospitalpic} className={"subpage_img"} alt="hospital"/>
-  <br></br>
-  <br></br>
+      <img src={hospitalpic} className={"subpage_img"} alt="hospital"/>
+      <br></br>
+      <br></br>
 
-  <center>
-    <h2>Hospitals</h2>
+      <center>
+          <h2>Hospitals</h2>
       </center>
-  <br></br>
+
+      <br></br>
+      <br></br>
+
+      <center>
+        <form onSubmit={e => { e.preventDefault(); }}>
+        <input type="text" name="input" value={search} onChange={getUserInput} placeholder="Search by name or location"></input>
+      </form>
+      </center>
+
+      
+      <br></br>
 
   <MDBDataTable
     striped
     bordered
     small
     data={testData}
+    searching={false}
   />
   </div>
   );
