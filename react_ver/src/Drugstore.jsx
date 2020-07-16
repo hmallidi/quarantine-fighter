@@ -46,9 +46,9 @@ function Drugstore(props){
     var urlString = '/api/Drugstore/all/';
     console.log(searchName.concat("Helloname"))
     console.log(searchCity.concat("Hellocity"))
-    axios.get(urlString).then((result) => {
-      updateTable(result);
-    });
+    // axios.get(urlString).then((result) => {
+    //   updateTable(result);
+    // });
  
     // axios.post(urlString, {
     //   name: searchName,
@@ -63,7 +63,7 @@ function Drugstore(props){
   const getURL = () => {
     //var replaceName = searchName.replace(' ', '+');
     //var searchString = '/api/City/?name='.concat(replaceName);
-    var searchString  = '/#/drugstore';
+    var searchString  = '/api/Drugstore/all/';
     console.log(searchString);
     return searchString;
   }
@@ -107,9 +107,9 @@ function Drugstore(props){
 
   const getNameInput = event => {
     setSearchName(event.target.value);
-    axios.get(urlString).then((result) => {
-      updateTable(result);
-    });
+    // axios.get(urlString).then((result) => {
+    //   updateTable(result);
+    // });
     console.log(searchName);
   };
 
@@ -131,6 +131,13 @@ function Drugstore(props){
 
       <br></br>
       <br></br>
+
+      <center>
+          <h2>Drugstores</h2>
+        </center>
+      
+      <br></br>
+
       <MDBDataTable
         striped
         bordered

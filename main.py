@@ -645,104 +645,152 @@ def getAllDrugstores():
 
 @app.route('/Group3/track', methods=['GET', 'POST'])
 def group3track():
-    name = request.args.get("name")
+    #name = request.args.get('')
+    #name = "Thriller
+    
+    trackList = ['Shape of You', 'Rockstar','One Dance', 'Closer', 'God\'s Plan', 'Thinking Out Loud', 'Sunflower', 'Señorita', 'Perfect', 'Bad Guy', 'Believer', 'Love Yourself', 'Photograph', 'Starboy', 'Lean On', 'Sad!', 'Something Just Like This'] 
 
     try:
-        if name is None:
+        if trackList is None:
             return jsonify({}), 200
 
-        url = 'http://rockinwiththerona.me/api/tracks?id=&name=%s&date='
-        cmd = url % (name)
-        res = requests.get(cmd)
-        res = json.loads(res.content)
-        tracks = res['tracks'] #list
+        #url = 'http://rockinwiththerona.me/api/tracks?id=&name=%s&date='
+        url = 'http://rockinwiththerona.me/api/tracks?name=%s'
+        
+        trackLists = []
+        for name in trackList:
+            cmd = url % (name)
+            res = requests.get(cmd)
+            res = json.loads(res.content)
 
-        # for track in tracks:
-        track = tracks[0]
-        album_name = track['track_album']['album_name']
-        track_name = track['track_name']
-        track_duration = track['track_duration']
-        track_image_url = track['track_image_url']
-        track_artists = []
-        for artist in track['track_artists']:
-            track_artists.append(artist['artist_name'])
-        track_dict = {'album_name': album_name, 'track_name': track_name, 'track_duration': track_duration, 'track_image_url': track_image_url,
-                        'track_artists': track_artists}
-        return jsonify(track_dict), 200
+            tracks = res['Tracks'] #list
+
+            # for track in tracks:
+            track = tracks[0]
+
+            album_name = track['track_album']['album_name']
+            track_name = track['track_name']
+            track_duration = track['track_duration']
+            track_image_url = track['track_image_url']
+
+            track_artists = []
+
+            for artist in track['track_artists']:
+                track_artists.append(artist['artist_name'])
+
+
+            track_dict = {'album_name': album_name, 'track_name': track_name, 'track_duration': track_duration, 'track_image_url': track_image_url, 'track_artists': track_artists}
+
+            trackLists.append(track_dict)
+
+        return jsonify(trackLists), 200
 
     except Exception as e:
+        print("Reached exception ")
+        print(list(track_dict))
         return jsonify(error_dict), 500
 
 @app.route('/Group3/artist', methods=['GET', 'POST'])
 def group3artist():
-    name = request.args.get("name")
+    #name = request.args.get("name")
+    #name = "Michael Jackson"
 
+    artistList = ['The Weeknd', 'Drake', 'Ariana Grande', 'Justin Bieber', 'Ed Sheeran', 'Lady Gaga', 'Travis Scott', 'J Balvin', 'Post Malone', 'Nicki Minaj', 'Khalid', 'Halsey', 'Marshmello', 'DaBaby', 'Ozuna', 'Maroon 5', 'Beyoncé', 'Billie Eilish', 'Tyga']
+    
     try:
-        if name is None:
+        if artistList is None:
             return jsonify({}), 200
 
-        url = 'http://rockinwiththerona.me/api/artists?id=&name=%s&genre='
-        cmd = url % (name)
-        res = requests.get(cmd)
-        res = json.loads(res.content)
-        artists = res['artists'] #list
+        #url = 'http://rockinwiththerona.me/api/artists?id=&name=%s&genre='
 
-        # for artist in artists:
-        artist = artists[0]
+        artistLists = []
+        for name in artistList:
+            url = 'http://rockinwiththerona.me/api/artists?name=%s'
+            cmd = url % (name)
+            res = requests.get(cmd)
+            res = json.loads(res.content)
 
-        artist_name = album['artist_name']
-        artist_image_url = album['artist_image_url']
-        artist_spotify_url = artist['artist_spotify_url']
+            #print("Res:")
+            #print(res)
 
-        artist_genres = []
-        for genre in album['artist_genres']:
-            album_genres.append(genre)
+            artists = res['Artists'] #list
 
-        artist_albums = []
-        for album in artist['artist_albums']:
-            artist_albums.append(album['album_name'])
-        
-        
-        artist_dict = {'artist_name': artist_name, 'artist_image_url': artist_image_url, 'artist_spotify_url': artist_spotify_url, 'artist_genres': artist_genres,'artist_albums': artist_albums}
-        return jsonify(artist_dict), 200
+            # for artist in artists:
+            artist = artists[0]
+
+            artist_name = artist['artist_name']
+
+            artist_image_url = artist['artist_image_url']
+            
+            artist_spotify_url = artist['artist_spotify_url']
+
+            artist_genres = []
+            for genre in artist['artist_genres']:
+                artist_genres.append(genre)
+
+            artist_albums = []
+            for artistAlbum in artist['artist_albums']:
+                artist_albums.append(artistAlbum['album_name'])
+            
+            
+            artist_dict = {'artist_name': artist_name, 'artist_image_url': artist_image_url, 'artist_spotify_url': artist_spotify_url, 'artist_genres': artist_genres,'artist_albums': artist_albums}
+
+            artistLists.append(artist_dict)
+
+        return jsonify(artistLists), 200
 
     except Exception as e:
         return jsonify(error_dict), 500
 
 @app.route('/Group3/album', methods=['GET', 'POST'])
 def group3album():
-    name = request.args.get("name")
+    #name = "HIStory - PAST, PRESENT AND FUTURE - BOOK I"
+    #name = request.args.get("name")
+
+    albumList = ['Hollywood\'s Bleeding', 'No.6 Collaborations Project', 'Beerbongs & Bentleys', 'Shawn Mendes', 'Beauty Behind the Madness', '25', 'Stoney', 'Views', 'Starboy', 'Camila', 'Purpose', 'Playlist', 'True', '1989', 'ASTROWORLD', 'After Hours']
 
     try:
-        if name is None:
+        if albumList is None:
             return jsonify({}), 200
 
-        url = 'http://rockinwiththerona.me/api/albums?id=&name=%s&date='
-        cmd = url % (name)
-        res = requests.get(cmd)
-        res = json.loads(res.content)
-        albums = res['albums'] #list
+        #url = 'http://rockinwiththerona.me/api/albums?id=&name=%s&date='
 
-        # for album in albums:
-        album = albums[0]
+        albumLists = []
 
-        album_name = album['album_name']
-        album_image_url = album['album_image_url']
-
-        album_genres = []
-        for genre in album['album_genres']:
-            album_genres.append(genre)
-
-        album_tracks = []
-        for track in album['album_tracks']:
-            album_tracks.append(track['track_name'])
+        for name in albumList:
         
-        album_artists = []
-        for artist in album['album_artists']:
-            album_artists.append(artist['artist_name'])
-        
-        album_dict = {'album_name': album_name, 'album_tracks': album_tracks, 'album_genres': album_genres, 'album_image_url': album_image_url,'album_artists': album_artists}
-        return jsonify(album_dict), 200
+            url = 'http://rockinwiththerona.me/api/albums?name=%s'
+
+            cmd = url % (name)
+            res = requests.get(cmd)
+            res = json.loads(res.content)
+            albums = res['Albums'] #list
+
+            # for album in albums:
+            album = albums[0]
+
+            album_name = album['album_name']
+            
+            album_image_url = album['album_image_url']
+            
+
+            album_genres = []
+            for genre in album['album_artists'][0]['artist_genres']:
+                album_genres.append(genre)
+            
+            album_tracks = []
+            for track in album['album_tracks']:
+                album_tracks.append(track['track_name'])
+            
+            album_artists = []
+            for artist in album['album_artists']:
+                album_artists.append(artist['artist_name'])
+                    
+            album_dict = {'album_name': album_name, 'album_tracks': album_tracks, 'album_genres': album_genres, 'album_image_url': album_image_url,'album_artists': album_artists}
+
+            albumLists.append(album_dict)
+
+        return jsonify(albumLists), 200
 
     except Exception as e:
         return jsonify(error_dict), 500

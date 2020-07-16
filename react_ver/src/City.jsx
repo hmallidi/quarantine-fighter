@@ -105,6 +105,12 @@ return (
   <img src={citypic} className={"subpage_img"} alt="city"/>
   <br></br>
   <br></br>
+
+  <center>
+    <h2>Cities</h2>
+      </center>    
+  <br></br>
+
   <MDBDataTable
     striped
     bordered

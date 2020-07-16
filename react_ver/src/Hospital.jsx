@@ -91,6 +91,12 @@ function Hospital(props){
   <img src={hospitalpic} className={"subpage_img"} alt="hospital"/>
   <br></br>
   <br></br>
+
+  <center>
+    <h2>Hospitals</h2>
+      </center>
+  <br></br>
+
   <MDBDataTable
     striped
     bordered
