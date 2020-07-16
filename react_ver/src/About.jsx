@@ -314,7 +314,7 @@ export class About extends Component {
             <img src={gitlab} style={tool} alt = "gitlab"></img>
             <img src={issue} style={tool} alt = "issue"></img>
             <img src={test} style={tool} alt = "test"></img>
-            <Row className="about-row" style={{ marginTop: '1rem'}}>Total Commits: {repo_commits} / Total Issues: {repo_issues} / Total Tests: 14</Row>
+            <Row className="about-row" style={{ marginTop: '1rem'}}>Total Commits: {repo_commits} / Total Issues: {repo_issues} / Total Tests: 20</Row>
           </div>
 
           <br></br>
