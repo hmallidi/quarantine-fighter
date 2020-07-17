@@ -1,3 +1,15 @@
+commit aa8bf3a72ea07fc10e7b8269584406947223e8e9
+Author: Pranav Varanasi <varanasipranav@gmail.com>
+Date:   Thu Jul 16 19:10:17 2020 -0700
+
+    removed searching for searchall tables
+
+commit 356e67414a292259e302c98575e98e833e56ae2c
+Author: hmallidi <mallidi.harinadha@gmail.com>
+Date:   Thu Jul 16 21:03:55 2020 -0500
+
+    made idb3log again
+
 commit b8b803099f73e5b57fa9c1f8de13e890147b0df1
 Author: Pranav Varanasi <varanasipranav@gmail.com>
 Date:   Thu Jul 16 18:10:21 2020 -0700
