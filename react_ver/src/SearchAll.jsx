@@ -340,6 +340,7 @@ function SearchAll(props){
           bordered
           small
           data={testDataCity}
+          searching={false}
         />
 
         <br></br>
@@ -358,6 +359,7 @@ function SearchAll(props){
           entriesOptions={[1, 2, 5, 10]}
           entries={5}
           data={testDataDrugstore}
+          searching={false}
         />
         
         <br></br>
@@ -376,6 +378,7 @@ function SearchAll(props){
           entriesOptions={[1, 2, 5, 10]}
           entries={5}
           data={testDataHospital}
+          searching={false}
         />
 
     </div>
