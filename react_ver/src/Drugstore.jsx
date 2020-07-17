@@ -140,7 +140,7 @@ function Drugstore(props){
       <center>
           <h2>Drugstores</h2>
           <br></br>
-          <h5>(Click on the table headers to sort!)</h5>
+          <h5>{`(Click on the table headers to sort!)`}</h5>
       </center>
 
       <br></br>
