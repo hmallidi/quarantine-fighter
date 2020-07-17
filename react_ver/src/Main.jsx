@@ -10,6 +10,7 @@ import Drugstore from "./Drugstore";
 import Hospital from "./Hospital";
 import About from "./About";
 import Group3 from "./Group3";
+import SearchAll from "./SearchAll";
  
 class Main extends Component {
   render() {
@@ -24,6 +25,7 @@ class Main extends Component {
 	            <li><NavLink exact to="/hospital">Hospital</NavLink></li>
 	            <li><NavLink exact to="/About">About</NavLink></li>
 	            <li><NavLink exact to="/Group3">Group3</NavLink></li>
+				<li><NavLink exact to="/SearchAll">SearchAll</NavLink></li>
 	          </ul>
 	          <div className="content">
 				  <Route exact path="/" component={Home}/>
@@ -32,6 +34,7 @@ class Main extends Component {
 				  <Route exact path="/hospital" exact component={Hospital}/>
 				  <Route exact path="/About" exact component={About}/>
 				  <Route exact path="/Group3" exact component={Group3}/>
+				  <Route exact path="/SearchAll" exact component={SearchAll}/>
 				</div>
 	        </div>
 	        

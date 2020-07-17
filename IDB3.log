@@ -1,3 +1,45 @@
+commit b8b803099f73e5b57fa9c1f8de13e890147b0df1
+Author: Pranav Varanasi <varanasipranav@gmail.com>
+Date:   Thu Jul 16 18:10:21 2020 -0700
+
+    removed build nodemodules
+
+commit 59ffae5650beb6ad2b6e92a11ed5df868366d3d7
+Author: Pranav Varanasi <varanasipranav@gmail.com>
+Date:   Thu Jul 16 18:03:38 2020 -0700
+
+    updated git ignore
+
+commit 79e696b67384c0f5f327d86c202bc09a545929f6
+Author: Pranav Varanasi <varanasipranav@gmail.com>
+Date:   Thu Jul 16 17:57:19 2020 -0700
+
+    npm install main.py
+
+commit c7a705c7dbc23a540aab3ecc8bf3f4377fd6f242
+Author: Pranav Varanasi <varanasipranav@gmail.com>
+Date:   Thu Jul 16 17:35:21 2020 -0700
+
+    fixed headerformatting
+
+commit bec1262f394b0529311f3fe210f32436f59aeb02
+Author: Pranav Varanasi <varanasipranav@gmail.com>
+Date:   Thu Jul 16 17:10:47 2020 -0700
+
+    exclaimation change
+
+commit d29b3baad85547de4f445efb67b47fc601225711
+Author: Pranav Varanasi <varanasipranav@gmail.com>
+Date:   Thu Jul 16 16:38:18 2020 -0700
+
+    header change, finall version
+
+commit 373f01eb20513d572fc6ac1162c62eaae8a419a4
+Author: hmallidi <mallidi.harinadha@gmail.com>
+Date:   Thu Jul 16 17:55:26 2020 -0500
+
+    added IDB3 log
+
 commit d6fe6a570eb7a55426798ba5e0a04cbbfadff81e
 Author: hmallidi <mallidi.harinadha@gmail.com>
 Date:   Thu Jul 16 17:48:26 2020 -0500
