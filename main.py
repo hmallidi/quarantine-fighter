@@ -651,5 +651,5 @@ def serve():
 
 if __name__ == "__main__":
     app.debug = True
-    os.system('cd react_ver; npm run build; cd ..')
+    os.system('cd react_ver; npm install; npm run build; cd ..')
     app.run()
